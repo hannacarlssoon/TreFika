@@ -3,4 +3,10 @@
     <string name="categoryButton1">       Category 1</string>
     <string name="categoryButton2">       Category 2</string>
     <string name="categoryButton3">       Category 3</string>
+    <string name="title_activity_navigation_drawer">navigation_drawer</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 </resources>
