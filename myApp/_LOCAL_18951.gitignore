@@ -9,5 +9,4 @@
 .externalNativeBuild
 .idea/vcs.xml
 app/libs/
-/.idea/misc.xml
-
+.idea/misc.xml
