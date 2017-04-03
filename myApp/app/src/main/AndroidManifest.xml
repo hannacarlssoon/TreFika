@@ -21,13 +21,13 @@
         </activity>
         <activity
             android:name=".PassedLevel"
-            android:theme="@style/AppTheme.popup"></activity>
+            android:theme="@style/AppTheme.popup" />
         <activity android:name=".ActivityInfo" />
-        <activity android:name=".QuestionMultiChoice"></activity>
-
-
-        <activity android:name=".FailedLevel"
-            android:theme="@style/AppTheme.popup"></activity>
+        <activity android:name=".QuestionMultiChoice" />
+        <activity
+            android:name=".FailedLevel"
+            android:theme="@style/AppTheme.popup" />
+        <activity android:name=".DragNDrop"></activity>
     </application>
 
 </manifest>

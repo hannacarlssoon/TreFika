@@ -8,8 +8,8 @@
 
     <TextView
         android:id="@+id/textView10"
-        android:layout_width="258dp"
-        android:layout_height="23dp"
+        android:layout_width="260dp"
+        android:layout_height="25dp"
         android:text="TextView"
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="16dp" />
@@ -17,7 +17,7 @@
     <TextView
         android:id="@+id/textView11"
         android:layout_width="352dp"
-        android:layout_height="111dp"
+        android:layout_height="110dp"
         android:text="Fråga frpga gråga fråga owejgm hsngig isjgw "
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="57dp" />
