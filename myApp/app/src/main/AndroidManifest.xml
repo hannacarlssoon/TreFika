@@ -27,6 +27,7 @@
         <activity
             android:name=".FailedLevel"
             android:theme="@style/AppTheme.popup" />
+
         <activity android:name=".DragNDrop" />
         <activity android:name=".FillInTheBlanks" />
         <activity android:name=".OutprintQuestion"/>
@@ -38,6 +39,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
 
     </application>
 
