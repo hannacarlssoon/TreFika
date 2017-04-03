@@ -19,9 +19,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".PassedLevel"
-            android:theme="@style/AppTheme.popup">
-        </activity>
+        <activity
+            android:name=".PassedLevel"
+            android:theme="@style/AppTheme.popup"></activity>
+        <activity android:name=".FailedLevel"></activity>
     </application>
 
 </manifest>
