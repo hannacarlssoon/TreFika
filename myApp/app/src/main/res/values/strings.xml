@@ -15,4 +15,7 @@
     <string name="PassedLevel_heading">Grattis, du har klarat uppgiften!</string>
     <string name="PassedLevel_Button1">Nästa nivå</string>
     <string name="PassedLevel_Button2">Tillbaka</string>
+    <string name="FailedLevel_Button1">Testa igen</string>
+    <string name="FailedLevel_heading">Fel!</string>
+    <string name="FailedLevel_helptext">Klicka på ? om du behöver hjälp</string>
 </resources>

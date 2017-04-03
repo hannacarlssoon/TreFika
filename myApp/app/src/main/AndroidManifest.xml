@@ -22,7 +22,14 @@
         <activity
             android:name=".PassedLevel"
             android:theme="@style/AppTheme.popup"></activity>
+
+        <activity android:name=".FailedLevel"
+            android:theme="@style/AppTheme.popup"></activity>
+
+
         <activity android:name=".ActivityInfo"></activity>
+
+
     </application>
 
 </manifest>
