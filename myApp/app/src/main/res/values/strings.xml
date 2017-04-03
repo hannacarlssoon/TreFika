@@ -4,9 +4,24 @@
     <string name="categoryButton1">       Category 1</string>
     <string name="categoryButton2">       Category 2</string>
     <string name="categoryButton3">       Category 3</string>
+
     <string name="Level1">1</string>
     <string name="Level2">2</string>
     <string name="Level3">3</string>
     <string name="Level4">4</string>
     <string name="BossLevel">Boss</string>
+
+    <string name="title_activity_navigation_drawer">Learn Java</string>
+
+    <string name="navigation_drawer_open">Hej</string>
+    <string name="navigation_drawer_close">Hejdå</string>
+
+    <string name="action_settings">Ska vi ha nått här?</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="PassedLevel_heading">Grattis, du har klarat uppgiften!</string>
+    <string name="PassedLevel_Button1">Nästa nivå</string>
+    <string name="PassedLevel_Button2">Tillbaka</string>
+
 </resources>
