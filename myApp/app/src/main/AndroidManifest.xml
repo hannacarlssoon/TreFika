@@ -21,8 +21,9 @@
         </activity>
         <activity
             android:name=".PassedLevel"
-            android:theme="@style/AppTheme.popup"></activity>
-        <activity android:name=".ActivityInfo"></activity>
+            android:theme="@style/AppTheme.popup" />
+        <activity android:name=".ActivityInfo" />
+        <activity android:name=".QuestionMultiChoice"></activity>
     </application>
 
 </manifest>
