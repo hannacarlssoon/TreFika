@@ -25,10 +25,12 @@ public class UserDatabaseHelper extends SQLiteOpenHelper {
     public static final String USER_EMAIL = "userEmail";
     public static final String USER_PROFIL_PICTURE_URL = "profilePictureUrl";
 
+    //Constructor which calls the SQLiteOpenHelpers constructor with the database name and version
     public UserDatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
+    //The method is called whenever a new database is created
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
@@ -43,6 +45,7 @@ public class UserDatabaseHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(query_user_table);
     }
 
+    //The method is called whenever the database needs to be upgraded
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         if (i != i1) {
@@ -51,6 +54,7 @@ public class UserDatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    //Adds a new user to the database (a new row)
     public void addUser(String userName, String userPassword, String profilePictureUrl) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -60,15 +64,9 @@ public class UserDatabaseHelper extends SQLiteOpenHelper {
         db.insert(TABLE_USERS, null, values);
     }
 
+    //Deletes a users information
     public Integer deleteUser(Integer id) {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(TABLE_USERS, USER_ID + " = ? ", new String[] {Integer.toString(id)});
-    }
-
-    public void updatePassword(Integer id, String password) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(USER_PASSWORD, password);
-       // db.update(TABLE_USERS, values)
     }
 }
