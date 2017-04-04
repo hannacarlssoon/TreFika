@@ -29,7 +29,15 @@
             android:theme="@style/AppTheme.popup" />
         <activity android:name=".DragNDrop" />
         <activity android:name=".FillInTheBlanks" />
-        <activity android:name=".OutprintQuestion"></activity>
+        <activity android:name=".OutprintQuestion"/>
+        <!--<activity android:name=".LevelActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>-->
+
     </application>
 
 </manifest>
