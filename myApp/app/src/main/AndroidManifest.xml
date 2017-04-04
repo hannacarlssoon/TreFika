@@ -28,7 +28,8 @@
             android:name=".FailedLevel"
             android:theme="@style/AppTheme.popup" />
         <activity android:name=".DragNDrop" />
-        <activity android:name=".FillInTheBlanks"></activity>
+        <activity android:name=".FillInTheBlanks" />
+        <activity android:name=".OutprintQuestion"></activity>
     </application>
 
 </manifest>
