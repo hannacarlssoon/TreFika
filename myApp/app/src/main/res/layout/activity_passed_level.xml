@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="tda367.myapplication.PassedLevel">
+    tools:context="tda367.myapplication.PassedLevel" >
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/backButton"
         android:layout_width="104dp"
         android:layout_height="49dp"
         android:layout_marginLeft="76dp"
@@ -19,12 +19,13 @@
         app:layout_constraintVertical_bias="0.116" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/nextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/PassedLevel_Button1"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button"
-        tools:layout_editor_absoluteX="198dp" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/backButton"
+        android:layout_marginRight="86dp"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <ImageView
         android:id="@+id/imageView2"

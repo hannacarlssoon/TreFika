@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.view.View;
 
-import static tda367.myapplication.R.styleable.View;
-
 public class LevelActivity extends AppCompatActivity {
 
     @Override
