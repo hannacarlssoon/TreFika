@@ -1,5 +1,6 @@
 package tda367.myapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -20,6 +21,8 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent = getIntent();
+        String value = intent.getStringExtra("key");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -126,4 +129,11 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+   public void nextButtonClicked(){
+       Intent myIntent = new Intent(MainActivity.this, LevelActivity.class);
+       myIntent.putExtra("key", true); //Optional parameters
+       MainActivity.this.startActivity(myIntent);
+
+   }
 }
