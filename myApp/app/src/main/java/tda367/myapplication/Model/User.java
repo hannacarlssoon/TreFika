@@ -1,4 +1,4 @@
-package tda367.myapplication;
+package tda367.myapplication.Model;
 
 /**
  * Created by hannacarlsson on 2017-04-06.
