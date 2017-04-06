@@ -1,4 +1,4 @@
-*.iml
+git*.iml
 .gradle
 /local.properties
 /.idea/workspace.xml
@@ -10,4 +10,5 @@
 .idea/vcs.xml
 app/libs/
 /.idea/misc.xml
+.idea
 
