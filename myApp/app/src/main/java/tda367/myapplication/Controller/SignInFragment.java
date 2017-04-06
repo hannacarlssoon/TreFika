@@ -1,4 +1,4 @@
-package tda367.myapplication;
+package tda367.myapplication.Controller;
 
 
 import android.content.Intent;
@@ -22,6 +22,8 @@ import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.facebook.share.Sharer;
+
+import tda367.myapplication.R;
 
 import static tda367.myapplication.R.id.view;
 

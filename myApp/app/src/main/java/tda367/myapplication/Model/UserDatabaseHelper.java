@@ -1,4 +1,4 @@
-package tda367.myapplication;
+package tda367.myapplication.Model;
 
 import android.content.ContentValues;
 import android.content.Context;

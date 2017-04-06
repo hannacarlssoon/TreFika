@@ -1,25 +1,30 @@
-package tda367.myapplication;
+package tda367.myapplication.Controller;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Button;
 import android.view.View;
+import android.widget.Button;
 
-public class LevelActivity extends AppCompatActivity {
+import tda367.myapplication.R;
+
+public class ActivityInfo extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_level);
-        Button btn = (Button)findViewById(R.id.button);
+        setContentView(R.layout.activity_info);
+        //getActionBar().setDisplayHomeAsUpEnabled(true);
+
+        Button btn = (Button)findViewById(R.id.button3);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LevelActivity.this, ActivityInfo.class));
+                startActivity(new Intent(ActivityInfo.this, QuestionMultiChoice.class));
             }
         });
+
     }
 
 

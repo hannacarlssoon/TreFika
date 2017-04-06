@@ -5,7 +5,7 @@
     android:id="@+id/constraintlayout_for_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="tda367.myapplication.MainActivity">
+    tools:context="tda367.myapplication.Controller.MainActivity">
 
 
 </android.support.constraint.ConstraintLayout>

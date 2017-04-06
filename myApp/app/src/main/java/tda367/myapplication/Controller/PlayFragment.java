@@ -1,4 +1,4 @@
-package tda367.myapplication;
+package tda367.myapplication.Controller;
 
 
 import android.content.Intent;
@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import tda367.myapplication.R;
 
 
 /**

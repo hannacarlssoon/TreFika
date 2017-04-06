@@ -1,8 +1,10 @@
-package tda367.myapplication;
+package tda367.myapplication.Controller;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+
+import tda367.myapplication.R;
 
 public class FailedLevel extends AppCompatActivity {
 

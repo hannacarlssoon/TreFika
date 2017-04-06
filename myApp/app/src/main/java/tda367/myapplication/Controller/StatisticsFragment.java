@@ -1,4 +1,4 @@
-package tda367.myapplication;
+package tda367.myapplication.Controller;
 
 import android.content.Context;
 import android.net.Uri;
@@ -8,9 +8,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class AboutAppenFragment extends Fragment {
+import tda367.myapplication.R;
 
-    public AboutAppenFragment() {
+
+public class StatisticsFragment extends Fragment {
+
+
+    public StatisticsFragment() {
         // Required empty public constructor
     }
 
@@ -18,7 +22,8 @@ public class AboutAppenFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_about_appen, container, false);
+        return inflater.inflate(R.layout.fragment_statistics, container, false);
     }
+
 
 }

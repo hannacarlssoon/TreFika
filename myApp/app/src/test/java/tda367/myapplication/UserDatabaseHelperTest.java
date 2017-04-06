@@ -2,8 +2,9 @@ package tda367.myapplication;
 
 import android.content.Context;
 
-import org.junit.Assert;
 import org.junit.Test;
+
+import tda367.myapplication.Model.UserDatabaseHelper;
 
 /**
  * Created by hannacarlsson on 2017-04-05.

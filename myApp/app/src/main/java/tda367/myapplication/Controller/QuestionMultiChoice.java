@@ -1,10 +1,12 @@
-package tda367.myapplication;
+package tda367.myapplication.Controller;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import tda367.myapplication.R;
 
 public class QuestionMultiChoice extends AppCompatActivity {
 
