@@ -14,22 +14,27 @@ public class ModelFillBlanks extends Query  {
     private String userAnswer3;
 
 
-    public ModelFillBlanks (String question, String answer1, String answer2, String answer3){
+    public ModelFillBlanks (String question, String answer){
         this.question = question;
-        this.answer1 = answer1;
-        this.answer2 = answer2;
-        this.answer3 = answer3;
+        String[] answers = answer.split(",");
+        this.answer1 = answers[0];
+        this.answer2 = answers[1];
+        this.answer3 = answers[2];
     }
 
 
     @Override
     public boolean checkAnswer() {
+      /*  String[] answers = answer.split(",");
+        this.userAnswer1 = answers[0];
+        this.userAnswer2 = answers[1];
+        this.userAnswer3 = answers[2];
+        */
         return userAnswer1.equals(answer1) && userAnswer2.equals(answer2) && userAnswer3.equals(answer3);
     }
 
     @Override
     public void input() {
-
 
     }
 }

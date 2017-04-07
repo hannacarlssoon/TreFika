@@ -15,7 +15,7 @@
         tools:layout_editor_absoluteY="58dp" />
 
     <EditText
-        android:id="@+id/fillAnswer1"
+        android:id="@+id/textFillAnswer1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -25,7 +25,7 @@
         tools:layout_editor_absoluteY="241dp" />
 
     <EditText
-        android:id="@+id/fillAnswer2"
+        android:id="@+id/textFillAnswer2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -35,7 +35,7 @@
         tools:layout_editor_absoluteY="301dp" />
 
     <EditText
-        android:id="@+id/fillAnswer3"
+        android:id="@+id/textFillAnswer3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -85,7 +85,7 @@
         tools:layout_editor_absoluteY="360dp" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/fillSubmit"
         android:layout_width="145dp"
         android:layout_height="65dp"
         android:text="Submit"
