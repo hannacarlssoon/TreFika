@@ -15,9 +15,9 @@ public abstract class Query {
     public void getQuestion(){
     }
 
-    public abstract boolean checkAnswer();
+    public abstract boolean checkAnswer(String answer);
 
-    public abstract void input();
+    //public abstract void getInput(String answer);
 
 
 

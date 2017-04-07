@@ -19,7 +19,7 @@
         app:layout_constraintVertical_chainStyle="spread"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/questionBox"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="8dp" />
 
     <TextView
         android:id="@+id/questionBox"
@@ -30,116 +30,11 @@
         android:text="Fråga frpga gråga fråga owejgm hsngig isjgw "
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@+id/heading"
-        app:layout_constraintBottom_toTopOf="@+id/altOne"
-        android:layout_marginBottom="0dp" />
-
-    <TextView
-        android:id="@+id/altOne"
-        android:layout_width="285dp"
-        android:layout_height="20dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:text="TextView"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toRightOf="@+id/altOneButton"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/questionBox"
-        app:layout_constraintBottom_toTopOf="@+id/altTwo"
-        android:layout_marginBottom="0dp"
-        android:layout_marginTop="20dp"
-
-        app:layout_constraintVertical_bias="0.972" />
-
-    <RadioButton
-        android:id="@+id/altOneButton"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="192dp"
-        android:layout_marginBottom="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/altTwoButton"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <RadioButton
-        android:id="@+id/altTwoButton"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintTop_toBottomOf="@+id/altOneButton"
-        app:layout_constraintBottom_toTopOf="@+id/altThreeButton"/>
+        android:layout_marginTop="49dp"
+        app:layout_constraintTop_toBottomOf="@+id/heading" />
 
 
-    <RadioButton
-        android:id="@+id/altThreeButton"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintTop_toBottomOf="@id/altTwoButton"
-        app:layout_constraintBottom_toTopOf="@+id/altFourButton"
-        />
 
-    <RadioButton
-        android:id="@+id/altFourButton"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/altThreeButton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="95dp" />
-
-    <TextView
-        android:id="@+id/altTwo"
-        android:layout_width="285dp"
-        android:layout_height="20dp"
-        android:layout_marginRight="27dp"
-        android:text="TextView"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toRightOf="@+id/altTwoButton"
-        app:layout_constraintTop_toBottomOf="@id/altOne"
-        app:layout_constraintBottom_toTopOf="@+id/altThree"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintHorizontal_bias="1.0"
-        android:layout_marginTop="30dp"
-        android:layout_marginBottom="0dp" />
-
-    <TextView
-        android:id="@+id/altThree"
-        android:layout_width="285dp"
-        android:layout_height="20dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:text="TextView"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toRightOf="@+id/altThreeButton"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="30dp"
-        app:layout_constraintTop_toBottomOf="@+id/altTwo"
-        app:layout_constraintBottom_toTopOf="@+id/altFour"
-        android:layout_marginBottom="0dp" />
-
-    <TextView
-        android:id="@+id/altFour"
-        android:layout_width="285dp"
-        android:layout_height="20dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:text="TextView"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toRightOf="@+id/altFourButton"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="30dp"
-        app:layout_constraintTop_toBottomOf="@+id/altThree"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="100dp" />
 
     <Button
         android:id="@+id/SubmitButton"
@@ -152,9 +47,72 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/altFour"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintVertical_bias="0.703" />
+        app:layout_constraintHorizontal_bias="0.502" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="366dp"
+        android:layout_height="222dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/questionBox"
+        app:layout_constraintVertical_bias="0.269">
+
+        <RadioButton
+            android:id="@+id/altFourButton"
+            android:layout_width="325dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="8dp"
+            android:text="Alternative four"
+            app:layout_constraintBottom_toTopOf="@+id/SubmitButton"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+
+        <RadioButton
+            android:id="@+id/altThreeButton"
+            android:layout_width="325dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/altFourButton"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <RadioButton
+            android:id="@+id/altTwoButton"
+            android:layout_width="325dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/altThreeButton"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <RadioButton
+            android:id="@+id/altOneButton"
+            android:layout_width="325dp"
+            android:layout_height="40dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/altTwoButton"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </RadioGroup>
 </android.support.constraint.ConstraintLayout>
