@@ -28,4 +28,17 @@ public class UserDatabaseTest {
         assertTrue(x.containsValue(y));
     }
 
+    @Test
+    public void updateUserTest() {
+        UserDatabase db = new UserDatabase();
+        db.addUser("Hanna", "password", "url");
+        db.updateUser("Kitzing", "password", "url");
+        Map<String, List<String>> x = db.getUsers();
+        assertTrue(x.containsKey("Kitzing"));
+        List<String> y = new ArrayList<>();
+        y.add("password");
+        y.add("url");
+        assertTrue(x.containsValue(y));
+    }
+
 }
