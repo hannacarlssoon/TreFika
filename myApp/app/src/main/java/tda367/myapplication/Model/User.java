@@ -16,7 +16,7 @@ public interface User {
     User getUser(String userName);
 
     //Method check username to password and if it matches logs in
-    boolean LogIn(String userName, String userPassword);
+    boolean logIn(String userName, String userPassword);
 
     //Method is called whenever a level is completed and saves the statistics from the level
     void saveStatistics();

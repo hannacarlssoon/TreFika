@@ -41,4 +41,11 @@ public class UserDatabaseTest {
         assertTrue(x.containsValue(y));
     }
 
+    @Test
+    public void logInTest() {
+        UserDatabase db = new UserDatabase();
+        db.addUser("Hanna", "password", "url");
+        assertTrue(db.logIn("Hanna", "password"));
+    }
+
 }

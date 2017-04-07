@@ -27,7 +27,7 @@ public class UserDatabase implements User {
                 userInfo.add(userPassword);
                 userInfo.add(profilePictureUrl);
                 users.put(userName, userInfo);
-                LogIn(userName, userPassword);
+                logIn(userName, userPassword);
             }
             else {
                 System.out.println("Username already exists");
@@ -73,9 +73,16 @@ public class UserDatabase implements User {
     }
 
     @Override
-    public boolean LogIn(String userName, String userPassword) {
-
-        return false;
+    public boolean logIn(String userName, String userPassword) {
+        if (users.get(userName).get(0).equals(userPassword)) {
+            this.userName = userName;
+            this.userPassword = userPassword;
+            this.profilePicture = users.get(userName).get(1);
+            return true;
+        } else {
+            System.out.println("User name or password is incorrect");
+            return false;
+        }
     }
 
     @Override
