@@ -31,12 +31,13 @@ public class FillInTheBlanks extends AppCompatActivity {
         textAnswer2   = (EditText)findViewById(R.id.textFillAnswer2);
         textAnswer3   = (EditText)findViewById(R.id.textFillAnswer3);
 
+        //Checks if answer is right, sets PassedLevelview if correct, otherwise FailedLevel
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setAnswer();
                 //TODO add the actual call to ModelFillBlanks
-                //if(chechAnswer()){
+                //if(chechAnswer(answer)){
                 startActivity(new Intent(FillInTheBlanks.this, PassedLevel.class));
               /*   }
                 else {
@@ -49,15 +50,12 @@ public class FillInTheBlanks extends AppCompatActivity {
     }
 
 
-
+    //Sets answer to one string
     public void setAnswer(){
        answer1 = FillInTheBlanks.this.textAnswer1.getText().toString();
        answer2 = FillInTheBlanks.this.textAnswer2.getText().toString();
        answer3 = FillInTheBlanks.this.textAnswer3.getText().toString();
 
        answer = answer1 + "," + answer2 + "," + answer3;
-
-        //TODO Call inputmethod in ModelFillBlanks
-        //input(answer);
     }
 }

@@ -24,17 +24,13 @@ public class ModelFillBlanks extends Query  {
 
 
     @Override
-    public boolean checkAnswer() {
-      /*  String[] answers = answer.split(",");
+    public boolean checkAnswer(String answer) {
+       String[] answers = answer.split(",");
         this.userAnswer1 = answers[0];
         this.userAnswer2 = answers[1];
         this.userAnswer3 = answers[2];
-        */
         return userAnswer1.equals(answer1) && userAnswer2.equals(answer2) && userAnswer3.equals(answer3);
     }
 
-    @Override
-    public void input() {
 
-    }
 }
