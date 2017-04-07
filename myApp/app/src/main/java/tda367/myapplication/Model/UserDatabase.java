@@ -9,7 +9,7 @@ import java.util.Map;
  * Created by hannacarlsson on 2017-04-07.
  */
 
-public class UserClass implements User {
+public class UserDatabase implements User {
 
     private String profilePicture;
     private String userName;
@@ -75,17 +75,15 @@ public class UserClass implements User {
     @Override
     public boolean LogIn(String userName, String userPassword) {
 
-        if (users.get(userName).equals(userPassword)) {
-
-            return true;
-        }
-        else {
-            return false;
-        }
+        return false;
     }
 
     @Override
     public void saveStatistics() {
 
+    }
+
+    public Map<String, List<String>> getUsers () {
+        return users;
     }
 }
