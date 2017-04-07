@@ -10,7 +10,7 @@ public interface User {
     void addUser(String userName, String userPassword, String profilePictureUrl);
 
     //Updates a user
-    void updateUser(String userName, String userPassword, String profilePictureUrl);
+    void updateUser(String newUserName, String newUserPassword, String newProfilePictureUrl);
 
     //Gets the user information
     User getUser(String userName);
