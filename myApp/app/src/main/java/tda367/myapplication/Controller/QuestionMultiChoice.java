@@ -25,6 +25,8 @@ public class QuestionMultiChoice extends AppCompatActivity {
         radioAnswerGroup = (RadioGroup)findViewById(R.id.radioGroup);
         Button btn = (Button)findViewById(R.id.SubmitButton);
 
+        //sets listener on submitbutton, checks if answer is correct,
+        // changes view to passedLevel if correct, otherwise to FailedLevel.
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,6 +42,8 @@ public class QuestionMultiChoice extends AppCompatActivity {
         });
     }
 
+
+    //Gets the selected radiobutton from the view, and sets that alternative as the answer.
     protected void setAnswer(){
         int selectedId = radioAnswerGroup.getCheckedRadioButtonId();
         radioAnswerButton = (RadioButton)findViewById(selectedId);

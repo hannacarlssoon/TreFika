@@ -14,6 +14,8 @@ public class MultiChoice extends Query {
         this.answer = answer;
     }
 
+
+    //Checks if the answer the user has selected is correct.
     @Override
     public boolean checkAnswer(String answer) {
         return answer.equals(this.answer);
