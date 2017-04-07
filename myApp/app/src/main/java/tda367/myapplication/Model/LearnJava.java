@@ -6,6 +6,7 @@ package tda367.myapplication.Model;
 
 public class LearnJava {
     private static LearnJava instance;
+    private String currentQuestion;
 
     private LearnJava(){
     }

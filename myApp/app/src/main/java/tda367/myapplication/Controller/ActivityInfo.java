@@ -21,7 +21,9 @@ public class ActivityInfo extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ActivityInfo.this, QuestionMultiChoice.class));
+                Intent intent = new Intent(ActivityInfo.this, QuestionMultiChoice.class);
+                intent.putExtra("ARG_QUESTION", "strifdnd");
+                startActivity(intent);
             }
         });
 

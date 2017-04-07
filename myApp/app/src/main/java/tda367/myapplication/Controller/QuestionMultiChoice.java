@@ -25,6 +25,8 @@ public class QuestionMultiChoice extends AppCompatActivity {
         radioAnswerGroup = (RadioGroup)findViewById(R.id.radioGroup);
         Button btn = (Button)findViewById(R.id.SubmitButton);
 
+        System.out.println(getIntent().getStringExtra("ARG_QUESTION"));
+
         //sets listener on submitbutton, checks if answer is correct,
         // changes view to passedLevel if correct, otherwise to FailedLevel.
         btn.setOnClickListener(new View.OnClickListener() {
