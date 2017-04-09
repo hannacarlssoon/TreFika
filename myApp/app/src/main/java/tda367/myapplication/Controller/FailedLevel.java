@@ -11,6 +11,7 @@ public class FailedLevel extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_failed_level);
 
 
@@ -21,7 +22,7 @@ public class FailedLevel extends AppCompatActivity {
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int)(width*0.8), (int)(height*0.5));
+        getWindow().setLayout((int)(width*0.8), (int)(height*0.4));
 
     }
 }

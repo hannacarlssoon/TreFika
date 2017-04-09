@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 
 import tda367.myapplication.R;
 
@@ -15,10 +17,12 @@ public class PassedLevel extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_passed_level);
 
+
         Button bbtn = (Button)findViewById(R.id.backButton);
+
 
         bbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,7 +48,7 @@ public class PassedLevel extends AppCompatActivity {
         int width = dm.widthPixels;
         int height = dm.heightPixels;
 
-        getWindow().setLayout((int)(width*0.8), (int)(height*0.6));
+        getWindow().setLayout((int)(width*0.8), (int)(height*0.4));
 
     }
 }
