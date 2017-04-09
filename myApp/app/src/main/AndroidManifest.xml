@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".Controller.MainActivity"
             android:label="@string/title_activity_navigation_drawer"
@@ -24,6 +25,11 @@
         <activity
             android:name=".Controller.PassedLevel"
             android:theme="@style/AppTheme.popup" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
             </activity>
         <activity android:name=".Controller.ActivityInfo" />
         <activity android:name=".Controller.QuestionMultiChoice" />
