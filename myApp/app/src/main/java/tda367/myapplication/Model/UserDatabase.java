@@ -68,11 +68,6 @@ public class UserDatabase implements User {
     }
 
     @Override
-    public User getUser(String userName) {
-        return this;
-    }
-
-    @Override
     public boolean logIn(String userName, String userPassword) {
         if (users.get(userName).get(0).equals(userPassword)) {
             this.userName = userName;
@@ -90,6 +85,12 @@ public class UserDatabase implements User {
 
     }
 
+    @Override
+    public String getUserName() {
+        return userName;
+    }
+
+    @Override
     public Map<String, List<String>> getUsers () {
         return users;
     }
