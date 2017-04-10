@@ -8,16 +8,18 @@
 
     <Button
         android:id="@+id/backButton"
-        android:layout_width="0dp"
+        android:layout_width="88dp"
         android:layout_height="49dp"
-        android:layout_marginLeft="81dp"
+        android:layout_marginLeft="56dp"
         android:layout_marginTop="16dp"
         android:text="@string/PassedLevel_Button2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.13"
-        android:layout_marginStart="81dp" />
+        app:layout_constraintVertical_bias="0.134"
+        android:layout_marginStart="56dp"
+
+       />
 
     <Button
         android:id="@+id/nextButton"
@@ -25,7 +27,8 @@
         android:layout_height="wrap_content"
         android:text="@string/PassedLevel_Button1"
         app:layout_constraintBaseline_toBaselineOf="@+id/backButton"
-        tools:layout_editor_absoluteX="193dp" />
+        app:layout_constraintLeft_toRightOf="@+id/backButton"
+        android:layout_marginLeft="7dp" />
 
     <ImageView
         android:id="@+id/imageView2"
