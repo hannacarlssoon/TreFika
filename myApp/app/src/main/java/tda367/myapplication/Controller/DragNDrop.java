@@ -32,10 +32,11 @@ public class DragNDrop extends AppCompatActivity {
             values.add(CodeSegments.rows[i]);
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.activity_drag_ndrop, R.id.dragTextView, values);
+        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.activity_drag_ndrop, values);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, values);
 
         // Assign adapter to ListView
-        // listView.setAdapter(adapter);
+        listView.setAdapter(adapter);
 
 
         btn.setOnClickListener(new View.OnClickListener() {
