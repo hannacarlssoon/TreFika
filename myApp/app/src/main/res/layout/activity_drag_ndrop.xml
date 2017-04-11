@@ -19,7 +19,7 @@
         android:layout_marginStart="16dp" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/dragSubmit"
         android:layout_width="145dp"
         android:layout_height="65dp"
         android:layout_marginLeft="120dp"
