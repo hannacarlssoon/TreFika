@@ -1,8 +1,13 @@
 package tda367.myapplication.Model;
 
+import android.support.annotation.NonNull;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.logging.Handler;
 import java.util.logging.LogRecord;
 
@@ -24,11 +29,14 @@ public class Statistics {
     private List<Integer> statisticsHint;
     private List<Long> statisticsTime;
 
+    public Statistics() {
+        statisticsHint = new ArrayList<Integer>();
+        statisticsTime = new ArrayList<Long>();
+    }
+
 
     public void saveStatisticsHint(int levelIndex, Integer nHints) {
         statisticsHint.add(levelIndex, nHints);
     }
-
-    //public void saveStatisticsTime()
 
 }
