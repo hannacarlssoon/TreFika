@@ -22,7 +22,7 @@ public class ActivityInfo extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ActivityInfo.this, DragToSlots.class);
+                Intent intent = new Intent(ActivityInfo.this, FillInTheBlanks.class);
                 intent.putExtra("ARG_QUESTION", "strifdnd");
                 startActivity(intent);
             }
