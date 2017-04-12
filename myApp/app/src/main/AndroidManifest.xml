@@ -36,7 +36,7 @@
         <activity android:name=".Controller.QuestionMultiChoice" />
         <activity
             android:name=".Controller.FailedLevel"
-            android:theme="@style/AppTheme.popup"></activity>
+            android:theme="@style/AppTheme.popup" />
         <activity android:name=".Controller.DragNDrop" />
         <activity android:name=".Controller.FillInTheBlanks">
             <intent-filter>
@@ -48,13 +48,14 @@
         <activity android:name=".Controller.OutprintQuestion" />
         <activity
             android:name=".Controller.LevelActivity"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
 
         <!-- Login with facebook stuff -->
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
 
+        <activity android:name=".DragToSlots"></activity>
     </application>
 
 </manifest>

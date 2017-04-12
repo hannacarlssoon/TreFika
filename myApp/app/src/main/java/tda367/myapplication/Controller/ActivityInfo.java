@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import tda367.myapplication.DragToSlots;
 import tda367.myapplication.R;
 
 public class ActivityInfo extends AppCompatActivity {
@@ -21,7 +22,7 @@ public class ActivityInfo extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ActivityInfo.this, DragNDrop.class);
+                Intent intent = new Intent(ActivityInfo.this, DragToSlots.class);
                 intent.putExtra("ARG_QUESTION", "strifdnd");
                 startActivity(intent);
             }
