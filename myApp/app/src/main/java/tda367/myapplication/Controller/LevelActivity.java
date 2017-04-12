@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.view.View;
+import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -33,9 +34,11 @@ public class LevelActivity extends AppCompatActivity {
         });
     }
 
-    public void onButtonClick(){
+    public void onButtonClick(View view){
         Button btn = (Button)findViewById(R.id.button);
         this.levelModel = new LevelModel(btn.getText().toString(), "1");
+        TextView textView = (TextView)findViewById(R.id.textView8);
+        textView.setText(levelModel.getQuestionInfo());
     }
 
     public LevelModel getLevelModel(){

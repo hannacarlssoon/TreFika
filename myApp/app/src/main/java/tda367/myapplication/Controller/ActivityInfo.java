@@ -17,8 +17,6 @@ public class ActivityInfo extends AppCompatActivity {
         setContentView(R.layout.activity_info);
         //getActionBar().setDisplayHomeAsUpEnabled(true);
 
-        TextView textView = (TextView)findViewById(R.id.textView8);
-        textView.setText(R.string.info);
 
         Button btn = (Button)findViewById(R.id.button3);
 
