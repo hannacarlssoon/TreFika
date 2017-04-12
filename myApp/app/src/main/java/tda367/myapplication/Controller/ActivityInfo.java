@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import tda367.myapplication.R;
 
@@ -15,6 +16,9 @@ public class ActivityInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
         //getActionBar().setDisplayHomeAsUpEnabled(true);
+
+        TextView textView = (TextView)findViewById(R.id.textView8);
+        textView.setText(R.string.info);
 
         Button btn = (Button)findViewById(R.id.button3);
 

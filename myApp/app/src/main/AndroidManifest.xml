@@ -26,11 +26,11 @@
         <activity
             android:name=".Controller.PassedLevel"
             android:theme="@style/AppTheme.popup" >
-            <intent-filter>
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
             </activity>
         <activity android:name=".Controller.ActivityInfo" />
         <activity android:name=".Controller.QuestionMultiChoice" />
@@ -39,13 +39,11 @@
             android:theme="@style/AppTheme.popup">
         </activity>
 
-        <activity android:name=".Controller.DragNDrop" />
-        <activity android:name=".Controller.FillInTheBlanks">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".Controller.DragNDrop" >
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        </activity>
+
+        <activity android:name=".Controller.FillInTheBlanks">
         </activity>
         <activity android:name=".Controller.OutprintQuestion"/>
         <activity android:name=".Controller.LevelActivity"
