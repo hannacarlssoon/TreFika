@@ -10,7 +10,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-import tda367.myapplication.Model.CodeSegments;
+//import tda367.myapplication.Model.CodeSegments;
 import tda367.myapplication.R;
 
 public class DragNDrop extends AppCompatActivity {
@@ -27,9 +27,9 @@ public class DragNDrop extends AppCompatActivity {
 
         // Defined Array values to show in ListView
         ArrayList<String> values = new ArrayList<String>();
-        for (int i = 0; i < CodeSegments.rows.length; ++i) {
+        /*for (int i = 0; i < CodeSegments.rows.length; ++i) {
             values.add(CodeSegments.rows[i]);
-        }
+        }*/
 
         //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.activity_drag_ndrop, values);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, values);

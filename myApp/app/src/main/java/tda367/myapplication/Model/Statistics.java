@@ -30,11 +30,13 @@ public class Statistics {
 
     private List<Integer> statisticsHint;
     private List<Long> statisticsTime;
+    private List<Boolean> statisticsKey;
 
     //Initializes the statistics lists
     public Statistics() {
         statisticsHint = new ArrayList<Integer>();
         statisticsTime = new ArrayList<Long>();
+        statisticsKey = new ArrayList<Boolean>();
     }
 
     //Stores how many hints you need to complete the assignment
@@ -42,9 +44,24 @@ public class Statistics {
         statisticsHint.add(levelIndex, nHints);
     }
 
+    //Stores if the user has to see key to complete the assignment
+    public void saveStatisticsKey(int levelIndex, Boolean isKeyUsed) {
+        statisticsKey.add(levelIndex, isKeyUsed);
+    }
+
     //Stores how long time it takes to complete each assignment
     public void saveStatisticsTime() {
         //Make a timer
+    }
+
+    //Gets the statisticsHint list
+    public List<Integer> getStatisticsHint() {
+        return statisticsHint;
+    }
+
+    //Gets the statisticsKey list
+    public List<Boolean> getStatisticsKey() {
+        return statisticsKey;
     }
 
 }
