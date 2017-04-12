@@ -3,6 +3,10 @@ package tda367.myapplication.Model;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Handler;
+import java.util.logging.LogRecord;
+
+import javax.security.auth.callback.Callback;
 
 /**
  * Created by hannacarlsson on 2017-04-07.
@@ -17,7 +21,14 @@ public class Statistics {
 
     private static final List<String> titles = new ArrayList<>(Arrays.asList(titleNames));
 
-    List<String> statisticsHint;
-    List<String> statisticsTime;
+    private List<Integer> statisticsHint;
+    private List<Long> statisticsTime;
+
+
+    public void saveStatisticsHint(int levelIndex, Integer nHints) {
+        statisticsHint.add(levelIndex, nHints);
+    }
+
+    //public void saveStatisticsTime()
 
 }
