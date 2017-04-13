@@ -32,13 +32,14 @@ public class LevelActivity extends AppCompatActivity {
                 startActivity(new Intent(LevelActivity.this, ActivityInfo.class));
             }
         });
+        LevelModel lm = new LevelModel("1", "1", false);
     }
 
     public void onButtonClick(View view){
         Button btn = (Button)findViewById(R.id.button);
-        this.levelModel = new LevelModel(btn.getText().toString(), "1");
+        this.levelModel = new LevelModel(btn.getText().toString(), "1", false);
         TextView textView = (TextView)findViewById(R.id.textView8);
-        textView.setText(levelModel.getQuestionInfo());
+        textView.setText(levelModel.getLevelInfo());
     }
 
     public LevelModel getLevelModel(){
