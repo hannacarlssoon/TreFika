@@ -1,8 +1,11 @@
 package tda367.myapplication.Controller;
 
 import android.content.Intent;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -27,6 +30,12 @@ public class QuestionMultiChoice extends AppCompatActivity {
 
         System.out.println(getIntent().getStringExtra("ARG_QUESTION"));
 
+        //Sets the toolbar and enables upnavigation, and sets the title
+        Toolbar toolbar = (Toolbar) findViewById(R.id.multiChoiceToolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Multi-choice question");
+
         //sets listener on submitbutton, checks if answer is correct,
         // changes view to passedLevel if correct, otherwise to FailedLevel.
         btn.setOnClickListener(new View.OnClickListener() {
@@ -44,6 +53,18 @@ public class QuestionMultiChoice extends AppCompatActivity {
         });
     }
 
+
+    //Handles the back navigation
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     //Gets the selected radiobutton from the view, and sets that alternative as the answer.
     protected void setAnswer(){

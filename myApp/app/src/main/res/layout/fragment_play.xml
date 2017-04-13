@@ -5,6 +5,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="tda367.myapplication.Controller.PlayFragment">
 
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/levelToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"/>
+
+
     <Button
         android:id="@+id/category3"
         android:layout_width="258dp"

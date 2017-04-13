@@ -1,8 +1,11 @@
 package tda367.myapplication.Controller;
 
 import android.content.Intent;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,6 +34,13 @@ public class FillInTheBlanks extends AppCompatActivity {
         textAnswer2   = (EditText)findViewById(R.id.textFillAnswer2);
         textAnswer3   = (EditText)findViewById(R.id.textFillAnswer3);
 
+        //Sets the toolbar and enables upnavigation, and sets the title
+        Toolbar toolbar = (Toolbar) findViewById(R.id.fillBlanksToolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Fill in the blanks");
+
+
         //Checks if answer is right, sets PassedLevelview if correct, otherwise FailedLevel
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +59,17 @@ public class FillInTheBlanks extends AppCompatActivity {
         });
     }
 
+    //Handles the back navigation
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     //Sets answer to one string
     public void setAnswer(){
