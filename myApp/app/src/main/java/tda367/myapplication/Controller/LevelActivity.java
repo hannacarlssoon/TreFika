@@ -20,7 +20,7 @@ public class LevelActivity extends AppCompatActivity {
         Button btn = (Button)findViewById(R.id.button);
 
         //Sets the toolbar and enables upnavigation, and sets the title
-        Toolbar toolbar = (Toolbar) findViewById(R.id.levelToolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Levels");

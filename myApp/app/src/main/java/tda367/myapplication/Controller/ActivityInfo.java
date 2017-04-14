@@ -23,7 +23,7 @@ public class ActivityInfo extends AppCompatActivity {
         Button btn = (Button)findViewById(R.id.button3);
 
         //Sets the toolbar and enables upnavigation, and sets the title
-        Toolbar toolbar = (Toolbar) findViewById(R.id.infoToolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Går det att sätta detta till ämnet?");
