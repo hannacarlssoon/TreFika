@@ -35,10 +35,11 @@ public class FillInTheBlanks extends AppCompatActivity {
         textAnswer3   = (EditText)findViewById(R.id.textFillAnswer3);
 
         //Sets the toolbar and enables upnavigation, and sets the title
-        Toolbar toolbar = (Toolbar) findViewById(R.id.fillBlanksToolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Fill in the blanks");
+
 
 
         //Checks if answer is right, sets PassedLevelview if correct, otherwise FailedLevel
@@ -46,6 +47,7 @@ public class FillInTheBlanks extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 setAnswer();
+                //TODO handle no input from user
                 //TODO add the actual call to ModelFillBlanks
                 //if(chechAnswer(answer)){
                 startActivity(new Intent(FillInTheBlanks.this, PassedLevel.class));

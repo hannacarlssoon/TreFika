@@ -31,7 +31,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
         System.out.println(getIntent().getStringExtra("ARG_QUESTION"));
 
         //Sets the toolbar and enables upnavigation, and sets the title
-        Toolbar toolbar = (Toolbar) findViewById(R.id.multiChoiceToolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Multi-choice question");
