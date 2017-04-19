@@ -35,8 +35,8 @@ public class Statistics {
     private List<Long> statisticsTime;
     private List<Boolean> statisticsKey;
 
-    private Timer timer;
-    private MyTimerTask myTimerTask;
+    private long startTime;
+    private long totalTime;
 
     //Initializes the statistics lists
     public Statistics() {
@@ -56,8 +56,18 @@ public class Statistics {
     }
 
     //Stores how long time it takes to complete each assignment
-    public void saveStatisticsTime() {
-        //Make a timer
+    public void saveStatisticsTime(int levelIndex) {
+        statisticsTime.add(levelIndex, totalTime/1000);
+    }
+
+    //Starts the timer
+    public void startTimer() {
+        startTime = System.currentTimeMillis();
+    }
+
+    //Calculates how long time to took to complete assignment
+    public void stopTimer() {
+        totalTime = System.currentTimeMillis() - startTime;
     }
 
     //Gets the statisticsHint list
@@ -70,13 +80,8 @@ public class Statistics {
         return statisticsKey;
     }
 
-    class MyTimerTask extends TimerTask {
-
-        @Override
-        public void run() {
-            Calendar calendar = Calendar.getInstance();
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
-            final String strDate = simpleDateFormat.format(calendar.getTime());
-        }
+    //Gets the statisticsTime list
+    public List<Long> getStatisticsTime() {
+        return statisticsTime;
     }
 }
