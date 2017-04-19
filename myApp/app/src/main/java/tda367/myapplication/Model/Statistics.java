@@ -3,13 +3,16 @@ package tda367.myapplication.Model;
 import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Timer;
+import java.util.TimerTask;
 import java.util.logging.Handler;
 import java.util.logging.LogRecord;
 
@@ -31,6 +34,9 @@ public class Statistics {
     private List<Integer> statisticsHint;
     private List<Long> statisticsTime;
     private List<Boolean> statisticsKey;
+
+    private Timer timer;
+    private MyTimerTask myTimerTask;
 
     //Initializes the statistics lists
     public Statistics() {
@@ -64,4 +70,13 @@ public class Statistics {
         return statisticsKey;
     }
 
+    class MyTimerTask extends TimerTask {
+
+        @Override
+        public void run() {
+            Calendar calendar = Calendar.getInstance();
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+            final String strDate = simpleDateFormat.format(calendar.getTime());
+        }
+    }
 }

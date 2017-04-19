@@ -9,7 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import tda367.myapplication.DragToSlots;
+//import tda367.myapplication.DragToSlots;
 import tda367.myapplication.R;
 
 public class ActivityInfo extends AppCompatActivity {
