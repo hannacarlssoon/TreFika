@@ -1,4 +1,4 @@
-package tda367.myapplication.Controller;
+/**package tda367.myapplication.Controller;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -48,6 +48,6 @@ public class DragNDrop extends AppCompatActivity {
 
     }
 }
-
+*/
 
 

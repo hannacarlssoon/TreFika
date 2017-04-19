@@ -3,6 +3,7 @@ package tda367.myapplication.Controller;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.Window;
@@ -17,8 +18,11 @@ public class PassedLevel extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
+        /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().hide();*/
         setContentView(R.layout.activity_passed_level);
+
 
 
         Button bbtn = (Button)findViewById(R.id.backButton);
@@ -36,7 +40,7 @@ public class PassedLevel extends AppCompatActivity {
         nbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(PassedLevel.this, QuestionMultiChoice.class));
+                startActivity(new Intent(PassedLevel.this, LevelActivity.class));
             }
         });
 
