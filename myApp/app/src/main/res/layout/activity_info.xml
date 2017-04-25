@@ -7,7 +7,7 @@
     tools:context="tda367.myapplication.Controller.ActivityInfo">
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/infoText"
         android:layout_width="297dp"
         android:layout_height="345dp"
         android:text="Massa lorem ipsum, osv. Kul info om programeing. Hur fyller man detta med den faktiska texten?"

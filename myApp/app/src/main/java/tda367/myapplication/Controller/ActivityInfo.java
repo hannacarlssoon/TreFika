@@ -7,9 +7,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import tda367.myapplication.Model.LevelModel;
 import tda367.myapplication.R;
 
 public class ActivityInfo extends AppCompatActivity {
+
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +22,9 @@ public class ActivityInfo extends AppCompatActivity {
 
 
         Button btn = (Button)findViewById(R.id.button3);
+        textView = (TextView)findViewById(R.id.infoText);
 
+        setInfoText();
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -29,6 +34,12 @@ public class ActivityInfo extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void setInfoText(){
+        LevelModel lm = LevelActivity.getItemFromList(0);
+        String infoText = lm.getInfo();
+        textView.setText(infoText);
     }
 
 
