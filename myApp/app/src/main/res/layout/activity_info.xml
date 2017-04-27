@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/infoText"
         android:layout_width="297dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"

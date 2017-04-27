@@ -8,11 +8,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
-//import tda367.myapplication.DragToSlots;
+
+import tda367.myapplication.Model.LevelModel;
+
 import tda367.myapplication.R;
 
 public class ActivityInfo extends AppCompatActivity {
+
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,13 +25,18 @@ public class ActivityInfo extends AppCompatActivity {
         setContentView(R.layout.activity_info);
         //getActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Button btn = (Button)findViewById(R.id.button3);
+
+        Button btn = (Button) findViewById(R.id.button3);
+        textView = (TextView) findViewById(R.id.infoText);
+
 
         //Sets the toolbar and enables upnavigation, and sets the title
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Går det att sätta detta till ämnet?");
+
+        setInfoText();
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,6 +49,7 @@ public class ActivityInfo extends AppCompatActivity {
 
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -48,6 +59,12 @@ public class ActivityInfo extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void setInfoText() {
+        LevelModel lm = LevelActivity.getItemFromList(0);
+        String infoText = lm.getInfo();
+        textView.setText(infoText);
     }
 
 
