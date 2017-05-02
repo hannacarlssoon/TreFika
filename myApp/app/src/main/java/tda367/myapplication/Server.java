@@ -65,9 +65,13 @@ public class Server {
 
         try{
             output.writeObject(userCode);
-            output.flush();
+            System.out.println("write object");
+            //output.flush();
+            compiledCode = (String) input.readObject();
         }catch (IOException io){
 
+        }catch (ClassNotFoundException classNotFound){
+            System.out.println("Somethings wrong");
         }
      /*
          showMessage(message);
@@ -83,8 +87,9 @@ public class Server {
          */
     }
 
+
     //sends back the result of the compile
-    private String result() throws IOException{
+/*    private String result() throws IOException{
         String result = "hej";
         try {
             result = (String) input.readObject();
@@ -94,6 +99,7 @@ public class Server {
 
         return result;
     }
+*/
 
     //close streams and sockets after its done compiling
     private void shutDown(){
@@ -105,6 +111,10 @@ public class Server {
         }catch(IOException ioException){
             ioException.printStackTrace();
         }
+    }
+
+    public String getCompiledCode(){
+        return this.compiledCode;
     }
 
 }
