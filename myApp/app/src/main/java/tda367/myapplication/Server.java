@@ -2,8 +2,7 @@ package tda367.myapplication;
 
 import java.io.*;
 import java.net.*;
-import java.awt.*;
-import java.awt.event.*;
+
 
 /**
  * Created by sarakitzing on 2017-04-27.
