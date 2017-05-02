@@ -14,9 +14,9 @@ public class FillBlanksTest {
 
     @Test
     public void testCheckAnswer() {
-        ModelFillBlanks f = new ModelFillBlanks("hej", "jag,heter,kitzing");
-        boolean check = f.checkAnswer("jag,heter,kitzing");
-        boolean check2 = f.checkAnswer("hej,heter,kitzing");
+        ModelFillBlanks f = new ModelFillBlanks("hej", "häst,hund,ko");
+        boolean check = f.checkAnswer("häst,hund,ko");
+        boolean check2 = f.checkAnswer("hej,hund,ko");
         assertEquals(check, true);
         assertEquals(check2,false);
     }
