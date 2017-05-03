@@ -9,7 +9,9 @@ import java.util.Map;
  * Created by hannacarlsson on 2017-04-07.
  */
 
-public class UserDatabase implements User {
+public class UserDatabase {
+
+    private static UserDatabase user;
 
     private String profilePicture;
     private String userName;
@@ -19,7 +21,10 @@ public class UserDatabase implements User {
 
     private Statistics userStatistics;
 
-    @Override
+    private UserDatabase() {
+
+    }
+
     public void addUser(String userName, String userPassword, String profilePictureUrl) {
 
             if (!users.containsKey(userName)) {
@@ -34,7 +39,6 @@ public class UserDatabase implements User {
             }
     }
 
-    @Override
     public void updateUser(String newUserName, String newUserPassword, String newProfilePictureUrl) {
         if (userName != newUserName) {
             List<String> value = users.remove(userName);
@@ -67,9 +71,9 @@ public class UserDatabase implements User {
         }
     }
 
-    @Override
     public boolean logIn(String userName, String userPassword) {
         if (users.get(userName).get(0).equals(userPassword)) {
+            user = new UserDatabase();
             this.userName = userName;
             this.userPassword = userPassword;
             this.profilePicture = users.get(userName).get(1);
@@ -80,17 +84,14 @@ public class UserDatabase implements User {
         }
     }
 
-    @Override
     public void saveStatistics() {
 
     }
 
-    @Override
     public String getUserName() {
         return userName;
     }
 
-    @Override
     public Map<String, List<String>> getUsers () {
         return users;
     }
