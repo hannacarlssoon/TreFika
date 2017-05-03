@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import tda367.myapplication.Model.LevelModel;
+import tda367.myapplication.Model.Query;
 import tda367.myapplication.R;
 
 public class QuestionMultiChoice extends AppCompatActivity {
@@ -23,6 +24,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
     private Button submitButton;
     private String answer;
     private TextView textView;
+    private Query model;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +49,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setAnswer();
+                setSelectedAnswer();
                 // if(checkAnswer()){
                 startActivity(new Intent(QuestionMultiChoice.this, PassedLevel.class));
             /* }
@@ -73,7 +75,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
     }
 
     //Gets the selected radiobutton from the view, and sets that alternative as the answer.
-    protected void setAnswer(){
+    protected void setSelectedAnswer(){
         int selectedId = radioAnswerGroup.getCheckedRadioButtonId();
         radioAnswerButton = (RadioButton)findViewById(selectedId);
         answer = (String) radioAnswerButton.getText();
