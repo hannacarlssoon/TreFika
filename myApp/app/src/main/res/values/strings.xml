@@ -27,7 +27,7 @@
     <string name="FailedLevel_heading">Fel!</string>
     <string name="FailedLevel_helptext">Klicka på ? om du behöver hjälp</string>
 
-
+    <string name="actions_help">Klicka för hjälp</string>
     <string name="facebook_app_id">236847580117061</string>
 
     <string name="info">Lorem ipsum etc...</string>
