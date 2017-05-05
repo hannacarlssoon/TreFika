@@ -25,17 +25,11 @@ public class User {
         if (userName != newUserName) {
             userName = newUserName;
         }
-        if (userPassword != newUserPassword || profilePicture != newProfilePictureUrl) {
-            if (userPassword != newUserPassword && profilePicture != newProfilePictureUrl) {
-                userPassword = newUserPassword;
-                profilePicture = newProfilePictureUrl;
-            }
-            else if (userPassword != newUserPassword && profilePicture == newProfilePictureUrl) {
-                userPassword = newUserPassword;
-            }
-            else {
-                profilePicture = newProfilePictureUrl;
-            }
+        if (userPassword != newUserPassword) {
+            userPassword = newUserPassword;
+        }
+        if (profilePicture != newProfilePictureUrl) {
+            profilePicture = newProfilePictureUrl;
         }
     }
 

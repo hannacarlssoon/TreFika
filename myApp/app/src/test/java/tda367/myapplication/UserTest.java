@@ -18,7 +18,7 @@ public class UserTest {
 
     @Test
     public void addUserTest() {
-        User db = new User();
+        User db = new User("Hanna", "password", "url");
         db.addUser("Hanna", "password", "url");
         Map<String, List<String>> x = db.getUsers();
         assertTrue(x.containsKey("Hanna"));
