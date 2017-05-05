@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import tda367.myapplication.Model.AccountManager;
 import tda367.myapplication.Model.User;
 import tda367.myapplication.R;
 
@@ -31,6 +32,8 @@ public class SignUp extends AppCompatActivity {
                 user.addUser(userName.getText().toString(), password.getText().toString(), null);
             }
         });
+
+        AccountManager.getInstance().getActiveUser().getUserName();
 
     }
 

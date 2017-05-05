@@ -12,6 +12,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
+import tda367.myapplication.Model.AccountManager;
 import tda367.myapplication.R;
 
 public class MainActivity extends AppCompatActivity
@@ -135,5 +141,18 @@ public class MainActivity extends AppCompatActivity
        myIntent.putExtra("key", true); //Optional parameters
        MainActivity.this.startActivity(myIntent);
 
+   }
+
+   @Override
+    public void onDestroy() {
+       super.onDestroy();
+       try {
+           ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(AccountManager.FILENAME));
+           objectOutputStream.writeObject(AccountManager.getInstance());
+           objectOutputStream.flush();
+           objectOutputStream.close();
+       } catch (IOException e) {
+           e.printStackTrace();
+       }
    }
 }
