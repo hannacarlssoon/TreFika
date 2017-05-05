@@ -78,7 +78,7 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
         switch (view.getId()) {
             case R.id.signIn:
                 if (userName.getText() != null && password.getText() != null) {
-                    user.logIn(userName.getText().toString(), password.getText().toString());
+                    //user.logIn(userName.getText().toString(), password.getText().toString());
                 }
                 break;
             case R.id.signUp:

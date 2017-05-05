@@ -29,7 +29,7 @@ public class SignUp extends AppCompatActivity {
             public void onClick(View view) {
                 //TODO Fix profile picture
                 //TODO Make addUser and logIn methods static
-                user.addUser(userName.getText().toString(), password.getText().toString(), null);
+                //user.addUser(userName.getText().toString(), password.getText().toString(), null);
             }
         });
 

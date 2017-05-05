@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import tda367.myapplication.Model.AccountManager;
 import tda367.myapplication.Model.User;
 
 import static org.junit.Assert.*;
@@ -16,36 +17,15 @@ import static org.junit.Assert.*;
 
 public class UserTest {
 
-    @Test
-    public void addUserTest() {
-        User db = new User("Hanna", "password", "url");
-        db.addUser("Hanna", "password", "url");
-        Map<String, List<String>> x = db.getUsers();
-        assertTrue(x.containsKey("Hanna"));
-        List<String> y = new ArrayList<>();
-        y.add("password");
-        y.add("url");
-        assertTrue(x.containsValue(y));
-    }
+
 
     @Test
     public void updateUserTest() {
-        User db = new User();
-        db.addUser("Hanna", "password", "url");
-        db.updateUser("Kitzing", "password", "url");
-        Map<String, List<String>> x = db.getUsers();
-        assertTrue(x.containsKey("Kitzing"));
-        List<String> y = new ArrayList<>();
-        y.add("password");
-        y.add("url");
-        assertTrue(x.containsValue(y));
+        AccountManager am = AccountManager.getInstance();
+        am.addUser("Hanna", "Password", "url");
+
     }
 
-    @Test
-    public void logInTest() {
-        User db = new User();
-        db.addUser("Hanna", "password", "url");
-        assertTrue(db.logIn("Hanna", "password"));
-    }
+
 
 }

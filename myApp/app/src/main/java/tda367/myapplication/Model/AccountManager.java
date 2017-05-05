@@ -1,6 +1,7 @@
 package tda367.myapplication.Model;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.HashMap;
@@ -27,10 +28,12 @@ public class AccountManager {
             try {
                 ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(FILENAME));
                 instance = (AccountManager) objectInputStream.readObject();
-            } catch (IOException e) {
-                e.printStackTrace();
+            } catch (FileNotFoundException e) {
+                instance = new AccountManager();
             } catch (ClassNotFoundException e) {
                 instance = new AccountManager();
+                e.printStackTrace();
+            }catch (IOException e) {
                 e.printStackTrace();
             }
         }
@@ -38,13 +41,15 @@ public class AccountManager {
     }
 
     //Adds a new user
-    public void addUser(String userName, String userPassword, String profilePictureUrl) {
+    public boolean addUser(String userName, String userPassword, String profilePictureUrl) {
         if (!users.containsKey(userName)) {
             users.put(userName, new User(userName, userPassword, profilePictureUrl));
             logIn(userName, userPassword);
+            return true;
         }
         else {
             System.out.println("Username already exists");
+            return false;
         }
     }
 
