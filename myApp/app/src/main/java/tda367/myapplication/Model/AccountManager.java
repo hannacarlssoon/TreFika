@@ -3,9 +3,7 @@ package tda367.myapplication.Model;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -15,9 +13,9 @@ import java.util.Map;
 public class AccountManager {
     private static AccountManager instance;
 
-    private Map<String, UserDatabase> users = new HashMap<>();
+    private Map<String, User> users = new HashMap<>();
 
-    private UserDatabase activeUser;
+    private User activeUser;
 
     public static final String FILENAME = "users.bin";
 
@@ -39,9 +37,10 @@ public class AccountManager {
         return instance;
     }
 
+    //Adds a new user
     public void addUser(String userName, String userPassword, String profilePictureUrl) {
         if (!users.containsKey(userName)) {
-            users.put(userName, new UserDatabase(userName, userPassword, profilePictureUrl));
+            users.put(userName, new User(userName, userPassword, profilePictureUrl));
             logIn(userName, userPassword);
         }
         else {
@@ -49,6 +48,7 @@ public class AccountManager {
         }
     }
 
+    //Method check username to password and if it matches logs in
     public boolean logIn(String userName, String userPassword) {
         if (users.get(userName).getUserPassword().equals(userPassword)) {
             activeUser = users.get(userName);
@@ -59,11 +59,11 @@ public class AccountManager {
         }
     }
 
-    public UserDatabase getActiveUser() {
+    public User getActiveUser() {
         return activeUser;
     }
 
-    public Map<String, UserDatabase> getUsers() {
+    public Map<String, User> getUsers() {
         return users;
     }
 }

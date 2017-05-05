@@ -1,30 +1,57 @@
 package tda367.myapplication.Model;
 
-import java.util.List;
-import java.util.Map;
-
 /**
- * Created by hannacarlsson on 2017-04-06.
+ * Created by hannacarlsson on 2017-04-07.
  */
 
-public interface User {
+public class User {
 
-    //Adds a new user
-    void addUser(String userName, String userPassword, String profilePictureUrl);
+    private static User user;
+
+    private String profilePicture;
+    private String userName;
+    private String userPassword;
+
+    private Statistics userStatistics;
+
+    public User(String userName, String userPassword, String profilePicture) {
+        this.userName = userName;
+        this.userPassword = userPassword;
+        this.profilePicture = profilePicture;
+    }
 
     //Updates a user
-    void updateUser(String newUserName, String newUserPassword, String newProfilePictureUrl);
-
-    //Method check username to password and if it matches logs in
-    boolean logIn(String userName, String userPassword);
+    public void updateUser(String newUserName, String newUserPassword, String newProfilePictureUrl) {
+        if (userName != newUserName) {
+            userName = newUserName;
+        }
+        if (userPassword != newUserPassword || profilePicture != newProfilePictureUrl) {
+            if (userPassword != newUserPassword && profilePicture != newProfilePictureUrl) {
+                userPassword = newUserPassword;
+                profilePicture = newProfilePictureUrl;
+            }
+            else if (userPassword != newUserPassword && profilePicture == newProfilePictureUrl) {
+                userPassword = newUserPassword;
+            }
+            else {
+                profilePicture = newProfilePictureUrl;
+            }
+        }
+    }
 
     //Method is called whenever a level is completed and saves the statistics from the level
-    void saveStatistics();
+    public void saveStatistics() {
 
-    //Gets the users name
-    String getUserName();
+    }
 
-    //Gets all the users "database"
-    Map<String, List<String>> getUsers();
+    //Returns the username
+    public String getUserName() {
+        return userName;
+    }
 
+    //Returns the password
+    public String getUserPassword() {
+        return userPassword;
+    }
+    
 }
