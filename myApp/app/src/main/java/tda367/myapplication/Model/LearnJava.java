@@ -15,14 +15,19 @@ public class LearnJava {
     private LevelModel[] category2 = new LevelModel[5];
     private LevelModel[] category3 = new LevelModel[5];
     private FileReader fileReader =  new FileReader();
+    private static LearnJava instance;
 
-
-    public LearnJava(){
+    public LearnJava(int i){
         levelHashMap = new HashMap<>();
         createCatArrays();
         fillHashMap();
     }
 
+    private LearnJava(){
+        if (instance == null){
+            instance = new LearnJava(6);
+        }
+    }
 
     public void getQuestion(String key){
         //hämta frågan från mapen, skapa rätt questionobject alt. skapa alla frågor vid instatnsiering och lägga dem i mapen.
