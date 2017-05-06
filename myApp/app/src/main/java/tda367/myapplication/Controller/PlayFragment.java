@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import tda367.myapplication.Model.LearnJava;
 import tda367.myapplication.R;
 
 
@@ -16,6 +17,9 @@ import tda367.myapplication.R;
  * A simple {@link Fragment} subclass.
  */
 public class PlayFragment extends Fragment implements View.OnClickListener {
+
+    public LearnJava learnJava = new LearnJava();
+
 
 
     public PlayFragment() {
@@ -49,14 +53,17 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
             case R.id.category1:
                 Intent intent1 = new Intent(getActivity(), LevelActivity.class);
                 startActivity(intent1);
+                learnJava.setCurrentCategory("category1");
                 break;
             case R.id.category2:
                 Intent intent2 = new Intent(getActivity(), LevelActivity.class);
                 startActivity(intent2);
+                learnJava.setCurrentCategory("category2");
                 break;
             case R.id.category3:
                 Intent intent3 = new Intent(getActivity(), LevelActivity.class);
                 startActivity(intent3);
+                learnJava.setCurrentCategory("category3");
                 break;
         }
     }
