@@ -34,7 +34,6 @@ public class QuestionMultiChoice extends AppCompatActivity {
         Button btn = (Button)findViewById(R.id.SubmitButton);
         textView = (TextView)findViewById(R.id.questionBox);
 
-        setQuestionText();
 
         System.out.println(getIntent().getStringExtra("ARG_QUESTION"));
 
@@ -82,11 +81,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
         System.out.println(answer);
     }
 
-    private void setQuestionText(){
-        LevelModel lm = LevelActivity.getItemFromList(0);
-        String infoText = lm.getQuestion();
-        textView.setText(infoText);
-    }
+
 
 
 

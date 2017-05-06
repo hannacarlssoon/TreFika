@@ -16,10 +16,13 @@ public class ModelFillBlanks extends Query  {
 
     public ModelFillBlanks (String question, String answer){
         this.question = question;
-        String[] answers = answer.split(",");
+        /*String[] answers = answer.split(",");
         this.answer1 = answers[0];
         this.answer2 = answers[1];
-        this.answer3 = answers[2];
+        this.answer3 = answers[2];*/
+        this.answer1= answer;
+        this.answer2= answer;
+        this.answer3= answer;
     }
 
 

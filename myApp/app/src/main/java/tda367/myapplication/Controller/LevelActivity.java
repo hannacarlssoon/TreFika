@@ -9,18 +9,19 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.view.View;
 
+import tda367.myapplication.Model.LearnJava;
 import tda367.myapplication.R;
 
 public class LevelActivity extends AppCompatActivity {
 
+    private LearnJava learnJava = LearnJava.getInstance();
     String infoText;
-    ActivityInfo ai;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level);
-        ai = new ActivityInfo();
 
         //Sets the toolbar and enables upnavigation, and sets the title
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);
@@ -61,7 +62,17 @@ public class LevelActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             startActivity(new Intent(LevelActivity.this, ActivityInfo.class));
+            learnJava.setCurrentLevel(getLevelId(v));
         }
     };
 
+    private int getLevelId(View view){
+        switch (view.getId()){
+            case R.id.firstButton : return 0;
+            case R.id.secondButton : return 1;
+            case R.id.thirdButton : return 2;
+            case R.id.fourthButton : return 3;
+        }
+       return 4;
+    }
 }

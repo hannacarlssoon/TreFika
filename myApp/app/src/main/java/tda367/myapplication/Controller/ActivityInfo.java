@@ -11,12 +11,14 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
+import tda367.myapplication.Model.LearnJava;
 import tda367.myapplication.Model.LevelModel;
 
 import tda367.myapplication.R;
 
 public class ActivityInfo extends AppCompatActivity {
 
+    LearnJava learnJava = LearnJava.getInstance();
     TextView textView;
 
     @Override
@@ -42,7 +44,6 @@ public class ActivityInfo extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ActivityInfo.this, FillInTheBlanks.class);
-                intent.putExtra("ARG_QUESTION", "strifdnd");
                 startActivity(intent);
             }
         });
@@ -62,9 +63,8 @@ public class ActivityInfo extends AppCompatActivity {
     }
 
     public void setInfoText() {
-        LevelModel lm = LevelActivity.getItemFromList(0);
-        String infoText = lm.getInfo();
-        textView.setText(infoText);
+        LevelModel[] levelModels = learnJava.levelHashMap.get(learnJava.getCurrentCategory());
+        textView.setText(levelModels[learnJava.getCurrentLevel()].getInfo());
     }
 
 

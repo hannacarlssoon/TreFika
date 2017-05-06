@@ -10,23 +10,33 @@ import tda367.myapplication.FileReader;
 
 public class LearnJava {
     private String currentCategory;
-    private HashMap<String, LevelModel[]> levelHashMap;
+    private int currentLevel;
+    public HashMap<String, LevelModel[]> levelHashMap;
     private LevelModel[] category1= new LevelModel[5];
     private LevelModel[] category2 = new LevelModel[5];
     private LevelModel[] category3 = new LevelModel[5];
     private FileReader fileReader =  new FileReader();
     private static LearnJava instance;
 
-    public LearnJava(int i){
+    private LearnJava(){
         levelHashMap = new HashMap<>();
         createCatArrays();
         fillHashMap();
     }
 
-    private LearnJava(){
-        if (instance == null){
-            instance = new LearnJava(6);
+    public String getCurrentCategory(){
+        return currentCategory;
+    }
+
+    public int getCurrentLevel(){
+        return currentLevel;
+    }
+
+    public static LearnJava getInstance(){
+        if(instance == null){
+            instance = new LearnJava();
         }
+        return instance;
     }
 
     public void getQuestion(String key){
@@ -42,6 +52,9 @@ public class LearnJava {
         currentCategory = s;
     }
 
+    public void setCurrentLevel(int i){
+        currentLevel = i;
+    }
     private void createCatArrays(){
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 5; j++) {

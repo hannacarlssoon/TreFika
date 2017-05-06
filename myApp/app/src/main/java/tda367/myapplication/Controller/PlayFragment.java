@@ -18,7 +18,7 @@ import tda367.myapplication.R;
  */
 public class PlayFragment extends Fragment implements View.OnClickListener {
 
-    public LearnJava learnJava = new LearnJava();
+    public LearnJava learnJava = LearnJava.getInstance();
 
 
 
