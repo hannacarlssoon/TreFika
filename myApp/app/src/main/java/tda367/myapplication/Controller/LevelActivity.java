@@ -8,14 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.view.View;
-import android.widget.TextView;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-
-import tda367.myapplication.Model.LevelModel;
 import tda367.myapplication.R;
 
 public class LevelActivity extends AppCompatActivity {
@@ -27,7 +20,6 @@ public class LevelActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level);
-        Button btn = (Button)findViewById(R.id.firstButton);
         ai = new ActivityInfo();
 
         //Sets the toolbar and enables upnavigation, and sets the title
@@ -36,26 +28,17 @@ public class LevelActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Levels");
 
-
         Button firstBtn = (Button)findViewById(R.id.firstButton);
         Button secondBtn = (Button)findViewById(R.id.secondButton);
         Button thirdBtn = (Button)findViewById(R.id.thirdButton);
         Button fourthBtn = (Button)findViewById(R.id.fourthButton);
+        Button bossBtn = (Button)findViewById(R.id.bossButton);
 
         firstBtn.setOnClickListener(buttonListener);
         secondBtn.setOnClickListener(buttonListener);
         thirdBtn.setOnClickListener(buttonListener);
         fourthBtn.setOnClickListener(buttonListener);
-
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LevelActivity.this, ActivityInfo.class));
-                //ai.setInfoText();
-            }
-        });
-
-
+        bossBtn.setOnClickListener(buttonListener);
     }
 
     public void onButtonClick(View view){
@@ -73,5 +56,12 @@ public class LevelActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    private Button.OnClickListener buttonListener = new Button.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            startActivity(new Intent(LevelActivity.this, ActivityInfo.class));
+        }
+    };
 
 }
