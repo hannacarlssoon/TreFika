@@ -11,11 +11,8 @@
 
     <include
         layout="@layout/toolbar_layout"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="56dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginTop="0dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -49,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/include" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/secondButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginEnd="40dp"
@@ -62,35 +59,35 @@
         app:layout_constraintTop_toBottomOf="@+id/include" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/thirdButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_marginEnd="40dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="242dp"
         android:background="@drawable/roundbuttons"
-        android:text="@string/Level3"
         android:onClick="onButtonClick"
+        android:text="@string/Level3"
         app:layout_constraintHorizontal_bias="0.607"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/SubmitButton"
+        android:id="@+id/fourthButton"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_marginEnd="40dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="258dp"
         android:background="@drawable/roundbuttons"
         android:text="@string/Level4"
         app:layout_constraintHorizontal_bias="0.166"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginStart="40dp"
-        android:layout_marginEnd="40dp"
         app:layout_constraintTop_toBottomOf="@+id/include" />
 </android.support.constraint.ConstraintLayout>

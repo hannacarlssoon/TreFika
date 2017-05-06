@@ -16,7 +16,7 @@ public class LevelModel {
         this.info = info;
         this.hint = hint;
         if (questionNumber > 4){
-            //TODO Skapa view för kompilaring av kod och model
+            //TODO Skapa view för kompilering av kod och model
         }
         else if ( questionNumber % 2 == 0){
             query = new MultiChoice(question, answer);

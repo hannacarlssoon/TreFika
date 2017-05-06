@@ -37,6 +37,16 @@ public class LevelActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Levels");
 
 
+        Button firstBtn = (Button)findViewById(R.id.firstButton);
+        Button secondBtn = (Button)findViewById(R.id.secondButton);
+        Button thirdBtn = (Button)findViewById(R.id.thirdButton);
+        Button fourthBtn = (Button)findViewById(R.id.fourthButton);
+
+        firstBtn.setOnClickListener(buttonListener);
+        secondBtn.setOnClickListener(buttonListener);
+        thirdBtn.setOnClickListener(buttonListener);
+        fourthBtn.setOnClickListener(buttonListener);
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,6 +54,7 @@ public class LevelActivity extends AppCompatActivity {
                 //ai.setInfoText();
             }
         });
+
 
     }
 
