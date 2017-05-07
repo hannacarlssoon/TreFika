@@ -11,7 +11,7 @@ import java.net.*;
 public class Server {
 
     private String userCode;
-    private String compiledCode;
+    private File compiledCode;
     private ObjectOutputStream output;
     private ObjectInputStream input;
     private ServerSocket server;
@@ -64,7 +64,7 @@ public class Server {
         try {
             output.writeObject(userCode);
             output.flush();
-            compiledCode = (String) input.readObject();
+            compiledCode = (File) input.readObject();
             System.out.println(compiledCode);
         } catch (IOException io) {
 
@@ -85,8 +85,8 @@ public class Server {
         }
     }
 
-    public String getCompiledCode(){
+   /* public File getCompiledCode(){
         return this.compiledCode;
     }
-
+*/
 }
