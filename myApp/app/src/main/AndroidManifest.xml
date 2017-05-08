@@ -63,7 +63,13 @@
             android:value="@string/facebook_app_id" />
 
 
-        <activity android:name=".Controller.SignUp"></activity>
+        <activity android:name=".Controller.SignUpActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
     </application>
 

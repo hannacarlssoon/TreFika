@@ -1,5 +1,7 @@
 package tda367.myapplication.Model;
 
+import android.graphics.drawable.Drawable;
+
 /**
  * Created by hannacarlsson on 2017-04-07.
  */
@@ -8,14 +10,14 @@ public class User {
 
     private static User user;
 
-    private String profilePicture;
+    private Drawable profilePicture;
     private String userName;
     private String userPassword;
 
     private Statistics userStatistics;
 
     //TODO kolla ifall statistic fungerar att spara
-    public User(String userName, String userPassword, String profilePicture) {
+    public User(String userName, String userPassword, Drawable profilePicture) {
         this.userName = userName;
         this.userPassword = userPassword;
         this.profilePicture = profilePicture;
@@ -23,14 +25,14 @@ public class User {
     }
 
     //Updates a user
-    public void updateUser(String newUserName, String newUserPassword, String newProfilePictureUrl) {
+    public void updateUser(String newUserName, String newUserPassword, Drawable newProfilePictureUrl) {
         if (userName != newUserName) {
             userName = newUserName;
         }
         if (userPassword != newUserPassword) {
             userPassword = newUserPassword;
         }
-        if (profilePicture != newProfilePictureUrl) {
+        if (profilePicture.equals(newProfilePictureUrl)) {
             profilePicture = newProfilePictureUrl;
         }
     }
@@ -55,6 +57,11 @@ public class User {
     //Returns the statistics
     public Statistics getUserStatistics() {
         return userStatistics;
+    }
+
+    //Sets the profilepiture when it's choosen
+    public void setProfilePicture(Drawable profilePicture) {
+        this.profilePicture = profilePicture;
     }
     
 }

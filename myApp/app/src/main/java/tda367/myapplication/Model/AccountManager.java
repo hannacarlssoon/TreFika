@@ -1,5 +1,7 @@
 package tda367.myapplication.Model;
 
+import android.graphics.drawable.Drawable;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -41,26 +43,23 @@ public class AccountManager {
     }
 
     //Adds a new user
-    public boolean addUser(String userName, String userPassword, String profilePictureUrl) {
+    public void addUser(String userName, String userPassword, Drawable profilePictureUrl) {
         if (!users.containsKey(userName)) {
             users.put(userName, new User(userName, userPassword, profilePictureUrl));
             logIn(userName, userPassword);
-            return true;
         }
         else {
             System.out.println("Username already exists");
-            return false;
         }
     }
 
     //Method check username to password and if it matches logs in
-    public boolean logIn(String userName, String userPassword) {
+    //TODO exceptions
+    public void logIn(String userName, String userPassword) {
         if (users.get(userName).getUserPassword().equals(userPassword)) {
             activeUser = users.get(userName);
-            return true;
         } else {
             System.out.println("User name or password is incorrect");
-            return false;
         }
     }
 

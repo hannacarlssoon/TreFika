@@ -3,34 +3,16 @@ package tda367.myapplication.Controller;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AlertDialog;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.facebook.CallbackManager;
-import com.facebook.FacebookAuthorizationException;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
-import com.facebook.FacebookSdk;
-import com.facebook.login.LoginManager;
-import com.facebook.login.LoginResult;
-import com.facebook.login.widget.LoginButton;
-import com.facebook.share.Sharer;
 
 import tda367.myapplication.Model.AccountManager;
-import tda367.myapplication.Model.User;
 import tda367.myapplication.R;
-
-import static tda367.myapplication.R.id.view;
 
 
 /**
@@ -81,7 +63,7 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.signIn:
-                if (AccountManager.getInstance().logIn(userName.getText().toString(), password.getText().toString())) {
+                if (isPasswordCorrect(userName.getText().toString(), password.getText().toString())) {
                     incorrectLogIn.setText("");
                     AccountManager.getInstance().logIn(userName.getText().toString(), password.getText().toString());
                 } else {
@@ -89,10 +71,14 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
                 }
                 break;
             case R.id.signUp:
-                Intent intent = new Intent(getActivity(), SignUp.class);
+                Intent intent = new Intent(getActivity(), SignUpActivity.class);
                 startActivity(intent);
                 break;
         }
+    }
+
+    private boolean isPasswordCorrect(String username, String password) {
+        return AccountManager.getInstance().getUsers().get(username).getUserPassword().equals(password);
     }
 
 
