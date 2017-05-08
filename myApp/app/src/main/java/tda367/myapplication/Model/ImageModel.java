@@ -54,8 +54,7 @@ public class ImageModel {
         File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
             try {
                 File f = new File(directory, path);
-                image = Drawable.createFromStream(new FileInputStream(f), path);
-                return image;
+                return Drawable.createFromStream(new FileInputStream(f), path);
             }
             catch (FileNotFoundException e)
             {

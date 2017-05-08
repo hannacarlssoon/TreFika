@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import tda367.myapplication.Model.AccountManager;
 import tda367.myapplication.R;
@@ -26,7 +27,6 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
     private Button signUp;
     private EditText userName;
     private EditText password;
-    private TextView incorrectLogIn;
 
 
     public SignInFragment() {
@@ -49,8 +49,6 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
         signUp = (Button) view.findViewById(R.id.signUp);
         userName = (EditText) view.findViewById(R.id.userName);
         password = (EditText) view.findViewById(R.id.Password);
-        incorrectLogIn = (TextView) view.findViewById(R.id.incorrectLogIn);
-
 
         signIn.setOnClickListener(this);
         signUp.setOnClickListener(this);
@@ -64,10 +62,10 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
         switch (view.getId()) {
             case R.id.signIn:
                 if (isPasswordCorrect(userName.getText().toString(), password.getText().toString())) {
-                    incorrectLogIn.setText("");
                     AccountManager.getInstance().logIn(userName.getText().toString(), password.getText().toString());
                 } else {
-                    incorrectLogIn.setText("Incorrect username or password");
+                    Toast.makeText(getContext(), "Wrong username or password",
+                            Toast.LENGTH_LONG).show();
                 }
                 break;
             case R.id.signUp:
