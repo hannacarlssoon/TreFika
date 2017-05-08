@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="tda367.myapplication">
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -45,10 +46,11 @@
         <activity android:name=".controller.FillInTheBlanks"
 
             android:parentActivityName=".controller.ActivityInfo">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".controller.OutprintQuestion" />
@@ -63,6 +65,7 @@
             android:value="@string/facebook_app_id" />
 
 
+
         <activity android:name=".controller.SignUpActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -70,6 +73,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".controller.WriteCode"></activity>
 
     </application>
 
