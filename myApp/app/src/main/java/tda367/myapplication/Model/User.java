@@ -17,10 +17,9 @@ public class User {
     private Statistics userStatistics;
 
     //TODO kolla ifall statistic fungerar att spara
-    public User(String userName, String userPassword, Drawable profilePicture) {
+    public User(String userName, String userPassword) {
         this.userName = userName;
         this.userPassword = userPassword;
-        this.profilePicture = profilePicture;
         userStatistics = new Statistics();
     }
 
@@ -59,7 +58,7 @@ public class User {
         return userStatistics;
     }
 
-    //Sets the profilepiture when it's choosen
+    //Sets the profile piture when it's chosen
     public void setProfilePicture(Drawable profilePicture) {
         this.profilePicture = profilePicture;
     }

@@ -43,9 +43,9 @@ public class AccountManager {
     }
 
     //Adds a new user
-    public void addUser(String userName, String userPassword, Drawable profilePictureUrl) {
+    public void addUser(String userName, String userPassword) {
         if (!users.containsKey(userName)) {
-            users.put(userName, new User(userName, userPassword, profilePictureUrl));
+            users.put(userName, new User(userName, userPassword));
             logIn(userName, userPassword);
         }
         else {
@@ -56,11 +56,14 @@ public class AccountManager {
     //Method check username to password and if it matches logs in
     //TODO exceptions
     public void logIn(String userName, String userPassword) {
-        if (users.get(userName).getUserPassword().equals(userPassword)) {
-            activeUser = users.get(userName);
-        } else {
-            System.out.println("User name or password is incorrect");
+         try {
+             activeUser = users.get(userName);
+             activeUser.setProfilePicture(ImageModel.loadImage(userName));
+         } catch(NullPointerException e) {
+             System.out.println("User doesn't exist");
+            e.printStackTrace();
         }
+
     }
 
     public User getActiveUser() {

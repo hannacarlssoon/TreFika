@@ -26,8 +26,9 @@ import static com.facebook.FacebookSdk.getApplicationContext;
 
 public class ImageModel {
 
+    static Drawable image;
 
-    public void saveImage(int requestCode, int resultCode, Intent data, Activity activity, String username) {
+    public static void saveImage(int requestCode, int resultCode, Intent data, Activity activity, String username) {
         if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
             Uri selectedImage = data.getData();
             Bitmap bitmap = null;
@@ -48,12 +49,13 @@ public class ImageModel {
         }
     }
 
-    public Drawable loadImage(String path) {
+    public static Drawable loadImage(String path) {
         ContextWrapper cw = new ContextWrapper(getApplicationContext());
         File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
             try {
                 File f = new File(directory, path);
-                return Drawable.createFromStream(new FileInputStream(f), path);
+                image = Drawable.createFromStream(new FileInputStream(f), path);
+                return image;
             }
             catch (FileNotFoundException e)
             {
@@ -61,6 +63,5 @@ public class ImageModel {
             }
         return null;
     }
-
 
 }

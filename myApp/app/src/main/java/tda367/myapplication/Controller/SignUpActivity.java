@@ -71,8 +71,7 @@ public class SignUpActivity extends AppCompatActivity {
                 //TODO profile picture
                 if (!checkIfUserExists(username.getText().toString())) {
                     wrongUsername.setText("");
-                    AccountManager.getInstance().addUser(username.getText().toString(), password.getText().toString(),
-                            imageModel.loadImage(username.getText().toString()));
+                    AccountManager.getInstance().addUser(username.getText().toString(), password.getText().toString());
                     startActivity(new Intent(SignUpActivity.this, PlayFragment.class));
                 } else {
                     wrongUsername.setText("The username already exists");
