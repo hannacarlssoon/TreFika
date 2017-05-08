@@ -10,10 +10,10 @@ public class ServerTest {
 
     public static void main (String[] args){
         StringBuilder sb = new StringBuilder();
-                sb.append("for (int i=0; i<10; i++ ) {\n" + "print(\"Hejsan svejsan\");\n" + "}");
+                sb.append("for int i=0; i<10; i++ ){ \n" + "print(\"Tjo\");\n" + "}");
 
 
-        Server s1 = new Server(sb.toString());
-        s1.startRunning();
+        Server server = new Server("127.0.0.1", sb.toString());
+        server.startRunning();
     }
 }
