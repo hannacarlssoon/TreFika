@@ -33,8 +33,6 @@ public class SignUp extends AppCompatActivity {
             }
         });
 
-        AccountManager.getInstance().getActiveUser().getUserName();
-
     }
 
 

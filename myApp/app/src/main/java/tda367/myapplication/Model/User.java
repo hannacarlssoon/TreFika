@@ -14,10 +14,12 @@ public class User {
 
     private Statistics userStatistics;
 
+    //TODO kolla ifall statistic fungerar att spara
     public User(String userName, String userPassword, String profilePicture) {
         this.userName = userName;
         this.userPassword = userPassword;
         this.profilePicture = profilePicture;
+        userStatistics = new Statistics();
     }
 
     //Updates a user
@@ -34,8 +36,10 @@ public class User {
     }
 
     //Method is called whenever a level is completed and saves the statistics from the level
-    public void saveStatistics() {
-
+    public void saveStatistics(int levelIndex, boolean isKeyUsed, Integer nHints) {
+        userStatistics.saveStatisticsTime(levelIndex);
+        userStatistics.saveStatisticsKey(levelIndex, isKeyUsed);
+        userStatistics.saveStatisticsHint(levelIndex, nHints);
     }
 
     //Returns the username
@@ -46,6 +50,11 @@ public class User {
     //Returns the password
     public String getUserPassword() {
         return userPassword;
+    }
+
+    //Returns the statistics
+    public Statistics getUserStatistics() {
+        return userStatistics;
     }
     
 }

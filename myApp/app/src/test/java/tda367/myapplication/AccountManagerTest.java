@@ -31,6 +31,5 @@ public class AccountManagerTest {
         am.addUser("Hanna", "Password", "url");
         assertTrue(am.logIn("Hanna", "Password"));
         assertTrue(!am.logIn("Hanna", "password"));
-
     }
 }

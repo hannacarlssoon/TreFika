@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.facebook.CallbackManager;
@@ -25,6 +26,7 @@ import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.facebook.share.Sharer;
 
+import tda367.myapplication.Model.AccountManager;
 import tda367.myapplication.Model.User;
 import tda367.myapplication.R;
 
@@ -42,7 +44,7 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
     private Button signUp;
     private EditText userName;
     private EditText password;
-    private User user;
+    private TextView incorrectLogIn;
 
 
     public SignInFragment() {
@@ -65,6 +67,8 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
         signUp = (Button) view.findViewById(R.id.signUp);
         userName = (EditText) view.findViewById(R.id.userName);
         password = (EditText) view.findViewById(R.id.Password);
+        incorrectLogIn = (TextView) view.findViewById(R.id.incorrectLogIn);
+
 
         signIn.setOnClickListener(this);
         signUp.setOnClickListener(this);
@@ -77,8 +81,11 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.signIn:
-                if (userName.getText() != null && password.getText() != null) {
-                    //user.logIn(userName.getText().toString(), password.getText().toString());
+                if (AccountManager.getInstance().logIn(userName.getText().toString(), password.getText().toString())) {
+                    incorrectLogIn.setText("");
+                    AccountManager.getInstance().logIn(userName.getText().toString(), password.getText().toString());
+                } else {
+                    incorrectLogIn.setText("Incorrect username or password");
                 }
                 break;
             case R.id.signUp:
