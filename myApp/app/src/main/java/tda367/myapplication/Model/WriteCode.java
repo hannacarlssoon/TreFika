@@ -19,11 +19,15 @@ public class WriteCode {
         this.answer= answer;
     }
 
-    public boolean checkAnswer(){
+    public boolean checkAnswer(String userAnswer){
         compileCode(userAnswer);
-        if(userAnswer.equals("Error")){
+        System.out.println("Correct: " + answer);
+        System.out.println("compUser: " + compUserAnswer);
+        System.out.println("Error: " + compUserAnswer.equals("Error"));
+        System.out.println("Wrong answer: " + compUserAnswer.equals(answer));
+        if(compUserAnswer.equals("Error")){
             return false;
-        } else if (!userAnswer.equals(answer)){
+        } else if (compUserAnswer.equals(answer)){
             return false;
         }
         return true;

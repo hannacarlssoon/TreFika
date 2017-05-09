@@ -76,6 +76,7 @@
 
         <activity android:name=".controller.WriteCode"></activity>
 
+
     </application>
 
 </manifest>
