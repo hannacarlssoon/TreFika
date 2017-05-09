@@ -62,5 +62,4 @@ public class ImageModel {
             }
         return null;
     }
-
 }
