@@ -37,7 +37,8 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.constraintlayout_for_fragment, new PlayFragment()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.constraintlayout_for_fragment,
+                    new PlayFragment()).commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -102,7 +103,7 @@ public class MainActivity extends AppCompatActivity
             manager.beginTransaction().replace(R.id.constraintlayout_for_fragment,
                     signInFragment,
                     signInFragment.getTag()).commit();
-
+            System.out.println("Hej");
         } else if (id == R.id.nav_achievements) {
             AcheivementsFragment acheivementsFragment = new AcheivementsFragment();
             FragmentManager manager = getSupportFragmentManager();
@@ -147,6 +148,7 @@ public class MainActivity extends AppCompatActivity
 
    }
 
+   //TODO Fix
    @Override
     public void onDestroy() {
        super.onDestroy();
