@@ -14,11 +14,15 @@ public class MultiChoice extends Query {
         this.answer = answer;
     }
 
+    public void setUserAnswer(String userAnswer){
+        this.userAnswer = userAnswer;
+    }
+
 
     //Checks if the answer the user has selected is correct.
     @Override
-    public boolean checkAnswer(String answer) {
-        return answer.equals(this.answer);
+    public boolean checkAnswer() {
+        return answer.equals(userAnswer);
     }
 
    /* @Override

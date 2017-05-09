@@ -41,4 +41,8 @@ public class LevelModel {
     public String getInfo(){
         return this.info;
     }
+
+    public boolean checkAnswer(){
+        return true;
+    }
 }
