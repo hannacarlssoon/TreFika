@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="tda367.myapplication.Controller.StatisticsFragment">
+    tools:context="tda367.myapplication.controller.StatisticsFragment">
 
     <TextView
         android:id="@+id/textView5"

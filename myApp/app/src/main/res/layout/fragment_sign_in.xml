@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="tda367.myapplication.Controller.SignInFragment">
+    tools:context="tda367.myapplication.controller.SignInFragment">
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="275dp"

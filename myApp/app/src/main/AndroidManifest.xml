@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Controller.MainActivity"
+            android:name=".controller.MainActivity"
             android:label="@string/title_activity_navigation_drawer"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
@@ -24,7 +24,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Controller.PassedLevel"
+            android:name=".controller.PassedLevel"
             android:theme="@style/AppTheme.popup">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,29 +33,29 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Controller.ActivityInfo"
-            android:parentActivityName=".Controller.LevelActivity" />
+            android:name=".controller.ActivityInfo"
+            android:parentActivityName=".controller.LevelActivity" />
         <activity
-            android:name=".Controller.QuestionMultiChoice"
-            android:parentActivityName=".Controller.LevelActivity" />
+            android:name=".controller.QuestionMultiChoice"
+            android:parentActivityName=".controller.LevelActivity" />
         <activity
-            android:name=".Controller.FailedLevel"
+            android:name=".controller.FailedLevel"
             android:theme="@style/AppTheme.popup" />
 
-        <activity android:name=".Controller.FillInTheBlanks"
+        <activity android:name=".controller.FillInTheBlanks"
 
-            android:parentActivityName=".Controller.ActivityInfo">
+            android:parentActivityName=".controller.ActivityInfo">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
             <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Controller.OutprintQuestion" />
+        <activity android:name=".controller.OutprintQuestion" />
         <activity
-            android:name=".Controller.LevelActivity"
+            android:name=".controller.LevelActivity"
             android:label="@string/app_name"
-            android:parentActivityName=".Controller.MainActivity" />
+            android:parentActivityName=".controller.MainActivity" />
 
         <!-- Login with facebook stuff -->
         <meta-data
@@ -63,7 +63,7 @@
             android:value="@string/facebook_app_id" />
 
 
-        <activity android:name=".Controller.SignUpActivity">
+        <activity android:name=".controller.SignUpActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

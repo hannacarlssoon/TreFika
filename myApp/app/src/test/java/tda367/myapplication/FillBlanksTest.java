@@ -3,8 +3,7 @@ package tda367.myapplication;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-import tda367.myapplication.Controller.FillInTheBlanks;
-import tda367.myapplication.Model.ModelFillBlanks;
+import tda367.myapplication.model.ModelFillBlanks;
 
 /**
  * Created by Sara on 2017-04-07.

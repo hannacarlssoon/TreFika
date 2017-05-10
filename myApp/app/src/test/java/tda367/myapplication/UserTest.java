@@ -2,14 +2,7 @@ package tda367.myapplication;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-import tda367.myapplication.Model.AccountManager;
-import tda367.myapplication.Model.User;
-
-import static org.junit.Assert.*;
+import tda367.myapplication.model.AccountManager;
 
 /**
  * Created by hannacarlsson on 2017-04-07.

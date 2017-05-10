@@ -2,12 +2,7 @@ package tda367.myapplication;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-import tda367.myapplication.Model.AccountManager;
-import tda367.myapplication.Model.User;
+import tda367.myapplication.model.AccountManager;
 
 import static org.junit.Assert.assertTrue;
 

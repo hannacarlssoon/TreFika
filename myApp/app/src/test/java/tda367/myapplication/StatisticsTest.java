@@ -2,7 +2,7 @@ package tda367.myapplication;
 
 import org.junit.Test;
 
-import tda367.myapplication.Model.Statistics;
+import tda367.myapplication.model.Statistics;
 
 import static org.junit.Assert.*;
 
