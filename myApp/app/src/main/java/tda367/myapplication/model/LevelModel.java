@@ -19,7 +19,7 @@ public class LevelModel {
             //TODO Skapa view för kompilering av kod och model
         }
         else if ( questionNumber % 2 == 0){
-            query = new MultiChoice(question, answer);
+            this.query = new MultiChoice(question, answer);
         }
         else if(questionNumber % 2 == 1){
             query = new ModelFillBlanks(question, answer);
@@ -38,11 +38,19 @@ public class LevelModel {
         return this.answer;
     }
 
+    public Query getQuery(){
+        return this.query;
+    }
+
+    public String getHint() {
+        return hint;
+    }
+
     public String getInfo(){
         return this.info;
     }
 
     public boolean checkAnswer(){
-        return true;
+        return query.checkAnswer();
     }
 }

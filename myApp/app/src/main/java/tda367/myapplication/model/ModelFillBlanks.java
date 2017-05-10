@@ -12,8 +12,6 @@ public class ModelFillBlanks extends Query  {
     private String userAnswer1;
     private String userAnswer2;
     private String userAnswer3;
-    private String userAnswer;
-
 
     public ModelFillBlanks (String question, String answer){
         this.question = question;
@@ -26,9 +24,13 @@ public class ModelFillBlanks extends Query  {
         this.answer3= answer;
     }
 
+    @Override
+    public String getQuestion() {
+        return question;
+    }
 
     @Override
-    public boolean checkAnswer() {
+    public boolean checkAnswer(String userAnswer) {
        String[] answers = userAnswer.split(",");
         this.userAnswer1 = answers[0];
         this.userAnswer2 = answers[1];

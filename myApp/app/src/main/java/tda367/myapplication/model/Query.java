@@ -12,10 +12,9 @@ public abstract class Query {
     public void getKey(){
     }
 
-    public void getQuestion(){
-    }
+    public abstract String getQuestion();
 
-    public abstract boolean checkAnswer();
+    public abstract boolean checkAnswer(String userAnswer);
 
     //public abstract void getInput(String answer);
 

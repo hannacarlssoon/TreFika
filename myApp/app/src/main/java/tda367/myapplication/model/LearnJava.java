@@ -2,11 +2,10 @@ package tda367.myapplication.model;
 
 import java.util.HashMap;
 
-import tda367.myapplication.service.FileReader;
 
 /**
- * Created by madeleine on 2017-04-07. Tobias och Madeleine har byggt den här klassen gemensamt.
- *
+ * Created by madeleine on 2017-04-07. Tobias och Madeleine har byggt den här klassen gemmensamt.
+ * This class is responsible for maintaing and storing the hashmap containging all the level objects.
  */
 
 public class LearnJava {
@@ -42,13 +41,18 @@ public class LearnJava {
         return instance;
     }
 
-    public void getQuestion(String key){
+    public String getQuestion(){
+        return getQuery().getQuestion();
         //hämta frågan från mapen, skapa rätt questionobject alt. skapa alla frågor vid instatnsiering och lägga dem i mapen.
     }
 
-    public boolean checkAnswer(String userAnswer, String key){
-        //getQuestion
+    public Query getQuery(){
+       return levelHashMap.get(currentCategory)[currentLevel].getQuery();
+    }
+
+    public boolean checkAnswer(String userAnswer){
         //anropa frågans checkAnswer metod
+        getQuery().checkAnswer(userAnswer);
         return false;
     }
     public void setCurrentCategory(String s){

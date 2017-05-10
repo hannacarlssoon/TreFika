@@ -7,23 +7,24 @@ package tda367.myapplication.model;
 public class MultiChoice extends Query {
     private final String answer;
     private final String question;
-    private String userAnswer;
 
     public MultiChoice(String question, String answer){
         this.question = question;
         this.answer = answer;
     }
 
-    public void setUserAnswer(String userAnswer){
-        this.userAnswer = userAnswer;
+    @Override
+    public String getQuestion() {
+        return question;
     }
 
 
     //Checks if the answer the user has selected is correct.
     @Override
-    public boolean checkAnswer() {
-        return answer.equals(userAnswer);
+    public boolean checkAnswer(String userAnswer) {
+        return false;
     }
+
 
    /* @Override
     public void getInput(String answer) {
