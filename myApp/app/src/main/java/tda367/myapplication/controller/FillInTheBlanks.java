@@ -11,16 +11,18 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import tda367.myapplication.R;
+import tda367.myapplication.model.LearnJava;
 
 public class FillInTheBlanks extends AppCompatActivity {
     Button submit;
     EditText textAnswer1;
     EditText textAnswer2;
     EditText textAnswer3;
-    private String answer;
+    private String userAnswer;
     private String answer1;
     private String answer2;
     private String answer3;
+    private LearnJava learnJava = LearnJava.getInstance();
 
 
     @Override
@@ -47,15 +49,15 @@ public class FillInTheBlanks extends AppCompatActivity {
             public void onClick(View v) {
                 setAnswer();
                 //TODO handle no input from user
-                //TODO add the actual call to ModelFillBlanks
-                //if(chechAnswer(answer)){
-                startActivity(new Intent(FillInTheBlanks.this, PassedLevel.class));
-              /*   }
+                if(answer1.equals(null) || answer2.equals(null) || answer3.equals(null)){
+                    //todo display a message to the user that there was input missing
+                }
+                else if(learnJava.getLevelModel().checkAnswer(userAnswer)){
+                    startActivity(new Intent(FillInTheBlanks.this, PassedLevel.class));
+                }
                 else {
                 startActivity(new Intent(FillInTheBlanks.this, FailedLevel.class));
                 }
-
-                 */
             }
         });
     }
@@ -78,6 +80,6 @@ public class FillInTheBlanks extends AppCompatActivity {
        answer2 = FillInTheBlanks.this.textAnswer2.getText().toString();
        answer3 = FillInTheBlanks.this.textAnswer3.getText().toString();
 
-       answer = answer1 + "," + answer2 + "," + answer3;
+       userAnswer = answer1 + "," + answer2 + "," + answer3;
     }
 }

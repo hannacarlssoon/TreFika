@@ -50,7 +50,8 @@ public class LevelModel {
         return this.info;
     }
 
-    public boolean checkAnswer(){
-        return query.checkAnswer();
+    public boolean checkAnswer(String userAnswer){
+        //anropa frågans checkAnswer metod
+        return query.checkAnswer(userAnswer);
     }
 }

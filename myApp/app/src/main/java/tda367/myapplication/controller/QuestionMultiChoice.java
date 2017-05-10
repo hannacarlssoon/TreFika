@@ -12,6 +12,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import tda367.myapplication.model.LearnJava;
 import tda367.myapplication.model.Query;
 import tda367.myapplication.R;
 
@@ -20,9 +21,11 @@ public class QuestionMultiChoice extends AppCompatActivity {
     private RadioGroup radioAnswerGroup;
     private RadioButton radioAnswerButton;
     private Button submitButton;
-    private String answer;
+    private String userAnswer;
     private TextView textView;
     private Query model;
+    private LearnJava learnJava = LearnJava.getInstance();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,13 +50,16 @@ public class QuestionMultiChoice extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 setSelectedAnswer();
-                // if(checkAnswer()){
-                startActivity(new Intent(QuestionMultiChoice.this, PassedLevel.class));
-            /* }
-            else{
-            startActivity(new Intent(QuestionMultiChoice.this, FailedLevel.class));
-            }
-             */
+                //TODO handle no input from user
+                if(radioAnswerButton == null){
+                    //todo display a message to the user that there was input missing
+                }
+                else if(learnJava.getLevelModel().checkAnswer(userAnswer)){
+                    startActivity(new Intent(QuestionMultiChoice.this, PassedLevel.class));
+                }
+                else {
+                    startActivity(new Intent(QuestionMultiChoice.this, FailedLevel.class));
+                }
             }
         });
     }
@@ -75,8 +81,8 @@ public class QuestionMultiChoice extends AppCompatActivity {
     protected void setSelectedAnswer(){
         int selectedId = radioAnswerGroup.getCheckedRadioButtonId();
         radioAnswerButton = (RadioButton)findViewById(selectedId);
-        answer = (String) radioAnswerButton.getText();
-        System.out.println(answer);
+        userAnswer = (String) radioAnswerButton.getText();
+        System.out.println(userAnswer);
     }
 
 

@@ -22,7 +22,7 @@ public class MultiChoice extends Query {
     //Checks if the answer the user has selected is correct.
     @Override
     public boolean checkAnswer(String userAnswer) {
-        return false;
+        return answer.equals(userAnswer);
     }
 
 

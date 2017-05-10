@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 /**
  * Created by madeleine on 2017-04-07. Tobias och Madeleine har byggt den här klassen gemmensamt.
- * This class is responsible for maintaing and storing the hashmap containging all the level objects.
+ * This class is responsible for maintaining and storing the hashmap containing all the level objects.
  */
 
 public class LearnJava {
@@ -46,15 +46,14 @@ public class LearnJava {
         //hämta frågan från mapen, skapa rätt questionobject alt. skapa alla frågor vid instatnsiering och lägga dem i mapen.
     }
 
+    public LevelModel getLevelModel(){
+        return levelHashMap.get(currentCategory)[currentLevel];
+    }
+
     public Query getQuery(){
        return levelHashMap.get(currentCategory)[currentLevel].getQuery();
     }
 
-    public boolean checkAnswer(String userAnswer){
-        //anropa frågans checkAnswer metod
-        getQuery().checkAnswer(userAnswer);
-        return false;
-    }
     public void setCurrentCategory(String s){
         currentCategory = s;
     }
