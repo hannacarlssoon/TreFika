@@ -31,9 +31,9 @@ public class ModelFillBlanks extends Query  {
     @Override
     public boolean checkAnswer(String userAnswer) {
        String[] answers = userAnswer.split(",");
-        this.userAnswer1 = answers[0];
-        this.userAnswer2 = answers[1];
-        this.userAnswer3 = answers[2];
+        this.userAnswer1 = answers[0].replaceAll("\\s", "");
+        this.userAnswer2 = answers[1].replaceAll("\\s", "");
+        this.userAnswer3 = answers[2].replaceAll("\\s", "");
         return userAnswer1.equals(answer1) && userAnswer2.equals(answer2) && userAnswer3.equals(answer3);
     }
 
