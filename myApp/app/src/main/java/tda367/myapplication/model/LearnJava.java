@@ -6,6 +6,7 @@ import java.util.HashMap;
 /**
  * Created by madeleine on 2017-04-07. Tobias och Madeleine har byggt den här klassen gemmensamt.
  * This class is responsible for maintaining and storing the hashmap containing all the level objects.
+ * Uses HashMapCreator
  */
 
 public class LearnJava {

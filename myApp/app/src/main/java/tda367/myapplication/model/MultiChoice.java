@@ -2,6 +2,7 @@ package tda367.myapplication.model;
 
 /**
  * Created by madeleine on 2017-04-07.
+ * This class handles the logic for the multichoice question, checking the answer, uses query
  */
 
 public class MultiChoice extends Query {
@@ -24,10 +25,4 @@ public class MultiChoice extends Query {
     public boolean checkAnswer(String userAnswer) {
         return answer.equals(userAnswer);
     }
-
-
-   /* @Override
-    public void getInput(String answer) {
-
-    }*/
 }

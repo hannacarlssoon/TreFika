@@ -19,6 +19,7 @@ import tda367.myapplication.R;
 /**
  * @author Madeleine Lexén
  * this class handles the events from the multichoice questions view
+ * uses LearnJava
  */
 
 public class QuestionMultiChoice extends AppCompatActivity {
