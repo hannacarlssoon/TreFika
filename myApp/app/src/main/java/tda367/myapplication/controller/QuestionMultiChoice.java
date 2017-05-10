@@ -16,6 +16,11 @@ import tda367.myapplication.model.LearnJava;
 import tda367.myapplication.model.Query;
 import tda367.myapplication.R;
 
+/**
+ * @author Madeleine Lexén
+ * this class handles the events from the multichoice questions view
+ */
+
 public class QuestionMultiChoice extends AppCompatActivity {
 
     private RadioGroup radioAnswerGroup;
@@ -78,16 +83,11 @@ public class QuestionMultiChoice extends AppCompatActivity {
     }
 
     //Gets the selected radiobutton from the view, and sets that alternative as the answer.
-    protected void setSelectedAnswer(){
+    protected void setSelectedAnswer() {
         int selectedId = radioAnswerGroup.getCheckedRadioButtonId();
-        radioAnswerButton = (RadioButton)findViewById(selectedId);
+        radioAnswerButton = (RadioButton) findViewById(selectedId);
         userAnswer = (String) radioAnswerButton.getText();
         System.out.println(userAnswer);
     }
-
-
-
-
-
 
 }

@@ -13,6 +13,10 @@ import android.widget.EditText;
 import tda367.myapplication.R;
 import tda367.myapplication.model.LearnJava;
 
+/**
+ * @author Sara Kitzing, revised by Madeleine Lexén
+ * This class is responsible for handling the events from te fill in the blanks question view
+ */
 public class FillInTheBlanks extends AppCompatActivity {
     Button submit;
     EditText textAnswer1;
