@@ -1,4 +1,4 @@
-package tda367.myapplication.model;
+package tda367.myapplication.service;
 
 import android.app.Activity;
 import android.content.Context;
@@ -21,7 +21,7 @@ import static com.facebook.FacebookSdk.getApplicationContext;
  * Created by hannacarlsson on 2017-05-08.
  */
 
-public class ImageModel {
+public class ImageHandler {
 
     static Drawable image;
 

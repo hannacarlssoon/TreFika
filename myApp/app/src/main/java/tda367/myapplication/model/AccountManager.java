@@ -7,6 +7,8 @@ import java.io.ObjectInputStream;
 import java.util.HashMap;
 import java.util.Map;
 
+import tda367.myapplication.service.ImageHandler;
+
 /**
  * Created by hannacarlsson on 2017-05-03.
  */
@@ -56,7 +58,7 @@ public class AccountManager {
     public void logIn(String userName, String userPassword) {
          try {
              activeUser = users.get(userName);
-             activeUser.setProfilePicture(ImageModel.loadImage(userName));
+             activeUser.setProfilePicture(ImageHandler.loadImage(userName));
          } catch(NullPointerException e) {
              System.out.println("User doesn't exist");
             e.printStackTrace();

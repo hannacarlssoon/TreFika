@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import tda367.myapplication.model.AccountManager;
-import tda367.myapplication.model.ImageModel;
+import tda367.myapplication.service.ImageHandler;
 import tda367.myapplication.R;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -24,7 +24,7 @@ public class SignUpActivity extends AppCompatActivity {
     private ImageButton upload;
     private int RESULT_LOAD_IMG = 1;
     private Uri selectedImage;
-    private ImageModel imageModel;
+    private ImageHandler imageHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,10 +74,7 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
 
-        imageModel.saveImage(requestCode, resultCode, data, this, username.getText().toString());
+        imageHandler.saveImage(requestCode, resultCode, data, this, username.getText().toString());
 
     }
-
-
-
 }
