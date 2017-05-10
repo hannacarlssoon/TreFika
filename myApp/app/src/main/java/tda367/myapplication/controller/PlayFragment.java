@@ -10,14 +10,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import tda367.myapplication.model.LearnJava;
+import tda367.myapplication.HashMapCreator;
 import tda367.myapplication.R;
 
 
 /**
  * A simple {@link Fragment} subclass.
+ * @author HannaCarlsoon. Revised by Madeleine Lexén and Tobias Lindgren.
  */
 public class PlayFragment extends Fragment implements View.OnClickListener {
-
     public LearnJava learnJava = LearnJava.getInstance();
 
 
@@ -36,10 +37,12 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
 
         View view = inflater.inflate(R.layout.fragment_play, container, false);
 
+        HashMapCreator hcreate = new HashMapCreator();
+        learnJava.init(hcreate.getHashMap());
+
         Button b1 = (Button) view.findViewById(R.id.category1);
         Button b2 = (Button) view.findViewById(R.id.category2);
         Button b3 = (Button) view.findViewById(R.id.category3);
-
         b1.setOnClickListener(this);
         b2.setOnClickListener(this);
         b3.setOnClickListener(this);

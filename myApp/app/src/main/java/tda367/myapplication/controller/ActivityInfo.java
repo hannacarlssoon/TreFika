@@ -63,7 +63,7 @@ public class ActivityInfo extends AppCompatActivity {
     }
 
     public void setInfoText() {
-        LevelModel[] levelModels = learnJava.levelHashMap.get(learnJava.getCurrentCategory());
+        LevelModel[] levelModels = learnJava.getLevelHashMap().get(learnJava.getCurrentCategory());
         textView.setText(levelModels[learnJava.getCurrentLevel()].getInfo());
     }
 

@@ -1,0 +1,61 @@
+package tda367.myapplication;
+
+import java.util.HashMap;
+
+import tda367.myapplication.model.LevelModel;
+import tda367.myapplication.service.FileReader;
+
+/**
+ * Created by madeleine on 2017-05-10.
+ * Creates a hashmap of level model objects.
+ */
+
+public class HashMapCreator {
+    private HashMap<String, LevelModel[]> levelHashMap;
+    private LevelModel[] category1= new LevelModel[5];
+    private LevelModel[] category2 = new LevelModel[5];
+    private LevelModel[] category3 = new LevelModel[5];
+    private FileReader fileReader =  new FileReader();
+
+
+    public HashMapCreator(){
+        init();
+    }
+
+    public HashMap<String, LevelModel[]> getHashMap(){
+        return this.levelHashMap;
+    }
+
+
+    private void createCatArrays(){
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 5; j++) {
+                String fileName = "category" + i +"/" + "level" + j + ".txt";
+                LevelModel levelModel = new LevelModel(fileReader.getRequiredText(fileName, "question"), fileReader.getRequiredText(fileName, "answer"), fileReader.getRequiredText(fileName, "info"), fileReader.getRequiredText(fileName, "hint"), i*j);
+                if(i == 0){
+                    category1[j] = levelModel;
+                }
+                else if(i == 1){
+                    category2[j] = levelModel;
+                }
+                else if(i == 2) {
+                    category3[j] = levelModel;
+                }
+
+            }
+        }
+
+    }
+
+    private void init(){
+        levelHashMap = new HashMap<>();
+        createCatArrays();
+        fillHashMap();
+    }
+
+    private void fillHashMap(){
+        levelHashMap.put("category1", category1);
+        levelHashMap.put("category2", category2);
+        levelHashMap.put("category3", category3);
+    }
+}
