@@ -63,6 +63,7 @@ public class LevelActivity extends AppCompatActivity {
         public void onClick(View v) {
             startActivity(new Intent(LevelActivity.this, ActivityInfo.class));
             learnJava.setCurrentLevel(getLevelId(v));
+            System.out.println(" " + getLevelId(v));
         }
     };
 

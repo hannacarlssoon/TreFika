@@ -28,18 +28,18 @@ public class HashMapCreator {
 
 
     private void createCatArrays(){
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 5; j++) {
+        for (int i = 1; i < 4; i++) {
+            for (int j = 1; j < 6; j++) {
                 String fileName = "category" + i +"/" + "level" + j + ".txt";
                 LevelModel levelModel = new LevelModel(fileReader.getRequiredText(fileName, "question"), fileReader.getRequiredText(fileName, "answer"), fileReader.getRequiredText(fileName, "info"), fileReader.getRequiredText(fileName, "hint"), i*j);
-                if(i == 0){
-                    category1[j] = levelModel;
+                if(i == 1){
+                    category1[j-1] = levelModel;
                 }
-                else if(i == 1){
-                    category2[j] = levelModel;
+                else if(i == 2){
+                    category2[j-1] = levelModel;
                 }
-                else if(i == 2) {
-                    category3[j] = levelModel;
+                else if(i == 3) {
+                    category3[j-1] = levelModel;
                 }
 
             }
