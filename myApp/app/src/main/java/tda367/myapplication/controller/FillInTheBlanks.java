@@ -80,6 +80,7 @@ public class FillInTheBlanks extends AppCompatActivity {
 
     //Sets answer to one string
     public void setAnswer(){
+        //todo remove the whitespace from the input
        answer1 = FillInTheBlanks.this.textAnswer1.getText().toString();
        answer2 = FillInTheBlanks.this.textAnswer2.getText().toString();
        answer3 = FillInTheBlanks.this.textAnswer3.getText().toString();
