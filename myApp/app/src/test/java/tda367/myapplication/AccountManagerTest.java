@@ -14,18 +14,18 @@ public class AccountManagerTest {
 /*
     @Test
     public void addUserTest() {
-        AccountManager am  = AccountManager.getInstance();
+        /*AccountManager am  = AccountManager.getInstance();
         assertTrue(am.addUser("Hanna", "Password", "url"));
         assertTrue(am.getUsers().containsKey("Hanna"));
-        assertTrue(!am.addUser("Hanna", "nått", "nått"));
+        assertTrue(!am.addUser("Hanna", "nått", "nått"));*/
     }
 
     @Test
     public void logInTest() {
-        AccountManager am = AccountManager.getInstance();
+       /* AccountManager am = AccountManager.getInstance();
         am.addUser("Hanna", "Password", "url");
         assertTrue(am.logIn("Hanna", "Password"));
-        assertTrue(!am.logIn("Hanna", "password"));
+        assertTrue(!am.logIn("Hanna", "password"));*/
     }
     */
 }

@@ -2,6 +2,7 @@ package tda367.myapplication.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -19,6 +20,7 @@ import java.io.ObjectOutputStream;
 import tda367.myapplication.model.AccountManager;
 
 import tda367.myapplication.R;
+import tda367.myapplication.service.UserFileReader;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AccountManager.initInstance(UserFileReader.getInstance());
         Intent intent = getIntent();
         String value = intent.getStringExtra("key");
         super.onCreate(savedInstanceState);
@@ -89,52 +92,37 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_play) {
             PlayFragment playFragment = new PlayFragment();
-            FragmentManager manager = getSupportFragmentManager();
-            manager.beginTransaction().replace(R.id.constraintlayout_for_fragment,
-                    playFragment,
-                    playFragment.getTag()).commit();
+            setView(playFragment);
         } else if (id == R.id.nav_signin) {
             SignInFragment signInFragment = new SignInFragment();
-            FragmentManager manager = getSupportFragmentManager();
-            manager.beginTransaction().replace(R.id.constraintlayout_for_fragment,
-                    signInFragment,
-                    signInFragment.getTag()).commit();
-            System.out.println("Hej");
+            setView(signInFragment);
         } else if (id == R.id.nav_achievements) {
             AcheivementsFragment acheivementsFragment = new AcheivementsFragment();
-            FragmentManager manager = getSupportFragmentManager();
-            manager.beginTransaction().replace(R.id.constraintlayout_for_fragment,
-                    acheivementsFragment,
-                    acheivementsFragment.getTag()).commit();
+            setView(acheivementsFragment);
         } else if (id == R.id.nav_statistics) {
             StatisticsFragment statisticsFragment = new StatisticsFragment();
-            FragmentManager manager = getSupportFragmentManager();
-            manager.beginTransaction().replace(R.id.constraintlayout_for_fragment,
-                    statisticsFragment,
-                    statisticsFragment.getTag()).commit();
+            setView(statisticsFragment);
         } else if (id == R.id.nav_readmore) {
             ReadMoreFragment readMoreFragment = new ReadMoreFragment();
-            FragmentManager manager = getSupportFragmentManager();
-            manager.beginTransaction().replace(R.id.constraintlayout_for_fragment,
-                    readMoreFragment,
-                    readMoreFragment.getTag()).commit();
+            setView(readMoreFragment);
         } else if (id == R.id.nav_settings) {
             SettingsFragment settingsFragment = new SettingsFragment();
-            FragmentManager manager = getSupportFragmentManager();
-            manager.beginTransaction().replace(R.id.constraintlayout_for_fragment,
-                    settingsFragment,
-                    settingsFragment.getTag()).commit();
+            setView(settingsFragment);
         } else if (id == R.id.nav_aboutappen) {
             AboutAppenFragment aboutAppenFragment = new AboutAppenFragment();
-            FragmentManager manager = getSupportFragmentManager();
-            manager.beginTransaction().replace(R.id.constraintlayout_for_fragment,
-                    aboutAppenFragment,
-                    aboutAppenFragment.getTag()).commit();
+            setView(aboutAppenFragment);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void setView(Fragment fragment) {
+        FragmentManager manager = getSupportFragmentManager();
+        manager.beginTransaction().replace(R.id.constraintlayout_for_fragment,
+                fragment,
+                fragment.getTag()).commit();
     }
 
    public void nextButtonClicked(){
@@ -148,13 +136,6 @@ public class MainActivity extends AppCompatActivity
    @Override
     public void onDestroy() {
        super.onDestroy();
-       try {
-           ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(AccountManager.FILENAME));
-           objectOutputStream.writeObject(AccountManager.getInstance());
-           objectOutputStream.flush();
-           objectOutputStream.close();
-       } catch (IOException e) {
-           e.printStackTrace();
-       }
+
    }
 }

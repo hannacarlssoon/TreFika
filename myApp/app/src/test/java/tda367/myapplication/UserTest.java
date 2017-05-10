@@ -12,8 +12,8 @@ public class UserTest {
 /*
     @Test
     public void updateUserTest() {
-        AccountManager am = AccountManager.getInstance();
-        am.addUser("Hanna", "Password", "url");
+        /*AccountManager am = AccountManager.getInstance();
+        am.addUser("Hanna", "Password", "url");*/
 
     }
 

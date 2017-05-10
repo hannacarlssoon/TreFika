@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import tda367.myapplication.service.ImageHandler;
+import tda367.myapplication.service.UserFileReader;
 
 /**
  * Created by hannacarlsson on 2017-05-03.
@@ -26,10 +27,13 @@ public class AccountManager {
     }
 
     public static AccountManager getInstance() {
+        return instance;
+    }
+
+    public static void initInstance(UserFileReader userFileReader) {
         if (instance == null) {
             try {
-                ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(FILENAME));
-                instance = (AccountManager) objectInputStream.readObject();
+                instance = (AccountManager) userFileReader.loadObject().readObject();
             } catch (FileNotFoundException e) {
                 instance = new AccountManager();
             } catch (ClassNotFoundException e) {
@@ -39,7 +43,6 @@ public class AccountManager {
                 e.printStackTrace();
             }
         }
-        return instance;
     }
 
     //Adds a new user
