@@ -14,9 +14,13 @@ public class LearnJava {
     private int currentLevel;
     public HashMap<String, LevelModel[]> levelHashMap;
     private static LearnJava instance;
+    private boolean hasInit = false;
 
     public void init(HashMap<String, LevelModel[]> levelHashMap){
-        this.levelHashMap = levelHashMap;
+        if(!hasInit){
+            this.levelHashMap = levelHashMap;
+            hasInit = true;
+        }
     }
 
     public HashMap<String, LevelModel[]> getLevelHashMap(){

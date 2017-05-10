@@ -37,7 +37,7 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
 
         View view = inflater.inflate(R.layout.fragment_play, container, false);
 
-        HashMapCreator hcreate = new HashMapCreator();
+        HashMapCreator hcreate = new HashMapCreator(getContext());
         learnJava.init(hcreate.getHashMap());
 
         Button b1 = (Button) view.findViewById(R.id.category1);

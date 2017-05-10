@@ -6,11 +6,10 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class FileReader {
-    private Context context;
     private int counter;
 
     // Method for getting the required string. Returns the question, the answer or the info of the level
-    public String getRequiredText(String fileName, String type ){
+    public String getRequiredText(String fileName, String type, Context context){
         String string = "";
         counter = 0;
         try {
