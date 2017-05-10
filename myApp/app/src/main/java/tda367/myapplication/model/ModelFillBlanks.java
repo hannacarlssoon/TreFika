@@ -4,6 +4,7 @@ package tda367.myapplication.model;
  * Created by Sara on 2017-04-07.
  */
 
+//Handles the logic behind the fill in the blanks query
 public class ModelFillBlanks extends Query  {
     private final String question;
     private final String answer1;
@@ -13,6 +14,8 @@ public class ModelFillBlanks extends Query  {
     private String userAnswer2;
     private String userAnswer3;
 
+
+    //TODO fix answer-array
     public ModelFillBlanks (String question, String answer){
         this.question = question;
         this.answer1= answer;

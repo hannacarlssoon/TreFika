@@ -8,6 +8,7 @@ import java.net.*;
  * Created by sarakitzing on 2017-04-27.
  */
 
+//Handles setting up, running, shutting down and connecting with the server which compiles the user input.
 public class Server {
 
     private String userCode;
