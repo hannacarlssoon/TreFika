@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import tda367.myapplication.R;
 import tda367.myapplication.model.LearnJava;
@@ -19,6 +20,7 @@ import tda367.myapplication.model.LearnJava;
  */
 public class FillInTheBlanks extends AppCompatActivity {
     Button submit;
+    ImageButton hint;
     EditText textAnswer1;
     EditText textAnswer2;
     EditText textAnswer3;
@@ -35,6 +37,7 @@ public class FillInTheBlanks extends AppCompatActivity {
         setContentView(R.layout.activity_fill_in_the_blanks);
 
         submit = (Button)findViewById(R.id.fillSubmit);
+        hint = (ImageButton)findViewById(R.id.hintButton);
         textAnswer1   = (EditText)findViewById(R.id.textFillAnswer1);
         textAnswer2   = (EditText)findViewById(R.id.textFillAnswer2);
         textAnswer3   = (EditText)findViewById(R.id.textFillAnswer3);
@@ -62,6 +65,13 @@ public class FillInTheBlanks extends AppCompatActivity {
                 else {
                 startActivity(new Intent(FillInTheBlanks.this, FailedLevel.class));
                 }
+            }
+        });
+
+        hint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
             }
         });
     }
