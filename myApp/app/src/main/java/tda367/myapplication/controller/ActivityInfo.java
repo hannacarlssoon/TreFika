@@ -1,5 +1,6 @@
 package tda367.myapplication.controller;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import tda367.myapplication.model.LearnJava;
 import tda367.myapplication.model.LevelModel;
 
 import tda367.myapplication.R;
+import tda367.myapplication.model.MultiChoice;
 
 public class ActivityInfo extends AppCompatActivity {
 
@@ -36,20 +38,35 @@ public class ActivityInfo extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Går det att sätta detta till ämnet?");
+        getSupportActionBar().setTitle("Något");
 
         setInfoText();
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ActivityInfo.this, FillInTheBlanks.class);
-                startActivity(intent);
+                launchIntent();
             }
         });
 
     }
 
+
+    private void launchIntent(){
+        Intent intent;
+        if(learnJava.getLevelModel().getQuestionNumber() == 5){
+            //launch boss question
+        }
+        else if(learnJava.getLevelModel().getQuestionNumber() % 2 == 1){
+            intent = new Intent(ActivityInfo.this, FillInTheBlanks.class);
+            startActivity(intent);
+        }
+        else{
+            intent = new Intent(ActivityInfo.this, QuestionMultiChoice.class);
+            startActivity(intent);
+        }
+
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -66,6 +83,5 @@ public class ActivityInfo extends AppCompatActivity {
         LevelModel[] levelModels = learnJava.getLevelHashMap().get(learnJava.getCurrentCategory());
         textView.setText(levelModels[learnJava.getCurrentLevel()].getInfo());
     }
-
 
 }

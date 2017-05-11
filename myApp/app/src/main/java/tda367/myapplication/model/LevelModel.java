@@ -9,12 +9,14 @@ public class LevelModel {
     private String info;
     private String hint;
     private Query query;
+    private int questionNumber;
 
     public LevelModel(String question, String answer, String info, String hint, int questionNumber) {
         this.question = question;
         this.answer = answer;
         this.info = info;
         this.hint = hint;
+        this.questionNumber = questionNumber;
         if (questionNumber > 4){
             //TODO Skapa view för kompilering av kod och model
         }
@@ -33,6 +35,8 @@ public class LevelModel {
     public String getQuestion(){
         return this.question;
     }
+
+    public int getQuestionNumber(){return this.questionNumber; }
 
     public String getAnswer(){
         return this.answer;

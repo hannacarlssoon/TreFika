@@ -13,6 +13,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import tda367.myapplication.model.LearnJava;
+import tda367.myapplication.model.LevelModel;
 import tda367.myapplication.model.Query;
 import tda367.myapplication.R;
 
@@ -49,6 +50,8 @@ public class QuestionMultiChoice extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Multi-choice question");
+
+        setQuestion();
 
         //sets listener on submitbutton, checks if answer is correct,
         // changes view to passedLevel if correct, otherwise to FailedLevel.
@@ -91,4 +94,8 @@ public class QuestionMultiChoice extends AppCompatActivity {
         System.out.println(userAnswer);
     }
 
+    private void setQuestion(){
+        LevelModel[] levelModels = learnJava.getLevelHashMap().get(learnJava.getCurrentCategory());
+        textView.setText(levelModels[learnJava.getCurrentLevel()].getQuestion());
+    }
 }
