@@ -11,11 +11,14 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import tda367.myapplication.R;
+import tda367.myapplication.service.Server;
 
 public class WriteCode extends AppCompatActivity {
     Button submit;
     EditText userCode;
     private String answer;
+    tda367.myapplication.model.WriteCode writeCode;
+    Server server;
     //private String codeResult;
 
 
@@ -26,6 +29,9 @@ public class WriteCode extends AppCompatActivity {
 
         submit = (Button)findViewById(R.id.codeSubmit);
         userCode   = (EditText)findViewById(R.id.codeEditText);
+        server = new Server("127.0.0.1");
+        //TODO actual question and answer
+        writeCode = new tda367.myapplication.model.WriteCode("hej", "då");
 
 
         //Sets the toolbar and enables upnavigation, and sets the title
@@ -41,6 +47,7 @@ public class WriteCode extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 setAnswer();
+                runServer();
                 //TODO handle no input from user
                 //TODO add the actual call to WriteCide
                 //if(chechAnswer(answer)){
@@ -70,7 +77,14 @@ public class WriteCode extends AppCompatActivity {
     //Sets answer to one string
     public void setAnswer(){
         answer = WriteCode.this.userCode.getText().toString();
-
     }
+
+    //runs the server
+    private void runServer(){
+        server.setUserCode(answer);
+        server.startRunning();
+        writeCode.setCompAnswer(server.getCompiledCode());
+    }
+
 
 }

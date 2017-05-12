@@ -18,8 +18,12 @@ public class Server {
     private String serverIP;
     private Socket connection;
 
-    public Server(String host, String userCode){
+    public Server(String host){
         serverIP = host;
+        //this.userCode = userCode;
+    }
+
+    public void setUserCode(String userCode) {
         this.userCode = userCode;
     }
 

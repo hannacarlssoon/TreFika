@@ -11,7 +11,7 @@ public class WriteCode {
     private final String question;
     private final String answer;
     private String userAnswer;
-    private String compUserAnswer;
+    private String compAnswer;
 
 
 
@@ -21,19 +21,25 @@ public class WriteCode {
     }
 
     public boolean checkAnswer(String userAnswer){
-        compileCode(userAnswer);
-        return compUserAnswer.equals(answer);
+        //compileCode(userAnswer);
+        return compAnswer.equals(answer);
 
     }
 
-    //TODO change - model shouldn't call server, controller should
-    public void compileCode(String userCode){
+/*    public void compileCode(String userCode){
         StringBuilder sb = new StringBuilder();
         sb.append(userCode);
+        sb.toString();
 
-        Server server = new Server("127.0.0.1", sb.toString());
+        Server server = new Server("127.0.0.1");
+        server.setUserCode(userCode);
         server.startRunning();
-        compUserAnswer = server.getCompiledCode();
+        compAnswer = server.getCompiledCode();
+    }
+*/
+
+    public void setCompAnswer (String compAnswer){
+        this.compAnswer = compAnswer;
     }
 
 

@@ -9,7 +9,7 @@ import tda367.myapplication.model.AccountManager;
  */
 
 public class UserTest {
-
+/*
     @Test
     public void updateUserTest() {
         AccountManager am = AccountManager.getInstance();
@@ -17,6 +17,6 @@ public class UserTest {
 
     }
 
-
+*/
 
 }

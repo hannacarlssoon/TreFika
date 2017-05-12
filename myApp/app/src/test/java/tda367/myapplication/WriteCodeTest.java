@@ -3,7 +3,8 @@ package tda367.myapplication;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-import tda367.myapplication.Model.WriteCode;
+import tda367.myapplication.model.WriteCode;
+import tda367.myapplication.service.Server;
 
 /**
  * Created by sarakitzing on 2017-05-09.

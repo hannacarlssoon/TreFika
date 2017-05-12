@@ -11,7 +11,7 @@ import static org.junit.Assert.assertTrue;
  */
 
 public class AccountManagerTest {
-
+/*
     @Test
     public void addUserTest() {
         AccountManager am  = AccountManager.getInstance();
@@ -27,4 +27,5 @@ public class AccountManagerTest {
         assertTrue(am.logIn("Hanna", "Password"));
         assertTrue(!am.logIn("Hanna", "password"));
     }
+    */
 }
