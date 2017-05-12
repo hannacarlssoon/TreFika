@@ -5,10 +5,12 @@ import java.net.*;
 
 
 /**
- * Created by sarakitzing on 2017-04-27.
+ * @author Sara Kitzing
+ * Handles everything connected to the server
+ * Most of the code is gotten from a series of youtube-videos by the user
+ * "thenewboston" (https://www.youtube.com/channel/UCJbPGzawDH1njbqV-D5HqKw)
  */
 
-//Handles setting up, running, shutting down and connecting with the server which compiles the user input.
 public class Server {
 
     private String userCode;
@@ -60,6 +62,7 @@ public class Server {
         System.out.println("Streams are good to go");
     }
 
+    //sends users code to server, gets back the compiled one
     private void whileCompile() throws IOException {
         System.out.println("You are now connected");
 

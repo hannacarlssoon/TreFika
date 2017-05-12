@@ -9,6 +9,11 @@ import android.widget.Button;
 
 import tda367.myapplication.R;
 
+/**
+ * @author Sara Kitzing
+ * This class handels setting the PassedLevel view
+ */
+
 public class PassedLevel extends AppCompatActivity {
 
     @Override

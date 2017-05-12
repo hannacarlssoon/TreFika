@@ -13,12 +13,18 @@ import android.widget.EditText;
 import tda367.myapplication.R;
 import tda367.myapplication.service.Server;
 
+/**
+ * @author Sara Kitzing
+ * This class handles the call to the WriteCode-model, setting the writeCode view and creating and
+ * calling the server to compile the users code
+ */
+
 public class WriteCode extends AppCompatActivity {
     Button submit;
     EditText userCode;
     private String answer;
-    tda367.myapplication.model.WriteCode writeCode;
-    Server server;
+    private tda367.myapplication.model.WriteCode writeCode;
+    private Server server;
     //private String codeResult;
 
 
@@ -30,7 +36,7 @@ public class WriteCode extends AppCompatActivity {
         submit = (Button)findViewById(R.id.codeSubmit);
         userCode   = (EditText)findViewById(R.id.codeEditText);
         server = new Server("127.0.0.1");
-        //TODO actual question and answer
+        //TODO actual question and answer --> create the object right
         writeCode = new tda367.myapplication.model.WriteCode("hej", "då");
 
 
@@ -42,24 +48,28 @@ public class WriteCode extends AppCompatActivity {
 
 
 
-        //Checks if answer is right, sets PassedLevelview if correct, otherwise FailedLevel
+        //Compiles code and checks if answer is right, sets PassedLevelview if correct, otherwise FailedLevel
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setAnswer();
                 runServer();
+                writeCode.setCompAnswer(server.getCompiledCode());
                 //TODO handle no input from user
-                //TODO add the actual call to WriteCide
-                //if(chechAnswer(answer)){
-                startActivity(new Intent(WriteCode.this, PassedLevel.class));
+             setNextView();
+            }
+        });
+    }
+
+    private void setNextView(){
+        //if(chechAnswer(answer)){
+        startActivity(new Intent(WriteCode.this, PassedLevel.class));
               /*   }
                 else {
                 startActivity(new Intent(FillInTheBlanks.this, FailedLevel.class));
                 }
 
                  */
-            }
-        });
     }
 
     //Handles the back navigation
@@ -74,16 +84,15 @@ public class WriteCode extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    //Sets answer to one string
+    //Sets the user input to one string
     public void setAnswer(){
         answer = WriteCode.this.userCode.getText().toString();
     }
 
-    //runs the server
+    //Runs the server
     private void runServer(){
         server.setUserCode(answer);
         server.startRunning();
-        writeCode.setCompAnswer(server.getCompiledCode());
     }
 
 

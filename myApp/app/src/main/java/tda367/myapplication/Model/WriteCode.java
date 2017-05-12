@@ -3,11 +3,11 @@ package tda367.myapplication.model;
 import tda367.myapplication.service.Server;
 
 /**
- * Created by sarakitzing on 2017-05-08.
+ * @author Sara Kitzing
+ * This class handles the logic behind the write code query
  */
 
-//Handles the logic behind the WriteCode query such as checking the answer and creating the question
-public class WriteCode {
+public class WriteCode extends Query {
     private final String question;
     private final String answer;
     private String userAnswer;
@@ -20,6 +20,12 @@ public class WriteCode {
         this.answer= answer;
     }
 
+    @Override
+    public String getQuestion() {
+        return question;
+    }
+
+    //checks if users answer is correct
     public boolean checkAnswer(String userAnswer){
         //compileCode(userAnswer);
         return compAnswer.equals(answer);

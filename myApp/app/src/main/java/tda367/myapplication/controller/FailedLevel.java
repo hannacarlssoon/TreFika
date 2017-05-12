@@ -11,9 +11,16 @@ import tda367.myapplication.R;
 import tda367.myapplication.model.LearnJava;
 import tda367.myapplication.model.MultiChoice;
 
+
+/**
+ * @author Sara Kitzing
+ * This class handles setting the FailedLevel view
+ */
+
 public class FailedLevel extends AppCompatActivity implements View.OnClickListener{
 
     private Button tryAgain;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

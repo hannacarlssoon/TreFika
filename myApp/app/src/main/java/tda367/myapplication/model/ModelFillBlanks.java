@@ -1,10 +1,10 @@
 package tda367.myapplication.model;
 
 /**
- * Created by Sara on 2017-04-07.
+ * @author Sara Kitzing
+ * This class handles the logic behind the fill in the blanks query
  */
 
-//Handles the logic behind the fill in the blanks query
 public class ModelFillBlanks extends Query  {
     private final String question;
     private final String answer1;
@@ -15,12 +15,13 @@ public class ModelFillBlanks extends Query  {
     private String userAnswer3;
 
 
-    //TODO fix answer-array
+
     public ModelFillBlanks (String question, String answer){
         this.question = question;
-        this.answer1= answer;
-        this.answer2= answer;
-        this.answer3= answer;
+        String[] answers = answer.split(",");
+        this.answer1= answers[0];
+        this.answer2= answers[1];
+        this.answer3= answers[2];
     }
 
     @Override
@@ -28,6 +29,7 @@ public class ModelFillBlanks extends Query  {
         return question;
     }
 
+    //checks if the users answer is corret
     @Override
     public boolean checkAnswer(String userAnswer) {
        String[] answers = userAnswer.split(",");
