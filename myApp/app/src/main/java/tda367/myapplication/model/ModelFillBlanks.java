@@ -5,7 +5,7 @@ package tda367.myapplication.model;
  */
 
 //Handles the logic behind the fill in the blanks query
-public class ModelFillBlanks extends Query  {
+public class ModelFillBlanks implements Query  {
     private final String question;
     private final String answer1;
     private final String answer2;
