@@ -7,7 +7,7 @@ import tda367.myapplication.service.Server;
  * This class handles the logic behind the write code query
  */
 
-public class WriteCode extends Query {
+public class WriteCode implements Query {
     private final String question;
     private final String answer;
     private String userAnswer;
