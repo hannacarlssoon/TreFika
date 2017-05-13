@@ -6,21 +6,12 @@ package tda367.myapplication.model;
  * This class is a superclass to multichoice, write code and fill in the blanks
  */
 
-public abstract class Query {
-
-    public void getHint(){
-    }
-
-    public void getKey(){
-    }
+public interface Query {
 
     public abstract String getQuestion();
 
     public abstract boolean checkAnswer(String userAnswer);
 
     //public abstract void getInput(String answer);
-
-
-
 
 }

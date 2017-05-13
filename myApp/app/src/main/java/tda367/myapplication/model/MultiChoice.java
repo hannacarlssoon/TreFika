@@ -5,7 +5,7 @@ package tda367.myapplication.model;
  * This class handles the logic for the multichoice question, checking the answer, uses query
  */
 
-public class MultiChoice extends Query {
+public class MultiChoice implements Query {
     private final String answer;
     private final String question;
 
@@ -13,6 +13,7 @@ public class MultiChoice extends Query {
         this.question = question;
         this.answer = answer;
     }
+
 
     @Override
     public String getQuestion() {
