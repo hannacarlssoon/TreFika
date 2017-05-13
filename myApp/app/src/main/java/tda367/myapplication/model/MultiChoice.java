@@ -11,7 +11,7 @@ public class MultiChoice implements Query {
 
     public MultiChoice(String question, String answer){
         this.question = question;
-        this.answer = answer;
+        this.answer = answer.toLowerCase();
     }
 
 
@@ -24,6 +24,6 @@ public class MultiChoice implements Query {
     //Checks if the answer the user has selected is correct.
     @Override
     public boolean checkAnswer(String userAnswer) {
-        return answer.equals(userAnswer);
+        return answer.equals(userAnswer.toLowerCase());
     }
 }
