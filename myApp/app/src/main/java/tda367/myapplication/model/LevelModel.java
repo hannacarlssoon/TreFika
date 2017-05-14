@@ -21,13 +21,13 @@ public class LevelModel {
         this.hint = hint;
         this.questionNumber = questionNumber;
         if (questionNumber > 4){
-            //TODO Skapa view för kompilering av kod och model
+            this.query = new WriteCode(question, answer);
         }
         else if ( questionNumber % 2 == 0){
             this.query = new MultiChoice(question, answer);
         }
         else if(questionNumber % 2 == 1){
-            query = new ModelFillBlanks(question, answer);
+            this.query = new ModelFillBlanks(question, answer);
         }
     }
 

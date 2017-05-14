@@ -9,8 +9,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import tda367.myapplication.R;
+import tda367.myapplication.model.LearnJava;
+import tda367.myapplication.model.LevelModel;
 import tda367.myapplication.service.Server;
 
 /**
@@ -25,6 +28,8 @@ public class WriteCode extends AppCompatActivity {
     private String answer;
     private tda367.myapplication.model.WriteCode writeCode;
     private Server server;
+    private TextView questionView;
+    private LearnJava learnJava = LearnJava.getInstance();
     //private String codeResult;
 
 
@@ -38,7 +43,9 @@ public class WriteCode extends AppCompatActivity {
         server = new Server("127.0.0.1");
         //TODO actual question and answer --> create the object right
         writeCode = new tda367.myapplication.model.WriteCode("hej", "då");
+        questionView = (TextView) findViewById(R.id.codeQuestion);
 
+        setQuestionText();
 
         //Sets the toolbar and enables upnavigation, and sets the title
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);
@@ -93,6 +100,11 @@ public class WriteCode extends AppCompatActivity {
     private void runServer(){
         server.setUserCode(answer);
         server.startRunning();
+    }
+
+    public void setQuestionText(){
+        LevelModel[] levelModels = learnJava.getLevelHashMap().get(learnJava.getCurrentCategory());
+        questionView.setText(levelModels[learnJava.getCurrentLevel()].getQuestion());
     }
 
 

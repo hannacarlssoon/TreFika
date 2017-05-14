@@ -56,6 +56,8 @@ public class ActivityInfo extends AppCompatActivity {
         Intent intent;
         if(learnJava.getLevelModel().getQuestionNumber() == 5){
             //launch boss question
+            intent = new Intent(ActivityInfo.this, WriteCode.class);
+            startActivity(intent);
         }
         else if(learnJava.getLevelModel().getQuestionNumber() % 2 == 1){
             intent = new Intent(ActivityInfo.this, FillInTheBlanks.class);
