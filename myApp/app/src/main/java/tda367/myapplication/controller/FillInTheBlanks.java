@@ -10,9 +10,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-
+import android.widget.TextView;
 import tda367.myapplication.R;
 import tda367.myapplication.model.LearnJava;
+import tda367.myapplication.model.LevelModel;
+
+import static tda367.myapplication.R.id.textView;
 
 /**
  * @author Sara Kitzing, revised by Madeleine Lexén
@@ -28,6 +31,7 @@ public class FillInTheBlanks extends AppCompatActivity {
     private String answer1;
     private String answer2;
     private String answer3;
+    private TextView questionView;
     private LearnJava learnJava = LearnJava.getInstance();
     private int counter = 0;
 
@@ -42,6 +46,9 @@ public class FillInTheBlanks extends AppCompatActivity {
         textAnswer1   = (EditText)findViewById(R.id.textFillAnswer1);
         textAnswer2   = (EditText)findViewById(R.id.textFillAnswer2);
         textAnswer3   = (EditText)findViewById(R.id.textFillAnswer3);
+        questionView = (TextView) findViewById(R.id.fillQuestion);
+
+        setQuestionText();
 
         hint.setVisibility(View.INVISIBLE);
 
@@ -104,5 +111,10 @@ public class FillInTheBlanks extends AppCompatActivity {
        answer3 = FillInTheBlanks.this.textAnswer3.getText().toString();
 
        userAnswer = answer1 + "," + answer2 + "," + answer3;
+    }
+
+    public void setQuestionText() {
+        LevelModel[] levelModels = learnJava.getLevelHashMap().get(learnJava.getCurrentCategory());
+        questionView.setText(levelModels[learnJava.getCurrentLevel()].getQuestion());
     }
 }
