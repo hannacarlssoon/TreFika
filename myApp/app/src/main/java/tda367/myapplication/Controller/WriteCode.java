@@ -42,7 +42,7 @@ public class WriteCode extends AppCompatActivity {
         userCode   = (EditText)findViewById(R.id.codeEditText);
         server = new Server("127.0.0.1");
         //TODO actual question and answer --> create the object right
-        writeCode = new tda367.myapplication.model.WriteCode("hej", "då");
+        writeCode = (tda367.myapplication.model.WriteCode) learnJava.getQuery();
         questionView = (TextView) findViewById(R.id.codeQuestion);
 
         setQuestionText();

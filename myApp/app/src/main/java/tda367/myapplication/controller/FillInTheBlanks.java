@@ -76,6 +76,9 @@ public class FillInTheBlanks extends AppCompatActivity {
                     //todo display a message to the user that there was input missing
                 }
                 else if(learnJava.getLevelModel().checkAnswer(userAnswer)){
+
+
+
                     startActivity(new Intent(FillInTheBlanks.this, PassedLevel.class));
                 }
                 else {
