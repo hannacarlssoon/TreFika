@@ -79,7 +79,7 @@ public class FillInTheBlanks extends AppCompatActivity {
         hint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(FillInTheBlanks.this, HintActivity.class));
             }
         });
     }

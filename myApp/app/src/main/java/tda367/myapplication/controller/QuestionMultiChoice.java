@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -28,6 +29,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
     private RadioGroup radioAnswerGroup;
     private RadioButton radioAnswerButton;
     private Button submitButton;
+    private ImageButton hintButton;
     private String userAnswer;
     private TextView textView;
     private Query model;
@@ -41,6 +43,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
         radioAnswerGroup = (RadioGroup)findViewById(R.id.radioGroup);
         Button btn = (Button)findViewById(R.id.SubmitButton);
         textView = (TextView)findViewById(R.id.questionBox);
+        hintButton = (ImageButton)findViewById(R.id.hintButton);
 
 
         System.out.println(getIntent().getStringExtra("ARG_QUESTION"));
@@ -69,6 +72,13 @@ public class QuestionMultiChoice extends AppCompatActivity {
                 else {
                     startActivity(new Intent(QuestionMultiChoice.this, FailedLevel.class));
                 }
+            }
+        });
+
+        hintButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(QuestionMultiChoice.this, HintActivity.class));
             }
         });
     }
