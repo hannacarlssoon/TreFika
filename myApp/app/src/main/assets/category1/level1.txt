@@ -1,4 +1,3 @@
-
 [Question]
 En variabel kan hålla värden av olika typer. Först skriver man en variabels [1], sen ger man den ett namn. Sist på raden skriver man ett [2] för att avsluta sitt påstående. Detta för att koden ska [3] rätt.
 [Answer]
