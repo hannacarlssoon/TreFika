@@ -2,6 +2,7 @@ package tda367.myapplication.controller;
 
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -26,11 +27,11 @@ public class WriteCode extends AppCompatActivity {
     Button submit;
     EditText userCode;
     private String answer;
-    private tda367.myapplication.model.WriteCode writeCode;
+    //private tda367.myapplication.model.WriteCode writeCode;
     private Server server;
     private TextView questionView;
     private LearnJava learnJava = LearnJava.getInstance();
-    //private String codeResult;
+    private String codeResult;
 
 
     @Override
@@ -41,8 +42,7 @@ public class WriteCode extends AppCompatActivity {
         submit = (Button)findViewById(R.id.codeSubmit);
         userCode   = (EditText)findViewById(R.id.codeEditText);
         server = new Server("127.0.0.1");
-        //TODO actual question and answer --> create the object right
-        writeCode = (tda367.myapplication.model.WriteCode) learnJava.getQuery();
+        //writeCode = (tda367.myapplication.model.WriteCode) learnJava.getQuery();
         questionView = (TextView) findViewById(R.id.codeQuestion);
 
         setQuestionText();
@@ -59,25 +59,71 @@ public class WriteCode extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AlertDialog.Builder mBuilder = new AlertDialog.Builder(WriteCode.this);
+                View mView;
                 setAnswer();
                 runServer();
-                writeCode.setCompAnswer(server.getCompiledCode());
+                codeResult = server.getCompiledCode();
                 //TODO handle no input from user
-             setNextView();
+                if(answer.equals(null)){
+                    //todo display a message to the user that there was input missing
+                } else if(learnJava.getLevelModel().checkAnswer(codeResult)){
+                    mView = getLayoutInflater().inflate(R.layout.activity_passed_level, null);
+                    Button next = (Button) mView.findViewById(R.id.nextButton);
+                    Button back = (Button) mView.findViewById(R.id.backButton);
+
+                    next.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            //TODO show the next question in line
+                            System.out.println("Click click");
+                        }
+                    });
+                    back.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            //TODO back to category
+                            System.out.println("Click back");
+                        }
+                    });
+                    mBuilder.setView(mView);
+                }else {
+                    //TODO show "getError-method" on screen
+                    mView = getLayoutInflater().inflate(R.layout.activity_failed_level, null);
+                    Button tryAgan = (Button) mView.findViewById(R.id.tryAgain);
+
+                    tryAgan.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            //TODO show same question again
+                            System.out.println("Try again click");
+                        }
+                    });
+                    mBuilder.setView(mView);
+                    //startActivity(new Intent(FillInTheBlanks.this, FailedLevel.class));
+
+                }
+                mBuilder.setCancelable(false);
+                AlertDialog dialog = mBuilder.create();
+                dialog.show();
             }
         });
+
+             //setNextView();
     }
 
+    /*
     private void setNextView(){
         //if(chechAnswer(answer)){
         startActivity(new Intent(WriteCode.this, PassedLevel.class));
-              /*   }
+                 }
                 else {
                 startActivity(new Intent(FillInTheBlanks.this, FailedLevel.class));
                 }
 
-                 */
+
     }
+    */
 
     //Handles the back navigation
     @Override
@@ -105,6 +151,13 @@ public class WriteCode extends AppCompatActivity {
     public void setQuestionText(){
         LevelModel[] levelModels = learnJava.getLevelHashMap().get(learnJava.getCurrentCategory());
         questionView.setText(levelModels[learnJava.getCurrentLevel()].getQuery().getQuestion());
+    }
+
+    public String getError(){
+        if(codeResult.toLowerCase().equals("error")){
+            return "Error";
+        }
+            return codeResult;
     }
 
 
