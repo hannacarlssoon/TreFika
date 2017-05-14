@@ -15,6 +15,7 @@ import tda367.myapplication.R;
  */
 
 public class PassedLevel extends AppCompatActivity {
+    //TODO Add saveStatistics
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

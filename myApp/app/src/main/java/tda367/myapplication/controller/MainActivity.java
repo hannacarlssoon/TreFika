@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.design.widget.NavigationView;
@@ -28,19 +29,17 @@ import tda367.myapplication.R;
 import tda367.myapplication.service.ImageHandler;
 import tda367.myapplication.service.UserFileReader;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private static ImageView profilePicture;
-    private NavigationView navigationView;
     private static TextView navUserName;
+    private NavigationView navigationView;
     private View headerView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         AccountManager.initInstance(UserFileReader.getInstance(), getApplicationContext());
-        Intent intent = getIntent();
-        //String value = intent.getStringExtra("key");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -49,7 +48,6 @@ public class MainActivity extends AppCompatActivity
             getSupportFragmentManager().beginTransaction().replace(R.id.constraintlayout_for_fragment,
                     new PlayFragment()).commit();
         }
-
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -141,22 +139,21 @@ public class MainActivity extends AppCompatActivity
                 fragment.getTag()).commit();
     }
 
-    public void nextButtonClicked(){
-       Intent myIntent = new Intent(MainActivity.this, LevelActivity.class);
-       myIntent.putExtra("key", true); //Optional parameters
-       MainActivity.this.startActivity(myIntent);
+    public void nextButtonClicked() {
+        Intent myIntent = new Intent(MainActivity.this, LevelActivity.class);
+        myIntent.putExtra("key", true); //Optional parameters
+        MainActivity.this.startActivity(myIntent);
 
-   }
+    }
 
    public static void setUserInformation(String imageName) {
-       System.out.println("Ih here oppps");
        profilePicture.setImageDrawable(ImageHandler.loadImage(imageName));
        navUserName.setText(imageName);
    }
 
-   @Override
+    @Override
     public void onDestroy() {
-       super.onDestroy();
-       UserFileReader.getInstance().saveObject(getApplicationContext());
-   }
+        super.onDestroy();
+        UserFileReader.getInstance().saveObject(getApplicationContext());
+    }
 }
