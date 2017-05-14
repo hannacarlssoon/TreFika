@@ -50,4 +50,9 @@ public class FileReader {
     private boolean checkIfInfo(String reqText){
         return (reqText.equals("info") && counter == 6);
     }
+
+    //Method for checking if the wanted text is a hint and the line of the .txt-file is hint
+    private boolean checkIfHint(String reqText){
+        return (reqText.equals("hint") && counter == 8);
+    }
 }

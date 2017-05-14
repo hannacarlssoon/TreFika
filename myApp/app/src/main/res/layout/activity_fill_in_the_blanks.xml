@@ -141,9 +141,8 @@
 
     <ImageButton
         android:id="@+id/hintButton"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:background="@drawable/smallroundbutton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:src="@mipmap/ic_launcher_questionmark"
         android:layout_marginTop="7dp"
         app:layout_constraintLeft_toLeftOf="parent"
