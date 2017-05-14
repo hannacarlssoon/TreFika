@@ -28,9 +28,9 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        AccountManager.initInstance(UserFileReader.getInstance());
+        AccountManager.initInstance(UserFileReader.getInstance(), getApplicationContext());
         Intent intent = getIntent();
-        String value = intent.getStringExtra("key");
+        //String value = intent.getStringExtra("key");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity
                 fragment.getTag()).commit();
     }
 
-   public void nextButtonClicked(){
+    public void nextButtonClicked(){
        Intent myIntent = new Intent(MainActivity.this, LevelActivity.class);
        myIntent.putExtra("key", true); //Optional parameters
        MainActivity.this.startActivity(myIntent);
@@ -136,6 +136,6 @@ public class MainActivity extends AppCompatActivity
    @Override
     public void onDestroy() {
        super.onDestroy();
-
+       UserFileReader.getInstance().saveObject(getApplicationContext());
    }
 }

@@ -1,5 +1,9 @@
 package tda367.myapplication.service;
 
+import android.content.Context;
+import android.content.ContextWrapper;
+
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -19,21 +23,30 @@ public class UserFileReader {
 
     private UserFileReader() {}
 
+    private File myPath;
+
     public static UserFileReader getInstance() {
         return instance;
     }
 
-    public ObjectInputStream loadObject() throws IOException {
-        return new ObjectInputStream(new FileInputStream(AccountManager.FILENAME));
+    public ObjectInputStream loadObject(Context context) throws IOException {
+        ContextWrapper cw = new ContextWrapper(context);
+        File directory = cw.getDir("dataDir", Context.MODE_PRIVATE);
+        myPath = new File(directory, "users");
+        return new ObjectInputStream(new FileInputStream(myPath));
     }
 
-    public void saveObject() {
+    public void saveObject(Context context) {
+        ContextWrapper cw = new ContextWrapper(context);
+        File directory = cw.getDir("dataDir", Context.MODE_PRIVATE);
+        myPath = new File(directory, "users");
         try {
-            ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(AccountManager.FILENAME));
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(myPath));
             objectOutputStream.writeObject(AccountManager.getInstance());
             objectOutputStream.flush();
             objectOutputStream.close();
         } catch (IOException e) {
+            System.out.println("here");
             e.printStackTrace();
         }
     }

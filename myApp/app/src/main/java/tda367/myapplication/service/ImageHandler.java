@@ -25,11 +25,11 @@ public class ImageHandler {
 
     static Drawable image;
 
-    public static void saveImage(int requestCode, int resultCode, Intent data, Activity activity, String username) {
+    public static void saveImage(int requestCode, int resultCode, Intent data, Activity activity, String username, Context context) {
         if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
             Uri selectedImage = data.getData();
             Bitmap bitmap = null;
-            ContextWrapper cw = new ContextWrapper(getApplicationContext());
+            ContextWrapper cw = new ContextWrapper(context);
             File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
             File myPath = new File(directory, username);
             FileOutputStream fileOutputStream = null;
@@ -52,10 +52,8 @@ public class ImageHandler {
             try {
                 File f = new File(directory, path);
                 return Drawable.createFromStream(new FileInputStream(f), path);
-            }
-            catch (FileNotFoundException e)
-            {
-                e.printStackTrace();
+            } catch (FileNotFoundException e) {
+
             }
         return null;
     }

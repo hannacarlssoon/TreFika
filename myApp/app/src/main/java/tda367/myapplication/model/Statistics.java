@@ -1,5 +1,6 @@
 package tda367.myapplication.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -8,7 +9,7 @@ import java.util.List;
  * Created by hannacarlsson on 2017-04-07.
  */
 
-public class Statistics {
+public class Statistics implements Serializable {
 
     private static final String[] titleNames = {"Level11", "Level12", "Level13", "Level14", "Level15", "Level21",
             "Level22", "Level23", "Level24", "Level25", "Level31", "Level32", "Level33", "Level34",

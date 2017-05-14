@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.FileNotFoundException;
 
 import tda367.myapplication.model.AccountManager;
 import tda367.myapplication.service.ImageHandler;
@@ -19,11 +22,8 @@ public class SignUpActivity extends AppCompatActivity {
 
     private EditText username;
     private EditText password;
-    private TextView wrongUsername;
-    private ImageView profilePicture;
     private ImageButton upload;
     private int RESULT_LOAD_IMG = 1;
-    private Uri selectedImage;
     private ImageHandler imageHandler;
 
     @Override
@@ -33,8 +33,6 @@ public class SignUpActivity extends AppCompatActivity {
 
         username = (EditText) findViewById(R.id.Username);
         password = (EditText) findViewById(R.id.Password);
-        wrongUsername = (TextView) findViewById(R.id.wrongUsername);
-        profilePicture = (ImageView) findViewById(R.id.imageView);
         upload = (ImageButton) findViewById(R.id.imageButton);
 
 
@@ -55,11 +53,11 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //TODO profile picture
                 if (!checkIfUserExists(username.getText().toString())) {
-                    wrongUsername.setText("");
                     AccountManager.getInstance().addUser(username.getText().toString(), password.getText().toString());
-                    startActivity(new Intent(SignUpActivity.this, PlayFragment.class));
+                    System.out.println("You logged in!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    //startActivity(new Intent(SignUpActivity.this, PlayFragment.class));
                 } else {
-                    wrongUsername.setText("The username already exists");
+                    Toast.makeText(getApplicationContext(), "Username already exists", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -67,14 +65,22 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private boolean checkIfUserExists(String username) {
-        return AccountManager.getInstance().getUsers().containsKey(username);
+        try {
+            return AccountManager.getInstance().getUsers().containsKey(username);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+            System.out.println("fuuuuuuckkkkk");
+            return false;
+        }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
-
-        imageHandler.saveImage(requestCode, resultCode, data, this, username.getText().toString());
-
+        try {
+            imageHandler.saveImage(requestCode, resultCode, data, this, username.getText().toString(), getApplicationContext());
+        } catch (NullPointerException e) {
+            System.out.println("Whaat");
+        }
     }
 }

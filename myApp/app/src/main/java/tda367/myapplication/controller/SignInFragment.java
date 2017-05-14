@@ -4,6 +4,7 @@ package tda367.myapplication.controller;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +30,7 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
 
 
     public SignInFragment() {
-        System.out.println("bajs");
+
         // Required empty public constructor
     }
 
@@ -44,32 +45,23 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
         //loginWithFB();
         // Inflate the layout for this fragment
         // ------------------------------------------> change return to return view if this works!
-        System.out.println("Tjenis");
+
         signIn = (Button) view.findViewById(R.id.signIn);
         signUp = (Button) view.findViewById(R.id.signUp);
         userName = (EditText) view.findViewById(R.id.userName);
         password = (EditText) view.findViewById(R.id.Password);
 
-        signIn.setOnClickListener(new Button.OnClickListener() {
-                                      @Override
-                                      public void onClick(View view) {
-                                          System.out.println("Hemm");
-                                      }
-                                  });
-                signUp.setOnClickListener(this);
-        System.out.println(signIn.hasOnClickListeners());
+        signUp.setOnClickListener(this);
+        signIn.setOnClickListener(this);
 
-
-        System.out.println("After");
-        return inflater.inflate(R.layout.fragment_sign_in, container, false);
+        return view;
     }
+
 
     @Override
     public void onClick(View view) {
-        System.out.println("You're in!");
         switch (view.getId()) {
             case R.id.signIn:
-                System.out.println("Case 1");
                 if (isPasswordCorrect(userName.getText().toString(), password.getText().toString())) {
                     AccountManager.getInstance().logIn(userName.getText().toString(), password.getText().toString());
                 } else {
@@ -78,7 +70,6 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
                 }
                 break;
             case R.id.signUp:
-                System.out.println("Case 2");
                 Intent intent = new Intent(getActivity(), SignUpActivity.class);
                 startActivity(intent);
                 break;
@@ -86,7 +77,12 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
     }
 
     private boolean isPasswordCorrect(String username, String password) {
-        return AccountManager.getInstance().getUsers().get(username).getUserPassword().equals(password);
+        try {
+            return AccountManager.getInstance().getUsers().get(username).getUserPassword().equals(password);
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
 
