@@ -35,7 +35,7 @@ public class HashMapCreator {
         for (int i = 1; i < 4; i++) {
             for (int j = 1; j < 6; j++) {
                 String fileName = "category" + i +"/" + "level" + j + ".txt";
-                LevelModel levelModel = new LevelModel(fileReader.getRequiredText(fileName, "question", context), fileReader.getRequiredText(fileName, "answer", context), fileReader.getRequiredText(fileName, "info", context), fileReader.getRequiredText(fileName, "hint", context), i*j);
+                LevelModel levelModel = new LevelModel(fileReader.getRequiredText(fileName, "question", context), fileReader.getRequiredText(fileName, "answer", context), fileReader.getRequiredText(fileName, "info", context), fileReader.getRequiredText(fileName, "hint", context), j);
                 if(i == 1){
                     category1[j-1] = levelModel;
                 }

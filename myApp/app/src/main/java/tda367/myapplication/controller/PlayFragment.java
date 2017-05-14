@@ -37,6 +37,7 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
 
         View view = inflater.inflate(R.layout.fragment_play, container, false);
 
+        //Creates an instance of HashMapCreator and passes it to learnJava when it's initiated
         HashMapCreator hcreate = new HashMapCreator(getContext());
         learnJava.init(hcreate.getHashMap());
 
