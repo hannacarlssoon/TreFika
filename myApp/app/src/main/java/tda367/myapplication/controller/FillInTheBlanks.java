@@ -1,5 +1,8 @@
 package tda367.myapplication.controller;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import tda367.myapplication.R;
 import tda367.myapplication.model.LearnJava;
@@ -30,12 +34,14 @@ public class FillInTheBlanks extends AppCompatActivity {
     private String answer3;
     private LearnJava learnJava = LearnJava.getInstance();
     private int counter = 0;
+    Context context;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fill_in_the_blanks);
+        context = this;
 
         submit = (Button)findViewById(R.id.fillSubmit);
         hint = (ImageButton)findViewById(R.id.hintButton);
@@ -79,8 +85,21 @@ public class FillInTheBlanks extends AppCompatActivity {
         hint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(FillInTheBlanks.this, HintActivity.class));
-            }
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+                TextView textView = new TextView(context);
+                textView.setText(learnJava.getLevelModel().getHint());
+
+                alertDialogBuilder.setView(textView);
+                alertDialogBuilder.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                });
+
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.setView(textView, 20, 20, 20, 20);
+                alertDialog.show();            }
         });
     }
 
