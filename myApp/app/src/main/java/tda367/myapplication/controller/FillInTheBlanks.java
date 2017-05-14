@@ -86,20 +86,21 @@ public class FillInTheBlanks extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-                TextView textView = new TextView(context);
+            TextView textView = new TextView(context);
                 textView.setText(learnJava.getLevelModel().getHint());
 
                 alertDialogBuilder.setView(textView);
                 alertDialogBuilder.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
-                    }
-                });
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    //finish();
+                }
+            });
 
-                AlertDialog alertDialog = alertDialogBuilder.create();
+            AlertDialog alertDialog = alertDialogBuilder.create();
                 alertDialog.setView(textView, 20, 20, 20, 20);
-                alertDialog.show();            }
+                alertDialog.show();
+            }
         });
     }
 

@@ -1,5 +1,8 @@
 package tda367.myapplication.controller;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
@@ -34,6 +37,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
     private TextView textView;
     private Query model;
     private LearnJava learnJava = LearnJava.getInstance();
+    private Context context;
 
 
     @Override
@@ -44,6 +48,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
         Button btn = (Button)findViewById(R.id.SubmitButton);
         textView = (TextView)findViewById(R.id.questionBox);
         hintButton = (ImageButton)findViewById(R.id.hintButton);
+        context = this;
 
 
         System.out.println(getIntent().getStringExtra("ARG_QUESTION"));
@@ -78,7 +83,21 @@ public class QuestionMultiChoice extends AppCompatActivity {
         hintButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(QuestionMultiChoice.this, HintActivity.class));
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+                TextView textView = new TextView(context);
+                textView.setText(learnJava.getLevelModel().getHint());
+
+                alertDialogBuilder.setView(textView);
+                alertDialogBuilder.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //finish();
+                    }
+                });
+
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.setView(textView, 20, 20, 20, 20);
+                alertDialog.show();
             }
         });
     }
