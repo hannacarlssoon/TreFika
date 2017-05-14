@@ -86,9 +86,18 @@ public class QuestionMultiChoice extends AppCompatActivity {
 
     //Gets the selected radiobutton from the view, and sets that alternative as the answer.
     protected void setSelectedAnswer() {
-        int selectedId = radioAnswerGroup.getCheckedRadioButtonId();
-        radioAnswerButton = (RadioButton) findViewById(selectedId);
-        userAnswer = (String) radioAnswerButton.getText();
+        try {
+            if(radioAnswerGroup.getCheckedRadioButtonId() == -1){
+                throw new IllegalStateException();
+            }
+            int selectedId = radioAnswerGroup.getCheckedRadioButtonId();
+            radioAnswerButton = (RadioButton) findViewById(selectedId);
+            userAnswer = (String) radioAnswerButton.getText();
+        }
+        catch(IllegalStateException e){
+            //öppna popup ruta med felmeddelande till användaren?
+        }
+
         System.out.println(userAnswer);
     }
 
