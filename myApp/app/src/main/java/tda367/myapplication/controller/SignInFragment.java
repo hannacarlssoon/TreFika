@@ -64,6 +64,8 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
             case R.id.signIn:
                 if (isPasswordCorrect(userName.getText().toString(), password.getText().toString())) {
                     AccountManager.getInstance().logIn(userName.getText().toString(), password.getText().toString());
+                    MainActivity.setUserInformation(userName.getText().toString());
+                    System.out.println("holaaa");
                 } else {
                     Toast.makeText(getContext(), "Wrong username or password",
                             Toast.LENGTH_LONG).show();

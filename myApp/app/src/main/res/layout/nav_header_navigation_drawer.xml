@@ -17,6 +17,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:maxHeight="90dp"
+        android:maxWidth="90dp"
+        android:adjustViewBounds="true"
         app:srcCompat="@android:drawable/sym_def_app_icon" />
 
     <TextView
@@ -26,11 +29,5 @@
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:text="Användarnamn"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nått annat kanske, dunno" />
 
 </LinearLayout>

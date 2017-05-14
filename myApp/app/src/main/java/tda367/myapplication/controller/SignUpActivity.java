@@ -24,7 +24,6 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText password;
     private ImageButton upload;
     private int RESULT_LOAD_IMG = 1;
-    private ImageHandler imageHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,10 +50,9 @@ public class SignUpActivity extends AppCompatActivity {
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO profile picture
                 if (!checkIfUserExists(username.getText().toString())) {
                     AccountManager.getInstance().addUser(username.getText().toString(), password.getText().toString());
-                    System.out.println("You logged in!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                    MainActivity.setUserInformation(username.getText().toString());
                     //startActivity(new Intent(SignUpActivity.this, PlayFragment.class));
                 } else {
                     Toast.makeText(getApplicationContext(), "Username already exists", Toast.LENGTH_SHORT).show();
@@ -78,7 +76,7 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
         try {
-            imageHandler.saveImage(requestCode, resultCode, data, this, username.getText().toString(), getApplicationContext());
+            ImageHandler.saveImage(requestCode, resultCode, data, this, username.getText().toString(), getApplicationContext());
         } catch (NullPointerException e) {
             System.out.println("Whaat");
         }

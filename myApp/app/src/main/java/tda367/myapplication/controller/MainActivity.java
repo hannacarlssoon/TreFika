@@ -1,7 +1,9 @@
 package tda367.myapplication.controller;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.design.widget.NavigationView;
@@ -12,6 +14,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -20,11 +25,16 @@ import java.io.ObjectOutputStream;
 import tda367.myapplication.model.AccountManager;
 
 import tda367.myapplication.R;
+import tda367.myapplication.service.ImageHandler;
 import tda367.myapplication.service.UserFileReader;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private static ImageView profilePicture;
+    private NavigationView navigationView;
+    private static TextView navUserName;
+    private View headerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,14 +50,20 @@ public class MainActivity extends AppCompatActivity
                     new PlayFragment()).commit();
         }
 
+
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        headerView = navigationView.getHeaderView(0);
+        profilePicture = (ImageView) headerView.findViewById(R.id.imageView);
+        navUserName = (TextView) headerView.findViewById(R.id.navUsername);
     }
 
 
@@ -132,7 +148,12 @@ public class MainActivity extends AppCompatActivity
 
    }
 
-   //TODO Fix
+   public static void setUserInformation(String imageName) {
+       System.out.println("Ih here oppps");
+       profilePicture.setImageDrawable(ImageHandler.loadImage(imageName));
+       navUserName.setText(imageName);
+   }
+
    @Override
     public void onDestroy() {
        super.onDestroy();
