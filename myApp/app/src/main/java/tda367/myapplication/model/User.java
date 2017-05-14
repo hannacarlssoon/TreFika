@@ -10,7 +10,6 @@ import java.io.Serializable;
 
 public class User implements Serializable {
 
-    private static User user;
     private String userName;
     private String userPassword;
 

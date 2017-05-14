@@ -23,7 +23,7 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText password;
 
     //Variable which decieds how many images that are needed for the profile picture
-    private int RESULT_LOAD_IMG = 1;
+    private final int RESULT_LOAD_IMG = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
