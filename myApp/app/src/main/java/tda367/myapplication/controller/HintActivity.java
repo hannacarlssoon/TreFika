@@ -3,12 +3,13 @@ package tda367.myapplication.controller;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.view.View;
 import android.widget.TextView;
 
 import tda367.myapplication.R;
 import tda367.myapplication.model.LearnJava;
 
-public class HintActivity extends AppCompatActivity {
+public class HintActivity extends AppCompatActivity implements View.OnClickListener {
 
     TextView hintTextView;
     LearnJava learnJava = LearnJava.getInstance();
@@ -29,5 +30,10 @@ public class HintActivity extends AppCompatActivity {
         getWindow().setLayout((int)(width*0.8), (int)(height*0.4));
 
         hintTextView.setText(learnJava.getLevelModel().getHint());
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }
