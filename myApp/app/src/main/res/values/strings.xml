@@ -31,5 +31,6 @@
     <string name="facebook_app_id">236847580117061</string>
 
     <string name="info">Lorem ipsum etc...</string>
+    <string name="hint">Klicka här för att se hint</string>
 
 </resources>
