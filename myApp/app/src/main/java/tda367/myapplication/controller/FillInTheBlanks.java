@@ -33,7 +33,7 @@ public class FillInTheBlanks extends AppCompatActivity {
     private String answer2;
     private String answer3;
     private LearnJava learnJava = LearnJava.getInstance();
-    private int counter = 0;
+    private boolean counter = false;
     Context context;
 
 
@@ -72,12 +72,8 @@ public class FillInTheBlanks extends AppCompatActivity {
                     startActivity(new Intent(FillInTheBlanks.this, PassedLevel.class));
                 }
                 else {
-                    counter++;
-                    switch (counter){
-                        case 1 : hint.setVisibility(View.VISIBLE);
-                        case 2 : //code for showing key
-                    }
-                startActivity(new Intent(FillInTheBlanks.this, FailedLevel.class));
+                    hint.setVisibility(View.VISIBLE);
+                    startActivity(new Intent(FillInTheBlanks.this, FailedLevel.class));
                 }
             }
         });
@@ -86,14 +82,13 @@ public class FillInTheBlanks extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-            TextView textView = new TextView(context);
+                TextView textView = new TextView(context);
                 textView.setText(learnJava.getLevelModel().getHint());
 
                 alertDialogBuilder.setView(textView);
                 alertDialogBuilder.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    //finish();
                 }
             });
 
