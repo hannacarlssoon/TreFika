@@ -30,7 +30,6 @@ public class QuestionMultiChoice extends AppCompatActivity {
     private Button submitButton;
     private String userAnswer;
     private TextView textView;
-    private Query model;
     private LearnJava learnJava = LearnJava.getInstance();
 
 
@@ -41,7 +40,6 @@ public class QuestionMultiChoice extends AppCompatActivity {
         radioAnswerGroup = (RadioGroup)findViewById(R.id.radioGroup);
         Button btn = (Button)findViewById(R.id.SubmitButton);
         textView = (TextView)findViewById(R.id.questionBox);
-
 
         System.out.println(getIntent().getStringExtra("ARG_QUESTION"));
 
