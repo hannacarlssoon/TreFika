@@ -4,6 +4,8 @@ package tda367.myapplication.controller;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,12 +26,14 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
     private Button signUp;
     private EditText userName;
     private EditText password;
+    public static boolean isLoggedIn;
 
     public SignInFragment() {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_sign_in, container, false);
 
         //Assigns each component, that is needed to reach, with an id
@@ -42,7 +46,12 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
         signUp.setOnClickListener(this);
         signIn.setOnClickListener(this);
 
+        if (isLoggedIn) {
+            setMyPage();
+        }
+
         return view;
+
     }
 
     //Method needed to be overriden when you have onClickListners, handles each buttons actions when clicked
@@ -50,9 +59,13 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.signIn:
-                if (isPasswordCorrect(userName.getText().toString(), password.getText().toString())) {
-                    AccountManager.getInstance().logIn(userName.getText().toString(), password.getText().toString());
+                if (isPasswordCorrect(userName.getText().toString(),
+                        password.getText().toString())) {
+                    AccountManager.getInstance().logIn(userName.getText().toString(),
+                            password.getText().toString());
                     MainActivity.setUserInformation(userName.getText().toString());
+                    isLoggedIn = true;
+                    setMyPage();
                 } else {
                     Toast.makeText(getContext(), "Wrong username or password",
                             Toast.LENGTH_LONG).show();
@@ -73,6 +86,13 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
             e.printStackTrace();
             return false;
         }
+    }
+
+    //Sets the view to myPage
+    private void setMyPage() {
+        MyPageFragment myPageFragment = new MyPageFragment();
+        FragmentManager manager = getFragmentManager();
+        manager.beginTransaction().replace(getId(), myPageFragment, myPageFragment.getTag()).commit();
     }
 
 }

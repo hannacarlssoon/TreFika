@@ -18,7 +18,6 @@ public class User implements Serializable {
 
     private Statistics userStatistics;
 
-    //TODO kolla ifall statistic fungerar att spara
     public User(String userName, String userPassword) {
         this.userName = userName;
         this.userPassword = userPassword;
@@ -39,10 +38,10 @@ public class User implements Serializable {
     }
 
     //Method is called whenever a level is completed and saves the statistics from the level
-    public void saveStatistics(int levelIndex, boolean isKeyUsed, Integer nHints) {
-        userStatistics.saveStatisticsTime(levelIndex);
-        userStatistics.saveStatisticsKey(levelIndex, isKeyUsed);
-        userStatistics.saveStatisticsHint(levelIndex, nHints);
+    public void saveStatistics(String level, boolean isKeyUsed, boolean isHintUsed) {
+        userStatistics.saveStatisticsTime(level);
+        userStatistics.saveStatisticsKey(level, isKeyUsed);
+        userStatistics.saveStatisticsHint(level, isHintUsed);
     }
 
     //Returns the username
