@@ -29,6 +29,7 @@ public class FillInTheBlanks extends AppCompatActivity {
     private String answer2;
     private String answer3;
     private LearnJava learnJava = LearnJava.getInstance();
+    private int counter = 0;
 
 
     @Override
@@ -41,6 +42,8 @@ public class FillInTheBlanks extends AppCompatActivity {
         textAnswer1   = (EditText)findViewById(R.id.textFillAnswer1);
         textAnswer2   = (EditText)findViewById(R.id.textFillAnswer2);
         textAnswer3   = (EditText)findViewById(R.id.textFillAnswer3);
+
+        hint.setVisibility(View.INVISIBLE);
 
         //Sets the toolbar and enables upnavigation, and sets the title
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);
@@ -63,6 +66,11 @@ public class FillInTheBlanks extends AppCompatActivity {
                     startActivity(new Intent(FillInTheBlanks.this, PassedLevel.class));
                 }
                 else {
+                    counter++;
+                    switch (counter){
+                        case 1 : hint.setVisibility(View.VISIBLE);
+                        case 2 : //code for showing key
+                    }
                 startActivity(new Intent(FillInTheBlanks.this, FailedLevel.class));
                 }
             }
