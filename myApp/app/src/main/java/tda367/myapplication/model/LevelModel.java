@@ -1,6 +1,6 @@
 package tda367.myapplication.model;
 
-/* Den här klassen skapades av tobias, och har sen byggts vidare på av både Madeleine och Tobias.
+/* @author Tobias Lindgren, revised by Madeleine and Tobias
 This class is responsible for keeping track of the questions, and maintaining them. It also creates the
 different query objects, each level model object has a query object as an instance variable.
  */

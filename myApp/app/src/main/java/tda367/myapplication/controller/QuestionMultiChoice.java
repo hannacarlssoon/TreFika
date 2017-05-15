@@ -31,7 +31,6 @@ public class QuestionMultiChoice extends AppCompatActivity {
 
     private RadioGroup radioAnswerGroup;
     private RadioButton radioAnswerButton;
-    private Button submitButton;
     private ImageButton hintButton;
     private String userAnswer;
     private TextView textView;

@@ -8,9 +8,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.view.View;
-
 import tda367.myapplication.model.LearnJava;
 import tda367.myapplication.R;
+
+/* @author Tobias Lindgren, revised by Madeleine Lexén
+Uses learnJava
+This class is responsible for handling the actions from the levelActivity view
+ */
 
 public class LevelActivity extends AppCompatActivity {
 
@@ -70,7 +74,6 @@ public class LevelActivity extends AppCompatActivity {
             firstIsEnabled = true;
         }
     }
-
 
     //sets the title of the enabled buttons
     private void setTitleOnEnabled(){
