@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
+//import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -70,21 +71,60 @@ public class FillInTheBlanks extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+               AlertDialog.Builder mBuilder = new AlertDialog.Builder(FillInTheBlanks.this);
+                View mView;
                 setAnswer();
                 //TODO handle no input from user
                 if(answer1.equals(null) || answer2.equals(null) || answer3.equals(null)){
                     //todo display a message to the user that there was input missing
                 }
                 else if(learnJava.getLevelModel().checkAnswer(userAnswer)){
+                    mView = getLayoutInflater().inflate(R.layout.activity_passed_level, null);
+                            Button next = (Button) mView.findViewById(R.id.nextButton);
+                            Button back = (Button) mView.findViewById(R.id.backButton);
 
-
-
-                    startActivity(new Intent(FillInTheBlanks.this, PassedLevel.class));
+                            next.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    //TODO show the next question in line
+                                    System.out.println("Click click");
+                                }
+                            });
+                           back.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    //TODO back to category
+                                    System.out.println("Click back");
+                                        }
+                                    });
+                    mBuilder.setView(mView);
+                    //startActivity(new Intent(FillInTheBlanks.this, PassedLevel.class));
                 }
                 else {
                     hint.setVisibility(View.VISIBLE);
-                    startActivity(new Intent(FillInTheBlanks.this, FailedLevel.class));
+                 /*   counter++;
+                    switch (counter){
+                        case 1 : hint.setVisibility(View.VISIBLE);
+                        case 2 : //code for showing key
+                    }
+                    */
+                    mView = getLayoutInflater().inflate(R.layout.activity_failed_level, null);
+                    Button tryAgan = (Button) mView.findViewById(R.id.tryAgain);
+
+                    tryAgan.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            //TODO show same question again
+                            System.out.println("Try again click");
+                        }
+                    });
+                    mBuilder.setView(mView);
+                //startActivity(new Intent(FillInTheBlanks.this, FailedLevel.class));
+
                 }
+                mBuilder.setCancelable(false);
+                AlertDialog dialog = mBuilder.create();
+                dialog.show();
             }
         });
 

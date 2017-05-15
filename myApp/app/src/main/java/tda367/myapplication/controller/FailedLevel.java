@@ -17,8 +17,9 @@ import tda367.myapplication.model.MultiChoice;
  * This class handles setting the FailedLevel view
  */
 
-public class FailedLevel extends AppCompatActivity implements View.OnClickListener{
-
+public class FailedLevel {
+    //extends AppCompatActivity implements View.OnClickListener
+/*
     private Button tryAgain;
 
 
@@ -53,4 +54,5 @@ public class FailedLevel extends AppCompatActivity implements View.OnClickListen
             startActivity(new Intent(FailedLevel.this, FillInTheBlanks.class));
         }
     }
+    */
 }

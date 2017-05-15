@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
+//import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -31,6 +32,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
 
     private RadioGroup radioAnswerGroup;
     private RadioButton radioAnswerButton;
+    private Button submitButton;
     private ImageButton hintButton;
     private String userAnswer;
     private TextView textView;
@@ -45,7 +47,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
 
         //Sets buttons and views
         radioAnswerGroup = (RadioGroup)findViewById(R.id.radioGroup);
-        Button btn = (Button)findViewById(R.id.SubmitButton);
+        submitButton = (Button)findViewById(R.id.SubmitButton);
         textView = (TextView)findViewById(R.id.questionBox);
         hintButton = (ImageButton)findViewById(R.id.hintButton);
         context = this;
@@ -61,20 +63,56 @@ public class QuestionMultiChoice extends AppCompatActivity {
 
         //sets listener on submitbutton, checks if answer is correct,
         // changes view to passedLevel if correct, otherwise to FailedLevel.
-        btn.setOnClickListener(new View.OnClickListener() {
+        submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AlertDialog.Builder mBuilder = new AlertDialog.Builder(QuestionMultiChoice.this);
+                View mView;
                 setSelectedAnswer();
                 //TODO handle no input from user
                 if(radioAnswerButton == null){
                     //todo display a message to the user that there was input missing
                 }
                 else if(learnJava.getLevelModel().checkAnswer(userAnswer)){
-                    startActivity(new Intent(QuestionMultiChoice.this, PassedLevel.class));
+                    mView = getLayoutInflater().inflate(R.layout.activity_passed_level, null);
+                    Button next = (Button) mView.findViewById(R.id.nextButton);
+                    Button back = (Button) mView.findViewById(R.id.backButton);
+
+                    next.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            //TODO show the next question in line
+                            System.out.println("Click click");
+                        }
+                    });
+                    back.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            //TODO back to category
+                            System.out.println("Click back");
+                        }
+                    });
+                    mBuilder.setView(mView);
+                    //startActivity(new Intent(QuestionMultiChoice.this, PassedLevel.class));
                 }
                 else {
-                    startActivity(new Intent(QuestionMultiChoice.this, FailedLevel.class));
+                    mView = getLayoutInflater().inflate(R.layout.activity_failed_level, null);
+                    Button tryAgan = (Button) mView.findViewById(R.id.tryAgain);
+
+                    tryAgan.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            //TODO show same question again
+                            System.out.println("Try again click");
+                        }
+                    });
+                    mBuilder.setView(mView);
+                    //startActivity(new Intent(QuestionMultiChoice.this, FailedLevel.class));
                 }
+
+                mBuilder.setCancelable(false);
+                AlertDialog dialog = mBuilder.create();
+                dialog.show();
             }
         });
 
