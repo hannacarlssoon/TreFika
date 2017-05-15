@@ -29,21 +29,19 @@ public class LevelActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Levels");
 
+        //Sets buttons
         Button firstBtn = (Button)findViewById(R.id.firstButton);
         Button secondBtn = (Button)findViewById(R.id.secondButton);
         Button thirdBtn = (Button)findViewById(R.id.thirdButton);
         Button fourthBtn = (Button)findViewById(R.id.fourthButton);
         Button bossBtn = (Button)findViewById(R.id.bossButton);
 
+        //Setting onClickListeners to make buttons clickable
         firstBtn.setOnClickListener(buttonListener);
         secondBtn.setOnClickListener(buttonListener);
         thirdBtn.setOnClickListener(buttonListener);
         fourthBtn.setOnClickListener(buttonListener);
         bossBtn.setOnClickListener(buttonListener);
-    }
-
-    public void onButtonClick(View view){
-
     }
 
     //Handles the back navigation
@@ -58,15 +56,16 @@ public class LevelActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //Definition for the onClickListeners for all buttons
     private Button.OnClickListener buttonListener = new Button.OnClickListener() {
         @Override
         public void onClick(View v) {
             startActivity(new Intent(LevelActivity.this, ActivityInfo.class));
             learnJava.setCurrentLevel(getLevelId(v));
-            System.out.println(" " + getLevelId(v));
         }
     };
 
+    //Method for getting the level ID
     private int getLevelId(View view){
         switch (view.getId()){
             case R.id.firstButton : return 0;

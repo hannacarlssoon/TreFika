@@ -42,11 +42,9 @@
         <activity
             android:name=".controller.FailedLevel"
             android:theme="@style/AppTheme.popup" />
-
-        <activity android:name=".controller.FillInTheBlanks"
-
+        <activity
+            android:name=".controller.FillInTheBlanks"
             android:parentActivityName=".controller.ActivityInfo">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -64,8 +62,6 @@
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
 
-
-
         <activity android:name=".controller.SignUpActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -73,7 +69,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".controller.WriteCode">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -81,8 +76,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
     </application>
 
 </manifest>

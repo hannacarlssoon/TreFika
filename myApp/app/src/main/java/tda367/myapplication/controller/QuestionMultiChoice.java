@@ -1,5 +1,8 @@
 package tda367.myapplication.controller;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -28,20 +32,25 @@ public class QuestionMultiChoice extends AppCompatActivity {
     private RadioGroup radioAnswerGroup;
     private RadioButton radioAnswerButton;
     private Button submitButton;
+    private ImageButton hintButton;
     private String userAnswer;
     private TextView textView;
     private LearnJava learnJava = LearnJava.getInstance();
+    private Context context;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_multi_choice);
+
+        //Sets buttons and views
         radioAnswerGroup = (RadioGroup)findViewById(R.id.radioGroup);
         Button btn = (Button)findViewById(R.id.SubmitButton);
         textView = (TextView)findViewById(R.id.questionBox);
+        hintButton = (ImageButton)findViewById(R.id.hintButton);
+        context = this;
 
-        System.out.println(getIntent().getStringExtra("ARG_QUESTION"));
 
         //Sets the toolbar and enables upnavigation, and sets the title
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);
@@ -67,6 +76,27 @@ public class QuestionMultiChoice extends AppCompatActivity {
                 else {
                     startActivity(new Intent(QuestionMultiChoice.this, FailedLevel.class));
                 }
+            }
+        });
+
+        //onClickListener for hint button and creates dialog for showing hint
+        hintButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+                TextView textView = new TextView(context);
+                textView.setText(learnJava.getLevelModel().getHint());
+
+                alertDialogBuilder.setView(textView);
+                alertDialogBuilder.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.setView(textView, 20, 20, 20, 20);
+                alertDialog.show();
             }
         });
     }
@@ -101,6 +131,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
         System.out.println(userAnswer);
     }
 
+    //Method for setting the right question to the textView
     private void setQuestion(){
         LevelModel[] levelModels = learnJava.getLevelHashMap().get(learnJava.getCurrentCategory());
         textView.setText(levelModels[learnJava.getCurrentLevel()].getQuestion());

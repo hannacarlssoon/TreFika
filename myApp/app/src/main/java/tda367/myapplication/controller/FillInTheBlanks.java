@@ -1,5 +1,8 @@
 package tda367.myapplication.controller;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
@@ -15,7 +18,6 @@ import tda367.myapplication.R;
 import tda367.myapplication.model.LearnJava;
 import tda367.myapplication.model.LevelModel;
 
-import static tda367.myapplication.R.id.textView;
 
 /**
  * @author Sara Kitzing, revised by Madeleine Lexén
@@ -33,14 +35,17 @@ public class FillInTheBlanks extends AppCompatActivity {
     private String answer3;
     private TextView questionView;
     private LearnJava learnJava = LearnJava.getInstance();
-    private int counter = 0;
+    private boolean counter = false;
+    Context context;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fill_in_the_blanks);
+        context = this;
 
+        //Sets buttons and views
         submit = (Button)findViewById(R.id.fillSubmit);
         hint = (ImageButton)findViewById(R.id.hintButton);
         textAnswer1   = (EditText)findViewById(R.id.textFillAnswer1);
@@ -50,6 +55,7 @@ public class FillInTheBlanks extends AppCompatActivity {
 
         setQuestionText();
 
+        //Making the hint button invisible at start
         hint.setVisibility(View.INVISIBLE);
 
         //Sets the toolbar and enables upnavigation, and sets the title
@@ -73,20 +79,30 @@ public class FillInTheBlanks extends AppCompatActivity {
                     startActivity(new Intent(FillInTheBlanks.this, PassedLevel.class));
                 }
                 else {
-                    counter++;
-                    switch (counter){
-                        case 1 : hint.setVisibility(View.VISIBLE);
-                        case 2 : //code for showing key
-                    }
-                startActivity(new Intent(FillInTheBlanks.this, FailedLevel.class));
+                    hint.setVisibility(View.VISIBLE);
+                    startActivity(new Intent(FillInTheBlanks.this, FailedLevel.class));
                 }
             }
         });
 
+        //onClickListener fo hint button and creates dialog for showing hint
         hint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+                TextView textView = new TextView(context);
+                textView.setText(learnJava.getLevelModel().getHint());
 
+                alertDialogBuilder.setView(textView);
+                alertDialogBuilder.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                }
+            });
+
+            AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.setView(textView, 20, 20, 20, 20);
+                alertDialog.show();
             }
         });
     }
