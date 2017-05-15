@@ -131,6 +131,6 @@ public class FillInTheBlanks extends AppCompatActivity {
 
     public void setQuestionText() {
         LevelModel[] levelModels = learnJava.getLevelHashMap().get(learnJava.getCurrentCategory());
-        questionView.setText(levelModels[learnJava.getCurrentLevel()].getQuestion());
+        questionView.setText(levelModels[learnJava.getCurrentLevel()].getQuery().getQuestion());
     }
 }

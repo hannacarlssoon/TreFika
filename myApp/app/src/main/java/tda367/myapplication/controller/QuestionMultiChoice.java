@@ -134,6 +134,6 @@ public class QuestionMultiChoice extends AppCompatActivity {
     //Method for setting the right question to the textView
     private void setQuestion(){
         LevelModel[] levelModels = learnJava.getLevelHashMap().get(learnJava.getCurrentCategory());
-        textView.setText(levelModels[learnJava.getCurrentLevel()].getQuestion());
+        textView.setText(levelModels[learnJava.getCurrentLevel()].getQuery().getQuestion());
     }
 }

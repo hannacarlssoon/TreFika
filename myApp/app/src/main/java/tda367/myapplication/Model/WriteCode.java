@@ -32,6 +32,11 @@ public class WriteCode implements Query {
 
     }
 
+    @Override
+    public String getAnswer() {
+        return answer;
+    }
+
 /*    public void compileCode(String userCode){
         StringBuilder sb = new StringBuilder();
         sb.append(userCode);

@@ -66,10 +66,11 @@ public class LevelActivity extends AppCompatActivity {
 
     //sets the booelan value for the levels passed variable
     private void setPassedLevels(){
-        if(learnJava.getCurrentCategory().equals("1")){
+        if(learnJava.getCurrentCategory().equals("category1")){
             firstIsEnabled = true;
         }
     }
+
 
     //sets the title of the enabled buttons
     private void setTitleOnEnabled(){
@@ -89,6 +90,7 @@ public class LevelActivity extends AppCompatActivity {
 
     //Sets the levels that are unlocked to enabled
     private void enablePassedLevels(){
+        System.out.println("Körs enalbedPAssedLEveve");
         firstBtn.setEnabled(firstIsEnabled);
         secondBtn.setEnabled(secondIsEnabled);
         thirdBtn.setEnabled(thirdIsEnabled);

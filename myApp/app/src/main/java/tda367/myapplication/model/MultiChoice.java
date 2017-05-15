@@ -26,4 +26,9 @@ public class MultiChoice implements Query {
     public boolean checkAnswer(String userAnswer) {
         return answer.equals(userAnswer.toLowerCase());
     }
+
+    @Override
+    public String getAnswer() {
+        return answer;
+    }
 }
