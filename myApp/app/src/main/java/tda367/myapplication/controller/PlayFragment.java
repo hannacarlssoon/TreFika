@@ -93,6 +93,7 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
     }
 
     private void enableCategories(){
+        //b1.setEnabled(true);
         if(cat2Isenabled){
             b2.setEnabled(cat2Isenabled);
         }
