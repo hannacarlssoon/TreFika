@@ -45,10 +45,10 @@ public class QuestionMultiChoice extends AppCompatActivity {
         setContentView(R.layout.activity_question_multi_choice);
 
         //Sets buttons and views
-        radioAnswerGroup = (RadioGroup)findViewById(R.id.radioGroup);
-        Button btn = (Button)findViewById(R.id.SubmitButton);
-        textView = (TextView)findViewById(R.id.questionBox);
-        hintButton = (ImageButton)findViewById(R.id.hintButton);
+        radioAnswerGroup = (RadioGroup) findViewById(R.id.radioGroup);
+        Button btn = (Button) findViewById(R.id.SubmitButton);
+        textView = (TextView) findViewById(R.id.questionBox);
+        hintButton = (ImageButton) findViewById(R.id.hintButton);
         context = this;
 
 
@@ -67,40 +67,19 @@ public class QuestionMultiChoice extends AppCompatActivity {
             public void onClick(View v) {
                 setSelectedAnswer();
                 //TODO handle no input from user
-                if(radioAnswerButton == null){
+                if (radioAnswerButton == null) {
                     //todo display a message to the user that there was input missing
-                }
-                else if(learnJava.getLevelModel().checkAnswer(userAnswer)){
+                } else if (learnJava.getLevelModel().checkAnswer(userAnswer)) {
                     startActivity(new Intent(QuestionMultiChoice.this, PassedLevel.class));
-                }
-                else {
+                } else {
                     startActivity(new Intent(QuestionMultiChoice.this, FailedLevel.class));
                 }
             }
         });
 
-        //onClickListener for hint button and creates dialog for showing hint
-        hintButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-                TextView textView = new TextView(context);
-                textView.setText(learnJava.getLevelModel().getHint());
-
-                alertDialogBuilder.setView(textView);
-                alertDialogBuilder.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                });
-
-                AlertDialog alertDialog = alertDialogBuilder.create();
-                alertDialog.setView(textView, 20, 20, 20, 20);
-                alertDialog.show();
-            }
-        });
+        //sets onclicklistener for hint button
+        hintButton.setOnClickListener(imgBtnlistener);
     }
-
 
     //Handles the back navigation
     @Override
@@ -135,5 +114,31 @@ public class QuestionMultiChoice extends AppCompatActivity {
     private void setQuestion(){
         LevelModel[] levelModels = learnJava.getLevelHashMap().get(learnJava.getCurrentCategory());
         textView.setText(levelModels[learnJava.getCurrentLevel()].getQuestion());
+    }
+
+    //Defines onclicklistener for hint button
+    private ImageButton.OnClickListener imgBtnlistener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            createDialog();
+        }
+    };
+
+    //Method for creating dialog and displaying hint
+    private void createDialog(){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+        TextView textView = new TextView(context);
+        textView.setText(learnJava.getLevelModel().getHint());
+
+        alertDialogBuilder.setView(textView);
+        alertDialogBuilder.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.setView(textView, 20, 20, 20, 20);
+        alertDialog.show();
     }
 }

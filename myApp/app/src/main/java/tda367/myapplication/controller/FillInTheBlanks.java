@@ -85,26 +85,8 @@ public class FillInTheBlanks extends AppCompatActivity {
             }
         });
 
-        //onClickListener fo hint button and creates dialog for showing hint
-        hint.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-                TextView textView = new TextView(context);
-                textView.setText(learnJava.getLevelModel().getHint());
-
-                alertDialogBuilder.setView(textView);
-                alertDialogBuilder.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                }
-            });
-
-            AlertDialog alertDialog = alertDialogBuilder.create();
-                alertDialog.setView(textView, 20, 20, 20, 20);
-                alertDialog.show();
-            }
-        });
+        //set onclicklistener for hint button
+        hint.setOnClickListener(imgBtnListener);
     }
 
     //Handles the back navigation
@@ -132,5 +114,31 @@ public class FillInTheBlanks extends AppCompatActivity {
     public void setQuestionText() {
         LevelModel[] levelModels = learnJava.getLevelHashMap().get(learnJava.getCurrentCategory());
         questionView.setText(levelModels[learnJava.getCurrentLevel()].getQuestion());
+    }
+
+    //Defines onclicklistener for hint button
+    private ImageButton.OnClickListener imgBtnListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            createDialog();
+        }
+    };
+
+    //Method for creating dialog an displaying hint
+    private void createDialog(){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+        TextView textView = new TextView(context);
+        textView.setText(learnJava.getLevelModel().getHint());
+
+        alertDialogBuilder.setView(textView);
+        alertDialogBuilder.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.setView(textView, 20, 20, 20, 20);
+        alertDialog.show();
     }
 }
