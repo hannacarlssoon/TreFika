@@ -70,6 +70,8 @@ public class ActivityInfo extends AppCompatActivity {
 
     }
 
+
+    // Handles the upnavigation
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
