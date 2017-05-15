@@ -16,6 +16,16 @@ public class LevelActivity extends AppCompatActivity {
 
     private LearnJava learnJava = LearnJava.getInstance();
     String infoText;
+    private boolean firstIsEnabled = false;
+    private boolean secondIsEnabled = false;
+    private boolean thirdIsEnabled = false;
+    private boolean fourthIsEnabled = false;
+    private boolean bossIsEnabled = false;
+    private Button bossBtn;
+    private Button fourthBtn;
+    private Button thirdBtn;
+    private Button secondBtn;
+    private Button firstBtn;
 
 
     @Override
@@ -29,12 +39,24 @@ public class LevelActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Levels");
 
-        Button firstBtn = (Button)findViewById(R.id.firstButton);
-        Button secondBtn = (Button)findViewById(R.id.secondButton);
-        Button thirdBtn = (Button)findViewById(R.id.thirdButton);
-        Button fourthBtn = (Button)findViewById(R.id.fourthButton);
-        Button bossBtn = (Button)findViewById(R.id.bossButton);
+        //Sets buttons
+        firstBtn = (Button)findViewById(R.id.firstButton);
+        secondBtn = (Button)findViewById(R.id.secondButton);
+        thirdBtn = (Button)findViewById(R.id.thirdButton);
+        fourthBtn = (Button)findViewById(R.id.fourthButton);
+        bossBtn = (Button)findViewById(R.id.bossButton);
 
+        //Sets the boolean value for the buttons by checking statistics for which levels are passed
+        //Todo koppla ihop med statistiken
+        setPassedLevels();
+
+        //Disables buttons for levels that aren't unlocked
+        enablePassedLevels();
+
+        //sets the title of the enabled buttons
+        setTitleOnEnabled();
+
+        //Setting onClickListeners to make buttons clickable
         firstBtn.setOnClickListener(buttonListener);
         secondBtn.setOnClickListener(buttonListener);
         thirdBtn.setOnClickListener(buttonListener);
@@ -42,8 +64,38 @@ public class LevelActivity extends AppCompatActivity {
         bossBtn.setOnClickListener(buttonListener);
     }
 
-    public void onButtonClick(View view){
+    //sets the booelan value for the levels passed variable
+    private void setPassedLevels(){
+        if(learnJava.getCurrentCategory().equals("category1")){
+            firstIsEnabled = true;
+        }
+    }
 
+
+    //sets the title of the enabled buttons
+    private void setTitleOnEnabled(){
+        if(secondIsEnabled){
+            secondBtn.setText("1");
+        }
+        if(thirdIsEnabled){
+            thirdBtn.setText("2");
+        }
+        if(fourthIsEnabled){
+            fourthBtn.setText("3");
+        }
+        if(bossIsEnabled){
+            bossBtn.setText("4");
+        }
+    }
+
+    //Sets the levels that are unlocked to enabled
+    private void enablePassedLevels(){
+        System.out.println("Körs enalbedPAssedLEveve");
+        firstBtn.setEnabled(firstIsEnabled);
+        secondBtn.setEnabled(secondIsEnabled);
+        thirdBtn.setEnabled(thirdIsEnabled);
+        fourthBtn.setEnabled(fourthIsEnabled);
+        bossBtn.setEnabled(bossIsEnabled);
     }
 
     //Handles the back navigation
@@ -58,15 +110,16 @@ public class LevelActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    //Definition for the onClickListeners for all buttons
     private Button.OnClickListener buttonListener = new Button.OnClickListener() {
         @Override
         public void onClick(View v) {
             startActivity(new Intent(LevelActivity.this, ActivityInfo.class));
             learnJava.setCurrentLevel(getLevelId(v));
-            System.out.println(" " + getLevelId(v));
         }
     };
 
+    //Method for getting the level ID
     private int getLevelId(View view){
         switch (view.getId()){
             case R.id.firstButton : return 0;

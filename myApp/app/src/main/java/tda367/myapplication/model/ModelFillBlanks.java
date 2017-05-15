@@ -26,5 +26,10 @@ public class ModelFillBlanks implements Query  {
     return userAnswer.toLowerCase().equals(answer);
     }
 
+    @Override
+    public String getAnswer() {
+        return answer;
+    }
+
 
 }

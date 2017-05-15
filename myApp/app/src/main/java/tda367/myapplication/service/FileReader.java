@@ -26,6 +26,9 @@ public class FileReader {
                 else if (checkIfInfo(type)) {
                     string = lineOfContent;
                 }
+                else if (checkIfHint(type)) {
+                    string = lineOfContent;
+                }
                 lineOfContent = bufferedReader.readLine();
             }
         } catch (Exception e){

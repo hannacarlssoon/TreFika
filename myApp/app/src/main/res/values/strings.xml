@@ -32,5 +32,6 @@
 
     <string name="info">Lorem ipsum etc...</string>
     <string name="hint">Klicka här för att se hint</string>
+    <string name="hint_tillbaka">Tillbaka</string>
 
 </resources>
