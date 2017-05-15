@@ -2,12 +2,14 @@ package tda367.myapplication.controller;
 
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import tda367.myapplication.model.LearnJava;
 import tda367.myapplication.HashMapCreator;
@@ -24,7 +26,12 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
     public LearnJava learnJava = LearnJava.getInstance();
 
     public PlayFragment() {}
-
+    private ImageButton b1;
+    private ImageButton b2;
+    private ImageButton b3;
+    private boolean cat2Isenabled = false;
+    private boolean cat3IsEnabled = false;
+    private boolean cat4IsEnabled = false;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,14 +44,18 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
         learnJava.init(hcreate.getHashMap());
 
         //Sets id:s to the buttons
-        Button b1 = (Button) view.findViewById(R.id.category1);
-        Button b2 = (Button) view.findViewById(R.id.category2);
-        Button b3 = (Button) view.findViewById(R.id.category3);
+        b1 = (ImageButton) view.findViewById(R.id.category1);
+        b2 = (ImageButton) view.findViewById(R.id.category2);
+        b3 = (ImageButton) view.findViewById(R.id.category3);
+        //b4 = (Button) view.findViewById(R.id.category4);
 
         //Sets onCLickListeners to the buttons
         b1.setOnClickListener(this);
         b2.setOnClickListener(this);
         b3.setOnClickListener(this);
+
+        setEnabledCategories();
+        enableCategories();
 
         return view;
     }
@@ -68,6 +79,37 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
                 learnJava.setCurrentCategory("category3");
                 startActivity(intent3);
                 break;
+           /* case R.id.category4:
+                Intent intent4 = new Intent(getActivity(), LevelActivity.class);
+                learnJava.setCurrentCategory("category3");
+                startActivity(intent4);
+                break;
+                */
+        }
+    }
+
+    private void setEnabledCategories(){
+
+    }
+
+    private void enableCategories(){
+        if(cat2Isenabled){
+            b2.setEnabled(cat2Isenabled);
+        }
+        else{
+            b2.setImageResource(R.drawable.ic_lock_black_24dp);
+        }
+        if (cat3IsEnabled){
+            b3.setEnabled(cat3IsEnabled);
+        }
+        else{
+            b3.setImageResource(R.drawable.ic_lock_black_24dp);
+        }
+        if (cat4IsEnabled){
+          //  b4.setEnabled(cat4IsEnabled);
+        }
+        else{
+          //  b4.setImageResource(R.drawable.ic_lock_black_24dp);
         }
     }
 }

@@ -16,7 +16,7 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"/>
 -->
 
-    <Button
+    <ImageButton
         android:id="@+id/category3"
         android:layout_width="258dp"
         android:layout_height="120dp"
@@ -33,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/category2"
         app:layout_constraintVertical_bias="0.504" />
 
-    <Button
+    <ImageButton
         android:id="@+id/category2"
         android:layout_width="258dp"
         android:layout_height="120dp"
@@ -80,7 +80,7 @@
         app:layout_constraintHorizontal_bias="0.067"
         app:layout_constraintVertical_bias="0.575" />
 
-    <Button
+    <ImageButton
         android:id="@+id/category1"
         style="@style/Widget.AppCompat.Button"
         android:layout_width="258dp"
