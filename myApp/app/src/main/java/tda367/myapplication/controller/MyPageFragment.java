@@ -22,8 +22,6 @@ public class MyPageFragment extends Fragment {
 
     private ImageView myPageProfilePicture;
     private TextView myPageUserName;
-    private Button myPageUpdate;
-    private Button myPageLogOut;
 
     public MyPageFragment() {}
 
@@ -35,8 +33,8 @@ public class MyPageFragment extends Fragment {
 
         myPageProfilePicture = (ImageView) view.findViewById(R.id.myPageProfilePicture);
         myPageUserName = (TextView) view.findViewById(R.id.myPageUserName);
-        myPageUpdate = (Button) view.findViewById(R.id.myPageUpdate);
-        myPageLogOut = (Button) view.findViewById(R.id.myPageLogOut);
+        Button myPageUpdate = (Button) view.findViewById(R.id.myPageUpdate);
+        Button myPageLogOut = (Button) view.findViewById(R.id.myPageLogOut);
 
         myPageUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +47,8 @@ public class MyPageFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 SignInFragment.isLoggedIn = false;
+                AccountManager.getInstance().logOut();
+                MainActivity.setUserInformation(null);
                 setSignInPage();
             }
         });

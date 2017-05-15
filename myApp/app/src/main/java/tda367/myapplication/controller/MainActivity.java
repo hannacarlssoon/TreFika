@@ -29,6 +29,8 @@ import tda367.myapplication.R;
 import tda367.myapplication.service.ImageHandler;
 import tda367.myapplication.service.UserFileReader;
 
+import static android.R.drawable.sym_def_app_icon;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private static ImageView profilePicture;
@@ -147,8 +149,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
    public static void setUserInformation(String imageName) {
-       profilePicture.setImageDrawable(ImageHandler.loadImage(imageName));
-       navUserName.setText(imageName);
+       if (imageName == null) {
+           profilePicture.setImageResource(sym_def_app_icon);
+           navUserName.setText("Log in to see username");
+       } else {
+           profilePicture.setImageDrawable(ImageHandler.loadImage(imageName));
+           navUserName.setText(imageName);
+       }
    }
 
     @Override

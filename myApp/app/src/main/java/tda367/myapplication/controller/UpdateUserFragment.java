@@ -50,6 +50,7 @@ public class UpdateUserFragment extends Fragment {
                 AccountManager.getInstance().getActiveUser().updateUser(username.getText().toString(),
                         password.getText().toString(), null);
                 setMyPage();
+                MainActivity.setUserInformation(username.getText().toString());
 
             }
         });

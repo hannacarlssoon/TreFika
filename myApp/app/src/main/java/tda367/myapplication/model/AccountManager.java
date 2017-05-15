@@ -22,7 +22,7 @@ public class AccountManager implements Serializable {
     private Map<String, User> users = new HashMap<>();
     private User activeUser;
 
-    //Needed when implementing the Serilizable interface
+    //An id, needed when implementing the Serilizable interface
     private static final long serialVersionUID =7116880369697727491L;
 
     private AccountManager() {}
@@ -59,6 +59,10 @@ public class AccountManager implements Serializable {
          } catch(NullPointerException e) {
             e.printStackTrace();
          }
+    }
+
+    public void logOut() {
+        activeUser = null;
     }
 
     //Returns the active user
