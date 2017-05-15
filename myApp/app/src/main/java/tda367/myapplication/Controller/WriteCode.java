@@ -1,6 +1,7 @@
 package tda367.myapplication.controller;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -41,7 +42,9 @@ public class WriteCode extends AppCompatActivity {
 
         submit = (Button)findViewById(R.id.codeSubmit);
         userCode   = (EditText)findViewById(R.id.codeEditText);
-        server = new Server("127.0.0.1");
+        server = new Server("10.0.2.2");
+        System.out.println("Created server");
+        System.out.println("Server compiled: " + server.getCompiledCode());
         //writeCode = (tda367.myapplication.model.WriteCode) learnJava.getQuery();
         questionView = (TextView) findViewById(R.id.codeQuestion);
 
@@ -57,51 +60,62 @@ public class WriteCode extends AppCompatActivity {
 
         //Compiles code and checks if answer is right, sets PassedLevelview if correct, otherwise FailedLevel
         submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+         @Override
+         public void onClick(View v) {
                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(WriteCode.this);
                 View mView;
                 setAnswer();
-                runServer();
-                codeResult = server.getCompiledCode();
+                System.out.println("Server is about to connect");
+                //server = new Server("127.0.0.1");
+                //runServer();
+                //codeResult = server.getCompiledCode();
+                System.out.println("Compiled code: " + server.getCompiledCode());
                 //TODO handle no input from user
-                if(answer.equals(null)){
+                if(answer.isEmpty()) {
                     //todo display a message to the user that there was input missing
-                } else if(learnJava.getLevelModel().checkAnswer(codeResult)){
-                    mView = getLayoutInflater().inflate(R.layout.activity_passed_level, null);
-                    Button next = (Button) mView.findViewById(R.id.nextButton);
-                    Button back = (Button) mView.findViewById(R.id.backButton);
-
-                    next.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            //TODO show the next question in line
-                            System.out.println("Click click");
-                        }
-                    });
-                    back.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            //TODO back to category
-                            System.out.println("Click back");
-                        }
-                    });
-                    mBuilder.setView(mView);
                 }else {
-                    //TODO show "getError-method" on screen
-                    mView = getLayoutInflater().inflate(R.layout.activity_failed_level, null);
-                    Button tryAgan = (Button) mView.findViewById(R.id.tryAgain);
+                    SendfeedbackCode code = new SendfeedbackCode();
+                    code.execute();
+                    while (!code.isDone()) {
+                        //TODO: Fix this :)))
+                    }
+                    if (learnJava.getLevelModel().checkAnswer(codeResult)) {
+                        mView = getLayoutInflater().inflate(R.layout.activity_passed_level, null);
+                        Button next = (Button) mView.findViewById(R.id.nextButton);
+                        Button back = (Button) mView.findViewById(R.id.backButton);
 
-                    tryAgan.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            //TODO show same question again
-                            System.out.println("Try again click");
-                        }
-                    });
-                    mBuilder.setView(mView);
-                    //startActivity(new Intent(FillInTheBlanks.this, FailedLevel.class));
+                        next.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                //TODO show the next question in line
+                                System.out.println("Click click");
+                            }
+                        });
+                        back.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                //TODO back to category
+                                System.out.println("Click back");
+                            }
+                        });
+                        mBuilder.setView(mView);
+                    } else {
+                        //TODO show "getError-method" on screen
+                        mView = getLayoutInflater().inflate(R.layout.activity_failed_level, null);
+                        Button tryAgan = (Button) mView.findViewById(R.id.tryAgain);
+                        System.out.println("Error: " + getError());
 
+                        tryAgan.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                //TODO show same question again
+                                System.out.println("Try again click");
+                            }
+                        });
+                        mBuilder.setView(mView);
+                        //startActivity(new Intent(FillInTheBlanks.this, FailedLevel.class));
+
+                    }
                 }
                 mBuilder.setCancelable(false);
                 AlertDialog dialog = mBuilder.create();
@@ -109,21 +123,8 @@ public class WriteCode extends AppCompatActivity {
             }
         });
 
-             //setNextView();
     }
 
-    /*
-    private void setNextView(){
-        //if(chechAnswer(answer)){
-        startActivity(new Intent(WriteCode.this, PassedLevel.class));
-                 }
-                else {
-                startActivity(new Intent(FillInTheBlanks.this, FailedLevel.class));
-                }
-
-
-    }
-    */
 
     //Handles the back navigation
     @Override
@@ -144,6 +145,7 @@ public class WriteCode extends AppCompatActivity {
 
     //Runs the server
     private void runServer(){
+        System.out.println("User code is set");
         server.setUserCode(answer);
         server.startRunning();
     }
@@ -158,6 +160,36 @@ public class WriteCode extends AppCompatActivity {
             return "Error";
         }
             return codeResult;
+    }
+
+    private class SendfeedbackCode extends AsyncTask<String, Void, String> {
+        private boolean isDone = false;
+
+        @Override
+        protected String doInBackground(String[] params) {
+           try{
+                runServer();
+                codeResult = server.getCompiledCode();
+               System.out.println(codeResult);
+                isDone = true;
+            return "some message";
+           } catch (Exception e) {
+               e.printStackTrace();
+
+               return null;
+           }
+        }
+
+        public boolean isDone() {
+            return isDone;
+        }
+
+
+
+        @Override
+        protected void onPostExecute(String message) {
+            //process message
+        }
     }
 
 
