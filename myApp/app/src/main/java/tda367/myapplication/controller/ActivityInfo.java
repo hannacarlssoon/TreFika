@@ -38,7 +38,7 @@ public class ActivityInfo extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Något");
+        getSupportActionBar().setTitle(getLevelTitle());
 
         setInfoText();
 
@@ -79,6 +79,11 @@ public class ActivityInfo extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private String getLevelTitle(){
+        LevelModel[] levelModels = learnJava.getLevelHashMap().get(learnJava.getCurrentCategory());
+        return levelModels[learnJava.getCurrentLevel()].getHeading();
     }
 
     public void setInfoText() {
