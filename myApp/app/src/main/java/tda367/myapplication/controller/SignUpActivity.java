@@ -40,7 +40,7 @@ public class SignUpActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Levels");
+        getSupportActionBar().setTitle("Sign Up");
 
         //Finds the id for the components
         username = (EditText) findViewById(R.id.Username);

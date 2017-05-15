@@ -1,19 +1,16 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="tda367.myapplication.controller.StatisticsFragment">
+    tools:context="tda367.myapplication.controller.SignInFragment">
 
     <ExpandableListView
-        android:id="@+id/expandableList"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:divider="@color/cardview_dark_background"
-        android:dividerHeight="0.5dp">
+        android:id="@+id/lvExp"
+        android:layout_width="344dp"
+        android:layout_height="551dp"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp"></ExpandableListView>
 
-    </ExpandableListView>
-
-
-
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>
