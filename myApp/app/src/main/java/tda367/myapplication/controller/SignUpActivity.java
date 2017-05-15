@@ -1,11 +1,16 @@
 package tda367.myapplication.controller;
 
 import android.content.Intent;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.Toast;
 import tda367.myapplication.model.AccountManager;
@@ -56,7 +61,7 @@ public class SignUpActivity extends AppCompatActivity {
                 if (!checkIfUserExists(username.getText().toString())) {
                     AccountManager.getInstance().addUser(username.getText().toString(), password.getText().toString());
                     MainActivity.setUserInformation(username.getText().toString());
-                    //startActivity(new Intent(SignUpActivity.this, PlayFragment.class));
+                    setMyPage();
                 } else {
                     Toast.makeText(getApplicationContext(), "Username already exists", Toast.LENGTH_SHORT).show();
                 }
@@ -84,5 +89,29 @@ public class SignUpActivity extends AppCompatActivity {
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
+    }
+
+    //Sets the view to myPage
+    private void setMyPage() {
+        FrameLayout fragmentLayout = new FrameLayout(this);
+        fragmentLayout.setLayoutParams(new ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+        fragmentLayout.setId(R.id.activity_sign_up);
+        setContentView(fragmentLayout);
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.activity_sign_up,new MyPageFragment()).commit();
+    }
+
+    //Handles the back navigation
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
