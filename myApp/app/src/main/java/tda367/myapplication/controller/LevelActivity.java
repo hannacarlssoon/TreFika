@@ -19,7 +19,6 @@ This class is responsible for handling the actions from the levelActivity view
 public class LevelActivity extends AppCompatActivity {
 
     private LearnJava learnJava = LearnJava.getInstance();
-    String infoText;
     private boolean firstIsEnabled = false;
     private boolean secondIsEnabled = false;
     private boolean thirdIsEnabled = false;
