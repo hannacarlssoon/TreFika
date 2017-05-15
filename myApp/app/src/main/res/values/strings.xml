@@ -1,9 +1,10 @@
 <resources>
 
     <string name="app_name">My Application</string>
-    <string name="categoryButton1">       Category 1</string>
-    <string name="categoryButton2">       Category 2</string>
-    <string name="categoryButton3">       Category 3</string>
+    <string name="categoryButton1">       Typer och Variabler</string>
+    <string name="categoryButton2">       If-satser och boolean logik</string>
+    <string name="categoryButton3">       For- och while-loopar</string>
+    <string name="categoryButton4">       Arrayer</string>
 
     <string name="Level1">1</string>
     <string name="Level2">2</string>
