@@ -87,15 +87,18 @@ public class WriteCode extends AppCompatActivity {
                         next.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                //TODO show the next question in line
-                                System.out.println("Click click");
+                                startActivity(new Intent(WriteCode.this, LevelActivity.class));
+                                if(!learnJava.getCurrentCategory().equals(4)) {
+                                    learnJava.setCurrentCategory(learnJava.getCurrentCategory() + 1);
+                                } else {
+                                    //TODO Fix congratulations-message --> tutorial is done!
+                                }
                             }
                         });
                         back.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                //TODO back to category
-                                System.out.println("Click back");
+                                startActivity(new Intent(WriteCode.this, LevelActivity.class));
                             }
                         });
                         mBuilder.setView(mView);

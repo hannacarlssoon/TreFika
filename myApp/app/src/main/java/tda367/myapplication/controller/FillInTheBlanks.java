@@ -87,18 +87,17 @@ public class FillInTheBlanks extends AppCompatActivity {
                                 @Override
                                 public void onClick(View v) {
                                     //TODO show the next question in line
-                                    System.out.println("Click click");
+                                    startActivity(new Intent(FillInTheBlanks.this,ActivityInfo.class));
+                                    learnJava.setCurrentLevel(learnJava.getCurrentLevel() + 1);
                                 }
                             });
                            back.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    //TODO back to category
-                                    System.out.println("Click back");
+                                    startActivity(new Intent(FillInTheBlanks.this, LevelActivity.class));
                                         }
                                     });
                     mBuilder.setView(mView);
-                    //startActivity(new Intent(FillInTheBlanks.this, PassedLevel.class));
                 }
                 else {
                     hint.setVisibility(View.VISIBLE);

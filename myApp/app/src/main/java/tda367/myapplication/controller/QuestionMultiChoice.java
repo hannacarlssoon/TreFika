@@ -81,19 +81,17 @@ public class QuestionMultiChoice extends AppCompatActivity {
                     next.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            //TODO show the next question in line
-                            System.out.println("Click click");
+                            startActivity(new Intent(QuestionMultiChoice.this,ActivityInfo.class));
+                            learnJava.setCurrentLevel(learnJava.getCurrentLevel() + 1);
                         }
                     });
                     back.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            //TODO back to category
-                            System.out.println("Click back");
+                            startActivity(new Intent(QuestionMultiChoice.this, LevelActivity.class));
                         }
                     });
                     mBuilder.setView(mView);
-                    //startActivity(new Intent(QuestionMultiChoice.this, PassedLevel.class));
                 }
                 else {
                     mView = getLayoutInflater().inflate(R.layout.activity_failed_level, null);
