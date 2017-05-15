@@ -1,5 +1,6 @@
 package tda367.myapplication.controller;
 
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -86,7 +87,6 @@ public class FillInTheBlanks extends AppCompatActivity {
                             next.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    //TODO show the next question in line
                                     startActivity(new Intent(FillInTheBlanks.this,ActivityInfo.class));
                                     learnJava.setCurrentLevel(learnJava.getCurrentLevel() + 1);
                                 }
@@ -98,6 +98,7 @@ public class FillInTheBlanks extends AppCompatActivity {
                                         }
                                     });
                     mBuilder.setView(mView);
+                    mBuilder.setCancelable(false);
                 }
                 else {
                     hint.setVisibility(View.VISIBLE);
@@ -108,22 +109,30 @@ public class FillInTheBlanks extends AppCompatActivity {
                     }
                     */
                     mView = getLayoutInflater().inflate(R.layout.activity_failed_level, null);
-                    Button tryAgan = (Button) mView.findViewById(R.id.tryAgain);
+                    mBuilder.setPositiveButton("Pröva igen", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                }
+                            });
+ /*                   Button tryAgan = (Button) mView.findViewById(R.id.tryAgain);
 
                     tryAgan.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             //TODO show same question again
                             System.out.println("Try again click");
+
                         }
                     });
+            */
                     mBuilder.setView(mView);
+                    mBuilder.setCancelable(false);
                 //startActivity(new Intent(FillInTheBlanks.this, FailedLevel.class));
 
                 }
-                mBuilder.setCancelable(false);
                 AlertDialog dialog = mBuilder.create();
                 dialog.show();
+
             }
         });
 

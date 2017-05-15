@@ -1,5 +1,6 @@
 package tda367.myapplication.controller;
 
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -92,23 +93,28 @@ public class QuestionMultiChoice extends AppCompatActivity {
                         }
                     });
                     mBuilder.setView(mView);
+                    mBuilder.setCancelable(false);
                 }
                 else {
                     mView = getLayoutInflater().inflate(R.layout.activity_failed_level, null);
-                    Button tryAgan = (Button) mView.findViewById(R.id.tryAgain);
+                    mBuilder.setPositiveButton("Pröva igen", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                        }
+                    });
+                    /*Button tryAgan = (Button) mView.findViewById(R.id.tryAgain);
 
                     tryAgan.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            //TODO show same question again
                             System.out.println("Try again click");
                         }
                     });
+                    */
                     mBuilder.setView(mView);
+                    mBuilder.setCancelable(false);
                     //startActivity(new Intent(QuestionMultiChoice.this, FailedLevel.class));
                 }
-
-                mBuilder.setCancelable(false);
                 AlertDialog dialog = mBuilder.create();
                 dialog.show();
             }
