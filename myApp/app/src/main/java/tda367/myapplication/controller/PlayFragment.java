@@ -55,14 +55,17 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
         switch (view.getId()) {
             case R.id.category1:
                 Intent intent1 = new Intent(getActivity(), LevelActivity.class);
+                learnJava.setCurrentCategory("category1");
                 startActivity(intent1);
                 break;
             case R.id.category2:
                 Intent intent2 = new Intent(getActivity(), LevelActivity.class);
+                learnJava.setCurrentCategory("category2");
                 startActivity(intent2);
                 break;
             case R.id.category3:
                 Intent intent3 = new Intent(getActivity(), LevelActivity.class);
+                learnJava.setCurrentCategory("category3");
                 startActivity(intent3);
                 break;
         }

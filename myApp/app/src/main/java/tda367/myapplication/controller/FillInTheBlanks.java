@@ -72,7 +72,7 @@ public class FillInTheBlanks extends AppCompatActivity {
             public void onClick(View v) {
                 setAnswer();
                 //TODO handle no input from user
-                if(answer1.equals(null) || answer2.equals(null) || answer3.equals(null)){
+                if(answer1.isEmpty() || answer2.isEmpty() || answer3.isEmpty()){
                     //todo display a message to the user that there was input missing
                 }
                 else if(learnJava.getLevelModel().checkAnswer(userAnswer)){
@@ -122,6 +122,7 @@ public class FillInTheBlanks extends AppCompatActivity {
         public void onClick(View v) {
             if (!showKey){
                 createDialog(learnJava.getLevelModel().getHint());
+                showKey = true;
             }
             else {
                 createDialog(learnJava.getLevelModel().getHint() + "\n" + learnJava.getLevelModel().getAnswer());

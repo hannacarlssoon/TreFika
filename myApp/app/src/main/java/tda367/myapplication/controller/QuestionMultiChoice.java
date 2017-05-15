@@ -123,6 +123,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
         public void onClick(View v) {
             if (!showKey) {
                 createDialog(learnJava.getLevelModel().getHint());
+                showKey = true;
             }
             else {
                 createDialog(learnJava.getLevelModel().getHint() + "\n"+ learnJava.getLevelModel().getAnswer());
