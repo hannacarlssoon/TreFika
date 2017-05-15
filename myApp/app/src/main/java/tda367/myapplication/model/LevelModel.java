@@ -13,12 +13,14 @@ public class LevelModel {
     private String hint;
     private Query query;
     private int questionNumber;
+    private String heading;
 
-    public LevelModel(String question, String answer, String info, String hint, int questionNumber) {
+    public LevelModel(String question, String answer, String info, String hint, int questionNumber, String heading) {
         this.question = question;
         this.answer = answer;
         this.info = info;
         this.hint = hint;
+        this.heading = heading;
         this.questionNumber = questionNumber;
         if (questionNumber > 4){
             this.query = new WriteCode(question, answer);
