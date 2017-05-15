@@ -48,6 +48,10 @@ public class LevelModel {
         return this.info;
     }
 
+    public String getHeading(){
+        return this.heading;
+    }
+
     public boolean checkAnswer(String userAnswer){
         //anropa frågans checkAnswer metod
         return query.checkAnswer(userAnswer);
