@@ -37,6 +37,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
     private TextView textView;
     private LearnJava learnJava = LearnJava.getInstance();
     private Context context;
+    private boolean showKey = false;
 
 
     @Override
@@ -120,15 +121,20 @@ public class QuestionMultiChoice extends AppCompatActivity {
     private ImageButton.OnClickListener imgBtnlistener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            createDialog();
+            if (!showKey) {
+                createDialog(learnJava.getLevelModel().getHint());
+            }
+            else {
+                createDialog(learnJava.getLevelModel().getHint() + "\n"+ learnJava.getLevelModel().getAnswer());
+            }
         }
     };
 
     //Method for creating dialog and displaying hint
-    private void createDialog(){
+    private void createDialog(String hint){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
         TextView textView = new TextView(context);
-        textView.setText(learnJava.getLevelModel().getHint());
+        textView.setText(hint);
 
         alertDialogBuilder.setView(textView);
         alertDialogBuilder.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {

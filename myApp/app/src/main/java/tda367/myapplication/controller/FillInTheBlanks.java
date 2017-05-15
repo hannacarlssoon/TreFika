@@ -35,7 +35,7 @@ public class FillInTheBlanks extends AppCompatActivity {
     private String answer3;
     private TextView questionView;
     private LearnJava learnJava = LearnJava.getInstance();
-    private boolean counter = false;
+    private boolean showKey = false;
     Context context;
 
 
@@ -120,15 +120,20 @@ public class FillInTheBlanks extends AppCompatActivity {
     private ImageButton.OnClickListener imgBtnListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            createDialog();
+            if (!showKey){
+                createDialog(learnJava.getLevelModel().getHint());
+            }
+            else {
+                createDialog(learnJava.getLevelModel().getHint() + "\n" + learnJava.getLevelModel().getAnswer());
+            }
         }
     };
 
     //Method for creating dialog an displaying hint
-    private void createDialog(){
+    private void createDialog(String hint){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
         TextView textView = new TextView(context);
-        textView.setText(learnJava.getLevelModel().getHint());
+        textView.setText(hint);
 
         alertDialogBuilder.setView(textView);
         alertDialogBuilder.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
