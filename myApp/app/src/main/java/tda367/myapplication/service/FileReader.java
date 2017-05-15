@@ -29,6 +29,9 @@ public class FileReader {
                 else if (checkIfHint(type)) {
                     string = lineOfContent;
                 }
+                else if (checkIfHeading(type)) {
+                    string = lineOfContent;
+                }
                 lineOfContent = bufferedReader.readLine();
             }
         } catch (Exception e){
@@ -57,5 +60,10 @@ public class FileReader {
     //Method for checking if the wanted text is a hint and the line of the .txt-file is hint
     private boolean checkIfHint(String reqText){
         return (reqText.equals("hint") && counter == 8);
+    }
+
+    //Method for checking if the wanted text is a heading and the line of the .txt-file is heading
+    private boolean checkIfHeading(String reqText){
+        return (reqText.equals("heading") && counter == 12);
     }
 }
