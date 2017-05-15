@@ -52,10 +52,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.constraintlayout_for_fragment,
-                    new PlayFragment()).commit();
+            if (SignInFragment.isInSignUp == true) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.constraintlayout_for_fragment,
+                        new SignInFragment()).commit();
+            } else {
+                getSupportFragmentManager().beginTransaction().replace(R.id.constraintlayout_for_fragment,
+                        new PlayFragment()).commit();
+            }
         }
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -84,9 +88,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.navigation_drawer, menu);
-
         return true;
     }
 
@@ -108,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
+
         int id = item.getItemId();
 
         if (id == R.id.nav_play) {
@@ -166,6 +168,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public void onDestroy() {
         super.onDestroy();
+        SignInFragment.isLoggedIn = false;
         UserFileReader.getInstance().saveObject(getApplicationContext());
     }
 }

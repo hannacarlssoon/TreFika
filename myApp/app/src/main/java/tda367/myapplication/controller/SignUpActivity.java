@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +36,12 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+        //Sets the toolbar and enables upnavigation, and sets the title
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Levels");
+
         //Finds the id for the components
         username = (EditText) findViewById(R.id.Username);
         password = (EditText) findViewById(R.id.Password);
@@ -61,6 +68,7 @@ public class SignUpActivity extends AppCompatActivity {
                 if (!checkIfUserExists(username.getText().toString())) {
                     AccountManager.getInstance().addUser(username.getText().toString(), password.getText().toString());
                     MainActivity.setUserInformation(username.getText().toString());
+                    SignInFragment.isLoggedIn = true;
                     setMyPage();
                 } else {
                     Toast.makeText(getApplicationContext(), "Username already exists", Toast.LENGTH_SHORT).show();
@@ -93,14 +101,17 @@ public class SignUpActivity extends AppCompatActivity {
 
     //Sets the view to myPage
     private void setMyPage() {
-        FrameLayout fragmentLayout = new FrameLayout(this);
+
+        startActivity(new Intent(SignUpActivity.this, MainActivity.class));
+
+        /*FrameLayout fragmentLayout = new FrameLayout(this);
         fragmentLayout.setLayoutParams(new ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         fragmentLayout.setId(R.id.activity_sign_up);
         setContentView(fragmentLayout);
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.activity_sign_up,new MyPageFragment()).commit();
+                .add(R.id.activity_sign_up,new PlayFragment()).commit();*/
     }
 
     //Handles the back navigation
@@ -112,6 +123,7 @@ public class SignUpActivity extends AppCompatActivity {
                 NavUtils.navigateUpFromSameTask(this);
                 return true;
         }
+        SignInFragment.isInSignUp = false;
         return super.onOptionsItemSelected(item);
     }
 }

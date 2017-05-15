@@ -27,6 +27,7 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
     private EditText userName;
     private EditText password;
     public static boolean isLoggedIn;
+    public static boolean isInSignUp;
 
     public SignInFragment() {}
 
@@ -74,6 +75,7 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
             case R.id.signUp:
                 Intent intent = new Intent(getActivity(), SignUpActivity.class);
                 startActivity(intent);
+                isInSignUp = true;
                 break;
         }
     }
