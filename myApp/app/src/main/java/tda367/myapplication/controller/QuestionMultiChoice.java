@@ -44,14 +44,13 @@ public class QuestionMultiChoice extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_multi_choice);
+
+        //Sets buttons and views
         radioAnswerGroup = (RadioGroup)findViewById(R.id.radioGroup);
         Button btn = (Button)findViewById(R.id.SubmitButton);
         textView = (TextView)findViewById(R.id.questionBox);
         hintButton = (ImageButton)findViewById(R.id.hintButton);
         context = this;
-
-
-        System.out.println(getIntent().getStringExtra("ARG_QUESTION"));
 
         //Sets the toolbar and enables upnavigation, and sets the title
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);
@@ -80,6 +79,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
             }
         });
 
+        //onClickListener for hint button and creates dialog for showing hint
         hintButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -122,6 +122,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
         System.out.println(userAnswer);
     }
 
+    //Method for setting the right question to the textView
     private void setQuestion(){
         LevelModel[] levelModels = learnJava.getLevelHashMap().get(learnJava.getCurrentCategory());
         textView.setText(levelModels[learnJava.getCurrentLevel()].getQuestion());

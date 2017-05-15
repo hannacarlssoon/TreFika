@@ -43,12 +43,14 @@ public class FillInTheBlanks extends AppCompatActivity {
         setContentView(R.layout.activity_fill_in_the_blanks);
         context = this;
 
+        //Sets buttons and views
         submit = (Button)findViewById(R.id.fillSubmit);
         hint = (ImageButton)findViewById(R.id.hintButton);
         textAnswer1   = (EditText)findViewById(R.id.textFillAnswer1);
         textAnswer2   = (EditText)findViewById(R.id.textFillAnswer2);
         textAnswer3   = (EditText)findViewById(R.id.textFillAnswer3);
 
+        //Making the hint button invisible at start
         hint.setVisibility(View.INVISIBLE);
 
         //Sets the toolbar and enables upnavigation, and sets the title
@@ -78,6 +80,7 @@ public class FillInTheBlanks extends AppCompatActivity {
             }
         });
 
+        //onClickListener fo hint button and creates dialog for showing hint
         hint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
