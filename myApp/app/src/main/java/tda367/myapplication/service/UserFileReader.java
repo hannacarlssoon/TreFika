@@ -46,7 +46,6 @@ public class UserFileReader {
             objectOutputStream.flush();
             objectOutputStream.close();
         } catch (IOException e) {
-            System.out.println("here");
             e.printStackTrace();
         }
     }

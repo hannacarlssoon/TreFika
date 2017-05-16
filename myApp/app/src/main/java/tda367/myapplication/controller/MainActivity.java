@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if (savedInstanceState == null) {
-            if (SignInFragment.isInSignUp == true) {
+            if (SignInFragment.isInSignUp) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.constraintlayout_for_fragment,
                         new SignInFragment()).commit();
             } else {
@@ -159,8 +159,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
        if (imageName == null) {
            profilePicture.setImageResource(sym_def_app_icon);
            navUserName.setText("Log in to see username");
+           System.out.println("IN herre");
        } else {
+           System.out.println("Ska sätta yoo");
            profilePicture.setImageDrawable(ImageHandler.loadImage(imageName));
+           System.out.println(imageName);
            navUserName.setText(imageName);
        }
    }
