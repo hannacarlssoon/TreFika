@@ -176,7 +176,7 @@ public class FillInTheBlanks extends AppCompatActivity {
                 showKey = true;
             }
             else {
-                createDialog(learnJava.getLevelModel().getHint() + "\n" + learnJava.getLevelModel().getAnswer());
+                createDialog(learnJava.getLevelModel().getHint() + "\n" + learnJava.getLevelModel().getQuery().getAnswer());
             }
         }
     };
