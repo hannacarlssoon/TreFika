@@ -26,6 +26,7 @@ import java.io.ObjectOutputStream;
 import tda367.myapplication.model.AccountManager;
 
 import tda367.myapplication.R;
+import tda367.myapplication.service.BackgroundMusicService;
 import tda367.myapplication.service.ImageHandler;
 import tda367.myapplication.service.UserFileReader;
 
@@ -51,6 +52,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_navigation_drawer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        Intent svc = new Intent(this, BackgroundMusicService.class);
+        startService(svc);
         if (savedInstanceState == null) {
             if (SignInFragment.isInSignUp) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.constraintlayout_for_fragment,

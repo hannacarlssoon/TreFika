@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <service android:enabled="true" android:name=".service.BackgroundMusicService"/>
         <activity
             android:name=".controller.MainActivity"
             android:label="@string/title_activity_navigation_drawer"
