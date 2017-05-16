@@ -26,7 +26,9 @@
             android:id="@+id/userName"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:hint="User name" />
+            android:hint="User name"
+            android:imeOptions="actionNext"
+            android:singleLine="true"/>
     </android.support.design.widget.TextInputLayout>
 
 
@@ -94,7 +96,9 @@
             android:hint="Password"
             android:inputType="textPassword"
             tools:layout_editor_absoluteX="83dp"
-            tools:layout_editor_absoluteY="451dp" />
+            tools:layout_editor_absoluteY="451dp"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
     </android.support.design.widget.TextInputLayout>
 
     <TextView

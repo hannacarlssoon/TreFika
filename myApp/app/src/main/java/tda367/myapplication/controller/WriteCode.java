@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import tda367.myapplication.R;
+import tda367.myapplication.model.AccountManager;
 import tda367.myapplication.model.LearnJava;
 import tda367.myapplication.model.LevelModel;
 import tda367.myapplication.service.Server;
@@ -53,7 +54,6 @@ public class WriteCode extends AppCompatActivity {
     }
 
     //Sets OnClick-listener for submit button
-    //TODO add calls to statistic
     private void setSubmitButton() {
         submit.setOnClickListener(new View.OnClickListener() {
          @Override
@@ -75,6 +75,9 @@ public class WriteCode extends AppCompatActivity {
                     }
                     System.out.println("Compiled code: " + server.getCompiledCode());
                     if (learnJava.getLevelModel().checkAnswer(codeResult)) {
+                        AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
+                        //TODO fix call to save
+                        AccountManager.getInstance().getActiveUser().saveStatistics("", false, false);
                         setPassedLevel(mBuilder);
                     } else {
                         setFailedLevel(mBuilder);

@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 
+import tda367.myapplication.model.AccountManager;
 import tda367.myapplication.model.LearnJava;
 import tda367.myapplication.model.LevelModel;
 
@@ -50,6 +51,7 @@ public class ActivityInfo extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AccountManager.getInstance().getActiveUser().getUserStatistics().startTimer();
                 launchIntent();
             }
         });

@@ -20,6 +20,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import tda367.myapplication.model.AccountManager;
 import tda367.myapplication.model.LearnJava;
 import tda367.myapplication.model.LevelModel;
 import tda367.myapplication.model.MultiChoice;
@@ -89,7 +90,6 @@ public class QuestionMultiChoice extends AppCompatActivity {
     }
 
     //Sets OnClick-listener for submit button
-    //TODO add calls to statistic
     private void setSubmitButton() {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,6 +100,9 @@ public class QuestionMultiChoice extends AppCompatActivity {
                     setNoInput();
                 } else{
                     if (learnJava.getLevelModel().checkAnswer(userAnswer)) {
+                        AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
+                        //TODO fix call to save
+                        AccountManager.getInstance().getActiveUser().saveStatistics("", false, showKey);
                         setPassedLevel(mBuilder);
                     } else {
                         setFailedLevel(mBuilder);

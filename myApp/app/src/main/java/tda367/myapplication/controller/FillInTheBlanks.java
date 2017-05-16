@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import tda367.myapplication.R;
+import tda367.myapplication.model.AccountManager;
 import tda367.myapplication.model.LearnJava;
 import tda367.myapplication.model.LevelModel;
 import tda367.myapplication.model.Query;
@@ -86,7 +87,6 @@ public class FillInTheBlanks extends AppCompatActivity {
     }
 
     //Sets OnClick-listener for submit button
-    //TODO add calls to statistic
     private void setSubmitButton(){
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,6 +99,10 @@ public class FillInTheBlanks extends AppCompatActivity {
                 } else {
                     if (learnJava.getLevelModel().checkAnswer(userAnswer)) {
                         setPassedLevel(mBuilder);
+                        //TODO fix method call
+                        AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
+                        AccountManager.getInstance().getActiveUser().saveStatistics("", false, showKey);
+
                     } else {
                         hint.setVisibility(View.VISIBLE);
                  /*   counter++;

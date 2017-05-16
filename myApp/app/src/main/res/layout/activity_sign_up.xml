@@ -40,7 +40,9 @@
             android:layout_height="54dp"
             android:hint="Username"
             tools:layout_editor_absoluteX="10dp"
-            tools:layout_editor_absoluteY="-80dp" />
+            tools:layout_editor_absoluteY="-80dp"
+            android:imeOptions="actionNext"
+            android:singleLine="true"/>
     </android.support.design.widget.TextInputLayout>
 
     <TextView
@@ -74,7 +76,9 @@
             android:layout_weight="1"
             android:ems="10"
             android:hint="Password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:imeOptions="actionDone"
+            android:singleLine="true"/>
     </android.support.design.widget.TextInputLayout>
 
     <Button
