@@ -122,7 +122,7 @@ public class FillInTheBlanks extends AppCompatActivity {
         toast.show();
     }
 
-    //Sets PassedLevel viewn
+    //Sets PassedLevel view
     private void setPassedLevel(AlertDialog.Builder mBuilder){
         View mView = getLayoutInflater().inflate(R.layout.activity_passed_level, null);
         mBuilder.setPositiveButton("Nästa nivå", new DialogInterface.OnClickListener() {

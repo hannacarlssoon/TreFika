@@ -54,7 +54,21 @@ public class QuestionMultiChoice extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_question_multi_choice);
 
-        //Sets buttons and views
+        setView();
+
+        setToolbar();
+
+        setQuestion();
+        setAltTexts();
+
+        setSubmitButton();
+
+        //sets onclicklistener for hint button
+        hintButton.setOnClickListener(imgBtnlistener);
+    }
+
+    //Sets buttons and views
+    private void setView() {
         radioAnswerGroup = (RadioGroup)findViewById(R.id.radioGroup);
         submitButton = (Button)findViewById(R.id.SubmitButton);
         textView = (TextView)findViewById(R.id.questionBox);
@@ -64,96 +78,81 @@ public class QuestionMultiChoice extends AppCompatActivity {
         altTextView3 = (TextView)findViewById(R.id.altThreeButton);
         altTextView4 = (TextView)findViewById(R.id.altFourButton);
         context = this;
+    }
 
-
-        //Sets the toolbar and enables upnavigation, and sets the title
+    //Sets the toolbar and enables upnavigation, and sets the title
+    private void setToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Multi-choice question");
+    }
 
-        setQuestion();
-        setAltTexts();
-
-        //sets listener on submitbutton, checks if answer is correct,
-        // changes view to passedLevel if correct, otherwise to FailedLevel.
+    //Sets OnClick-listener for submit button
+    private void setSubmitButton() {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(QuestionMultiChoice.this);
                 View mView;
                 setSelectedAnswer();
-                //TODO handle no input from user
                 if (radioAnswerButton == null) {
-                    Toast toast = Toast.makeText(QuestionMultiChoice.this, "Du måste välja ett alternativ", Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.CENTER_VERTICAL, 0, 470);
-                    toast.show();
+                    setNoInput();
                 } else{
                     if (learnJava.getLevelModel().checkAnswer(userAnswer)) {
-                        mView = getLayoutInflater().inflate(R.layout.activity_passed_level, null);
-
-                        mBuilder.setPositiveButton("Nästa nivå", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                startActivity(new Intent(QuestionMultiChoice.this, ActivityInfo.class));
-                                learnJava.setCurrentLevel(learnJava.getCurrentLevel() + 1);
-                            }
-                        });
-
-                        mBuilder.setNeutralButton("Tillbaka", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                startActivity(new Intent(QuestionMultiChoice.this, LevelActivity.class));
-                            }
-                        });
-
-                 /*   Button next = (Button) mView.findViewById(R.id.nextButton);
-                    Button back = (Button) mView.findViewById(R.id.backButton);
-
-                    next.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            startActivity(new Intent(QuestionMultiChoice.this,ActivityInfo.class));
-                            learnJava.setCurrentLevel(learnJava.getCurrentLevel() + 1);
-                        }
-                    });
-                    back.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            startActivity(new Intent(QuestionMultiChoice.this, LevelActivity.class));
-                        }
-                    });
-                 */
-                        mBuilder.setView(mView);
-                        mBuilder.setCancelable(false);
+                        setPassedLevel(mBuilder);
                     } else {
-                        mView = getLayoutInflater().inflate(R.layout.activity_failed_level, null);
-                        mBuilder.setPositiveButton("Pröva igen", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                            }
-                        });
-                    /*Button tryAgan = (Button) mView.findViewById(R.id.tryAgain);
-
-                    tryAgan.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            System.out.println("Try again click");
-                        }
-                    });
-                    */
-                        mBuilder.setView(mView);
-                        mBuilder.setCancelable(false);
-                        //startActivity(new Intent(QuestionMultiChoice.this, FailedLevel.class));
+                        setFailedLevel(mBuilder);
                     }
                     AlertDialog dialog = mBuilder.create();
                     dialog.show();
                 }
             }
         });
+    }
 
-        //sets onclicklistener for hint button
-        hintButton.setOnClickListener(imgBtnlistener);
+    //Sets FailedLevel view
+    private void setFailedLevel(AlertDialog.Builder mBuilder) {
+        View mView;
+        mView = getLayoutInflater().inflate(R.layout.activity_failed_level, null);
+        mBuilder.setPositiveButton("Pröva igen", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+        mBuilder.setView(mView);
+        mBuilder.setCancelable(false);
+    }
+
+    //Sets PassedLevel view
+    private void setPassedLevel(AlertDialog.Builder mBuilder) {
+        View mView;
+        mView = getLayoutInflater().inflate(R.layout.activity_passed_level, null);
+
+        mBuilder.setPositiveButton("Nästa nivå", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                startActivity(new Intent(QuestionMultiChoice.this, ActivityInfo.class));
+                learnJava.setCurrentLevel(learnJava.getCurrentLevel() + 1);
+            }
+        });
+
+        mBuilder.setNeutralButton("Tillbaka", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                startActivity(new Intent(QuestionMultiChoice.this, LevelActivity.class));
+            }
+        });
+
+        mBuilder.setView(mView);
+        mBuilder.setCancelable(false);
+    }
+
+    //Sets message when no input
+    private void setNoInput() {
+        Toast toast = Toast.makeText(QuestionMultiChoice.this, "Du måste välja ett alternativ", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 470);
+        toast.show();
     }
 
     //Handles the back navigation
