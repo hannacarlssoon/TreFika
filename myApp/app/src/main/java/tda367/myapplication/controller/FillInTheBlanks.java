@@ -23,6 +23,7 @@ import android.widget.Toast;
 import tda367.myapplication.R;
 import tda367.myapplication.model.LearnJava;
 import tda367.myapplication.model.LevelModel;
+import tda367.myapplication.model.Query;
 
 
 /**
@@ -51,76 +52,52 @@ public class FillInTheBlanks extends AppCompatActivity {
         setContentView(R.layout.activity_fill_in_the_blanks);
         context = this;
 
-        //Sets buttons and views
-        submit = (Button)findViewById(R.id.fillSubmit);
-        hint = (ImageButton)findViewById(R.id.hintButton);
-        textAnswer1   = (EditText)findViewById(R.id.textFillAnswer1);
-        textAnswer2   = (EditText)findViewById(R.id.textFillAnswer2);
-        textAnswer3   = (EditText)findViewById(R.id.textFillAnswer3);
-        questionView = (TextView) findViewById(R.id.fillQuestion);
+        setView();
 
         setQuestionText();
 
         //Making the hint button invisible at start
         hint.setVisibility(View.INVISIBLE);
 
-        //Sets the toolbar and enables upnavigation, and sets the title
+        setToolbar();
+
+        setSubmitButton();
+
+        //set onclicklistener for hint button
+        hint.setOnClickListener(imgBtnListener);
+    }
+
+    //Sets buttons and views
+    private void setView() {
+        submit = (Button)findViewById(R.id.fillSubmit);
+        hint = (ImageButton)findViewById(R.id.hintButton);
+        textAnswer1   = (EditText)findViewById(R.id.textFillAnswer1);
+        textAnswer2   = (EditText)findViewById(R.id.textFillAnswer2);
+        textAnswer3   = (EditText)findViewById(R.id.textFillAnswer3);
+        questionView = (TextView) findViewById(R.id.fillQuestion);
+    }
+
+    //Sets the toolbar and enables upnavigation, and sets the title
+    private void setToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Fill in the blanks");
+    }
 
-
-
-        //Checks if answer is right, sets PassedLevelview if correct, otherwise FailedLevel
+    //Sets OnClick-listener for submit button
+    private void setSubmitButton(){
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(FillInTheBlanks.this);
-                View mView;
+                //View mView;
                 setAnswer();
-                //TODO handle no input from user
                 if (answer1.isEmpty() || answer2.isEmpty() || answer3.isEmpty()) {
-                    Toast toast = Toast.makeText(FillInTheBlanks.this, "Input saknas", Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.CENTER_VERTICAL, 0, 470);
-                    toast.show();
+                    showNoInput();
                 } else {
                     if (learnJava.getLevelModel().checkAnswer(userAnswer)) {
-                        mView = getLayoutInflater().inflate(R.layout.activity_passed_level, null);
-                        mBuilder.setPositiveButton("Nästa nivå", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                startActivity(new Intent(FillInTheBlanks.this, ActivityInfo.class));
-                                learnJava.setCurrentLevel(learnJava.getCurrentLevel() + 1);
-                            }
-                        });
-
-                        mBuilder.setNeutralButton("Tillbaka", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                startActivity(new Intent(FillInTheBlanks.this, LevelActivity.class));
-                            }
-                        });
-/*
-                            Button next = (Button) mView.findViewById(R.id.nextButton);
-                            Button back = (Button) mView.findViewById(R.id.backButton);
-
-                            next.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    startActivity(new Intent(FillInTheBlanks.this,ActivityInfo.class));
-                                    learnJava.setCurrentLevel(learnJava.getCurrentLevel() + 1);
-                                }
-                            });
-                           back.setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    startActivity(new Intent(FillInTheBlanks.this, LevelActivity.class));
-                                        }
-                                    });
-          */
-                        mBuilder.setView(mView);
-                        mBuilder.setCancelable(false);
+                        setPassedLevel(mBuilder);
                     } else {
                         hint.setVisibility(View.VISIBLE);
                  /*   counter++;
@@ -129,37 +106,54 @@ public class FillInTheBlanks extends AppCompatActivity {
                         case 2 : //code for showing key
                     }
                     */
-                        mView = getLayoutInflater().inflate(R.layout.activity_failed_level, null);
-                        mBuilder.setPositiveButton("Pröva igen", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                            }
-                        });
-
- /*                   Button tryAgan = (Button) mView.findViewById(R.id.tryAgain);
-
-                    tryAgan.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            //TODO show same question again
-                            System.out.println("Try again click");
-
-                        }
-                    });
-            */
-                        mBuilder.setView(mView);
-                        mBuilder.setCancelable(false);
-                        //startActivity(new Intent(FillInTheBlanks.this, FailedLevel.class));
-
+                        setFailedLevel(mBuilder);
                     }
                     AlertDialog dialog = mBuilder.create();
                     dialog.show();
                 }
             }
         });
+    }
 
-        //set onclicklistener for hint button
-        hint.setOnClickListener(imgBtnListener);
+    //Shows message when no input
+    private void showNoInput(){
+        Toast toast = Toast.makeText(FillInTheBlanks.this, "Input saknas", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 470);
+        toast.show();
+    }
+
+    //Sets PassedLevel viewn
+    private void setPassedLevel(AlertDialog.Builder mBuilder){
+        View mView = getLayoutInflater().inflate(R.layout.activity_passed_level, null);
+        mBuilder.setPositiveButton("Nästa nivå", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                startActivity(new Intent(FillInTheBlanks.this, ActivityInfo.class));
+                learnJava.setCurrentLevel(learnJava.getCurrentLevel() + 1);
+            }
+        });
+
+
+        mBuilder.setNeutralButton("Tillbaka", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                startActivity(new Intent(FillInTheBlanks.this, LevelActivity.class));
+            }
+        });
+        mBuilder.setView(mView);
+        mBuilder.setCancelable(false);
+    }
+
+    //Sets FailedLevel viewn
+    private void setFailedLevel(AlertDialog.Builder mBuilder){
+        View mView = getLayoutInflater().inflate(R.layout.activity_failed_level, null);
+        mBuilder.setPositiveButton("Pröva igen", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+        mBuilder.setView(mView);
+        mBuilder.setCancelable(false);
     }
 
     //Handles the back navigation
