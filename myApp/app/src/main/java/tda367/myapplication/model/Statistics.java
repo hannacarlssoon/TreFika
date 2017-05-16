@@ -3,6 +3,7 @@ package tda367.myapplication.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -21,9 +22,9 @@ public class Statistics implements Serializable {
     private final List<String> titles = new ArrayList<>(Arrays.asList(titleNames));
 
     //Lists of the statistics
-    private List<Boolean> statisticsHint;
-    private List<Long> statisticsTime;
-    private List<Boolean> statisticsKey;
+    private HashMap<String, Boolean> statisticsHint;
+    private HashMap<String, Long> statisticsTime;
+    private HashMap<String, Boolean> statisticsKey;
 
     //Variables which keep track of the time
     private long startTime;
@@ -31,27 +32,27 @@ public class Statistics implements Serializable {
 
     //Initializes the statistics lists
     public Statistics() {
-        statisticsHint = new ArrayList<Boolean>();
-        statisticsTime = new ArrayList<Long>();
-        statisticsKey = new ArrayList<Boolean>();
+        statisticsHint = new HashMap<>();
+        statisticsTime = new HashMap<>();
+        statisticsKey = new HashMap<>();
     }
 
     //Stores how many hints you need to complete the assignment
     public void saveStatisticsHint(String level, Boolean isHintUsed) {
         int levelIndex = findIndex(level);
-        statisticsHint.add(levelIndex, isHintUsed);
+        statisticsHint.put(level, isHintUsed);
     }
 
     //Stores if the user has to see key to complete the assignment
     public void saveStatisticsKey(String level, Boolean isKeyUsed) {
         int levelIndex = findIndex(level);
-        statisticsKey.add(levelIndex, isKeyUsed);
+        statisticsKey.put(level, isKeyUsed);
     }
 
     //Stores how long time it takes to complete each assignment
     public void saveStatisticsTime(String level) {
         int levelIndex = findIndex(level);
-        statisticsTime.add(levelIndex, totalTime/1000);
+        statisticsTime.put(level, totalTime/1000);
     }
 
     //Returns the index where the statistics should be saved
@@ -73,17 +74,17 @@ public class Statistics implements Serializable {
     }
 
     //Gets the statisticsHint list
-    public List<Boolean> getStatisticsHint() {
+    public HashMap<String, Boolean> getStatisticsHint() {
         return statisticsHint;
     }
 
     //Gets the statisticsKey list
-    public List<Boolean> getStatisticsKey() {
+    public HashMap<String, Boolean> getStatisticsKey() {
         return statisticsKey;
     }
 
     //Gets the statisticsTime list
-    public List<Long> getStatisticsTime() {
+    public HashMap<String, Long> getStatisticsTime() {
         return statisticsTime;
     }
 }
