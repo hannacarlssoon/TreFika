@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.ExpandableListView;
 import android.widget.TextView;
 
 import java.util.HashMap;
@@ -72,7 +71,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         if (view == null) {
             LayoutInflater layoutInflater = (LayoutInflater)
                     this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = layoutInflater.inflate(R.layout.parent_layout, null);
+            view = layoutInflater.inflate(R.layout.child_layout, null);
         }
         TextView lblListHeader = (TextView) view.findViewById(R.id.lblListHeader);
         lblListHeader.setTypeface(null, Typeface.BOLD);
@@ -86,7 +85,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         if (view == null) {
             LayoutInflater inflater = (LayoutInflater)
                     this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.child_layout, null);
+            view = inflater.inflate(R.layout.parent_layout, null);
         }
         TextView txtListChild = (TextView) view.findViewById(R.id.lblListItem);
         txtListChild.setText(childText);
