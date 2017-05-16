@@ -86,6 +86,7 @@ public class FillInTheBlanks extends AppCompatActivity {
     }
 
     //Sets OnClick-listener for submit button
+    //TODO add calls to statistic
     private void setSubmitButton(){
         submit.setOnClickListener(new View.OnClickListener() {
             @Override

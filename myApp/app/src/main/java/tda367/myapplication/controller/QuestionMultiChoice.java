@@ -89,6 +89,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
     }
 
     //Sets OnClick-listener for submit button
+    //TODO add calls to statistic
     private void setSubmitButton() {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -53,6 +53,7 @@ public class WriteCode extends AppCompatActivity {
     }
 
     //Sets OnClick-listener for submit button
+    //TODO add calls to statistic
     private void setSubmitButton() {
         submit.setOnClickListener(new View.OnClickListener() {
          @Override
@@ -171,6 +172,7 @@ public class WriteCode extends AppCompatActivity {
     }
 
     //Sets the user input to one string
+    //TODO change system.out.print -> print
     public void setAnswer(){
         answer = WriteCode.this.userCode.getText().toString();
     }
