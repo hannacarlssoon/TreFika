@@ -22,9 +22,9 @@ public class Statistics implements Serializable {
     private final List<String> titles = new ArrayList<>(Arrays.asList(titleNames));
 
     //Lists of the statistics
-    private HashMap<String, Boolean> statisticsHint;
-    private HashMap<String, Long> statisticsTime;
-    private HashMap<String, Boolean> statisticsKey;
+    private List<Boolean> statisticsHint;
+    private List<Long> statisticsTime;
+    private List<Boolean> statisticsKey;
 
     //Variables which keep track of the time
     private long startTime;
@@ -32,27 +32,27 @@ public class Statistics implements Serializable {
 
     //Initializes the statistics lists
     public Statistics() {
-        statisticsHint = new HashMap<>();
-        statisticsTime = new HashMap<>();
-        statisticsKey = new HashMap<>();
+        statisticsHint = new ArrayList<>();
+        statisticsTime = new ArrayList<>();
+        statisticsKey = new ArrayList<>();
     }
 
     //Stores how many hints you need to complete the assignment
     public void saveStatisticsHint(String level, Boolean isHintUsed) {
         int levelIndex = findIndex(level);
-        statisticsHint.put(level, isHintUsed);
+        statisticsHint.add(levelIndex, isHintUsed);
     }
 
     //Stores if the user has to see key to complete the assignment
     public void saveStatisticsKey(String level, Boolean isKeyUsed) {
         int levelIndex = findIndex(level);
-        statisticsKey.put(level, isKeyUsed);
+        statisticsKey.add(levelIndex, isKeyUsed);
     }
 
     //Stores how long time it takes to complete each assignment
     public void saveStatisticsTime(String level) {
         int levelIndex = findIndex(level);
-        statisticsTime.put(level, totalTime/1000);
+        statisticsTime.add(levelIndex, totalTime/1000);
     }
 
     //Returns the index where the statistics should be saved
@@ -74,17 +74,17 @@ public class Statistics implements Serializable {
     }
 
     //Gets the statisticsHint list
-    public HashMap<String, Boolean> getStatisticsHint() {
+    public List<Boolean> getStatisticsHint() {
         return statisticsHint;
     }
 
     //Gets the statisticsKey list
-    public HashMap<String, Boolean> getStatisticsKey() {
+    public List<Boolean> getStatisticsKey() {
         return statisticsKey;
     }
 
     //Gets the statisticsTime list
-    public HashMap<String, Long> getStatisticsTime() {
+    public List<Long> getStatisticsTime() {
         return statisticsTime;
     }
 }
