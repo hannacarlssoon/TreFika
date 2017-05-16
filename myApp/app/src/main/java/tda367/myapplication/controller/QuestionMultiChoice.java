@@ -77,7 +77,23 @@ public class QuestionMultiChoice extends AppCompatActivity {
                 }
                 else if(learnJava.getLevelModel().checkAnswer(userAnswer)){
                     mView = getLayoutInflater().inflate(R.layout.activity_passed_level, null);
-                    Button next = (Button) mView.findViewById(R.id.nextButton);
+
+                    mBuilder.setPositiveButton("Nästa nivå", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            startActivity(new Intent(QuestionMultiChoice.this,ActivityInfo.class));
+                            learnJava.setCurrentLevel(learnJava.getCurrentLevel() + 1);
+                        }
+                    });
+
+                    mBuilder.setNeutralButton("Tillbaka", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            startActivity(new Intent(QuestionMultiChoice.this, LevelActivity.class));
+                        }
+                    });
+
+                 /*   Button next = (Button) mView.findViewById(R.id.nextButton);
                     Button back = (Button) mView.findViewById(R.id.backButton);
 
                     next.setOnClickListener(new View.OnClickListener() {
@@ -93,6 +109,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
                             startActivity(new Intent(QuestionMultiChoice.this, LevelActivity.class));
                         }
                     });
+                 */
                     mBuilder.setView(mView);
                     mBuilder.setCancelable(false);
                 }

@@ -1,20 +1,22 @@
 package tda367.myapplication.controller;
 
 
-import android.app.AlertDialog;
+//import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.app.NavUtils;
-//import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import tda367.myapplication.R;
 import tda367.myapplication.model.LearnJava;
@@ -81,6 +83,21 @@ public class FillInTheBlanks extends AppCompatActivity {
                 }
                 else if(learnJava.getLevelModel().checkAnswer(userAnswer)){
                     mView = getLayoutInflater().inflate(R.layout.activity_passed_level, null);
+                    mBuilder.setPositiveButton("Nästa nivå", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            startActivity(new Intent(FillInTheBlanks.this,ActivityInfo.class));
+                            learnJava.setCurrentLevel(learnJava.getCurrentLevel() + 1);
+                        }
+                    });
+
+                    mBuilder.setNeutralButton("Tillbaka", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            startActivity(new Intent(FillInTheBlanks.this, LevelActivity.class));
+                        }
+                    });
+/*
                             Button next = (Button) mView.findViewById(R.id.nextButton);
                             Button back = (Button) mView.findViewById(R.id.backButton);
 
@@ -97,6 +114,7 @@ public class FillInTheBlanks extends AppCompatActivity {
                                     startActivity(new Intent(FillInTheBlanks.this, LevelActivity.class));
                                         }
                                     });
+          */
                     mBuilder.setView(mView);
                     mBuilder.setCancelable(false);
                 }
@@ -114,6 +132,7 @@ public class FillInTheBlanks extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog, int which) {
                                 }
                             });
+
  /*                   Button tryAgan = (Button) mView.findViewById(R.id.tryAgain);
 
                     tryAgan.setOnClickListener(new View.OnClickListener() {
@@ -132,7 +151,6 @@ public class FillInTheBlanks extends AppCompatActivity {
                 }
                 AlertDialog dialog = mBuilder.create();
                 dialog.show();
-
             }
         });
 

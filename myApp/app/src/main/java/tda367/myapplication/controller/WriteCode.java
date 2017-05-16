@@ -82,6 +82,25 @@ public class WriteCode extends AppCompatActivity {
                     }
                     if (learnJava.getLevelModel().checkAnswer(codeResult)) {
                         mView = getLayoutInflater().inflate(R.layout.activity_passed_level, null);
+
+                        mBuilder.setPositiveButton("Nästa nivå", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                startActivity(new Intent(WriteCode.this,PlayFragment.class));
+                                if(learnJava.getCurrentCategory().equals(4)) {
+                                    //TODO Fix congratulations-message --> tutorial is done!
+                                }
+                            }
+                        });
+
+                        mBuilder.setNeutralButton("Tillbaka", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                startActivity(new Intent(WriteCode.this, LevelActivity.class));
+                            }
+                        });
+
+                    /*
                         Button next = (Button) mView.findViewById(R.id.nextButton);
                         Button back = (Button) mView.findViewById(R.id.backButton);
 
@@ -102,6 +121,7 @@ public class WriteCode extends AppCompatActivity {
                                 startActivity(new Intent(WriteCode.this, LevelActivity.class));
                             }
                         });
+                     */
                         mBuilder.setView(mView);
                         mBuilder.setCancelable(false);
                     } else {
