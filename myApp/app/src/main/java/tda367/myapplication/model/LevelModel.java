@@ -14,7 +14,7 @@ public class LevelModel {
     private String heading;
 
 
-    public LevelModel(String question, String answer, String info, String hint, int questionNumber, String heading) {
+    public LevelModel(String question, String answer, String info, String hint, int questionNumber, String heading, String alternatives) {
         this.info = info;
         this.hint = hint;
         this.heading = heading;
@@ -23,7 +23,7 @@ public class LevelModel {
             this.query = new WriteCode(question, answer);
         }
         else if ( questionNumber % 2 == 0){
-            this.query = new MultiChoice(question, answer);
+            this.query = new MultiChoice(question, answer,alternatives);
         }
         else if(questionNumber % 2 == 1){
             this.query = new ModelFillBlanks(question, answer);

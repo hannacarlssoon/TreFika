@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import tda367.myapplication.model.LearnJava;
 import tda367.myapplication.model.LevelModel;
+import tda367.myapplication.model.MultiChoice;
 import tda367.myapplication.model.Query;
 import tda367.myapplication.R;
 
@@ -39,6 +40,10 @@ public class QuestionMultiChoice extends AppCompatActivity {
     private TextView textView;
     private LearnJava learnJava = LearnJava.getInstance();
     private Context context;
+    private TextView altTextView1;
+    private TextView altTextView2;
+    private TextView altTextView3;
+    private TextView altTextView4;
     private boolean showKey = false;
 
 
@@ -52,6 +57,10 @@ public class QuestionMultiChoice extends AppCompatActivity {
         submitButton = (Button)findViewById(R.id.SubmitButton);
         textView = (TextView)findViewById(R.id.questionBox);
         hintButton = (ImageButton)findViewById(R.id.hintButton);
+        altTextView1 = (TextView)findViewById(R.id.altOneButton);
+        altTextView2 =  (TextView)findViewById(R.id.altTwoButton);
+        altTextView3 = (TextView)findViewById(R.id.altThreeButton);
+        altTextView4 = (TextView)findViewById(R.id.altFourButton);
         context = this;
 
 
@@ -62,6 +71,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
         getSupportActionBar().setTitle("Multi-choice question");
 
         setQuestion();
+        setAltTexts();
 
         //sets listener on submitbutton, checks if answer is correct,
         // changes view to passedLevel if correct, otherwise to FailedLevel.
@@ -207,5 +217,13 @@ public class QuestionMultiChoice extends AppCompatActivity {
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.setView(textView, 20, 20, 20, 20);
         alertDialog.show();
+    }
+
+    private void setAltTexts(){
+        altTextView1.setText(((MultiChoice)learnJava.getLevelModel().getQuery()).getAlt(0));
+        altTextView2.setText(((MultiChoice)learnJava.getLevelModel().getQuery()).getAlt(1));
+        altTextView3.setText(((MultiChoice)learnJava.getLevelModel().getQuery()).getAlt(2));
+        altTextView4.setText(((MultiChoice)learnJava.getLevelModel().getQuery()).getAlt(3));
+
     }
 }

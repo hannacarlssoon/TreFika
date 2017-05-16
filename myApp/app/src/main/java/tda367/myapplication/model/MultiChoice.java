@@ -8,10 +8,12 @@ package tda367.myapplication.model;
 public class MultiChoice implements Query {
     private final String answer;
     private final String question;
+    private String[] alt;
 
-    public MultiChoice(String question, String answer){
+    public MultiChoice(String question, String answer, String alternatives){
         this.question = question;
         this.answer = answer.toLowerCase();
+        this.alt = alternatives.split(",");
     }
 
 
@@ -30,5 +32,9 @@ public class MultiChoice implements Query {
     @Override
     public String getAnswer() {
         return answer;
+    }
+
+    public String getAlt(int altNr){
+        return alt[altNr];
     }
 }

@@ -51,13 +51,13 @@ public class LevelActivity extends AppCompatActivity {
 
         //Sets the boolean value for the buttons by checking statistics for which levels are passed
         //Todo koppla ihop med statistiken
-        setPassedLevels();
+        //setPassedLevels();
 
         //Disables buttons for levels that aren't unlocked
-        enablePassedLevels();
+        //enablePassedLevels();
 
         //sets the title of the enabled buttons
-        setTitleOnEnabled();
+        //setTitleOnEnabled();
 
         //Setting onClickListeners to make buttons clickable
         firstBtn.setOnClickListener(buttonListener);
