@@ -66,9 +66,11 @@ public class SignUpActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (!checkIfUserExists(username.getText().toString())) {
-                    AccountManager.getInstance().addUser(username.getText().toString(), password.getText().toString());
-                    MainActivity.setUserInformation(username.getText().toString());
+                    String userName = username.getText().toString();
+                    AccountManager.getInstance().addUser(userName, password.getText().toString());
+                    MainActivity.setUserInformation(userName);
                     SignInFragment.isLoggedIn = true;
+                    SignInFragment.isInSignUp = false;
                     setMyPage();
                 } else {
                     Toast.makeText(getApplicationContext(), "Username already exists", Toast.LENGTH_SHORT).show();
@@ -101,17 +103,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     //Sets the view to myPage
     private void setMyPage() {
-
         startActivity(new Intent(SignUpActivity.this, MainActivity.class));
-
-        /*FrameLayout fragmentLayout = new FrameLayout(this);
-        fragmentLayout.setLayoutParams(new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-        fragmentLayout.setId(R.id.activity_sign_up);
-        setContentView(fragmentLayout);
-        getSupportFragmentManager()
-                .beginTransaction()
-                .add(R.id.activity_sign_up,new PlayFragment()).commit();*/
     }
 
     //Handles the back navigation
