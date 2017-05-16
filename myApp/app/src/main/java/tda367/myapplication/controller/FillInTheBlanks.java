@@ -37,7 +37,7 @@ public class FillInTheBlanks extends AppCompatActivity {
     private String answer3;
     private TextView questionView;
     private LearnJava learnJava = LearnJava.getInstance();
-    private boolean counter = false;
+    private boolean showKey = false;
     Context context;
 
 
@@ -76,7 +76,7 @@ public class FillInTheBlanks extends AppCompatActivity {
                 View mView;
                 setAnswer();
                 //TODO handle no input from user
-                if(answer1.equals(null) || answer2.equals(null) || answer3.equals(null)){
+                if(answer1.isEmpty() || answer2.isEmpty() || answer3.isEmpty()){
                     //todo display a message to the user that there was input missing
                 }
                 else if(learnJava.getLevelModel().checkAnswer(userAnswer)){
@@ -136,26 +136,8 @@ public class FillInTheBlanks extends AppCompatActivity {
             }
         });
 
-        //onClickListener fo hint button and creates dialog for showing hint
-        hint.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-                TextView textView = new TextView(context);
-                textView.setText(learnJava.getLevelModel().getHint());
-
-                alertDialogBuilder.setView(textView);
-                alertDialogBuilder.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                }
-            });
-
-            AlertDialog alertDialog = alertDialogBuilder.create();
-                alertDialog.setView(textView, 20, 20, 20, 20);
-                alertDialog.show();
-            }
-        });
+        //set onclicklistener for hint button
+        hint.setOnClickListener(imgBtnListener);
     }
 
     //Handles the back navigation
@@ -183,5 +165,37 @@ public class FillInTheBlanks extends AppCompatActivity {
     public void setQuestionText() {
         LevelModel[] levelModels = learnJava.getLevelHashMap().get(learnJava.getCurrentCategory());
         questionView.setText(levelModels[learnJava.getCurrentLevel()].getQuery().getQuestion());
+    }
+
+    //Defines onclicklistener for hint button
+    private ImageButton.OnClickListener imgBtnListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (!showKey){
+                createDialog(learnJava.getLevelModel().getHint());
+                showKey = true;
+            }
+            else {
+                createDialog(learnJava.getLevelModel().getHint() + "\n" + learnJava.getLevelModel().getAnswer());
+            }
+        }
+    };
+
+    //Method for creating dialog an displaying hint
+    private void createDialog(String hint){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+        TextView textView = new TextView(context);
+        textView.setText(hint);
+
+        alertDialogBuilder.setView(textView);
+        alertDialogBuilder.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.setView(textView, 20, 20, 20, 20);
+        alertDialog.show();
     }
 }
