@@ -8,6 +8,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -72,14 +73,15 @@ public class WriteCode extends AppCompatActivity {
                 //runServer();
                 //codeResult = server.getCompiledCode();
                 System.out.println("Compiled code: " + server.getCompiledCode());
-                //TODO handle no input from user
                 if(answer.isEmpty()) {
-                    //todo display a message to the user that there was input missing
+                    Toast toast = Toast.makeText(WriteCode.this, "Input saknas", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER_VERTICAL, 0, 470);
+                    toast.show();
                 }else {
                     SendfeedbackCode code = new SendfeedbackCode();
                     code.execute();
                     while (!code.isDone()) {
-                        //TODO: Fix this :)))
+                        //TODO: Fix this :))) //PG
                     }
                     if (learnJava.getLevelModel().checkAnswer(codeResult)) {
                         mView = getLayoutInflater().inflate(R.layout.activity_passed_level, null);
@@ -88,8 +90,13 @@ public class WriteCode extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 startActivity(new Intent(WriteCode.this,PlayFragment.class));
+                                Toast toast = Toast.makeText(WriteCode.this, "Du har öppnat nästa kategori", Toast.LENGTH_LONG);
+                                toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                toast.show();
                                 if(learnJava.getCurrentCategory().equals(4)) {
-                                    //TODO Fix congratulations-message --> tutorial is done!
+                                    Toast toast2 = Toast.makeText(WriteCode.this, "Du är nu färdig med LearnJava, grattis!", Toast.LENGTH_LONG);
+                                    toast2.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                    toast2.show();
                                 }
                             }
                         });
@@ -101,54 +108,20 @@ public class WriteCode extends AppCompatActivity {
                             }
                         });
 
-                    /*
-                        Button next = (Button) mView.findViewById(R.id.nextButton);
-                        Button back = (Button) mView.findViewById(R.id.backButton);
-
-                        next.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                startActivity(new Intent(WriteCode.this, LevelActivity.class));
-                                if(!learnJava.getCurrentCategory().equals(4)) {
-                                    learnJava.setCurrentCategory(learnJava.getCurrentCategory() + 1);
-                                } else {
-                                    //TODO Fix congratulations-message --> tutorial is done!
-                                }
-                            }
-                        });
-                        back.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                startActivity(new Intent(WriteCode.this, LevelActivity.class));
-                            }
-                        });
-                     */
                         mBuilder.setView(mView);
                         mBuilder.setCancelable(false);
                     } else {
-                        //TODO show "getError-method" on screen
-                       /* Toast.makeText(WriteCode.this, "Din kod gav: " + getError(),
-                                Toast.LENGTH_LONG).show(); */
-                        System.out.println("Din kod gav: " + getError());
                         mView = getLayoutInflater().inflate(R.layout.activity_failed_level, null);
                         mBuilder.setPositiveButton("Pröva igen", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                Toast toast = Toast.makeText(WriteCode.this, "Din kod gav: " + getError(), Toast.LENGTH_LONG);
+                                toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                                toast.show();
                             }
                         });
-                      /*  Button tryAgan = (Button) mView.findViewById(R.id.tryAgain);
-                        System.out.println("Error: " + getError());
-
-                        tryAgan.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                System.out.println("Try again click");
-                            }
-                        });
-                        */
                         mBuilder.setView(mView);
                         mBuilder.setCancelable(false);
-                        //startActivity(new Intent(FillInTheBlanks.this, FailedLevel.class));
 
                     }
                 }

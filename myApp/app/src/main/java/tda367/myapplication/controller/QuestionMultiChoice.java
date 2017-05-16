@@ -10,6 +10,7 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,7 @@ import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import tda367.myapplication.model.LearnJava;
 import tda367.myapplication.model.LevelModel;
@@ -83,25 +85,27 @@ public class QuestionMultiChoice extends AppCompatActivity {
                 setSelectedAnswer();
                 //TODO handle no input from user
                 if (radioAnswerButton == null) {
-                    //todo display a message to the user that there was input missing
-                }
-                else if(learnJava.getLevelModel().checkAnswer(userAnswer)){
-                    mView = getLayoutInflater().inflate(R.layout.activity_passed_level, null);
+                    Toast toast = Toast.makeText(QuestionMultiChoice.this, "Du måste välja ett alternativ", Toast.LENGTH_SHORT);
+                    toast.setGravity(Gravity.CENTER_VERTICAL, 0, 470);
+                    toast.show();
+                } else{
+                    if (learnJava.getLevelModel().checkAnswer(userAnswer)) {
+                        mView = getLayoutInflater().inflate(R.layout.activity_passed_level, null);
 
-                    mBuilder.setPositiveButton("Nästa nivå", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            startActivity(new Intent(QuestionMultiChoice.this,ActivityInfo.class));
-                            learnJava.setCurrentLevel(learnJava.getCurrentLevel() + 1);
-                        }
-                    });
+                        mBuilder.setPositiveButton("Nästa nivå", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                startActivity(new Intent(QuestionMultiChoice.this, ActivityInfo.class));
+                                learnJava.setCurrentLevel(learnJava.getCurrentLevel() + 1);
+                            }
+                        });
 
-                    mBuilder.setNeutralButton("Tillbaka", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            startActivity(new Intent(QuestionMultiChoice.this, LevelActivity.class));
-                        }
-                    });
+                        mBuilder.setNeutralButton("Tillbaka", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                startActivity(new Intent(QuestionMultiChoice.this, LevelActivity.class));
+                            }
+                        });
 
                  /*   Button next = (Button) mView.findViewById(R.id.nextButton);
                     Button back = (Button) mView.findViewById(R.id.backButton);
@@ -120,16 +124,15 @@ public class QuestionMultiChoice extends AppCompatActivity {
                         }
                     });
                  */
-                    mBuilder.setView(mView);
-                    mBuilder.setCancelable(false);
-                }
-                else {
-                    mView = getLayoutInflater().inflate(R.layout.activity_failed_level, null);
-                    mBuilder.setPositiveButton("Pröva igen", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                        }
-                    });
+                        mBuilder.setView(mView);
+                        mBuilder.setCancelable(false);
+                    } else {
+                        mView = getLayoutInflater().inflate(R.layout.activity_failed_level, null);
+                        mBuilder.setPositiveButton("Pröva igen", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                            }
+                        });
                     /*Button tryAgan = (Button) mView.findViewById(R.id.tryAgain);
 
                     tryAgan.setOnClickListener(new View.OnClickListener() {
@@ -139,12 +142,13 @@ public class QuestionMultiChoice extends AppCompatActivity {
                         }
                     });
                     */
-                    mBuilder.setView(mView);
-                    mBuilder.setCancelable(false);
-                    //startActivity(new Intent(QuestionMultiChoice.this, FailedLevel.class));
+                        mBuilder.setView(mView);
+                        mBuilder.setCancelable(false);
+                        //startActivity(new Intent(QuestionMultiChoice.this, FailedLevel.class));
+                    }
+                    AlertDialog dialog = mBuilder.create();
+                    dialog.show();
                 }
-                AlertDialog dialog = mBuilder.create();
-                dialog.show();
             }
         });
 

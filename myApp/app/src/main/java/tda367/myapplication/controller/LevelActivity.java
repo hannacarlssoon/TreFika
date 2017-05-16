@@ -54,10 +54,10 @@ public class LevelActivity extends AppCompatActivity {
         setPassedLevels();
 
         //Disables buttons for levels that aren't unlocked
-        enablePassedLevels();
+       enablePassedLevels();
 
         //sets the title of the enabled buttons
-        setTitleOnEnabled();
+       setTitleOnEnabled();
 
         //Setting onClickListeners to make buttons clickable
         firstBtn.setOnClickListener(buttonListener);
