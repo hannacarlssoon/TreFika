@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="tda367.myapplication.controller.PassedLevel" >
-
+<!--
     <Button
         android:id="@+id/backButton"
         android:layout_width="88dp"
@@ -29,6 +29,7 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/backButton"
         app:layout_constraintLeft_toRightOf="@+id/backButton"
         android:layout_marginLeft="7dp" />
+ -->
 
     <ImageView
         android:id="@+id/imageView2"
@@ -80,6 +81,6 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="47dp" />
+        android:layout_marginTop="16dp" />
 
 </android.support.constraint.ConstraintLayout>

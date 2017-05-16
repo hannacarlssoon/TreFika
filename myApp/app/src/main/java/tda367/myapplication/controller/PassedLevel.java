@@ -16,14 +16,14 @@ import tda367.myapplication.R;
 
 public class PassedLevel extends AppCompatActivity {
     //TODO Add saveStatistics and start timer
-
+/*
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);
         setSupportActionBar(toolbar);
         getSupportActionBar().hide();*/
-        setContentView(R.layout.activity_passed_level);
+/*        setContentView(R.layout.activity_passed_level);
 
 
 
@@ -57,4 +57,5 @@ public class PassedLevel extends AppCompatActivity {
         getWindow().setLayout((int)(width*0.8), (int)(height*0.4));
 
     }
+    */
 }
