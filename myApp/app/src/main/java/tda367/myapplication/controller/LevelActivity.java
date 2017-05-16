@@ -8,8 +8,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.view.View;
+
+import tda367.myapplication.model.AccountManager;
 import tda367.myapplication.model.LearnJava;
 import tda367.myapplication.R;
+import tda367.myapplication.model.Statistics;
 
 /* @author Tobias Lindgren, revised by Madeleine Lexén
 Uses learnJava
@@ -29,6 +32,7 @@ public class LevelActivity extends AppCompatActivity {
     private Button thirdBtn;
     private Button secondBtn;
     private Button firstBtn;
+    private Statistics statistics = AccountManager.getInstance().getActiveUser().getUserStatistics();
 
 
     @Override
@@ -71,7 +75,10 @@ public class LevelActivity extends AppCompatActivity {
     private void setPassedLevels(){
         if(learnJava.getCurrentCategory().equals("category1")){
             firstIsEnabled = true;
+
         }
+
+
     }
 
     //sets the title of the enabled buttons

@@ -10,10 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
-
+import tda367.myapplication.model.AccountManager;
+import tda367.myapplication.model.LearnJava;
 import tda367.myapplication.HashMapCreator;
 import tda367.myapplication.model.LearnJava;
 import tda367.myapplication.R;
+import tda367.myapplication.model.Statistics;
 
 
 /**
@@ -31,6 +33,8 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
     private boolean cat2Isenabled = false;
     private boolean cat3IsEnabled = false;
     private boolean cat4IsEnabled = false;
+    private Statistics statistics = AccountManager.getInstance().getActiveUser().getUserStatistics();
+
 
     public PlayFragment() {}
 
@@ -95,6 +99,10 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
 
 
     private void setEnabledCategories(){
+        if(statistics.getStatisticsKey(). != null){
+
+        }
+
 
     }
 
