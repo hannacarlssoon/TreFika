@@ -10,8 +10,8 @@ import tda367.myapplication.service.Server;
 public class WriteCode implements Query {
     private final String question;
     private final String answer;
-    private String userAnswer;
-    private String compAnswer;
+    //private String userAnswer;
+    //private String compAnswer;
 
 
 
@@ -28,7 +28,7 @@ public class WriteCode implements Query {
     //checks if users answer is correct
     public boolean checkAnswer(String userAnswer){
         //compileCode(userAnswer);
-        return compAnswer.equals(answer);
+        return userAnswer.toLowerCase().equals(answer.toLowerCase());
 
     }
 
@@ -49,9 +49,10 @@ public class WriteCode implements Query {
     }
 */
 
+/*
     public void setCompAnswer (String compAnswer){
         this.compAnswer = compAnswer;
     }
-
+*/
 
 }

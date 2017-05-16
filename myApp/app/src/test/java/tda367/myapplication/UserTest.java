@@ -13,7 +13,7 @@ public class UserTest {
     @Test
     public void updateUserTest() {
         /*AccountManager am = AccountManager.getInstance();
-        am.addUser("Hanna", "Password", "url");*/
+        am.addUser("Hanna", "Password", "url");
 
     }
 

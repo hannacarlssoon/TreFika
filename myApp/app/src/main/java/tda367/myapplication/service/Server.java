@@ -30,21 +30,22 @@ public class Server {
     }
 
     //set up and run server
-    public void startRunning(){
-        try{
-            connectToServer();
-            setupStreams();
-            whileCompile();
+    public void startRunning() {
+            try {
+                connectToServer();
+                setupStreams();
+                whileCompile();
 
-        }catch(EOFException eofException){
-            System.out.println("Client terminated connection");
+            } catch (EOFException eofException) {
+                System.out.println("Client terminated connection");
 
-        }catch(IOException e){
-            e.printStackTrace();
-        }finally {
-            shutDown();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                //TODO add shutDown to destroy-method
+                //shutDown();
+            }
         }
-    }
 
     //connect to server
     private void connectToServer() throws IOException{

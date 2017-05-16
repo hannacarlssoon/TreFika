@@ -31,6 +31,11 @@ import tda367.myapplication.service.UserFileReader;
 
 import static android.R.drawable.sym_def_app_icon;
 
+/*
+@author Hanna Carlsson
+
+ */
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private static ImageView profilePicture;
