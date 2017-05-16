@@ -6,7 +6,9 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class FileReader {
+
     private int counter;
+    String stringWRows;
 
     // Method for getting the required string. Returns the question, the answer or the info of the level
     public String getRequiredText(String fileName, String type, Context context){
@@ -18,22 +20,22 @@ public class FileReader {
             while (lineOfContent != null){
                 counter++;
                 if (checkIfQuestion(type)){
-                    string = lineOfContent;
+                    string = getStringWRows(lineOfContent);
                 }
                 else if (checkIfAnswer(type)) {
-                    string = lineOfContent;
+                    string = getStringWRows(lineOfContent);
                 }
                 else if (checkIfInfo(type)) {
-                    string = lineOfContent;
+                    string = getStringWRows(lineOfContent);
                 }
                 else if (checkIfHint(type)) {
-                    string = lineOfContent;
+                    string = getStringWRows(lineOfContent);
                 }
                 else if (checkIfAlternatives(type)) {
-                    string = lineOfContent;
+                    string = getStringWRows(lineOfContent);
                 }
                 else if (checkIfHeading(type)) {
-                    string = lineOfContent;
+                    string = getStringWRows(lineOfContent);
                 }
                 lineOfContent = bufferedReader.readLine();
             }
@@ -73,5 +75,22 @@ public class FileReader {
     //Method for checking if the wanted text is a heading and the line of the .txt-file is heading
     private boolean checkIfHeading(String reqText){
         return (reqText.equals("heading") && counter == 12);
+    }
+
+    //Returns The same string but with newlines
+    private String getStringWRows(String fileString){
+        stringWRows = "";
+        setNewRows(fileString);
+       return stringWRows;
+    }
+
+    //Method for setting the new rows
+    private void setNewRows(String fileString){
+        String[] splitString = fileString.split("row");
+        for (String string:splitString){
+            stringWRows = stringWRows + string + "\n";
+        }
+        System.out.println(splitString.length + "");
+        System.out.println(stringWRows);
     }
 }

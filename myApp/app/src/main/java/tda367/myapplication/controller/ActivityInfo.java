@@ -51,7 +51,7 @@ public class ActivityInfo extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AccountManager.getInstance().getActiveUser().getUserStatistics().startTimer();
+                //AccountManager.getInstance().getActiveUser().getUserStatistics().startTimer();
                 launchIntent();
             }
         });
