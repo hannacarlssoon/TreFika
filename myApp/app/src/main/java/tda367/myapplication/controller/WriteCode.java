@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import tda367.myapplication.R;
 import tda367.myapplication.model.LearnJava;
@@ -126,6 +127,9 @@ public class WriteCode extends AppCompatActivity {
                         mBuilder.setCancelable(false);
                     } else {
                         //TODO show "getError-method" on screen
+                       /* Toast.makeText(WriteCode.this, "Din kod gav: " + getError(),
+                                Toast.LENGTH_LONG).show(); */
+                        System.out.println("Din kod gav: " + getError());
                         mView = getLayoutInflater().inflate(R.layout.activity_failed_level, null);
                         mBuilder.setPositiveButton("Pröva igen", new DialogInterface.OnClickListener() {
                             @Override
