@@ -58,28 +58,31 @@ public class WriteCode extends AppCompatActivity {
          @Override
          public void onClick(View v) {
                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(WriteCode.this);
+                //TODO add text telling the code is compiling
                 setAnswer();
                 System.out.println("Server is about to connect");
                 //server = new Server("127.0.0.1");
                 //runServer();
                 //codeResult = server.getCompiledCode();
-                System.out.println("Compiled code: " + server.getCompiledCode());
                 if(answer.isEmpty()) {
-                    showNoInput();
+                    showMessage("Input saknas");
                 }else {
                     SendfeedbackCode code = new SendfeedbackCode();
                     code.execute();
                     while (!code.isDone()) {
                         //TODO: Fix this :)))
                     }
+                    System.out.println("Compiled code: " + server.getCompiledCode());
                     if (learnJava.getLevelModel().checkAnswer(codeResult)) {
                         setPassedLevel(mBuilder);
                     } else {
                         setFailedLevel(mBuilder);
                     }
+
+                    AlertDialog dialog = mBuilder.create();
+                    dialog.show();
                 }
-                AlertDialog dialog = mBuilder.create();
-                dialog.show();
+
             }
         });
     }
@@ -130,8 +133,8 @@ public class WriteCode extends AppCompatActivity {
     }
 
     //Shows message when no input
-    private void showNoInput() {
-        Toast toast = Toast.makeText(WriteCode.this, "Input saknas", Toast.LENGTH_SHORT);
+    private void showMessage(String message) {
+        Toast toast = Toast.makeText(WriteCode.this, message, Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER_VERTICAL, 0, 470);
         toast.show();
     }
