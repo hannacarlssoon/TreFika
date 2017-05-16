@@ -27,7 +27,7 @@ import tda367.myapplication.model.Query;
 import tda367.myapplication.R;
 
 /**
- * @author Madeleine Lexén
+ * @author Madeleine Lexén, revised by Sara Kitzing
  * this class handles the events from the multichoice questions view
  * uses LearnJava
  */
@@ -94,7 +94,6 @@ public class QuestionMultiChoice extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(QuestionMultiChoice.this);
-                View mView;
                 setSelectedAnswer();
                 if (radioAnswerButton == null) {
                     setNoInput();
@@ -113,8 +112,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
 
     //Sets FailedLevel view
     private void setFailedLevel(AlertDialog.Builder mBuilder) {
-        View mView;
-        mView = getLayoutInflater().inflate(R.layout.activity_failed_level, null);
+        View mView = getLayoutInflater().inflate(R.layout.activity_failed_level, null);
         mBuilder.setPositiveButton("Pröva igen", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -126,8 +124,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
 
     //Sets PassedLevel view
     private void setPassedLevel(AlertDialog.Builder mBuilder) {
-        View mView;
-        mView = getLayoutInflater().inflate(R.layout.activity_passed_level, null);
+        View mView = getLayoutInflater().inflate(R.layout.activity_passed_level, null);
 
         mBuilder.setPositiveButton("Nästa nivå", new DialogInterface.OnClickListener() {
             @Override

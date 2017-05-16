@@ -31,7 +31,6 @@ public class WriteCode extends AppCompatActivity {
     Button submit;
     EditText userCode;
     private String answer;
-    //private tda367.myapplication.model.WriteCode writeCode;
     private Server server;
     private TextView questionView;
     private LearnJava learnJava = LearnJava.getInstance();
@@ -43,30 +42,22 @@ public class WriteCode extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_write_code);
 
-        submit = (Button)findViewById(R.id.codeSubmit);
-        userCode   = (EditText)findViewById(R.id.codeEditText);
-        server = new Server("10.0.2.2");
-        System.out.println("Created server");
-        System.out.println("Server compiled: " + server.getCompiledCode());
-        //writeCode = (tda367.myapplication.model.WriteCode) learnJava.getQuery();
-        questionView = (TextView) findViewById(R.id.codeQuestion);
+        setView();
 
         setQuestionText();
 
-        //Sets the toolbar and enables upnavigation, and sets the title
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Write code");
+        setToolbar();
 
+        setSubmitButton();
 
+    }
 
-        //Compiles code and checks if answer is right, sets PassedLevelview if correct, otherwise FailedLevel
+    //Sets OnClick-listener for submit button
+    private void setSubmitButton() {
         submit.setOnClickListener(new View.OnClickListener() {
          @Override
          public void onClick(View v) {
                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(WriteCode.this);
-                View mView;
                 setAnswer();
                 System.out.println("Server is about to connect");
                 //server = new Server("127.0.0.1");
@@ -74,62 +65,93 @@ public class WriteCode extends AppCompatActivity {
                 //codeResult = server.getCompiledCode();
                 System.out.println("Compiled code: " + server.getCompiledCode());
                 if(answer.isEmpty()) {
-                    Toast toast = Toast.makeText(WriteCode.this, "Input saknas", Toast.LENGTH_SHORT);
-                    toast.setGravity(Gravity.CENTER_VERTICAL, 0, 470);
-                    toast.show();
+                    showNoInput();
                 }else {
                     SendfeedbackCode code = new SendfeedbackCode();
                     code.execute();
                     while (!code.isDone()) {
-                        //TODO: Fix this :))) //PG
+                        //TODO: Fix this :)))
                     }
                     if (learnJava.getLevelModel().checkAnswer(codeResult)) {
-                        mView = getLayoutInflater().inflate(R.layout.activity_passed_level, null);
-
-                        mBuilder.setPositiveButton("Nästa nivå", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                startActivity(new Intent(WriteCode.this,PlayFragment.class));
-                                Toast toast = Toast.makeText(WriteCode.this, "Du har öppnat nästa kategori", Toast.LENGTH_LONG);
-                                toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
-                                toast.show();
-                                if(learnJava.getCurrentCategory().equals(4)) {
-                                    Toast toast2 = Toast.makeText(WriteCode.this, "Du är nu färdig med LearnJava, grattis!", Toast.LENGTH_LONG);
-                                    toast2.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
-                                    toast2.show();
-                                }
-                            }
-                        });
-
-                        mBuilder.setNeutralButton("Tillbaka", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                startActivity(new Intent(WriteCode.this, LevelActivity.class));
-                            }
-                        });
-
-                        mBuilder.setView(mView);
-                        mBuilder.setCancelable(false);
+                        setPassedLevel(mBuilder);
                     } else {
-                        mView = getLayoutInflater().inflate(R.layout.activity_failed_level, null);
-                        mBuilder.setPositiveButton("Pröva igen", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                Toast toast = Toast.makeText(WriteCode.this, "Din kod gav: " + getError(), Toast.LENGTH_LONG);
-                                toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
-                                toast.show();
-                            }
-                        });
-                        mBuilder.setView(mView);
-                        mBuilder.setCancelable(false);
-
+                        setFailedLevel(mBuilder);
                     }
                 }
                 AlertDialog dialog = mBuilder.create();
                 dialog.show();
             }
         });
+    }
 
+    //Sets FailedLevel view
+    private void setFailedLevel(AlertDialog.Builder mBuilder) {
+        View mView = getLayoutInflater().inflate(R.layout.activity_failed_level, null);
+        mBuilder.setPositiveButton("Pröva igen", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast toast = Toast.makeText(WriteCode.this, "Din kod gav: " + getError(), Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                toast.show();
+            }
+        });
+        mBuilder.setView(mView);
+        mBuilder.setCancelable(false);
+    }
+
+    //Sets PassedLevel view
+    private void setPassedLevel(AlertDialog.Builder mBuilder) {
+        View mView = getLayoutInflater().inflate(R.layout.activity_passed_level, null);
+
+        mBuilder.setPositiveButton("Nästa nivå", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                startActivity(new Intent(WriteCode.this,PlayFragment.class));
+                Toast toast = Toast.makeText(WriteCode.this, "Du har öppnat nästa kategori", Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                toast.show();
+                if(learnJava.getCurrentCategory().equals(4)) {
+                    Toast toast2 = Toast.makeText(WriteCode.this, "Du är nu färdig med LearnJava, grattis!", Toast.LENGTH_LONG);
+                    toast2.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                    toast2.show();
+                }
+            }
+        });
+
+        mBuilder.setNeutralButton("Tillbaka", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                startActivity(new Intent(WriteCode.this, LevelActivity.class));
+            }
+        });
+
+        mBuilder.setView(mView);
+        mBuilder.setCancelable(false);
+    }
+
+    //Shows message when no input
+    private void showNoInput() {
+        Toast toast = Toast.makeText(WriteCode.this, "Input saknas", Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 470);
+        toast.show();
+    }
+
+    //Sets the toolbar and enables upnavigation, and sets the title
+    private void setToolbar() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Write code");
+    }
+
+    //Sets buttons and views
+    private void setView() {
+        submit = (Button)findViewById(R.id.codeSubmit);
+        userCode   = (EditText)findViewById(R.id.codeEditText);
+        server = new Server("10.0.2.2");
+        System.out.println("Created server");
+        System.out.println("Server compiled: " + server.getCompiledCode());
+        questionView = (TextView) findViewById(R.id.codeQuestion);
     }
 
 
