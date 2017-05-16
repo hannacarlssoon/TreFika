@@ -24,16 +24,13 @@ public class User implements Serializable {
     }
 
     //Updates a user
-    public void updateUser(String newUserName, String newUserPassword, Drawable newProfilePictureUrl) {
+    public void updateUser(String newUserName, String newUserPassword) {
         if (userName != newUserName) {
             userName = newUserName;
         }
         if (userPassword != newUserPassword) {
             userPassword = newUserPassword;
         }
-        /*if (profilePicture.equals(newProfilePictureUrl)) {
-            profilePicture = newProfilePictureUrl;
-        }*/
     }
 
     //Method is called whenever a level is completed and saves the statistics from the level
@@ -58,9 +55,4 @@ public class User implements Serializable {
         return userStatistics;
     }
 
-    //Sets the profile piture when it's chosen
-    public void setProfilePicture(Drawable profilePicture) {
-        /*this.profilePicture = profilePicture;*/
-    }
-    
 }

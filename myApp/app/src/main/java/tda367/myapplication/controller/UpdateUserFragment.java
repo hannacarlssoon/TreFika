@@ -48,7 +48,7 @@ public class UpdateUserFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 AccountManager.getInstance().getActiveUser().updateUser(username.getText().toString(),
-                        password.getText().toString(), null);
+                        password.getText().toString());
                 setMyPage();
                 MainActivity.setUserInformation(username.getText().toString());
 

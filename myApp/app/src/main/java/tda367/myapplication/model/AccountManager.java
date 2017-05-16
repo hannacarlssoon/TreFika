@@ -55,7 +55,6 @@ public class AccountManager implements Serializable {
     public void logIn(String userName, String userPassword) {
          try {
              activeUser = users.get(userName);
-             activeUser.setProfilePicture(ImageHandler.loadImage(userName));
          } catch(NullPointerException e) {
             e.printStackTrace();
          }
