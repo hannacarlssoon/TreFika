@@ -92,7 +92,6 @@ public class FillInTheBlanks extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(FillInTheBlanks.this);
-                //View mView;
                 setAnswer();
                 if (answer1.isEmpty() || answer2.isEmpty() || answer3.isEmpty()) {
                     showNoInput();
@@ -100,8 +99,8 @@ public class FillInTheBlanks extends AppCompatActivity {
                     if (learnJava.getLevelModel().checkAnswer(userAnswer)) {
                         setPassedLevel(mBuilder);
                         //TODO fix method call
-                        AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
-                        AccountManager.getInstance().getActiveUser().saveStatistics("", false, showKey);
+                       // AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
+                       // AccountManager.getInstance().getActiveUser().saveStatistics("", false, showKey);
 
                     } else {
                         hint.setVisibility(View.VISIBLE);

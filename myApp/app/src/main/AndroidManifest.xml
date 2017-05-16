@@ -25,15 +25,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".controller.PassedLevel"
-            android:theme="@style/AppTheme.popup">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".controller.ActivityInfo"
             android:parentActivityName=".controller.LevelActivity" />
         <activity
