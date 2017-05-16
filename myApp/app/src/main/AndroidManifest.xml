@@ -39,9 +39,7 @@
         <activity
             android:name=".controller.QuestionMultiChoice"
             android:parentActivityName=".controller.LevelActivity" />
-        <activity
-            android:name=".controller.FailedLevel"
-            android:theme="@style/AppTheme.popup" />
+
         <activity
             android:name=".controller.FillInTheBlanks"
             android:parentActivityName=".controller.ActivityInfo">
