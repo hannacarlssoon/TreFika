@@ -6,8 +6,8 @@
     tools:context="tda367.myapplication.controller.SignInFragment">
 
     <android.support.design.widget.TextInputLayout
-        android:layout_width="275dp"
-        android:layout_height="50dp"
+        android:layout_width="209dp"
+        android:layout_height="58dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="0dp"
@@ -18,7 +18,9 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.137"
-        android:id="@+id/textInputLayout">
+        android:id="@+id/textInputLayout"
+        tools:layout_editor_absoluteY="77dp"
+        tools:layout_editor_absoluteX="63dp">
 
         <EditText
             android:id="@+id/userName"
@@ -67,8 +69,8 @@
         app:layout_constraintVertical_bias="0.614" />
 
     <android.support.design.widget.TextInputLayout
-        android:layout_width="275dp"
-        android:layout_height="50dp"
+        android:layout_width="218dp"
+        android:layout_height="55dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="0dp"
@@ -79,7 +81,9 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.285"
-        android:id="@+id/textInputLayout2">
+        android:id="@+id/textInputLayout2"
+        tools:layout_editor_absoluteY="147dp"
+        tools:layout_editor_absoluteX="93dp">
 
         <EditText
             android:id="@+id/Password"
