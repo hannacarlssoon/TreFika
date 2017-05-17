@@ -41,6 +41,7 @@ public class WriteCode extends AppCompatActivity {
     private String codeResult;
     private boolean showKey = false;
     private Context context;
+    private boolean keyUsed = false;
 
 
     @Override
@@ -87,6 +88,10 @@ public class WriteCode extends AppCompatActivity {
                             //TODO fix call to save
                             AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
                             int level = LearnJava.getInstance().getCurrentLevel() + 1;
+                            AccountManager.getInstance().getActiveUser().saveStatistics(
+                                    LearnJava.getInstance().getCurrentCategory() + level, keyUsed,
+                                    showKey
+                            );
                         } catch (NullPointerException e) {
 
                         } finally {
@@ -253,7 +258,7 @@ public class WriteCode extends AppCompatActivity {
                 showKey = true;
             }
             else {
-
+                keyUsed = true;
                 createDialog(learnJava.getLevelModel().getHint() + "\n" + learnJava.getLevelModel().getQuery().getAnswer());
             }
         }
