@@ -100,10 +100,15 @@ public class QuestionMultiChoice extends AppCompatActivity {
                     setNoInput();
                 } else{
                     if (learnJava.getLevelModel().checkAnswer(userAnswer)) {
-                        AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
                         //TODO fix call to save
-                        AccountManager.getInstance().getActiveUser().saveStatistics("", false, showKey);
-                        setPassedLevel(mBuilder);
+                        try {
+                            AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
+                            AccountManager.getInstance().getActiveUser().saveStatistics("", false, showKey);
+                        } catch (NullPointerException e) {
+
+                        } finally {
+                            setPassedLevel(mBuilder);
+                        }
                     } else {
                         setFailedLevel(mBuilder);
                     }

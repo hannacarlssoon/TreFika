@@ -97,10 +97,15 @@ public class FillInTheBlanks extends AppCompatActivity {
                     showNoInput();
                 } else {
                     if (learnJava.getLevelModel().checkAnswer(userAnswer)) {
-                        setPassedLevel(mBuilder);
-                        //TODO fix method call
-                       // AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
-                       // AccountManager.getInstance().getActiveUser().saveStatistics("", false, showKey);
+                        //TODO fix save call
+                        try {
+                            AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
+                            AccountManager.getInstance().getActiveUser().saveStatistics("", false, showKey);
+                        } catch (NullPointerException e) {
+
+                        } finally {
+                            setPassedLevel(mBuilder);
+                        }
 
                     } else {
                         hint.setVisibility(View.VISIBLE);
