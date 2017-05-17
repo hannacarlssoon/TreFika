@@ -30,10 +30,12 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
     private Button b2;
     private Button b3;
     private Button b4;
-    private boolean cat2Isenabled = false;
+    private boolean cat1IsEnabled = false;
+    private boolean cat2IsEnabled = false;
     private boolean cat3IsEnabled = false;
     private boolean cat4IsEnabled = false;
-    private Statistics statistics = AccountManager.getInstance().getActiveUser().getUserStatistics();
+    private AccountManager ac = AccountManager.getInstance();
+    private Statistics statistics = ac.getActiveUser().getUserStatistics();
 
 
     public PlayFragment() {}
@@ -63,8 +65,8 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
 
         enableCategories();
 
-        setEnabledCategories();
-        enableCategories();
+       /* setEnabledCategories();
+        enableCategories();*/
 
         return view;
     }
@@ -99,8 +101,11 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
 
 
     private void setEnabledCategories(){
+        if (ac.getActiveUser() != null){
+            cat1IsEnabled = true;
+        }
         if(statistics.getStatisticsHint().get(statistics.findIndex("Level15")) != null){
-            cat2Isenabled = true;
+            cat2IsEnabled = true;
         }
         if(statistics.getStatisticsHint().get(statistics.findIndex("Level25")) != null){
             cat3IsEnabled = true;
@@ -112,22 +117,18 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
 
 
     private void enableCategories() {
-        if (!cat2Isenabled) {
-            b2.setEnabled(cat2Isenabled);
-        } else {
-            //  b2.setImageResource(R.drawable.ic_lock_black_24dp);
-        }
-        if (!cat3IsEnabled) {
-            b3.setEnabled(cat3IsEnabled);
-        } else {
+        setEnabledCategories();
+        b1.setEnabled(cat1IsEnabled);
+        b2.setEnabled(cat2IsEnabled);
+        b3.setEnabled(cat3IsEnabled);
+        b4.setEnabled(cat4IsEnabled);
+
+        if(!cat1IsEnabled){
+
+        //b2.setImageResource(R.drawable.ic_lock_black_24dp);
             // b3.setImageResource(R.drawable.ic_lock_black_24dp);
-        }
-        /*
-        if (cat4IsEnabled){
             //  b4.setEnabled(cat4IsEnabled);
-        }
-        else{
             //  b4.setImageResource(R.drawable.ic_lock_black_24dp);
-            */
+        }
     }
 }

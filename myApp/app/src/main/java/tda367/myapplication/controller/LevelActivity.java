@@ -108,7 +108,6 @@ public class LevelActivity extends AppCompatActivity {
     //Sets the levels that are unlocked to enabled
     private void enablePassedLevels(){
         setPassedLevels();
-        System.out.println("Körs enalbedPAssedLEveve");
         firstBtn.setEnabled(enableLevel1);
         secondBtn.setEnabled(enableLevel2);
         thirdBtn.setEnabled(enableLevel3);
