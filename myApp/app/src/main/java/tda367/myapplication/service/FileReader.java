@@ -20,22 +20,35 @@ public class FileReader {
             while (lineOfContent != null){
                 counter++;
                 if (checkIfQuestion(type)){
-                    string = getStringWRows(lineOfContent);
+                    if (lineOfContent.contains("row")){
+                        string = getStringWRows(lineOfContent);
+                    }
+                    else {
+                        string = lineOfContent;
+                    }
                 }
                 else if (checkIfAnswer(type)) {
-                    string = getStringWRows(lineOfContent);
+                    string = lineOfContent;
                 }
                 else if (checkIfInfo(type)) {
-                    string = getStringWRows(lineOfContent);
+                    if (lineOfContent.contains("row")) {
+                        string = getStringWRows(lineOfContent);
+                    }
+                    else {
+                        string = lineOfContent;
+                    }
                 }
                 else if (checkIfHint(type)) {
-                    string = getStringWRows(lineOfContent);
+                    if (lineOfContent.contains("row")) {
+                        string = getStringWRows(lineOfContent) + "\n";
+                    }
+                    string = lineOfContent;
                 }
                 else if (checkIfAlternatives(type)) {
-                    string = getStringWRows(lineOfContent);
+                    string = lineOfContent;
                 }
                 else if (checkIfHeading(type)) {
-                    string = getStringWRows(lineOfContent);
+                    string = lineOfContent;
                 }
                 lineOfContent = bufferedReader.readLine();
             }

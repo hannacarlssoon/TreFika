@@ -196,6 +196,7 @@ public class FillInTheBlanks extends AppCompatActivity {
                 showKey = true;
             }
             else {
+
                 createDialog(learnJava.getLevelModel().getHint() + "\n" + learnJava.getLevelModel().getQuery().getAnswer());
             }
         }
@@ -206,6 +207,7 @@ public class FillInTheBlanks extends AppCompatActivity {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
         TextView textView = new TextView(context);
         textView.setText(hint);
+
 
         alertDialogBuilder.setView(textView);
         alertDialogBuilder.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
