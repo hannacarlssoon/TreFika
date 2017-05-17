@@ -105,14 +105,26 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
         }
         System.out.println(statistics.getHintHashMap() == null);
         System.out.println(statistics.getHintHashMap().get("category1") == null);
-        if(statistics.getHintHashMap().get("category1").get(4) != null){
+        try{
+            statistics.getHintHashMap().get("category1").get(4);
             cat2IsEnabled = true;
         }
-        if(statistics.getHintHashMap().get("category2").get(4) != null){
+        catch (IndexOutOfBoundsException e){
+            cat2IsEnabled = false;
+        }
+        try{
+            statistics.getHintHashMap().get("category2").get(4);
             cat3IsEnabled = true;
         }
-        if(statistics.getHintHashMap().get("category3").get(4) != null){
+        catch (IndexOutOfBoundsException e){
+           cat3IsEnabled = false;
+        }
+        try{
+            statistics.getHintHashMap().get("category3").get(4);
             cat4IsEnabled = true;
+        }
+        catch (IndexOutOfBoundsException e){
+            cat4IsEnabled = false;
         }
     }
 

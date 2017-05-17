@@ -100,7 +100,7 @@ public class FillInTheBlanks extends AppCompatActivity {
                         //TODO fix save call
                         try {
                             AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
-                            AccountManager.getInstance().getActiveUser().saveStatistics("", false, showKey);
+                            AccountManager.getInstance().getActiveUser().saveStatistics("Level11", false, showKey);
                         } catch (NullPointerException e) {
 
                         } finally {
