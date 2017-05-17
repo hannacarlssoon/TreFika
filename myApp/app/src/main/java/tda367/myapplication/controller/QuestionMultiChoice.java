@@ -111,14 +111,15 @@ public class QuestionMultiChoice extends AppCompatActivity {
                         } catch (NullPointerException e) {
 
                         } finally {
-                            setPassedLevel(mBuilder);
+                            new PassedLevel(QuestionMultiChoice.this);
                         }
                     } else {
                         setFailedLevel(mBuilder);
                         hintButton.setVisibility(View.VISIBLE);
+                        AlertDialog dialog = mBuilder.create();
+                        dialog.show();
                     }
-                    AlertDialog dialog = mBuilder.create();
-                    dialog.show();
+
                 }
             }
         });

@@ -106,7 +106,7 @@ public class FillInTheBlanks extends AppCompatActivity {
                         } catch (NullPointerException e) {
 
                         } finally {
-                            setPassedLevel(mBuilder);
+                            new PassedLevel(FillInTheBlanks.this);
                         }
 
                     } else {
@@ -118,9 +118,9 @@ public class FillInTheBlanks extends AppCompatActivity {
                     }
                     */
                         setFailedLevel(mBuilder);
+                        AlertDialog dialog = mBuilder.create();
+                        dialog.show();
                     }
-                    AlertDialog dialog = mBuilder.create();
-                    dialog.show();
                 }
             }
         });
@@ -131,30 +131,6 @@ public class FillInTheBlanks extends AppCompatActivity {
         Toast toast = Toast.makeText(FillInTheBlanks.this, "Input saknas", Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER_VERTICAL, 0, 470);
         toast.show();
-    }
-
-    //Sets PassedLevel view
-    private void setPassedLevel(AlertDialog.Builder mBuilder){
-        View mView = getLayoutInflater().inflate(R.layout.activity_passed_level, null);
-
-
-        mBuilder.setPositiveButton("Nästa nivå", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                startActivity(new Intent(FillInTheBlanks.this, ActivityInfo.class));
-                learnJava.setCurrentLevel(learnJava.getCurrentLevel() + 1);
-            }
-        });
-
-
-        mBuilder.setNeutralButton("Tillbaka", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                startActivity(new Intent(FillInTheBlanks.this, LevelActivity.class));
-            }
-        });
-        mBuilder.setView(mView);
-        mBuilder.setCancelable(false);
     }
 
     //Sets FailedLevel viewn

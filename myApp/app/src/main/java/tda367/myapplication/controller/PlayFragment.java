@@ -103,8 +103,6 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
         if (ac.getActiveUser() != null){
             cat1IsEnabled = true;
         }
-        System.out.println(statistics.getHintHashMap() == null);
-        System.out.println(statistics.getHintHashMap().get("category1") == null);
         try{
             statistics.getHintHashMap().get("category1").get(4);
             cat2IsEnabled = true;
