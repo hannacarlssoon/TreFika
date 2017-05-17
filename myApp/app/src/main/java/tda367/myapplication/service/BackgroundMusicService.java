@@ -65,7 +65,7 @@ public class BackgroundMusicService extends Service {
 
     }
 
-    public static MediaPlayer getInstance(){
+    public static MediaPlayer getmPlayer(){
         if (mPlayer == null){
             mPlayer = new MediaPlayer();
         }

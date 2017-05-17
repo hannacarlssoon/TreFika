@@ -10,6 +10,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import tda367.myapplication.R;
+import tda367.myapplication.service.BackgroundMusicService;
 
 
 /**
@@ -43,7 +44,7 @@ public class SettingsFragment extends Fragment {
         @Override
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
             volumeText.setText(progress + "");
-
+            BackgroundMusicService.getInstance().setVolume(progress, progress);
         }
 
         @Override
