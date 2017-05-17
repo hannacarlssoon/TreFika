@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.view.View;
 
+import java.lang.reflect.Array;
+
 import tda367.myapplication.model.AccountManager;
 import tda367.myapplication.model.LearnJava;
 import tda367.myapplication.R;
@@ -22,16 +24,13 @@ This class is responsible for handling the actions from the levelActivity view
 public class LevelActivity extends AppCompatActivity {
 
     private LearnJava learnJava = LearnJava.getInstance();
-    private boolean enableLevel1 = false;
-    private boolean enableLevel2 = false;
-    private boolean enableLevel3 = false;
-    private boolean enableLevel4 = false;
-    private boolean enableLevel5 = false;
+    private boolean[] enabledLevels = new boolean[5];
     private Button bossBtn;
     private Button fourthBtn;
     private Button thirdBtn;
     private Button secondBtn;
     private Button firstBtn;
+
     private Statistics statistics = AccountManager.getInstance().getActiveUser().getUserStatistics();
 
 
@@ -71,36 +70,28 @@ public class LevelActivity extends AppCompatActivity {
 
     //sets the booelan value for the levels passed variable
     private void setPassedLevels(){
-        if(learnJava.getCurrentCategory().equals("category1")){
-            enableLevel1 = true;
-            for( int i = 2; i < 6; i++){
-                if (statistics.getStatisticsHint().get(i) != null) {
-                    enableLeve
-                }
-            }
+          /*  for (int i = 0; i < statistics.getHintHashmap(getCurrentCategory()).size; i++){
+                if(statistics.getHintHashmap("category1").get(i) != null){
+                    enabledLevels[i] = true;
+                else{
+                    enabledLevels[i] = false;
+                    }
 
-            if(statistics.getStatisticsHint().get(statistics.findIndex("Level12")) != null){
-                secondIsEnabled = true;
-            }
-        }
-        else{
-        }
-
-
+           */
     }
 
     //sets the title of the enabled buttons
     private void setTitleOnEnabled(){
-        if(enableLevel2){
+        if(enabledLevels[1]){
             secondBtn.setText("2");
         }
-        if(enableLevel3){
+        if(enabledLevels[2]){
             thirdBtn.setText("3");
         }
-        if(enableLevel4){
+        if(enabledLevels[3]){
             fourthBtn.setText("4");
         }
-        if(enableLevel5){
+        if(enabledLevels[4]){
             bossBtn.setText("Boss");
         }
     }
@@ -108,11 +99,11 @@ public class LevelActivity extends AppCompatActivity {
     //Sets the levels that are unlocked to enabled
     private void enablePassedLevels(){
         setPassedLevels();
-        firstBtn.setEnabled(enableLevel1);
-        secondBtn.setEnabled(enableLevel2);
-        thirdBtn.setEnabled(enableLevel3);
-        fourthBtn.setEnabled(enableLevel4);
-        bossBtn.setEnabled(enableLevel5);
+        firstBtn.setEnabled(enabledLevels[0]);
+        secondBtn.setEnabled(enabledLevels[1]);
+        thirdBtn.setEnabled(enabledLevels[2]);
+        fourthBtn.setEnabled(enabledLevels[3]);
+        bossBtn.setEnabled(enabledLevels[4]);
     }
 
     //Handles the back navigation

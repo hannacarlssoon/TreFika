@@ -55,13 +55,13 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
         b1 = (Button) view.findViewById(R.id.category1);
         b2 = (Button) view.findViewById(R.id.category2);
         b3 = (Button) view.findViewById(R.id.category3);
-        //b4 = (Button) view.findViewById(R.id.category4);
+        b4 = (Button) view.findViewById(R.id.category4);
 
         //Sets onCLickListeners to the buttons
         b1.setOnClickListener(this);
         b2.setOnClickListener(this);
         b3.setOnClickListener(this);
-        //B4.setOnCliclListener(this);
+        b4.setOnClickListener(this);
 
         enableCategories();
 
@@ -90,12 +90,11 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
                 learnJava.setCurrentCategory("category3");
                 startActivity(intent3);
                 break;
-           /* case R.id.category4:
+            case R.id.category4:
                 Intent intent4 = new Intent(getActivity(), LevelActivity.class);
-                learnJava.setCurrentCategory("category3");
+                learnJava.setCurrentCategory("category4");
                 startActivity(intent4);
                 break;
-                */
         }
     }
 
@@ -123,12 +122,6 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
         b3.setEnabled(cat3IsEnabled);
         b4.setEnabled(cat4IsEnabled);
 
-        if(!cat1IsEnabled){
-
-        //b2.setImageResource(R.drawable.ic_lock_black_24dp);
-            // b3.setImageResource(R.drawable.ic_lock_black_24dp);
-            //  b4.setEnabled(cat4IsEnabled);
-            //  b4.setImageResource(R.drawable.ic_lock_black_24dp);
-        }
     }
 }
+
