@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.view.View;
 
 import java.lang.reflect.Array;
+import java.util.HashMap;
+import java.util.List;
 
 import tda367.myapplication.model.AccountManager;
 import tda367.myapplication.model.LearnJava;
@@ -70,14 +72,15 @@ public class LevelActivity extends AppCompatActivity {
 
     //sets the booelan value for the levels passed variable
     private void setPassedLevels(){
-          /*  for (int i = 0; i < statistics.getHintHashmap(getCurrentCategory()).size; i++){
-                if(statistics.getHintHashmap("category1").get(i) != null){
-                    enabledLevels[i] = true;
-                else{
-                    enabledLevels[i] = false;
-                    }
-
-           */
+        HashMap<String, List<Boolean>> hash = statistics.getHintHashMap();
+        for (int i = 0; i < hash.get(learnJava.getCurrentCategory()).size(); i++){
+            if(hash.get(learnJava.getCurrentCategory()).get(i) != null) {
+                enabledLevels[i] = true;
+            }
+            else{
+                enabledLevels[i] = false;
+            }
+        }
     }
 
     //sets the title of the enabled buttons

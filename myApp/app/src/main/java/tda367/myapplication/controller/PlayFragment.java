@@ -103,13 +103,13 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
         if (ac.getActiveUser() != null){
             cat1IsEnabled = true;
         }
-        if(statistics.getStatisticsHint().get(statistics.findIndex("Level15")) != null){
+        if(statistics.getHintHashMap().get("category1").get(4) != null){
             cat2IsEnabled = true;
         }
-        if(statistics.getStatisticsHint().get(statistics.findIndex("Level25")) != null){
+        if(statistics.getHintHashMap().get("category2").get(4) != null){
             cat3IsEnabled = true;
         }
-        if(statistics.getStatisticsHint().get(statistics.findIndex("Level35")) != null){
+        if(statistics.getHintHashMap().get("category3").get(4) != null){
             cat4IsEnabled = true;
         }
     }
