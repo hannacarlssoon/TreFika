@@ -22,11 +22,11 @@ This class is responsible for handling the actions from the levelActivity view
 public class LevelActivity extends AppCompatActivity {
 
     private LearnJava learnJava = LearnJava.getInstance();
-    private boolean firstIsEnabled = false;
-    private boolean secondIsEnabled = false;
-    private boolean thirdIsEnabled = false;
-    private boolean fourthIsEnabled = false;
-    private boolean bossIsEnabled = false;
+    private boolean enableLevel1 = false;
+    private boolean enableLevel2 = false;
+    private boolean enableLevel3 = false;
+    private boolean enableLevel4 = false;
+    private boolean enableLevel5 = false;
     private Button bossBtn;
     private Button fourthBtn;
     private Button thirdBtn;
@@ -53,9 +53,7 @@ public class LevelActivity extends AppCompatActivity {
         fourthBtn = (Button)findViewById(R.id.fourthButton);
         bossBtn = (Button)findViewById(R.id.bossButton);
 
-        //Sets the boolean value for the buttons by checking statistics for which levels are passed
-        //Todo koppla ihop med statistiken
-        setPassedLevels();
+       //Todo koppla ihop med statistiken
 
         //Disables buttons for levels that aren't unlocked
        enablePassedLevels();
@@ -74,8 +72,18 @@ public class LevelActivity extends AppCompatActivity {
     //sets the booelan value for the levels passed variable
     private void setPassedLevels(){
         if(learnJava.getCurrentCategory().equals("category1")){
-            firstIsEnabled = true;
+            enableLevel1 = true;
+            for( int i = 2; i < 6; i++){
+                if (statistics.getStatisticsHint().get(i) != null) {
+                    enableLeve
+                }
+            }
 
+            if(statistics.getStatisticsHint().get(statistics.findIndex("Level12")) != null){
+                secondIsEnabled = true;
+            }
+        }
+        else{
         }
 
 
@@ -83,28 +91,29 @@ public class LevelActivity extends AppCompatActivity {
 
     //sets the title of the enabled buttons
     private void setTitleOnEnabled(){
-        if(secondIsEnabled){
-            secondBtn.setText("1");
+        if(enableLevel2){
+            secondBtn.setText("2");
         }
-        if(thirdIsEnabled){
-            thirdBtn.setText("2");
+        if(enableLevel3){
+            thirdBtn.setText("3");
         }
-        if(fourthIsEnabled){
-            fourthBtn.setText("3");
+        if(enableLevel4){
+            fourthBtn.setText("4");
         }
-        if(bossIsEnabled){
-            bossBtn.setText("4");
+        if(enableLevel5){
+            bossBtn.setText("Boss");
         }
     }
 
     //Sets the levels that are unlocked to enabled
     private void enablePassedLevels(){
+        setPassedLevels();
         System.out.println("Körs enalbedPAssedLEveve");
-        firstBtn.setEnabled(firstIsEnabled);
-        secondBtn.setEnabled(secondIsEnabled);
-        thirdBtn.setEnabled(thirdIsEnabled);
-        fourthBtn.setEnabled(fourthIsEnabled);
-        bossBtn.setEnabled(bossIsEnabled);
+        firstBtn.setEnabled(enableLevel1);
+        secondBtn.setEnabled(enableLevel2);
+        thirdBtn.setEnabled(enableLevel3);
+        fourthBtn.setEnabled(enableLevel4);
+        bossBtn.setEnabled(enableLevel5);
     }
 
     //Handles the back navigation

@@ -99,11 +99,15 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
 
 
     private void setEnabledCategories(){
-        if(statistics.getStatisticsKey(). != null){
-
+        if(statistics.getStatisticsHint().get(statistics.findIndex("Level15")) != null){
+            cat2Isenabled = true;
         }
-
-
+        if(statistics.getStatisticsHint().get(statistics.findIndex("Level25")) != null){
+            cat3IsEnabled = true;
+        }
+        if(statistics.getStatisticsHint().get(statistics.findIndex("Level35")) != null){
+            cat4IsEnabled = true;
+        }
     }
 
 
