@@ -49,5 +49,15 @@
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintVertical_bias="0.443" />
 
+    <ImageButton
+        android:id="@+id/muteButton"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/volumeSeekBar"
+        app:srcCompat="@android:drawable/ic_lock_silent_mode_off"
+        android:layout_marginTop="61dp" />
+
 
 </android.support.constraint.ConstraintLayout>

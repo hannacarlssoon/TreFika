@@ -28,7 +28,7 @@ public class BackgroundMusicService extends Service {
         super.onCreate();
         mPlayer = MediaPlayer.create(this, R.raw.wildestdreams);
         mPlayer.setLooping(true);
-        mPlayer.setVolume(100,100);
+        mPlayer.setVolume(0.01f, 0.01f);
 
     }
 
