@@ -2,6 +2,8 @@ package tda367.myapplication;
 
 import org.junit.Test;
 
+import java.util.List;
+
 import tda367.myapplication.model.Statistics;
 
 import static org.junit.Assert.*;
@@ -63,7 +65,16 @@ public class StatisticsTest {
 
     @Test
     public void initDataTest() {
-
+        Statistics s = new Statistics();
+        s.startTimer();
+        s.stopTimer();
+        s.saveStatisticsTime("Level11");
+        s.saveStatisticsKey("Level11", false);
+        s.saveStatisticsHint("Level11", true);
+        s.initData();
+        assertTrue(s.getHintHashMap().containsKey("category1"));
+        assertTrue(!s.getTimeHashMap().containsKey("category2"));
+        assertTrue(s.getKeyHashMap().size() == 1);
     }
 
 }
