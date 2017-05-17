@@ -10,6 +10,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
+import java.util.HashMap;
+import java.util.List;
+
 import tda367.myapplication.R;
 import tda367.myapplication.model.AccountManager;
 import tda367.myapplication.model.LearnJava;
@@ -29,7 +32,6 @@ public class PassedLevel {
     private ImageView starOne;
     private ImageView starTwo;
     private ImageView starThree;
-    Context context;
     private Statistics statistics = AccountManager.getInstance().getActiveUser().getUserStatistics();
     private LearnJava learnJava = LearnJava.getInstance();
 
@@ -45,8 +47,9 @@ public class PassedLevel {
         mBuilder.setPositiveButton("Nästa nivå", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                activity.startActivity(new Intent(activity, ActivityInfo.class));
                 learnJava.setCurrentLevel(learnJava.getCurrentLevel() + 1);
+                activity.startActivity(new Intent(activity, ActivityInfo.class));
+
             }
         });
 
@@ -67,6 +70,12 @@ public class PassedLevel {
 
     public void setStars(){
         System.out.println("SetStars körs");
+        int i = learnJava.getCurrentLevel();
+        String s = learnJava.getCurrentCategory();
+        HashMap<String , List<Boolean>> h = statistics.getKeyHashMap();
+        List<Boolean> l = h.get(s);
+        boolean b = l.get(i);
+
         if(!statistics.getKeyHashMap().get(learnJava.getCurrentCategory()).get(learnJava.getCurrentLevel())){
             starThree.setImageResource(ic_star_black_24dp);
             System.out.println("star three sätts");
