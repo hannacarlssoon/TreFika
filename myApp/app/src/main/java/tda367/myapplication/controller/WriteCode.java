@@ -183,6 +183,8 @@ public class WriteCode extends AppCompatActivity {
     //TODO change system.out.print -> print
     public void setAnswer(){
         answer = WriteCode.this.userCode.getText().toString();
+        answer = answer.replace("System.out.println", "print");
+        answer = answer.replace("System.out.print", "print");
     }
 
     //Runs the server
