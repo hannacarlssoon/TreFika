@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,13 +47,11 @@ public class FillInTheBlanks extends AppCompatActivity {
     private boolean showKey = false;
     Context context;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fill_in_the_blanks);
         context = this;
-
         setView();
 
         setQuestionText();
@@ -134,6 +133,8 @@ public class FillInTheBlanks extends AppCompatActivity {
     //Sets PassedLevel view
     private void setPassedLevel(AlertDialog.Builder mBuilder){
         View mView = getLayoutInflater().inflate(R.layout.activity_passed_level, null);
+
+
         mBuilder.setPositiveButton("Nästa nivå", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
