@@ -20,7 +20,6 @@ import tda367.myapplication.service.BackgroundMusicService;
 public class SettingsFragment extends Fragment {
 
     private SeekBar volumeSeekBar;
-    private TextView settingsTitle;
     private TextView volumeText;
     private ImageButton muteButton;
     private int maxVolume = 100;
@@ -38,7 +37,6 @@ public class SettingsFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
 
         volumeSeekBar = (SeekBar)view.findViewById(R.id.volumeSeekBar);
-        settingsTitle = (TextView)view.findViewById(R.id.settingsTitle);
         volumeText = (TextView)view.findViewById(R.id.volumeText);
         muteButton = (ImageButton)view.findViewById(R.id.muteButton);
 
@@ -94,11 +92,8 @@ public class SettingsFragment extends Fragment {
                 else {
                     setVolumeSettings(savedVolume);
                 }
-
             }
-
         }
-
     };
 
     private void setSavedVolume(int volume){
