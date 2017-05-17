@@ -58,6 +58,12 @@ public class SettingsFragment extends Fragment {
             float log1=(float)(Math.log(maxVolume-(maxVolume-progress))/Math.log(maxVolume));
             BackgroundMusicService.getmPlayer().setVolume(log1, log1);
             isMuted = progress == 0;
+            if (isMuted) {
+                setMutePicture();
+            }
+            else {
+                setUnMutePicture();
+            }
         }
 
         @Override
@@ -79,20 +85,16 @@ public class SettingsFragment extends Fragment {
                 BackgroundMusicService.getmPlayer().setVolume(0,0);
                 volumeSeekBar.setProgress(0);
                 isMuted = true;
-            }
-            else if (savedVolume == 0) {
-                System.out.println("savedvol is 0");
-                float log1 = (float) (Math.log(maxVolume - (maxVolume - 1)) / Math.log(maxVolume));
-                BackgroundMusicService.getmPlayer().setVolume(log1, log1);
-                volumeSeekBar.setProgress(1);
-                isMuted = false;
+                setMutePicture();
             }
             else {
-                System.out.println("savedvol is not 0");
-                float log1=(float)(Math.log(maxVolume-(maxVolume-savedVolume))/Math.log(maxVolume));
-                BackgroundMusicService.getmPlayer().setVolume(log1, log1);
-                volumeSeekBar.setProgress(savedVolume);
-                isMuted = false;
+                if (savedVolume == 0){
+                    setVolumeSettings(1);
+                }
+                else {
+                    setVolumeSettings(savedVolume);
+                }
+
             }
 
         }
@@ -104,9 +106,20 @@ public class SettingsFragment extends Fragment {
     }
 
     private void setMutePicture(){
+        muteButton.setImageResource(R.mipmap.ic_launcher_mute);
 
     }
 
-    private
+    private void setUnMutePicture(){
+        muteButton.setImageResource(R.mipmap.ic_launcher_unmute);
+    }
+
+    private void setVolumeSettings(int vol) {
+        float log1=(float)(Math.log(maxVolume-(maxVolume-vol))/Math.log(maxVolume));
+        BackgroundMusicService.getmPlayer().setVolume(log1, log1);
+        volumeSeekBar.setProgress(vol);
+        isMuted = false;
+        setUnMutePicture();
+    }
 
 }
