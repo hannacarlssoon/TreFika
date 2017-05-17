@@ -26,7 +26,6 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
     private Button signUp;
     private EditText userName;
     private EditText password;
-    public static boolean isLoggedIn;
     public static boolean isInSignUp;
 
     public SignInFragment() {}
@@ -47,12 +46,18 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
         signUp.setOnClickListener(this);
         signIn.setOnClickListener(this);
 
-        if (isLoggedIn) {
+        if (AccountManager.getInstance().getActiveUser() != null) {
             setMyPage();
         }
 
         return view;
 
+    }
+
+    private void setMyPage() {
+        MyPageFragment myPageFragment = new MyPageFragment();
+        FragmentManager manager = getFragmentManager();
+        manager.beginTransaction().replace(getId(), myPageFragment, myPageFragment.getTag()).commit();
     }
 
     //Method needed to be overriden when you have onClickListners, handles each buttons actions when clicked
@@ -65,8 +70,7 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
                     AccountManager.getInstance().logIn(userName.getText().toString(),
                             password.getText().toString());
                     MainActivity.setUserInformation(userName.getText().toString());
-                    isLoggedIn = true;
-                    setMyPage();
+                    setPlayPage();
                 } else {
                     Toast.makeText(getContext(), "Wrong username or password",
                             Toast.LENGTH_LONG).show();
@@ -91,10 +95,10 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
     }
 
     //Sets the view to myPage
-    private void setMyPage() {
-        MyPageFragment myPageFragment = new MyPageFragment();
+    private void setPlayPage() {
+        PlayFragment playFragment = new PlayFragment();
         FragmentManager manager = getFragmentManager();
-        manager.beginTransaction().replace(getId(), myPageFragment, myPageFragment.getTag()).commit();
+        manager.beginTransaction().replace(getId(), playFragment, playFragment.getTag()).commit();
     }
 
 }

@@ -78,7 +78,7 @@ public class WriteCode extends AppCompatActivity {
                         try {
                             //TODO fix call to save
                             AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
-                            AccountManager.getInstance().getActiveUser().saveStatistics("", false, false);
+                            int level = LearnJava.getInstance().getCurrentLevel() + 1;
                         } catch (NullPointerException e) {
 
                         } finally {

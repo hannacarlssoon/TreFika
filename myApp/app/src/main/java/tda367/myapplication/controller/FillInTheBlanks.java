@@ -45,6 +45,7 @@ public class FillInTheBlanks extends AppCompatActivity {
     private TextView questionView;
     private LearnJava learnJava = LearnJava.getInstance();
     private boolean showKey = false;
+    private boolean keyUsed = false;
     Context context;
 
     @Override
@@ -98,8 +99,10 @@ public class FillInTheBlanks extends AppCompatActivity {
                     if (learnJava.getLevelModel().checkAnswer(userAnswer)) {
                         //TODO fix save call
                         try {
+                            System.out.println(LearnJava.getInstance().getCurrentCategory() + LearnJava.getInstance().getCurrentLevel() );
                             AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
-                            AccountManager.getInstance().getActiveUser().saveStatistics("Level11", false, showKey);
+                            int level = LearnJava.getInstance().getCurrentLevel() + 1;
+                            AccountManager.getInstance().getActiveUser().saveStatistics(LearnJava.getInstance().getCurrentCategory() + level, keyUsed, showKey);
                         } catch (NullPointerException e) {
 
                         } finally {
@@ -202,7 +205,7 @@ public class FillInTheBlanks extends AppCompatActivity {
                 showKey = true;
             }
             else {
-
+                keyUsed = true;
                 createDialog(learnJava.getLevelModel().getHint() + "\n" + learnJava.getLevelModel().getQuery().getAnswer());
             }
         }

@@ -69,7 +69,6 @@ public class SignUpActivity extends AppCompatActivity {
                     String userName = username.getText().toString();
                     AccountManager.getInstance().addUser(userName, password.getText().toString());
                     MainActivity.setUserInformation(userName);
-                    SignInFragment.isLoggedIn = true;
                     SignInFragment.isInSignUp = false;
                     setMyPage();
                 } else {

@@ -48,6 +48,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
     private TextView altTextView3;
     private TextView altTextView4;
     private boolean showKey = false;
+    private boolean keyUsed = false;
 
 
     @Override
@@ -104,8 +105,9 @@ public class QuestionMultiChoice extends AppCompatActivity {
                     if (learnJava.getLevelModel().checkAnswer(userAnswer)) {
                         //TODO fix call to save
                         try {
-                           // AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
-                            //AccountManager.getInstance().getActiveUser().saveStatistics("", false, showKey);
+                           AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
+                            int level = LearnJava.getInstance().getCurrentLevel() + 1;
+                            AccountManager.getInstance().getActiveUser().saveStatistics(LearnJava.getInstance().getCurrentCategory() + level, keyUsed, showKey);
                         } catch (NullPointerException e) {
 
                         } finally {
@@ -208,6 +210,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
                 showKey = true;
             }
             else {
+                keyUsed = true;
                 createDialog(learnJava.getLevelModel().getHint() + "\n"+ learnJava.getLevelModel().getQuery().getAnswer());
             }
         }

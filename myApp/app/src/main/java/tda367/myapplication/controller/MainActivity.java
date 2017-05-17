@@ -54,8 +54,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Intent svc = new Intent(this, BackgroundMusicService.class);
         startService(svc);
         if (savedInstanceState == null) {
+            if (AccountManager.getInstance().getActiveUser() == null) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.constraintlayout_for_fragment,
                         new SignInFragment()).commit();
+            } else {
+                getSupportFragmentManager().beginTransaction().replace(R.id.constraintlayout_for_fragment,
+                        new PlayFragment()).commit();
+            }
         }
 
 
@@ -158,9 +163,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
        if (imageName == null) {
            profilePicture.setImageResource(sym_def_app_icon);
            navUserName.setText("Log in to see username");
-           System.out.println("IN herre");
        } else {
-           System.out.println("Ska sätta yoo");
            profilePicture.setImageDrawable(ImageHandler.loadImage(imageName));
            System.out.println(imageName);
            navUserName.setText(imageName);
@@ -170,7 +173,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public void onDestroy() {
         super.onDestroy();
-        SignInFragment.isLoggedIn = false;
         UserFileReader.getInstance().saveObject(getApplicationContext());
     }
 }

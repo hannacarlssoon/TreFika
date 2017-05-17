@@ -50,11 +50,9 @@ public class MyPageFragment extends Fragment {
         myPageLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SignInFragment.isLoggedIn = false;
                 AccountManager.getInstance().logOut();
                 MainActivity.setUserInformation(null);
                 setSignInPage();
-                SignInFragment.isLoggedIn = false;
             }
         });
 

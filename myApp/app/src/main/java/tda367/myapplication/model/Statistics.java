@@ -14,10 +14,10 @@ import java.util.List;
 public class Statistics implements Serializable {
 
     //The names of the levels
-    private final String[] titleNames = {"Level11", "Level12", "Level13", "Level14", "Level15",
-            "Level21", "Level22", "Level23", "Level24", "Level25", "Level31", "Level32", "Level33",
-            "Level34", "Level35", "Level41", "Level42", "Level43", "Level44", "Level45", "Level51",
-            "Level52", "Level53", "Level54", "Level55",};
+    private final String[] titleNames = {"category11", "category12", "category13", "category14", "category15",
+            "category21", "category22", "category23", "category24", "category25", "category31", "category32", "category33",
+            "category34", "category35", "category41", "category42", "category43", "category44", "category45",
+            };
 
     private final List<String> titles = new ArrayList<>(Arrays.asList(titleNames));
 
