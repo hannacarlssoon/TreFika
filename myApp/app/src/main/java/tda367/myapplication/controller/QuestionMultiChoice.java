@@ -64,6 +64,8 @@ public class QuestionMultiChoice extends AppCompatActivity {
 
         setSubmitButton();
 
+        hintButton.setVisibility(View.INVISIBLE);
+
         //sets onclicklistener for hint button
         hintButton.setOnClickListener(imgBtnlistener);
     }
@@ -102,8 +104,8 @@ public class QuestionMultiChoice extends AppCompatActivity {
                     if (learnJava.getLevelModel().checkAnswer(userAnswer)) {
                         //TODO fix call to save
                         try {
-                            AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
-                            AccountManager.getInstance().getActiveUser().saveStatistics("", false, showKey);
+                           // AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
+                            //AccountManager.getInstance().getActiveUser().saveStatistics("", false, showKey);
                         } catch (NullPointerException e) {
 
                         } finally {
@@ -111,6 +113,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
                         }
                     } else {
                         setFailedLevel(mBuilder);
+                        hintButton.setVisibility(View.VISIBLE);
                     }
                     AlertDialog dialog = mBuilder.create();
                     dialog.show();

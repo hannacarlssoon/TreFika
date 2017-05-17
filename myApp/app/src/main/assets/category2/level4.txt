@@ -1,6 +1,41 @@
 [Question1]
- What's 5+5? 1
- [Answer1]
- 10, 12, 14
- [Info1]
-FUUUUCCCKK YYYYOOOOOUUUU
+Vad skriver följande kod ut?
+
+int i = 12;
+int j = 4;
+int k = 17;
+String s = “string”;
+String t = “strings”;
+if (i/j == 3){
+System.out.print(s);
+}
+if (s.equals(t)){
+	System.out.print(i);
+}
+else if(k - j < j + 1){
+	System.out.print(k);
+}
+else{
+System.out.print(“answer”);
+}
+[Answer1]
+2
+[Info1]
+bland händer det att man har fler än två olika saker den ska göra beroende på kravet. Då kan man använda “else if”. Ett exempel är om du ska betala för en bussresa. Om du är yngre än 6 år behöver du inte betala någonting, är du 6-65 år behöver du betala 20kr och är du äldre än 65 år så behöver du inte betala. Om du ska utforma ett program för detta kan det se ut ungefär såhär:
+if (age < 6){
+	//betala inte
+}
+else if (age > 5 && age < 65){
+	//betala 20kr
+}
+else{
+	//betala inte
+}
+
+“&&”-tecknet betyder att “age” måste vara större än 5 OCH mindre än 65. Om ett av dessa två uttryck inte stämmer kommer hela uttrycket bli falskt.
+[hint]
+Det är två stycken if-satser, den skriver ut två saker
+[Alternativ]
+17 & answer,string & 17,string,string & answer
+[head]
+If-satser

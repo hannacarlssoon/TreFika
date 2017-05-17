@@ -7,6 +7,6 @@ I java, och i många andra språk, använder man variabler för att hålla (spar
 [Hint]
 Variabler kan hålla olika typer av värden. rowNär man är färdig med ett påstående skriver man ett tecken. rowI java finns det en kompilator som kompilerar koden för att se om den går att köra eller inte.
 [Alternatives]
-jendfk,oeuf,ege
+N/A
 [Heading]
 Typer
