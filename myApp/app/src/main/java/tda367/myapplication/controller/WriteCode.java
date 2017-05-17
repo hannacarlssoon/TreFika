@@ -1,5 +1,6 @@
 package tda367.myapplication.controller;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -13,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,20 +32,26 @@ import tda367.myapplication.service.Server;
 
 public class WriteCode extends AppCompatActivity {
     Button submit;
+    private ImageButton hintButton;
     EditText userCode;
     private String answer;
     private Server server;
     private TextView questionView;
     private LearnJava learnJava = LearnJava.getInstance();
     private String codeResult;
+    private boolean showKey = false;
+    private Context context;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_write_code);
+        context = this;
 
         setView();
+
+        hintButton.setVisibility(View.INVISIBLE);
 
         setQuestionText();
 
@@ -159,6 +167,7 @@ public class WriteCode extends AppCompatActivity {
     //Sets buttons and views
     private void setView() {
         submit = (Button)findViewById(R.id.codeSubmit);
+        hintButton = (ImageButton) findViewById(R.id.hintButton);
         userCode   = (EditText)findViewById(R.id.codeEditText);
         server = new Server("10.0.2.2");
         System.out.println("Created server");
@@ -232,6 +241,38 @@ public class WriteCode extends AppCompatActivity {
         protected void onPostExecute(String message) {
             //process message
         }
+    }
+
+    private ImageButton.OnClickListener hintListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (!showKey){
+                createDialog(learnJava.getLevelModel().getHint());
+                showKey = true;
+            }
+            else {
+
+                createDialog(learnJava.getLevelModel().getHint() + "\n" + learnJava.getLevelModel().getQuery().getAnswer());
+            }
+        }
+    };
+
+    private void createDialog(String hint) {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+        TextView textView = new TextView(context);
+        textView.setText(hint);
+
+
+        alertDialogBuilder.setView(textView);
+        alertDialogBuilder.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.setView(textView, 20, 20, 20, 20);
+        alertDialog.show();
     }
 
 
