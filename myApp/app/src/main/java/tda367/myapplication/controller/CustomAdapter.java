@@ -74,7 +74,20 @@ public class CustomAdapter extends BaseAdapter {
             key.setText("Nej");
         }
 
-        time.setText(timeList.get(i).toString());
+        time.setText(timeList.get(i).toString() + " s");
+        int currLevel = i + 1;
+        level.setText("Level " + currLevel);
+        for (int j = 0; j < i + 1; j++) {
+            if (j < 5) {
+                category.setText("Category 1");
+            } else if (j < 10) {
+                category.setText("Category 2");
+            } else if (j < 15) {
+                category.setText("Category 3");
+            } else if (j < 20) {
+                category.setText("Category 4");
+            }
+        }
 
         return view;
     }

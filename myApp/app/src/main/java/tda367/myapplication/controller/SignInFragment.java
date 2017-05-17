@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -42,7 +43,8 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
         userName = (EditText) view.findViewById(R.id.userName);
         password = (EditText) view.findViewById(R.id.Password);
 
-        //Sets listeners to the buttons
+
+                //Sets listeners to the buttons
         signUp.setOnClickListener(this);
         signIn.setOnClickListener(this);
 

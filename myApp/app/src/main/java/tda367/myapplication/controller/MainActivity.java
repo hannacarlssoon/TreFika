@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private static TextView navUserName;
     private NavigationView navigationView;
     private View headerView;
+    private static MenuItem titleSignIn;
 
 
     @Override
@@ -73,6 +74,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        Menu menu = navigationView.getMenu();
+        titleSignIn = menu.findItem(R.id.nav_signin);
 
         headerView = navigationView.getHeaderView(0);
         profilePicture = (ImageView) headerView.findViewById(R.id.imageView);
@@ -163,10 +167,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
        if (imageName == null) {
            profilePicture.setImageResource(sym_def_app_icon);
            navUserName.setText("Log in to see username");
+           titleSignIn.setTitle("Sign in");
        } else {
            profilePicture.setImageDrawable(ImageHandler.loadImage(imageName));
-           System.out.println(imageName);
            navUserName.setText(imageName);
+           titleSignIn.setTitle("My page");
        }
    }
 

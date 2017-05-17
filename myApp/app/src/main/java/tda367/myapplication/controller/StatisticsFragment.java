@@ -41,30 +41,11 @@ public class StatisticsFragment extends Fragment {
         customAdapter = new CustomAdapter(getActivity(), statistics.getStatisticsTime(),
                 statistics.getStatisticsKey(), statistics.getStatisticsHint());
 
-        /*initData();
-
-        customAdapter = new CustomAdapter(getActivity(), tid, nyckel, hi);*/
 
         listView.setAdapter(customAdapter);
 
         return view;
     }
 
-    public void initData() {
-        nyckel = new ArrayList<>();
-        nyckel.add(true);
-        nyckel.add(true);
-        nyckel.add(true);
-
-        hi = new ArrayList<>();
-        hi.add(false);
-        hi.add(false);
-        hi.add(false);
-
-        tid = new ArrayList<>();
-        tid.add(100L);
-        tid.add(1000L);
-        tid.add(10000L);
-    }
 
 }
