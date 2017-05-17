@@ -37,7 +37,6 @@ public class PassedLevel extends AppCompatActivity {
 
     public void setStars(){
         if(!statistics.getKeyHashMap().get(learnJava.getCurrentCategory()).get(learnJava.getCurrentLevel())){
-            starTwo.setImageDrawable();
         }
     }
 
