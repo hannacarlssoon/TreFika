@@ -15,7 +15,7 @@ import tda367.myapplication.R;
 
 public class BackgroundMusicService extends Service {
     private static final String TAG = null;
-    private MediaPlayer mPlayer;
+    private static MediaPlayer mPlayer;
 
     @Nullable
     @Override
