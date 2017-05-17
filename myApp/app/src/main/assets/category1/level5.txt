@@ -1,6 +1,12 @@
-[Question1]
-weuhtwuligöwugh
+[Question]
+Kod fråga kommer snart
 [Answer1]
-34, 34, 34
-[Info1]
-<ehginjwn egiJWBEGIqebg
+1 2 3 4
+[Info]
+I java sparas värden i variabler. Dessa variabler har en deklarerad typ. Det finns 8 primitiva typer, där de vanligaste är boolean, int, double och char. booleans kan hålla två olika värden, true och false. double och int håller båda tal, där double håller decimaltal och int håller heltal. char kan hålla ett tecken. Exempel på hur variabler av dessa typer deklareras och instansieras kan ses nedan: row rowint i = 5; rowchar alpha = ‘a’; rowboolean isThisTrue = false; rowdouble decimals = 2.5;row rowDet finns också andra typer i java, en väldigt användbar är String. Denna typen håller strängar av text.
+[Hint]
+hint
+[Alt]
+N/A
+[head]
+Typer och variabler
