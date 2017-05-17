@@ -16,7 +16,9 @@ import tda367.myapplication.R;
 public class ReadMoreFragment extends Fragment {
 
 
+
     public ReadMoreFragment() {
+
         // Required empty public constructor
     }
 
