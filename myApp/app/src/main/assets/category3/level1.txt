@@ -1,0 +1,12 @@
+[Question]
+Uttrycket i en while-loops parentes måste vara av typen [1]. Det är först då dess värde är [2] som programmet går ur loopen. Uttrycksvariablen måste [3] i loopen, annars finns det en risk att programmet fastnar i loopen.
+[Answer]
+boolean,false,ändras
+[Info]
+En while-loop är, precis som det låter, en loop. Hur länge loopen ska fortgå påverkas av villkorsuttrycket i parentesen (se exempel nedan). row rowwhile(boolean_uttrycksvariabel){ row    //koden skrivs här row} row rowVillkorsuttrycket är en boolean, vilken måste vara true för att loopen ska köras. While-loopen kommer sedan att fortgå tills dess att uttrycket ändrats till false. Då kommer programmet att fortsätta köras på raden efter while-loopen. Vanligtvis så ska variabeln i parentesen ändras i loopen så att villkoret tillslut blir falskt, annars finns risken att programmet inte kommer ur loopen. Detta medför att man kan uppleva att det inte händer något med programmet, detta är dock inte fallet. Det är bara programmet som inte kommer ur loopen. Om uttrycksvariablen är satt till false från början så kommer inte programmet att köra loopen alls.
+[Hint]
+Tänk på översättningen till while, medan, alltså medan uttrycket stämmer kommer loopen fortgå.
+[Alt]
+N/A
+[Head]
+For- och while-loopar
