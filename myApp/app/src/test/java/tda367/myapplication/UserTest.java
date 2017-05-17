@@ -1,6 +1,7 @@
 package tda367.myapplication;
 
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 import tda367.myapplication.model.AccountManager;
 
@@ -9,14 +10,33 @@ import tda367.myapplication.model.AccountManager;
  */
 
 public class UserTest {
-/*
+
     @Test
     public void updateUserTest() {
-        /*AccountManager am = AccountManager.getInstance();
-        am.addUser("Hanna", "Password", "url");
-
+        AccountManager.initInstance(null, null);
+        AccountManager am = AccountManager.getInstance();
+        am.addUser("Hanna", "Carlsson");
+        am.getActiveUser().updateUser("Sigge", "Carlsson");
+        assertTrue(am.getActiveUser().getUserName() == "Sigge");
+        assertTrue(am.getActiveUser().getUserPassword() == "Carlsson");
+        assertTrue(am.getActiveUser().getUserName() != "Hanna");
     }
 
-*/
+    @Test
+    public void saveStatisticsTest() {
+        AccountManager.initInstance(null, null);
+        AccountManager am = AccountManager.getInstance();
+        am.addUser("Hanna", "Carlsson");
+        am.getActiveUser().saveStatistics("Level11", true, true);
+        int levelIndex = am.getActiveUser().getUserStatistics().findIndex("Level11");
+        assertTrue(am.getActiveUser().getUserStatistics().getStatisticsHint().get(levelIndex));
+        assertTrue(am.getActiveUser().getUserStatistics().getStatisticsKey().size() == 1);
+        try {
+            assertTrue(am.getActiveUser().getUserStatistics().getStatisticsKey().get(1) == null);
+            assertTrue(false);
+        } catch (IndexOutOfBoundsException e) {
+            assertTrue(true);
+        }
+    }
 
 }

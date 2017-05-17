@@ -15,20 +15,26 @@ public class StatisticsTest {
     @Test
     public void saveStatisticsHintTest() {
         Statistics s = new Statistics();
-        s.saveStatisticsHint(0, 2);
+        s.saveStatisticsHint("Level11", true);
         assertTrue(s.getStatisticsHint().size() == 1);
-        assertTrue(s.getStatisticsHint().contains(2));
-        assertTrue(!s.getStatisticsHint().contains(0));
+        assertTrue(s.getStatisticsHint().contains(true));
+        assertTrue(!s.getStatisticsHint().contains(false));
+        try {
+            Boolean b = s.getStatisticsHint().get(2);
+            assertTrue(false);
+        } catch (IndexOutOfBoundsException e) {
+            assertTrue(true);
+        }
     }
 
     @Test
     public void saveStatisticsKeyTest() {
         Statistics s = new Statistics();
-        s.saveStatisticsKey(0, true);
+        s.saveStatisticsKey("Level11", false);
         assertTrue(s.getStatisticsKey().size() == 1);
-        assertTrue(s.getStatisticsKey().contains(true));
-        assertTrue(!s.getStatisticsKey().contains(false));
-        s.saveStatisticsKey(1, false);
+        assertTrue(s.getStatisticsKey().contains(false));
+        assertTrue(!s.getStatisticsKey().contains(true));
+        s.saveStatisticsKey("Level12", false);
         assertTrue(s.getStatisticsKey().contains(false));
     }
 
@@ -37,14 +43,22 @@ public class StatisticsTest {
         Statistics s = new Statistics();
         s.startTimer();
         s.stopTimer();
-        s.saveStatisticsTime(0);
+        s.saveStatisticsTime("Level11");
         assertTrue(s.getStatisticsTime().size() == 1);
         s.startTimer();
         s.stopTimer();
-        s.saveStatisticsTime(1);
+        s.saveStatisticsTime("Level12");
         assertTrue(s.getStatisticsTime().get(0) == s.getStatisticsTime().get(1));
         assertTrue(s.getStatisticsTime().size() == 2);
         assertTrue(!s.getStatisticsTime().contains(null));
+    }
+
+    @Test
+    public void findIndexTest() {
+        Statistics s = new Statistics();
+        assertTrue(s.findIndex("Level12") == 1);
+        assertTrue(s.findIndex("Level21") == 5);
+        assertTrue(s.findIndex("Level22") == 6);
     }
 
 }

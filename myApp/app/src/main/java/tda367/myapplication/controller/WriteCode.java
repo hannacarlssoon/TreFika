@@ -75,10 +75,12 @@ public class WriteCode extends AppCompatActivity {
                     }
                     System.out.println("Compiled code: " + server.getCompiledCode());
                     if (learnJava.getLevelModel().checkAnswer(codeResult)) {
-                        AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
-                        //TODO fix call to save
-                        AccountManager.getInstance().getActiveUser().saveStatistics("", false, false);
-                        setPassedLevel(mBuilder);
+                        if (AccountManager.getInstance().getActiveUser() != null) {
+                            AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
+                            //TODO fix call to save
+                            AccountManager.getInstance().getActiveUser().saveStatistics("", false, false);
+                        }
+                            setPassedLevel(mBuilder);
                     } else {
                         setFailedLevel(mBuilder);
                     }

@@ -12,7 +12,7 @@ import tda367.myapplication.service.ImageHandler;
 import tda367.myapplication.service.UserFileReader;
 
 /**
- * Created by hannacarlsson on 2017-05-03.
+ * @author hannacarlsson
  * Handles the log in and add new users methods
  */
 
@@ -37,7 +37,6 @@ public class AccountManager implements Serializable {
             try {
                 instance = (AccountManager) userFileReader.loadObject(context).readObject();
             } catch (Exception e) {
-                e.printStackTrace();
                 instance = new AccountManager();
             }
         }
@@ -60,6 +59,7 @@ public class AccountManager implements Serializable {
          }
     }
 
+    //Logs the user out
     public void logOut() {
         activeUser = null;
     }

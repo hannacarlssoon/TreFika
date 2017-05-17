@@ -56,7 +56,7 @@ public class Statistics implements Serializable {
     }
 
     //Returns the index where the statistics should be saved
-    private int findIndex(String level) {
+    public int findIndex(String level) {
         for (int i = 0; i < titles.size(); i++) {
             return titles.indexOf(level);
         }
