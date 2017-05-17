@@ -34,7 +34,6 @@ import static android.R.drawable.sym_def_app_icon;
 
 /*
 @author Hanna Carlsson
-
  */
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -55,14 +54,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Intent svc = new Intent(this, BackgroundMusicService.class);
         startService(svc);
         if (savedInstanceState == null) {
-            if (SignInFragment.isInSignUp) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.constraintlayout_for_fragment,
                         new SignInFragment()).commit();
-            } else {
-                getSupportFragmentManager().beginTransaction().replace(R.id.constraintlayout_for_fragment,
-                        new PlayFragment()).commit();
-            }
         }
+
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
