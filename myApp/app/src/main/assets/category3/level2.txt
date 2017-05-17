@@ -1,0 +1,12 @@
+[Question]
+Vad kommer x vara lika med efter att while-loopen nedan har körts? row rowint x = 0; rowwhile(x < 7){ rowx++; row}
+[Answer]
+7
+[Info]
+Inom while-loopen skriver man den kod man vill ska exekveras. Detta kodstycke kommer sedan att köras varje gång som programmet går in i while-loopen. Kodstycket brukar av någon anledning behöva köras mer än en gång, vanligtvis beroende av något utomstående påstående som gör att man inte är säker på exakt hur många gånger som koden behöver köras. Det kan exempelvis handla om ett beroende av en variabel som påverkas på annat håll eller att antalet gånger som koden ska köras är olika många beroende på någon specifik faktor.
+[Hint]
+Så länge uttrycket i parentesen stämmer så kommer loopen att fortsätta att köras.
+[Alt]
+7,6,8,9
+[Head]
+For- och while-loopar
