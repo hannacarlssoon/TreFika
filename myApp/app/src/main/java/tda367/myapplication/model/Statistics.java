@@ -42,6 +42,15 @@ public class Statistics implements Serializable {
         keyHashMap = new HashMap<>();
         hintHashMap = new HashMap<>();
         timeHashMap = new HashMap<>();
+        keyHashMap.put("category1", new ArrayList<Boolean>());
+        keyHashMap.put("category2", new ArrayList<Boolean>());
+        keyHashMap.put("category3", new ArrayList<Boolean>());
+        hintHashMap.put("category1", new ArrayList<Boolean>());
+        hintHashMap.put("category2", new ArrayList<Boolean>());
+        hintHashMap.put("category3", new ArrayList<Boolean>());
+        timeHashMap.put("category1", new ArrayList<Long>());
+        timeHashMap.put("category2", new ArrayList<Long>());
+        timeHashMap.put("category3", new ArrayList<Long>());
     }
 
     //Stores how many hints you need to complete the assignment
