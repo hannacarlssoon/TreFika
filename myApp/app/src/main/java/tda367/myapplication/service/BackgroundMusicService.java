@@ -15,7 +15,7 @@ import tda367.myapplication.R;
 
 public class BackgroundMusicService extends Service {
     private static final String TAG = null;
-    private MediaPlayer mPlayer;
+    private static MediaPlayer mPlayer;
 
     @Nullable
     @Override
@@ -28,7 +28,7 @@ public class BackgroundMusicService extends Service {
         super.onCreate();
         mPlayer = MediaPlayer.create(this, R.raw.wildestdreams);
         mPlayer.setLooping(true);
-        mPlayer.setVolume(100,100);
+        mPlayer.setVolume(0.01f, 0.01f);
 
     }
 
@@ -63,6 +63,13 @@ public class BackgroundMusicService extends Service {
     @Override
     public void onLowMemory() {
 
+    }
+
+    public static MediaPlayer getmPlayer(){
+        if (mPlayer == null){
+            mPlayer = new MediaPlayer();
+        }
+        return mPlayer;
     }
 
 }
