@@ -78,7 +78,9 @@
         app:layout_constraintRight_toRightOf="@+id/category2"
         app:layout_constraintTop_toTopOf="@+id/category2"
         app:layout_constraintVertical_bias="0.475"
-        app:srcCompat="@drawable/ic_lock_black_24dp" />
+        app:srcCompat="@drawable/ic_lock_black_24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <ImageView
         android:id="@+id/imageViewCat3"
@@ -94,7 +96,9 @@
         app:layout_constraintRight_toRightOf="@+id/category3"
         app:layout_constraintTop_toTopOf="@+id/category3"
         app:layout_constraintVertical_bias="0.45"
-        app:srcCompat="@drawable/ic_lock_black_24dp" />
+        app:srcCompat="@drawable/ic_lock_black_24dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <ImageView
         android:id="@+id/imageViewCat1"
@@ -110,7 +114,9 @@
         app:layout_constraintRight_toRightOf="@+id/category1"
         app:layout_constraintTop_toTopOf="@+id/category1"
         app:layout_constraintVertical_bias="0.475"
-        app:srcCompat="@mipmap/ic_launcher_round" />
+        app:srcCompat="@mipmap/ic_launcher_round"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <View
         android:id="@+id/view"
@@ -156,6 +162,5 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.331" />
-
 
 </android.support.constraint.ConstraintLayout>
