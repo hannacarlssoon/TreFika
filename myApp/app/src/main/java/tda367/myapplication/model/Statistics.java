@@ -21,6 +21,10 @@ public class Statistics implements Serializable {
 
     private final List<String> titles = new ArrayList<>(Arrays.asList(titleNames));
 
+    private HashMap<String, List<Boolean>> keyHashMap;
+    private HashMap<String, List<Boolean>> hintHashMap;
+    private HashMap<String, List<Long>> timeHashMap;
+
     //Lists of the statistics
     private List<Boolean> statisticsHint;
     private List<Long> statisticsTime;
@@ -35,6 +39,9 @@ public class Statistics implements Serializable {
         statisticsHint = new ArrayList<>();
         statisticsTime = new ArrayList<>();
         statisticsKey = new ArrayList<>();
+        keyHashMap = new HashMap<>();
+        hintHashMap = new HashMap<>();
+        timeHashMap = new HashMap<>();
     }
 
     //Stores how many hints you need to complete the assignment
@@ -63,6 +70,85 @@ public class Statistics implements Serializable {
         return 0;
     }
 
+    public void initData() {
+        for (int i = 0; i < statisticsKey.size(); i++) {
+            if (i < 5) {
+                hintHashMap.put("category1", makeCategory1List(statisticsHint, 5));
+                keyHashMap.put("category1", makeCategory1List(statisticsKey, 5));
+                timeHashMap.put("category1", makeCategory1List(statisticsTime, 5));
+            } else if (i < 10) {
+                hintHashMap.put("category2", makeCategory2List(statisticsHint, 10));
+                keyHashMap.put("category2", makeCategory2List(statisticsKey, 10));
+                timeHashMap.put("category2", makeCategory2List(statisticsTime, 10));
+            } else if (i < 15) {
+                hintHashMap.put("category3", makeCategory3List(statisticsHint, 15));
+                keyHashMap.put("category3", makeCategory3List(statisticsKey, 15));
+                timeHashMap.put("category3", makeCategory3List(statisticsTime, 15));
+            } else if (i < 20) {
+                hintHashMap.put("category3", makeCategory4List(statisticsHint));
+                keyHashMap.put("category3", makeCategory4List(statisticsKey));
+                timeHashMap.put("category3", makeCategory4List(statisticsTime));
+            }
+        }
+    }
+
+    private List makeCategory1List(List list, int stop) {
+        List<Object> tempHint = new ArrayList<>();
+        for (int j = 0; j < list.size(); j++) {
+            if (j >= stop) {
+                break;
+            }
+            try {
+                tempHint.add(j, list.get(j));
+            } catch (IndexOutOfBoundsException e) {
+                break;
+            }
+        }
+        return tempHint;
+    }
+
+    private List makeCategory2List(List list, int stop) {
+        List<Object> tempHint = new ArrayList<>();
+        for (int j = 5; j < list.size() - 5; j++) {
+            if (j >= stop) {
+                break;
+            }
+            try {
+                tempHint.add(j, list.get(j));
+            } catch (IndexOutOfBoundsException e) {
+                break;
+            }
+        }
+        return tempHint;
+    }
+
+    private List makeCategory3List(List list, int stop) {
+        List<Object> tempHint = new ArrayList<>();
+        for (int j = 0; j < list.size() - 10; j++) {
+            if (j >= stop)
+            try {
+                tempHint.add(j, list.get(j));
+            } catch (IndexOutOfBoundsException e) {
+                break;
+            }
+
+        }
+        return tempHint;
+    }
+
+    private List makeCategory4List(List list) {
+        List<Object> tempHint = new ArrayList<>();
+        for (int j = 0; j < list.size() - 15; j++) {
+            try {
+                tempHint.add(j, list.get(j));
+            } catch (IndexOutOfBoundsException e) {
+                break;
+            }
+
+        }
+        return tempHint;
+    }
+
     //Starts the timer
     public void startTimer() {
         startTime = System.currentTimeMillis();
@@ -86,5 +172,17 @@ public class Statistics implements Serializable {
     //Gets the statisticsTime list
     public List<Long> getStatisticsTime() {
         return statisticsTime;
+    }
+
+    public HashMap<String, List<Boolean>> getKeyHashMap() {
+        return keyHashMap;
+    }
+
+    public HashMap<String, List<Boolean>> getHintHashMap() {
+        return hintHashMap;
+    }
+
+    public HashMap<String, List<Long>> getTimeHashMap() {
+        return timeHashMap;
     }
 }

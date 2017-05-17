@@ -61,4 +61,9 @@ public class StatisticsTest {
         assertTrue(s.findIndex("Level22") == 6);
     }
 
+    @Test
+    public void initDataTest() {
+
+    }
+
 }
