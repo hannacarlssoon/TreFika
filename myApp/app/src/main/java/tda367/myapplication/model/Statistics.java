@@ -59,31 +59,31 @@ public class Statistics implements Serializable {
     //Stores how many hints you need to complete the assignment
     public void saveStatisticsHint(String level, Boolean isHintUsed) {
         int levelIndex = findIndex(level);
-        /*if (statisticsHint.get(levelIndex) == null) {*/
+        if (statisticsHint.size() < levelIndex) {
+            statisticsHint.add(isHintUsed);
+        } else {
             statisticsHint.add(levelIndex, isHintUsed);
-       /* } else {
-            statisticsHint.set(levelIndex, isHintUsed);
-        }*/
+        }
     }
 
     //Stores if the user has to see key to complete the assignment
     public void saveStatisticsKey(String level, Boolean isKeyUsed) {
         int levelIndex = findIndex(level);
-        /*if (statisticsKey.get(levelIndex) == null) {*/
+        if (statisticsKey.size() < levelIndex) {
+            statisticsKey.add(isKeyUsed);
+        } else {
             statisticsKey.add(levelIndex, isKeyUsed);
-        /*} else {
-            statisticsKey.set(levelIndex, isKeyUsed);
-        }*/
+        }
     }
 
     //Stores how long time it takes to complete each assignment
     public void saveStatisticsTime(String level) {
         int levelIndex = findIndex(level);
-        /*if (statisticsTime.get(levelIndex) == null) {*/
-            statisticsTime.add(levelIndex, totalTime/1000);
-        /*} else {
-            statisticsTime.set(levelIndex, totalTime/1000);
-        }*/
+        if (statisticsTime.size() < levelIndex) {
+            statisticsTime.add(totalTime / 1000);
+        } else {
+            statisticsTime.add(levelIndex, totalTime / 1000);
+        }
     }
 
     //Returns the index where the statistics should be saved
@@ -94,6 +94,7 @@ public class Statistics implements Serializable {
         return 0;
     }
 
+    //Makes hashmaps to check which levels should be locked or unlocked
     public void initData() {
         for (int i = 0; i < statisticsKey.size(); i++) {
             if (i < 5) {

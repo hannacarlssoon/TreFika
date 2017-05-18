@@ -23,8 +23,6 @@ import static com.facebook.FacebookSdk.getApplicationContext;
 
 public class ImageHandler {
 
-    static Drawable image;
-
     public static void saveImage(int requestCode, int resultCode, Intent data, Activity activity, String username, Context context) {
         if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
             Uri selectedImage = data.getData();
