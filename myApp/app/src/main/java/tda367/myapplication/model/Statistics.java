@@ -45,12 +45,15 @@ public class Statistics implements Serializable {
         keyHashMap.put("category1", new ArrayList<Boolean>());
         keyHashMap.put("category2", new ArrayList<Boolean>());
         keyHashMap.put("category3", new ArrayList<Boolean>());
+        keyHashMap.put("category4", new ArrayList<Boolean>());
         hintHashMap.put("category1", new ArrayList<Boolean>());
         hintHashMap.put("category2", new ArrayList<Boolean>());
         hintHashMap.put("category3", new ArrayList<Boolean>());
+        hintHashMap.put("category4", new ArrayList<Boolean>());
         timeHashMap.put("category1", new ArrayList<Long>());
         timeHashMap.put("category2", new ArrayList<Long>());
         timeHashMap.put("category3", new ArrayList<Long>());
+        timeHashMap.put("category4", new ArrayList<Long>());
     }
 
     //Stores how many hints you need to complete the assignment
@@ -94,9 +97,9 @@ public class Statistics implements Serializable {
                 keyHashMap.put("category3", makeCategory3List(statisticsKey, 15));
                 timeHashMap.put("category3", makeCategory3List(statisticsTime, 15));
             } else if (i < 20) {
-                hintHashMap.put("category3", makeCategory4List(statisticsHint));
-                keyHashMap.put("category3", makeCategory4List(statisticsKey));
-                timeHashMap.put("category3", makeCategory4List(statisticsTime));
+                hintHashMap.put("category4", makeCategory4List(statisticsHint));
+                keyHashMap.put("category4", makeCategory4List(statisticsKey));
+                timeHashMap.put("category4", makeCategory4List(statisticsTime));
             }
         }
     }
