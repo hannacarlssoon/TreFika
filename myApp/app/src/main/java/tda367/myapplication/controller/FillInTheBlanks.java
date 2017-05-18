@@ -103,6 +103,8 @@ public class FillInTheBlanks extends AppCompatActivity {
                             AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
                             int level = LearnJava.getInstance().getCurrentLevel() + 1;
                             AccountManager.getInstance().getActiveUser().saveStatistics(LearnJava.getInstance().getCurrentCategory() + level, keyUsed, showKey);
+                            LevelActivity lv = new LevelActivity();
+                            lv.enablePassedLevels();
                         } catch (NullPointerException e) {
 
                         } finally {

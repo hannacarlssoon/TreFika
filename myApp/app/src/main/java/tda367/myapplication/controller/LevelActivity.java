@@ -26,7 +26,7 @@ This class is responsible for handling the actions from the levelActivity view
 public class LevelActivity extends AppCompatActivity {
 
     private LearnJava learnJava = LearnJava.getInstance();
-    private boolean[] enabledLevels = new boolean[5];
+    private boolean[] enabledLevels = new boolean[6];
     private Button bossBtn;
     private Button fourthBtn;
     private Button thirdBtn;
@@ -54,13 +54,8 @@ public class LevelActivity extends AppCompatActivity {
         fourthBtn = (Button)findViewById(R.id.fourthButton);
         bossBtn = (Button)findViewById(R.id.bossButton);
 
-       //Todo koppla ihop med statistiken
-
         //Disables buttons for levels that aren't unlocked
        enablePassedLevels();
-
-        //sets the title of the enabled buttons
-       setTitleOnEnabled();
 
         //Setting onClickListeners to make buttons clickable
         firstBtn.setOnClickListener(buttonListener);
@@ -75,10 +70,10 @@ public class LevelActivity extends AppCompatActivity {
         HashMap<String, List<Boolean>> hash = statistics.getHintHashMap();
         for (int i = 0; i < hash.get(learnJava.getCurrentCategory()).size(); i++){
             if(hash.get(learnJava.getCurrentCategory()).get(i) != null) {
-                enabledLevels[i] = true;
+                enabledLevels[i+1] = true;
             }
             else{
-                enabledLevels[i] = false;
+                enabledLevels[i+1] = false;
             }
         }
         if(learnJava.getCurrentCategory() == "category1"){
@@ -103,13 +98,14 @@ public class LevelActivity extends AppCompatActivity {
     }
 
     //Sets the levels that are unlocked to enabled
-    private void enablePassedLevels(){
+    public void enablePassedLevels(){
         setPassedLevels();
         firstBtn.setEnabled(enabledLevels[0]);
         secondBtn.setEnabled(enabledLevels[1]);
         thirdBtn.setEnabled(enabledLevels[2]);
         fourthBtn.setEnabled(enabledLevels[3]);
         bossBtn.setEnabled(enabledLevels[4]);
+        setTitleOnEnabled();
     }
 
     //Handles the back navigation
