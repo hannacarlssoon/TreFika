@@ -43,7 +43,8 @@ public class PassedLevel {
         starTwo = (ImageView) mView.findViewById(R.id.starTwo);
         starThree = (ImageView) mView.findViewById(R.id.starThree);
         setStars();
-        System.out.println("Current level: " + learnJava.getCurrentLevel());
+
+        System.out.println("----- Current level: " + learnJava.getCurrentLevel());
         if(learnJava.getCurrentLevel() == 4){
             System.out.println("In if because of WriteCode");
             mBuilder.setPositiveButton("Nästa nivå", new DialogInterface.OnClickListener() {

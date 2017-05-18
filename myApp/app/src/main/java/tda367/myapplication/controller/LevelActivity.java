@@ -55,7 +55,7 @@ public class LevelActivity extends AppCompatActivity {
         bossBtn = (Button)findViewById(R.id.bossButton);
 
         //Disables buttons for levels that aren't unlocked
-       //enablePassedLevels();
+       enablePassedLevels();
 
         //Setting onClickListeners to make buttons clickable
         firstBtn.setOnClickListener(buttonListener);

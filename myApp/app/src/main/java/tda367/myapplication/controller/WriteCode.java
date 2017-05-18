@@ -99,10 +99,9 @@ public class WriteCode extends AppCompatActivity {
                     } else {
                         setFailedLevel(mBuilder);
                         hintButton.setVisibility(View.VISIBLE);
+                        AlertDialog dialog = mBuilder.create();
+                        dialog.show();
                     }
-
-                    AlertDialog dialog = mBuilder.create();
-                    dialog.show();
                 }
 
             }
