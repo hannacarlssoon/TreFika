@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 import tda367.myapplication.model.ModelFillBlanks;
 
 /**
- * Created by Sara on 2017-04-07.
+ * @author Sara Kitzing
  */
 
 public class FillBlanksTest {
