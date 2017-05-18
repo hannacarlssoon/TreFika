@@ -198,8 +198,8 @@ public class WriteCode extends AppCompatActivity {
     //TODO change system.out.print -> print
     public void setAnswer(){
         answer = WriteCode.this.userCode.getText().toString();
-        //answer = answer.toLowerCase().replace("system.out.println", "print");
-        //answer = answer.toLowerCase().replace("System.out.print", "print");
+        answer = answer.toLowerCase().replace("system.out.println", "print");
+        answer = answer.toLowerCase().replace("system.out.print", "print");
     }
 
     //Runs the server
