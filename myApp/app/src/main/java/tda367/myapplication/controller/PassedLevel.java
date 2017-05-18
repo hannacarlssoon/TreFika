@@ -7,16 +7,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.util.HashMap;
 import java.util.List;
 
 import tda367.myapplication.R;
-import tda367.myapplication.model.AccountManager;
-import tda367.myapplication.model.LearnJava;
-import tda367.myapplication.model.Statistics;
+import tda367.myapplication.model.*;
 
 import static android.R.drawable.btn_star_big_on;
 import static tda367.myapplication.R.drawable.ic_lock_black_24dp;
@@ -35,7 +35,7 @@ public class PassedLevel {
     private Statistics statistics = AccountManager.getInstance().getActiveUser().getUserStatistics();
     private LearnJava learnJava = LearnJava.getInstance();
 
-    PassedLevel(final Activity activity){
+    PassedLevel(final Activity activity) {
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(activity);
 
         View mView = activity.getLayoutInflater().inflate(R.layout.activity_passed_level, null);
@@ -43,15 +43,40 @@ public class PassedLevel {
         starTwo = (ImageView) mView.findViewById(R.id.starTwo);
         starThree = (ImageView) mView.findViewById(R.id.starThree);
         setStars();
+        System.out.println("Current level: " + learnJava.getCurrentLevel());
+        if(learnJava.getCurrentLevel() == 4){
+            System.out.println("In if because of WriteCode");
+            mBuilder.setPositiveButton("Nästa nivå", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    if (!learnJava.getCurrentCategory().equals("category4")) {
+                        activity.startActivity(new Intent(activity, PlayFragment.class));
+                        Toast toast2 = Toast.makeText(activity, "Du är nu färdig med LearnJava, grattis!", Toast.LENGTH_LONG);
+                        toast2.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                        toast2.show();
 
-        mBuilder.setPositiveButton("Nästa nivå", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                learnJava.setCurrentLevel(learnJava.getCurrentLevel() + 1);
-                activity.startActivity(new Intent(activity, ActivityInfo.class));
+                    } else {
+                        activity.startActivity(new Intent(activity, PlayFragment.class));
+                        learnJava.setCurrentCategory(learnJava.getCurrentCategory() + 1);
+                        learnJava.setCurrentLevel(0);
+                        Toast toast = Toast.makeText(activity, "Du har öppnat nästa kategori", Toast.LENGTH_LONG);
+                        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                        toast.show();
+                    }
+                }
+             });
 
-            }
-        });
+        }else{
+
+            mBuilder.setPositiveButton("Nästa nivå", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    learnJava.setCurrentLevel(learnJava.getCurrentLevel() + 1);
+                    activity.startActivity(new Intent(activity, ActivityInfo.class));
+
+                }
+            });
+         }
 
 
         mBuilder.setNeutralButton("Tillbaka", new DialogInterface.OnClickListener() {
@@ -74,7 +99,7 @@ public class PassedLevel {
         String s = learnJava.getCurrentCategory();
         HashMap<String , List<Boolean>> h = statistics.getKeyHashMap();
         List<Boolean> l = h.get(s);
-        boolean b = l.get(i);
+        //boolean b = l.get(i);
 
         if(!statistics.getKeyHashMap().get(learnJava.getCurrentCategory()).get(learnJava.getCurrentLevel())){
             starThree.setImageResource(ic_star_black_24dp);

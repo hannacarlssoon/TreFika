@@ -73,9 +73,6 @@ public class WriteCode extends AppCompatActivity {
                 //TODO add text telling the code is compiling
                 setAnswer();
                 System.out.println("Server is about to connect");
-                //server = new Server("127.0.0.1");
-                //runServer();
-                //codeResult = server.getCompiledCode();
                 if(answer.isEmpty()) {
                     showMessage("Input saknas");
                 }else {
@@ -94,7 +91,7 @@ public class WriteCode extends AppCompatActivity {
                             LevelActivity lv = new LevelActivity();
                             lv.enablePassedLevels();
                         } catch (NullPointerException e) {
-
+                            System.out.println("--------- NullPointer ---------");
                         } finally {
                             new PassedLevel(WriteCode.this);
                             //setPassedLevel(mBuilder);
