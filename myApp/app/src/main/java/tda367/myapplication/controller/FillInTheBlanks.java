@@ -113,12 +113,6 @@ public class FillInTheBlanks extends AppCompatActivity {
 
                     } else {
                         hint.setVisibility(View.VISIBLE);
-                 /*   counter++;
-                    switch (counter){
-                        case 1 : hint.setVisibility(View.VISIBLE);
-                        case 2 : //code for showing key
-                    }
-                    */
                         setFailedLevel(mBuilder);
                         AlertDialog dialog = mBuilder.create();
                         dialog.show();
