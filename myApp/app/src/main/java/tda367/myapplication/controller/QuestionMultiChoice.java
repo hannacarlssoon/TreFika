@@ -214,7 +214,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
             }
             else {
                 keyUsed = true;
-                createDialog(learnJava.getLevelModel().getHint() + "\n"+ learnJava.getLevelModel().getQuery().getAnswer());
+                createDialog(learnJava.getLevelModel().getHint() + "\n \nFacit: \n"+ learnJava.getLevelModel().getQuery().getAnswer());
             }
         }
     };
