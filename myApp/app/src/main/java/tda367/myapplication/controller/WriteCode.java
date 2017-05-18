@@ -88,14 +88,14 @@ public class WriteCode extends AppCompatActivity {
                             //TODO fix call to save
                             AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
                             int level = LearnJava.getInstance().getCurrentLevel() + 1;
-                            AccountManager.getInstance().getActiveUser().saveStatistics(
-                                    LearnJava.getInstance().getCurrentCategory() + level, keyUsed,
-                                    showKey
-                            );
+                            AccountManager.getInstance().getActiveUser().saveStatistics(LearnJava.getInstance().getCurrentCategory() + level, keyUsed, showKey);
+                            LevelActivity lv = new LevelActivity();
+                            lv.enablePassedLevels();
                         } catch (NullPointerException e) {
 
                         } finally {
-                            setPassedLevel(mBuilder);
+                            new PassedLevel(WriteCode.this);
+                            //setPassedLevel(mBuilder);
                         }
                     } else {
                         setFailedLevel(mBuilder);
@@ -124,6 +124,7 @@ public class WriteCode extends AppCompatActivity {
         mBuilder.setCancelable(false);
     }
 
+    /*
     //Sets PassedLevel view
     private void setPassedLevel(AlertDialog.Builder mBuilder) {
         View mView = getLayoutInflater().inflate(R.layout.activity_passed_level, null);
@@ -142,7 +143,6 @@ public class WriteCode extends AppCompatActivity {
                 }
             }
         });
-
         mBuilder.setNeutralButton("Tillbaka", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -153,6 +153,7 @@ public class WriteCode extends AppCompatActivity {
         mBuilder.setView(mView);
         mBuilder.setCancelable(false);
     }
+    */
 
     //Shows message when no input
     private void showMessage(String message) {
