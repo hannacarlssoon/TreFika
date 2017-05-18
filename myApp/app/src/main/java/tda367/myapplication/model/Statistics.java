@@ -94,6 +94,7 @@ public class Statistics implements Serializable {
         return 0;
     }
 
+    //Makes hashmaps to check which levels should be locked or unlocked
     public void initData() {
         for (int i = 0; i < statisticsKey.size(); i++) {
             if (i < 5) {
