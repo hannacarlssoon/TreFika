@@ -97,9 +97,7 @@ public class FillInTheBlanks extends AppCompatActivity {
                     showNoInput();
                 } else {
                     if (learnJava.getLevelModel().checkAnswer(userAnswer)) {
-                        //TODO fix save call
                         try {
-                            System.out.println(LearnJava.getInstance().getCurrentCategory() + LearnJava.getInstance().getCurrentLevel() );
                             AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
                             int level = LearnJava.getInstance().getCurrentLevel() + 1;
                             AccountManager.getInstance().getActiveUser().saveStatistics(LearnJava.getInstance().getCurrentCategory() + level, keyUsed, showKey);

@@ -103,7 +103,6 @@ public class QuestionMultiChoice extends AppCompatActivity {
                     setNoInput();
                 } else{
                     if (learnJava.getLevelModel().checkAnswer(userAnswer)) {
-                        //TODO fix call to save
                         try {
                            AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
                             int level = LearnJava.getInstance().getCurrentLevel() + 1;
