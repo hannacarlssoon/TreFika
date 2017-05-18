@@ -1,12 +1,6 @@
-[Question]
 Vi har arrayen int[] namn = {5, 4, 3, 2, 1};. Vad skriver for-loopen ut: for (int i = 0; i < namn.length; i++) { System.out.print(int[i]); }[Answer]
-[Answer]
 1 2 3 4 5
-[Info]
 Arrayer har en funktion som anger längden. Om man skriver namnet.length får du längden av arrayen. Men kom-ihåg att längden alltid är en längre än det sista indexet hos en array.
-[Hint]
 int[x] anger index x av arrayen.
-[Alt]
 1 2 3 4 5,5. 4. 3. 2. 1,5 4 3 2 1,15
-[Head]
 Arrayer

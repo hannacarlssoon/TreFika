@@ -1,22 +1,6 @@
-[Question1]
-Fyll i kodstycket nedan sådant att om variabeln amount är lika med 7 så ska den skriva ut “equal”. Om den inte är det ska den skriva ut “not equal”.
-
-1(amount 2 7){
-	System.out.print(“equal”);
-	}
-3{
-System.out.print(“not equal”);
-}
-
-[Answer1]
+Fyll i kodstycket nedan sådant att om variabeln amount är lika med 7 så ska den skriva ut “equal”. Om den inte är det ska den skriva ut “not equal”. row1(amount 2 7){row	System.out.print(“equal”);row	}row3{rowSystem.out.print(“not equal”);row}
 if,==,else
-[Info1]
-Ibland vill man att sin kod endast ska utföra en viss beräkning eller funktion om ett visst krav uppfylls. Till exempel om vi utformar ett program för att räkna ut hur mycket skatt en person ska betala. Om personen tjänar över 50 000kr ska personen betala en viss procent skatt, men om personen tjänar mindre ska den betala mindre skatt. För att skriva kod för något sådant använder vi oss av If-satser. När den kompilerar en if-sats så kollar den först om ditt första uttryck är sant. Om det är sant så utför den den kod som står efter uttrycket och sedan är den klar med if-satsen. Om uttrycket är falskt så går den vidare och utför det som står efter “else”.
- Det tidigare exemplet kan se ut såhär: if(salary > 50000){//kod för skattberäkning} else{//annan kod för skattberäkning}
-salary är en int-variabel och beroende på värdet på den får utförs de olika koderna. Om salary är t.ex. 60 000 så blir uttrycket “salary > 50000” true och den första skattberäkningen utförs.
-[hint]
+Ibland vill man att sin kod endast ska utföra en viss beräkning eller funktion om ett visst krav uppfylls. Till exempel om vi utformar ett program för att räkna ut hur mycket skatt en person ska betala. Om personen tjänar över 50 000kr ska personen betala en viss procent skatt, men om personen tjänar mindre ska den betala mindre skatt. För att skriva kod för något sådant använder vi oss av If-satser. När den kompilerar en if-sats så kollar den först om ditt första uttryck är sant. Om det är sant så utför den den kod som står efter uttrycket och sedan är den klar med if-satsen. Om uttrycket är falskt så går den vidare och utför det som står efter “else”. rowDet tidigare exemplet kan se ut såhär: if(salary > 50000){//kod för skattberäkning} else{//annan kod för skattberäkning} rowSalary är en int-variabel och beroende på värdet på den får utförs de olika koderna. Om salary är t.ex. 60 000 så blir uttrycket “salary > 50000” true och den första skattberäkningen utförs.
 Man kollar OM uttrycket stämmer och då körs en viss kod. ANNARS ska det köras en anna kod.
-[alternativ]
 N/A
-[head]
 If-satser

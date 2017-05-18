@@ -1,19 +1,6 @@
-[Question]
 Du ska skriva ett program som provar en if-sats. Börja med att skapa två int, en med värdet 12 och en med värdet 5. Du ska sedan kolla om de två värdena tillsammans är lika med 15. Om det stämmer så ska den skriva ut “15”. Den ska också kolla om den inte är 16. Stämmer det så ska den skriva ut “inte 16”. Om ingen av dessa stämmer ska den skriva ut “17”.
-[answer]
 inte 16
-[info]
-bland vill man inte kolla om ett uttryck är sant utan om det är falskt och då ska man köra en viss kod. Det gör du med hjälp av att sätta “!” i början av uttrycket. Till exempel:
-boolean isFalse = false;
-if(!isFalse){
-	//do something
-}
-
-Trots att “isFalse” är falsk så kommer koden köras eftersom vi sätter “!” i börja av uttrycket och söker då ett falskt uttryck.
-Detta är sista nivån för denna kategori, kom ihåg allt du lärt dig fram tills nu!
-[hint]
+Ibland vill man inte kolla om ett uttryck är sant utan om det är falskt och då ska man köra en viss kod. Det gör du med hjälp av att sätta “!” i början av uttrycket. Till exempel:rowboolean isFalse = false;rowif(!isFalse){row	//do somethingrow}row rowTrots att “isFalse” är falsk så kommer koden köras eftersom vi sätter “!” i börja av uttrycket och söker då ett falskt uttryck.row rowDetta är sista nivån för denna kategori, kom ihåg allt du lärt dig fram tills nu!
 Kom ihåg, if( ){ }, else if( ){ }, else{ }. ! gör att  den kollar om det inte är sant.
-[alternativ]
 N/A
-[head]
 Boolean-logik och If-satser
