@@ -1,6 +1,5 @@
 package tda367.myapplication.model;
 
-import tda367.myapplication.service.Server;
 
 /**
  * @author Sara Kitzing
@@ -10,9 +9,6 @@ import tda367.myapplication.service.Server;
 public class WriteCode implements Query {
     private final String question;
     private final String answer;
-    //private String userAnswer;
-    //private String compAnswer;
-
 
 
     public WriteCode (String question, String answer){
@@ -27,7 +23,6 @@ public class WriteCode implements Query {
 
     //checks if users answer is correct
     public boolean checkAnswer(String userAnswer){
-        //compileCode(userAnswer);
         return userAnswer.toLowerCase().equals(answer.toLowerCase());
 
     }
@@ -37,22 +32,5 @@ public class WriteCode implements Query {
         return answer;
     }
 
-/*    public void compileCode(String userCode){
-        StringBuilder sb = new StringBuilder();
-        sb.append(userCode);
-        sb.toString();
-
-        Server server = new Server("127.0.0.1");
-        server.setUserCode(userCode);
-        server.startRunning();
-        compAnswer = server.getCompiledCode();
-    }
-*/
-
-/*
-    public void setCompAnswer (String compAnswer){
-        this.compAnswer = compAnswer;
-    }
-*/
 
 }
