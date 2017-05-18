@@ -34,8 +34,7 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
     private boolean cat2IsEnabled = false;
     private boolean cat3IsEnabled = false;
     private boolean cat4IsEnabled = false;
-    private AccountManager ac = AccountManager.getInstance();
-    private Statistics statistics = ac.getActiveUser().getUserStatistics();
+
 
 
     public PlayFragment() {}
@@ -100,28 +99,35 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
 
 
     private void setEnabledCategories(){
-        if (ac.getActiveUser() != null){
-            cat1IsEnabled = true;
+        try {
+            AccountManager ac = AccountManager.getInstance();
+            Statistics statistics = ac.getActiveUser().getUserStatistics();
+            if (ac.getActiveUser() != null) {
+                cat1IsEnabled = true;
+            }
+            try {
+                statistics.getHintHashMap().get("category1").get(4);
+                cat2IsEnabled = true;
+            } catch (IndexOutOfBoundsException e) {
+                cat2IsEnabled = false;
+            }
+            try {
+                statistics.getHintHashMap().get("category2").get(4);
+                cat3IsEnabled = true;
+            } catch (IndexOutOfBoundsException e) {
+                cat3IsEnabled = false;
+            }
+            try {
+                statistics.getHintHashMap().get("category3").get(4);
+                cat4IsEnabled = true;
+            } catch (IndexOutOfBoundsException e) {
+                cat4IsEnabled = false;
+            }
         }
-        try{
-            statistics.getHintHashMap().get("category1").get(4);
-            cat2IsEnabled = true;
-        }
-        catch (IndexOutOfBoundsException e){
+        catch (NullPointerException e){
+            cat1IsEnabled = false;
             cat2IsEnabled = false;
-        }
-        try{
-            statistics.getHintHashMap().get("category2").get(4);
-            cat3IsEnabled = true;
-        }
-        catch (IndexOutOfBoundsException e){
-           cat3IsEnabled = false;
-        }
-        try{
-            statistics.getHintHashMap().get("category3").get(4);
-            cat4IsEnabled = true;
-        }
-        catch (IndexOutOfBoundsException e){
+            cat3IsEnabled = false;
             cat4IsEnabled = false;
         }
     }
