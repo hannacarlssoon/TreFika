@@ -1,0 +1,12 @@
+[Question]
+Hur ser instansieringen av en int array ut, om man vill deklarera vad elementen innehåller från början?
+[Answer]
+int[] namn ={1, 2, 7, 5};
+[Info]
+Ett sätt att fylla en array med element är att i instansieringen lägga in alla elementen istället för bara en siffra med längden. Om bara längden anges är platserna för elementen tomma. Man kan istället skriva: double[] namn = new double{0.1, 4.5, 6.0, 8.9}; Varje nytt element separeras med ett komma.
+[Hint]
+En String array kan instansieras genom att skriva String[] namn = new String{“Hej”, “Hejdå”};
+[Alt]
+int[] namn ={1, 2, 7, 5};,int[] namn = new int[“1”, “2”, “8”];,int[] namn = new double[1, 2, 7, 5];,String[] int ={1, 2, 3, 4}
+[Head]
+Arrayer
