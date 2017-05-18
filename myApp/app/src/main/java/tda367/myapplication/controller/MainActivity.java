@@ -54,6 +54,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setSupportActionBar(toolbar);
         Intent svc = new Intent(this, BackgroundMusicService.class);
         startService(svc);
+
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        Menu menu = navigationView.getMenu();
+        titleSignIn = menu.findItem(R.id.nav_signin);
+
+        headerView = navigationView.getHeaderView(0);
+        profilePicture = (ImageView) headerView.findViewById(R.id.imageView);
+        navUserName = (TextView) headerView.findViewById(R.id.navUsername);
+
+
         if (savedInstanceState == null) {
             if (AccountManager.getInstance().getActiveUser() == null) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.constraintlayout_for_fragment,
@@ -61,6 +73,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             } else {
                 getSupportFragmentManager().beginTransaction().replace(R.id.constraintlayout_for_fragment,
                         new PlayFragment()).commit();
+                setUserInformation(AccountManager.getInstance().getActiveUser().getUserName());
             }
         }
 
@@ -72,15 +85,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
 
-        Menu menu = navigationView.getMenu();
-        titleSignIn = menu.findItem(R.id.nav_signin);
-
-        headerView = navigationView.getHeaderView(0);
-        profilePicture = (ImageView) headerView.findViewById(R.id.imageView);
-        navUserName = (TextView) headerView.findViewById(R.id.navUsername);
     }
 
 
@@ -169,9 +174,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
            navUserName.setText("Log in to see username");
            titleSignIn.setTitle("Sign in");
        } else {
-           profilePicture.setImageDrawable(ImageHandler.loadImage(imageName));
-           navUserName.setText(imageName);
-           titleSignIn.setTitle("My page");
+           try {
+               profilePicture.setImageDrawable(ImageHandler.loadImage(imageName));
+               navUserName.setText(imageName);
+               titleSignIn.setTitle("My page");
+           } catch (NullPointerException e) {
+
+           }
        }
    }
 

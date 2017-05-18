@@ -60,6 +60,7 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
         MyPageFragment myPageFragment = new MyPageFragment();
         FragmentManager manager = getFragmentManager();
         manager.beginTransaction().replace(getId(), myPageFragment, myPageFragment.getTag()).commit();
+        MainActivity.setUserInformation(AccountManager.getInstance().getActiveUser().getUserName());
     }
 
     //Method needed to be overriden when you have onClickListners, handles each buttons actions when clicked
