@@ -40,9 +40,11 @@ public class FileReader {
                 }
                 else if (checkIfHint(type)) {
                     if (lineOfContent.contains("row")) {
-                        string = getStringWRows(lineOfContent) + "\n";
+                        string = getStringWRows(lineOfContent);
                     }
-                    string = lineOfContent;
+                    else {
+                        string = lineOfContent;
+                    }
                 }
                 else if (checkIfAlternatives(type)) {
                     string = lineOfContent;
@@ -94,7 +96,7 @@ public class FileReader {
     private String getStringWRows(String fileString){
         stringWRows = "";
         setNewRows(fileString);
-       return stringWRows;
+        return stringWRows;
     }
 
     //Method for setting the new rows
@@ -103,7 +105,5 @@ public class FileReader {
         for (String string:splitString){
             stringWRows = stringWRows + string + "\n";
         }
-        System.out.println(splitString.length + "");
-        System.out.println(stringWRows);
     }
 }
