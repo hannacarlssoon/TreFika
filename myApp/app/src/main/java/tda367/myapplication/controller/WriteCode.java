@@ -54,6 +54,8 @@ public class WriteCode extends AppCompatActivity {
 
         hintButton.setVisibility(View.INVISIBLE);
 
+        hintButton.setOnClickListener(hintListener);
+
         setQuestionText();
 
         setToolbar();
@@ -99,6 +101,7 @@ public class WriteCode extends AppCompatActivity {
                         }
                     } else {
                         setFailedLevel(mBuilder);
+                        hintButton.setVisibility(View.VISIBLE);
                     }
 
                     AlertDialog dialog = mBuilder.create();
