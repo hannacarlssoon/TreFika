@@ -1,12 +1,6 @@
-[Question]
 Variabeln som håller textsträngar har typen [1]. Värdet variabeln ska hålla, alltså texten, skrivs inom [2]. Tex String text [3] “katter är söta";
-[Answer]
 string,",=
-[Info]
 I java finns det inte bara primitiva typer, utan det finns också något som kallas referensvariabel. En grundläggande sådan typ är string. En variabel av den här typen kan hålla textsträngar. String skrivs med stor inledande bokstav, följt av namn, ‘=' och ett värde, som i det här fallet skrivs inom “ “. Tex String fråga = “detta är en fråga”;. row rowVariabler av typen string kan adderas med variabler av andra typer, vilket omvandlar hela uttrycket till en string. Om vi har en variabel int i = 7; och en variabel String text = “detta är siffran sju:"; så kan man skriva String ihopsatt = text + “ “ + i; rowVariabeln ihopsatt kommer nu hålla värdet “detta är siffran sju: 7”.
-[Hint]
 1. en variabel måste tilldelas ett värde med hjälp av =.
-[Alt]
 N/A
-[head]
 Typer och variabler

@@ -1,12 +1,6 @@
-[Question]
 Vilket alternativ skriver ut ‘Hello World’?
-[Answer]
 System.out.print(“Hello World”);
-[Info]
 Det finns flera program som är till för att utveckla kod i. I dessa finns det en byteström som går till körfönstret. I java finns det ett kommando för att skriva till detta fönstret, System.outprint();. Det som skrivs ut är det man skriver inom parenteserna, och måste vara av typen String. row rowAntingen kan man skriva in en sträng direkt inom “ “, eller så kan skriva in namnet på en variabel av typen string. Då är det värdet som variabeln håller som skrivs ut. rowDet går även att skriva in variabler av andra typer, men då måste man skriva .toString() efter variabelnamnet.
-[Hint]
 kommandot för att skriva till output streamen är System.out.print();, och den tar en String som argument
-[Alt]
 System.outPrint(‘Hello world’):,System.out.print(“Hello World”);,String text = system.outprint(“Hello World”):,System.out.print(Hello World)
-[head]
 Typer och variabler

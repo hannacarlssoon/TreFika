@@ -1,12 +1,6 @@
-[Question]
 En array är en [1] av olika element, som har en [2] som inte kan variera. Siffran som står inom klamrarna [] i instansieringen av en array anger [3].
-[Answer]
 lista,längd,längden
-[Info]
 En array är en lista som innehåller olika element. Arrayen har en förutbestämd längd och kan bara innehålla element av samma typ. Antingen en primitiv typ eller en referens. Deklareringen av en array av typen int ser ut såhär: int[] namn = new int[10];. Det är alltså klamrarna [] som anger att det är en array, typen anges innan och i detta fallet är längden av arrayen satt till 10.
-[Hint]
 En array innehåller olika element i form av en lista. Längden bestäms genom att skriva int[] namn = new int[5]; Nu är längden på arrayen 5.
-[Alt]
 N/A
-[Head]
 Arrayer

@@ -1,12 +1,6 @@
-[Question]
 Om man har en String array av längden 5 och skriver namn[4] = “Greta” skriver man till det [1] elementet, resten av elementen är [2]. Indexet av “Ida” i arrayen {“Ida”, “Greta”, “Hans”} är [3].
-[Answer]
 sista,tomma,0
-[Info]
 Indexering, alltså nummer givning av arrayer börjar på 0. Första elementet i en array har index 0 och andra elementet index 1. Detta innebär att arrayen String[] namn = new String[5] har index från 0-4. För att bestämma ett värdet på ett specifikt index i en array skriver man: namn[0] = “Hans”; Det första elementet i arrayen är nu “Hans”.
-[Hint]
 Indexering av arrayer börjar alltid på 0 och går upp till längden av arrayen minus ett. Alltså ligger andra elementet på index 1.
-[Alt]
 N/A
-[Head]
 Arrayer

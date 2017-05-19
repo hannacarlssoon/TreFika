@@ -1,14 +1,6 @@
-[Question1]
-Vad har dessa två uttryck för boolean värde? int i = 12 och String s = “Strings”.
-1. (i*3) + 1 == 1
-2. s.equals(“string”);
-[Answer1]
+Vad har dessa två uttryck för boolean värde? int i = 12 och String s = “Strings”. row1. (i*3) + 1 == 1 row2. s.equals(“string”);
 4
-[Info1]
 När du jämför strings använder du en anna metod. Istället för att använda “==” så ska du använda “.equals()”. Förklaringen till varför kan vara lite svår att förstå till en början men “==” jämför objekt medans “.equals()” jämför endast Strings. Ett exempel på hur man jämför Strings är : String s = “text”; s.equals(“text”); Detta uttryck får boolean-värdet true.
-[hint]
 Allt som står före “lika med”-tecknen ingår i uttrycket och när man jämför Strings är gemener och versaler olika saker och viktiga att skilja på.
-[alternativ]
 1. True & 2. True,1. True & 2. False,1. False & 2. True,1. False & 2. False
-[head]
 Boolean-logik

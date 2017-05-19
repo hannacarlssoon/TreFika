@@ -1,12 +1,6 @@
-[Question]
 Skriv en double array som på index 1 innehåller 0.6, på index 3 innehåller 4, index 0 innehåller 1.2 och index 2 innehåller 3. Skriv sedan ut index 2.
-[Answer]
 0.6
-[Info]
 Info kommer
-[Hint]
 Hint kommer
-[Alt]
 N/A
-[Head]
 Arrayer
