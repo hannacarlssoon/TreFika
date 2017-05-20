@@ -11,11 +11,12 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import tda367.myapplication.R;
-import tda367.myapplication.service.BackgroundMusicService;
+//import tda367.myapplication.service.BackgroundMusicService;
 
 
 /**
  * A simple {@link Fragment} subclass.
+ * Created by ?, revised by Tobias Lindgren
  */
 public class SettingsFragment extends Fragment {
 
@@ -54,7 +55,7 @@ public class SettingsFragment extends Fragment {
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
             volumeText.setText(progress + "");
             float log1=(float)(Math.log(maxVolume-(maxVolume-progress))/Math.log(maxVolume));
-            BackgroundMusicService.getmPlayer().setVolume(log1, log1);
+            MainActivity.mPlayer.setVolume(log1, log1);
             isMuted = progress == 0;
             if (isMuted) {
                 setMutePicture();
@@ -80,7 +81,7 @@ public class SettingsFragment extends Fragment {
         public void onClick(View v) {
             if (!isMuted){
                 setSavedVolume(volumeSeekBar.getProgress());
-                BackgroundMusicService.getmPlayer().setVolume(0,0);
+                MainActivity.mPlayer.setVolume(0,0);
                 volumeSeekBar.setProgress(0);
                 isMuted = true;
                 setMutePicture();
@@ -111,7 +112,7 @@ public class SettingsFragment extends Fragment {
 
     private void setVolumeSettings(int vol) {
         float log1=(float)(Math.log(maxVolume-(maxVolume-vol))/Math.log(maxVolume));
-        BackgroundMusicService.getmPlayer().setVolume(log1, log1);
+        MainActivity.mPlayer.setVolume(log1, log1);
         volumeSeekBar.setProgress(vol);
         isMuted = false;
         setUnMutePicture();

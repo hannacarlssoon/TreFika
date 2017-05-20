@@ -1,7 +1,9 @@
 package tda367.myapplication.controller;
 
+import android.app.Service;
 import android.content.Intent;
 import android.media.Image;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
@@ -26,7 +28,7 @@ import java.io.ObjectOutputStream;
 import tda367.myapplication.model.AccountManager;
 
 import tda367.myapplication.R;
-import tda367.myapplication.service.BackgroundMusicService;
+//import tda367.myapplication.service.BackgroundMusicService;
 import tda367.myapplication.service.ImageHandler;
 import tda367.myapplication.service.UserFileReader;
 
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private NavigationView navigationView;
     private View headerView;
     private static MenuItem titleSignIn;
+    public static MediaPlayer mPlayer;
 
 
     @Override
@@ -52,8 +55,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_navigation_drawer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        Intent svc = new Intent(this, BackgroundMusicService.class);
-        startService(svc);
+        /*Intent svc = new Intent(this, BackgroundMusicService.class);
+        startService(svc);*/
+
+        mPlayer = MediaPlayer.create(this, R.raw.wildestdreams);
+        mPlayer.setLooping(true);
+        mPlayer.setVolume(0.01f, 0.01f);
+        mPlayer.start();
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -186,6 +194,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onDestroy() {
+        mPlayer.stop();
+        mPlayer.release();
         super.onDestroy();
         UserFileReader.getInstance().saveObject(getApplicationContext());
     }

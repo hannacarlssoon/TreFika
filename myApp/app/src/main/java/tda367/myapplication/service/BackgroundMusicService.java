@@ -9,11 +9,12 @@ import android.support.annotation.Nullable;
 import tda367.myapplication.R;
 
 /**
- * Created by Tubas on 2017-05-16.
- * http://stackoverflow.com/questions/8209858/android-background-music-service/8209975#8209975
+ * Created by Tobias on 2017-05-16.
+ * source: http://stackoverflow.com/questions/8209858/android-background-music-service/8209975#8209975
+ * Makes the app play music in the background
  */
 
-public class BackgroundMusicService extends Service {
+/*public class BackgroundMusicService extends Service {
     private static final String TAG = null;
     private static MediaPlayer mPlayer;
 
@@ -72,4 +73,4 @@ public class BackgroundMusicService extends Service {
         return mPlayer;
     }
 
-}
+}*/
