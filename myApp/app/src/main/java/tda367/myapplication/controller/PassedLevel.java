@@ -51,7 +51,7 @@ public class PassedLevel {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     if (!learnJava.getCurrentCategory().equals("category4")) {
-                        activity.startActivity(new Intent(activity, PlayFragment.class));
+                        activity.startActivity(new Intent(activity, LevelActivity.class));
                         Toast toast2 = Toast.makeText(activity, "Du är nu färdig med LearnJava, grattis!", Toast.LENGTH_LONG);
                         toast2.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
                         toast2.show();
