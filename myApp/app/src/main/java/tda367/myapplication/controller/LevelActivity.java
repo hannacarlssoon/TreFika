@@ -76,9 +76,7 @@ public class LevelActivity extends AppCompatActivity {
                 enabledLevels[i+1] = false;
             }
         }
-        if(learnJava.getCurrentCategory() == "category1"){
-            enabledLevels[0] = true;
-        }
+        enabledLevels[0] = true;
     }
 
     //sets the title of the enabled buttons
