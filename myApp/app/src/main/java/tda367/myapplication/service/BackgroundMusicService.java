@@ -14,7 +14,7 @@ import tda367.myapplication.R;
  * Makes the app play music in the background
  */
 
-public class BackgroundMusicService extends Service {
+/*public class BackgroundMusicService extends Service {
     private static final String TAG = null;
     private static MediaPlayer mPlayer;
 
@@ -73,4 +73,4 @@ public class BackgroundMusicService extends Service {
         return mPlayer;
     }
 
-}
+}*/
