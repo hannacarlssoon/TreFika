@@ -5,6 +5,11 @@ import android.content.Context;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+/**
+ * Created by Tobias
+ * Contains all functionality for reading from .txt files containing all level texts
+ */
+
 public class FileReader {
 
     private int counter;

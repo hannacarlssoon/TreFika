@@ -16,6 +16,7 @@ import tda367.myapplication.service.BackgroundMusicService;
 
 /**
  * A simple {@link Fragment} subclass.
+ * Created by ?, revised by Tobias Lindgren
  */
 public class SettingsFragment extends Fragment {
 

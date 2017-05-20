@@ -28,7 +28,7 @@ import tda367.myapplication.model.Query;
 import tda367.myapplication.R;
 
 /**
- * @author Madeleine Lexén, revised by Sara Kitzing
+ * @author Madeleine Lexén, revised by Sara Kitzing and Tobias Lindgren
  * this class handles the events from the multichoice questions view
  * uses LearnJava
  */

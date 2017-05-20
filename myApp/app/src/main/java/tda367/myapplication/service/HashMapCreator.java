@@ -1,4 +1,4 @@
-package tda367.myapplication;
+package tda367.myapplication.service;
 
 import android.content.Context;
 
@@ -8,7 +8,7 @@ import tda367.myapplication.model.LevelModel;
 import tda367.myapplication.service.FileReader;
 
 /**
- * Created by madeleine on 2017-05-10.
+ * Created by madeleine and Tobias on 2017-05-10.
  * Creates a hashmap of level model objects.
  */
 

@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import tda367.myapplication.HashMapCreator;
+import tda367.myapplication.service.HashMapCreator;
 import tda367.myapplication.model.AccountManager;
 import tda367.myapplication.model.LearnJava;
 import tda367.myapplication.model.LearnJava;
