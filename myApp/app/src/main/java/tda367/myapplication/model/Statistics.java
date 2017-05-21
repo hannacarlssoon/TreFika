@@ -134,7 +134,7 @@ public class Statistics implements Serializable {
 
     private List makeCategory2List(List list, int stop) {
         List<Object> tempHint = new ArrayList<>();
-        for (int j = 5; j < list.size() - 5; j++) {
+        for (int j = 0; j < list.size() - 5; j++) {
             if (j >= stop) {
                 break;
             }
@@ -149,7 +149,7 @@ public class Statistics implements Serializable {
 
     private List makeCategory3List(List list, int stop) {
         List<Object> tempHint = new ArrayList<>();
-        for (int j = 10; j < list.size() - 10; j++) {
+        for (int j = 0; j < list.size() - 10; j++) {
             if (j >= stop)
             try {
                 tempHint.add(j, list.get(j));
@@ -163,7 +163,7 @@ public class Statistics implements Serializable {
 
     private List makeCategory4List(List list) {
         List<Object> tempHint = new ArrayList<>();
-        for (int j = 15; j < list.size() - 15; j++) {
+        for (int j = 0; j < list.size() - 15; j++) {
             try {
                 tempHint.add(j, list.get(j));
             } catch (IndexOutOfBoundsException e) {
