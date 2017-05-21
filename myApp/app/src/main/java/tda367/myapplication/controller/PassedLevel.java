@@ -96,13 +96,13 @@ public class PassedLevel {
 
     public void setStars(){
         System.out.println("SetStars körs");
-        int i = learnJava.getCurrentLevel();
+       /* int i = learnJava.getCurrentLevel();
         String s = learnJava.getCurrentCategory();
         HashMap<String , List<Boolean>> h = statistics.getKeyHashMap();
         List<Boolean> l = h.get(s);
         //boolean b = l.get(i);
-
-        if(!statistics.getKeyHashMap().get(learnJava.getCurrentCategory()).get(learnJava.getCurrentLevel())){
+       // !statistics.getKeyHashMap().get(learnJava.getCurrentCategory()).get(learnJava.getCurrentLevel())*/
+        if(statistics.getStatisticsHint().get(statistics.findIndex(learnJava.getCurrentCategory() + learnJava.getCurrentLevel() + 1))){
             starThree.setImageResource(ic_star_black_24dp);
             System.out.println("star three sätts");
         }
@@ -110,8 +110,8 @@ public class PassedLevel {
             starThree.setImageResource(ic_star_border_black_24dp);
             System.out.println("starTree sätts inte");
         }
-
-        if(!statistics.getHintHashMap().get(learnJava.getCurrentCategory()).get(learnJava.getCurrentLevel())){
+        //!statistics.getHintHashMap().get(learnJava.getCurrentCategory()).get(learnJava.getCurrentLevel())
+        if(statistics.getStatisticsHint().get(statistics.findIndex(learnJava.getCurrentCategory() + learnJava.getCurrentLevel() + 1))){
             starTwo.setImageResource(ic_star_black_24dp);
             System.out.println("starTwo sätts");
         }
