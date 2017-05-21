@@ -25,22 +25,10 @@ public class FileReader {
             String lineOfContent = bufferedReader.readLine();
             while (lineOfContent != null){
                 counter++;
-                if (checkIfQuestion(type)){
+                if (checkIfQuestion(type) || checkIfInfo(type) || checkIfHint(type)){
                     rowCheck(lineOfContent);
                 }
-                else if (checkIfAnswer(type)) {
-                    string = lineOfContent;
-                }
-                else if (checkIfInfo(type)) {
-                    rowCheck(lineOfContent);
-                }
-                else if (checkIfHint(type)) {
-                    rowCheck(lineOfContent);
-                }
-                else if (checkIfAlternatives(type)) {
-                    string = lineOfContent;
-                }
-                else if (checkIfHeading(type)) {
+                else if (checkIfAnswer(type) || checkIfAlternatives(type) || checkIfHeading(type)){
                     string = lineOfContent;
                 }
                 lineOfContent = bufferedReader.readLine();

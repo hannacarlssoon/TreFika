@@ -11,7 +11,6 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import tda367.myapplication.R;
-//import tda367.myapplication.service.BackgroundMusicService;
 
 
 /**
@@ -41,8 +40,8 @@ public class SettingsFragment extends Fragment {
         volumeText = (TextView)view.findViewById(R.id.volumeText);
         muteButton = (ImageButton)view.findViewById(R.id.muteButton);
 
+        volumeSeekBar.setProgress(50);
         volumeText.setText(volumeSeekBar.getProgress() + "");
-        volumeSeekBar.setProgress(1);
         volumeSeekBar.setOnSeekBarChangeListener(seekBarChangeListener);
 
         muteButton.setOnClickListener(muteButtonOnClickListener);
@@ -88,7 +87,7 @@ public class SettingsFragment extends Fragment {
             }
             else {
                 if (savedVolume == 0){
-                    setVolumeSettings(1);
+                    setVolumeSettings(50);
                 }
                 else {
                     setVolumeSettings(savedVolume);

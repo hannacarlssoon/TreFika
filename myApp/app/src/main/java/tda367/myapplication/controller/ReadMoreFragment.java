@@ -3,6 +3,7 @@ package tda367.myapplication.controller;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +23,7 @@ public class ReadMoreFragment extends Fragment {
     private String typ = "Något om typer här";
     private String ifbo = "Något om if/boolean här";
     private String forwhi = "Något om for/while här";
-    private String arr = "Något om arrayer här";
+    private String arr = "Något om arrayer härNågot om arrayer härNågot om arrayer härNågot om arrayer härNågot om arrayer härNågot om arrayer härNågot om arrayer härNågot om arrayer härNågot om arrayer härNågot om arrayer härNågot om arrayer härNågot om arrayer härNågot om arrayer härNågot om arrayer härNågot om arrayer härNågot om arrayer härNågot om arrayer härNågot om arrayer härNågot om arrayer härNågot om arrayer härNågot om arrayer härNågot om arrayer härNågot om arrayer härNågot om arrayer härNågot om arrayer härNågot om arrayer härNågot om arrayer härNågot om arrayer här";
 
 
 
@@ -45,6 +46,10 @@ public class ReadMoreFragment extends Fragment {
         textIf.setText(ifbo);
         textFor.setText(forwhi);
         textArr.setText(arr);
+        textTyp.setMovementMethod(new ScrollingMovementMethod());
+        textIf.setMovementMethod(new ScrollingMovementMethod());
+        textFor.setMovementMethod(new ScrollingMovementMethod());
+        textArr.setMovementMethod(new ScrollingMovementMethod());
 
         // Inflate the layout for this fragment
         return view;

@@ -6,7 +6,6 @@ different query objects, each level model object has a query object as an instan
  */
 
 public class LevelModel {
-    private int number;
     private String info;
     private String hint;
     private Query query;
@@ -30,11 +29,8 @@ public class LevelModel {
         }
     }
 
-    public int getNumber(){
-        return this.number;
-    }
-
-    public int getQuestionNumber(){return this.questionNumber; }
+    public int getQuestionNumber() {
+        return this.questionNumber; }
 
     public Query getQuery(){
         return this.query;

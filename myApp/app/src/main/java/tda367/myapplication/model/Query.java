@@ -8,12 +8,10 @@ package tda367.myapplication.model;
 
 public interface Query {
 
-    public String getQuestion();
+    String getQuestion();
 
-    public boolean checkAnswer(String userAnswer);
+    boolean checkAnswer(String userAnswer);
 
-    public String getAnswer();
-
-    //public abstract void getInput(String answer);
+    String getAnswer();
 
 }
