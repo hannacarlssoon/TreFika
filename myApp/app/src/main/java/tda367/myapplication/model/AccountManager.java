@@ -1,6 +1,8 @@
 package tda367.myapplication.model;
 
 import android.content.Context;
+
+import java.io.File;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
@@ -27,11 +29,11 @@ public class AccountManager implements Serializable {
     }
 
     //Initialises the AccountManager, loads it from file, only called when App starts
-    public static void initInstance(UserFileReader userFileReader, Context context) {
+    public static void initInstance(AccountManager manager) {
         if (instance == null) {
-            try {
-                instance = (AccountManager) userFileReader.loadObject(context).readObject();
-            } catch (Exception e) {
+            if (manager != null) {
+                instance = manager;
+            } else {
                 instance = new AccountManager();
             }
         }
@@ -48,9 +50,8 @@ public class AccountManager implements Serializable {
     //Method check username to password and if it matches logs in
     public void logIn(String userName, String userPassword) {
          try {
-             if (users.get(userName).equals(userPassword)) {
-                 activeUser = users.get(userName);
-             }
+             activeUser = users.get(userName);
+
          } catch(NullPointerException e) {
             e.printStackTrace();
          }

@@ -21,6 +21,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -50,7 +51,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        AccountManager.initInstance(UserFileReader.getInstance(), getApplicationContext());
+        if (AccountManager.getInstance() == null) {
+            AccountManager manager = null;
+            try {
+                manager = (AccountManager) UserFileReader.getInstance().loadObject(getApplicationContext()).readObject();
+                AccountManager.initInstance(manager);
+            } catch (IOException e) {
+                AccountManager.initInstance(manager);
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                AccountManager.initInstance(manager);
+                e.printStackTrace();
+            }
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
