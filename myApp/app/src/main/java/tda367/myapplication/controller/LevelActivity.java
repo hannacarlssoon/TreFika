@@ -69,7 +69,8 @@ public class LevelActivity extends AppCompatActivity {
     private void setPassedLevels(){
         HashMap<String, List<Boolean>> hash = statistics.getHintHashMap();
         for (int i = 0; i < hash.get(learnJava.getCurrentCategory()).size(); i++){
-            if(hash.get(learnJava.getCurrentCategory()).get(i) != null) {
+           // hash.get(learnJava.getCurrentCategory()).get(i)
+            if(statistics.getStatisticsHint().get(statistics.findIndex(learnJava.getCurrentCategory() + (learnJava.getCurrentLevel() + 1))) != null) {
                 enabledLevels[i+1] = true;
             }
             else{
