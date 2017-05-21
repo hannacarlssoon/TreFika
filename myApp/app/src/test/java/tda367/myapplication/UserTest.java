@@ -13,7 +13,7 @@ public class UserTest {
 
     @Test
     public void updateUserTest() {
-        AccountManager.initInstance(null, null);
+       // AccountManager.initInstance(null, null);
         AccountManager am = AccountManager.getInstance();
         am.addUser("Hanna", "Carlsson");
         am.getActiveUser().updateUser("Sigge", "Carlsson");
@@ -24,7 +24,7 @@ public class UserTest {
 
     @Test
     public void saveStatisticsTest() {
-        AccountManager.initInstance(null, null);
+       // AccountManager.initInstance(null, null);
         AccountManager am = AccountManager.getInstance();
         am.addUser("Hanna", "Carlsson");
         am.getActiveUser().saveStatistics("Level11", true, true);
