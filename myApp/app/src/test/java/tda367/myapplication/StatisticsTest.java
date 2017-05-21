@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  */
 
 public class StatisticsTest {
-/*
+
     @Test
     public void saveStatisticsHintTest() {
         Statistics s = new Statistics();
@@ -62,19 +62,4 @@ public class StatisticsTest {
         assertTrue(s.findIndex("category21") == 5);
         assertTrue(s.findIndex("category22") == 6);
     }
-
-    @Test
-    public void initDataTest() {
-        Statistics s = new Statistics();
-        s.startTimer();
-        s.stopTimer();
-        s.saveStatisticsTime("category11");
-        s.saveStatisticsKey("category11", false);
-        s.saveStatisticsHint("category11", true);
-        s.initData();
-        assertTrue(s.getHintHashMap().containsKey("category1"));
-        assertTrue(s.getTimeHashMap().containsKey("category2"));
-    }
-    */
-
 }

@@ -38,7 +38,6 @@ public class User implements Serializable {
         userStatistics.saveStatisticsTime(level);
         userStatistics.saveStatisticsKey(level, isKeyUsed);
         userStatistics.saveStatisticsHint(level, isHintUsed);
-        userStatistics.initData();
     }
 
     //Returns the username
