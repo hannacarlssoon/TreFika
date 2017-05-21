@@ -57,14 +57,12 @@ public class QuestionMultiChoice extends AppCompatActivity {
         setContentView(R.layout.activity_question_multi_choice);
 
         setView();
-
         setToolbar();
-
         setQuestion();
         setAltTexts();
-
         setSubmitButton();
 
+        //Makes the hint button invisible until one wrong answer
         hintButton.setVisibility(View.INVISIBLE);
 
         //sets onclicklistener for hint button

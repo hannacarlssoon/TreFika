@@ -58,10 +58,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         /*Intent svc = new Intent(this, BackgroundMusicService.class);
         startService(svc);*/
 
-        mPlayer = MediaPlayer.create(this, R.raw.wildestdreams);
-        mPlayer.setLooping(true);
-        mPlayer.setVolume(0.01f, 0.01f);
-        mPlayer.start();
+        setUpMediaPlayer();
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -198,5 +195,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mPlayer.release();
         super.onDestroy();
         UserFileReader.getInstance().saveObject(getApplicationContext());
+    }
+
+    private void setUpMediaPlayer(){
+        mPlayer = MediaPlayer.create(this, R.raw.wildestdreams);
+        mPlayer.setLooping(true);
+        mPlayer.setVolume(0.50f, 0.50f);
+        mPlayer.start();
     }
 }
