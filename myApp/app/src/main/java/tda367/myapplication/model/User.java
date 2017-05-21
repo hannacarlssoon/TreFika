@@ -1,11 +1,11 @@
 package tda367.myapplication.model;
 
-import android.graphics.drawable.Drawable;
-
 import java.io.Serializable;
 
 /**
- * Created by hannacarlsson on 2017-04-07.
+ * @author hannacarlsson
+ * Is the User object, handles changing of user information,
+ * and saving of statistics specific for the user
  */
 
 public class User implements Serializable {

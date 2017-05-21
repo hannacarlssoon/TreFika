@@ -179,13 +179,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
            navUserName.setText("Log in to see username");
            titleSignIn.setTitle("Sign in");
        } else {
-           try {
-               profilePicture.setImageDrawable(ImageHandler.loadImage(imageName));
-               navUserName.setText(imageName);
-               titleSignIn.setTitle("My page");
-           } catch (NullPointerException e) {
-
-           }
+           profilePicture.setImageDrawable(ImageHandler.loadImage(imageName));
+           navUserName.setText(imageName);
+           titleSignIn.setTitle("My page");
        }
    }
 
@@ -194,7 +190,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mPlayer.stop();
         mPlayer.release();
         super.onDestroy();
-        UserFileReader.getInstance().saveObject(getApplicationContext());
+        UserFileReader.getInstance().saveObject(getApplicationContext(), AccountManager.getInstance());
     }
 
     private void setUpMediaPlayer(){

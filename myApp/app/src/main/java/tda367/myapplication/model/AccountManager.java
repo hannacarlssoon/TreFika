@@ -1,19 +1,14 @@
 package tda367.myapplication.model;
 
 import android.content.Context;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-
-import tda367.myapplication.service.ImageHandler;
 import tda367.myapplication.service.UserFileReader;
 
 /**
  * @author hannacarlsson
- * Handles the log in and add new users methods
+ * Handles the log in, log out and add new users methods
  */
 
 public class AccountManager implements Serializable {
@@ -53,7 +48,9 @@ public class AccountManager implements Serializable {
     //Method check username to password and if it matches logs in
     public void logIn(String userName, String userPassword) {
          try {
-             activeUser = users.get(userName);
+             if (users.get(userName).equals(userPassword)) {
+                 activeUser = users.get(userName);
+             }
          } catch(NullPointerException e) {
             e.printStackTrace();
          }
