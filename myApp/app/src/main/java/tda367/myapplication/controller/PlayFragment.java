@@ -2,19 +2,16 @@ package tda367.myapplication.controller;
 
 
 import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 
 
-import tda367.myapplication.service.HashMapCreator;
+import tda367.myapplication.model.HashMapCreator;
 import tda367.myapplication.model.AccountManager;
-import tda367.myapplication.model.LearnJava;
 import tda367.myapplication.model.LearnJava;
 import tda367.myapplication.R;
 import tda367.myapplication.model.Statistics;

@@ -1,4 +1,4 @@
-package tda367.myapplication.service;
+package tda367.myapplication.model;
 
 import android.content.Context;
 
