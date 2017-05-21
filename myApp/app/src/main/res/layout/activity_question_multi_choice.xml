@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="tda367.myapplication.controller.QuestionMultiChoice">
+    tools:context="tda367.myapplication.controller.QuestionMultiChoice"
+    android:fitsSystemWindows="true">
 
 
     <include layout="@layout/toolbar_layout"
