@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 
-import tda367.myapplication.model.HashMapCreator;
 import tda367.myapplication.model.AccountManager;
 import tda367.myapplication.model.LearnJava;
 import tda367.myapplication.R;

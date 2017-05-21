@@ -1,4 +1,4 @@
-package tda367.myapplication.model;
+package tda367.myapplication.controller;
 
 import android.content.Context;
 
