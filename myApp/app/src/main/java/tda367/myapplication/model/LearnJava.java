@@ -12,7 +12,7 @@ import java.util.HashMap;
 public class LearnJava {
     private String currentCategory;
     private int currentLevel;
-    public HashMap<String, LevelModel[]> levelHashMap;
+    private HashMap<String, LevelModel[]> levelHashMap;
     private static LearnJava instance;
     private boolean hasInit = false;
 
@@ -42,17 +42,8 @@ public class LearnJava {
         return instance;
     }
 
-    public String getQuestion(){
-        return getQuery().getQuestion();
-        //hämta frågan från mapen, skapa rätt questionobject alt. skapa alla frågor vid instatnsiering och lägga dem i mapen.
-    }
-
     public LevelModel getLevelModel(){
         return levelHashMap.get(currentCategory)[currentLevel];
-    }
-
-    public Query getQuery(){
-       return levelHashMap.get(currentCategory)[currentLevel].getQuery();
     }
 
     public void setCurrentCategory(String s){
