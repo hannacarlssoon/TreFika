@@ -1,84 +1,12 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="tda367.myapplication.controller.ReadMoreFragment">
 
 
-    <TextView
-        android:id="@+id/textArr"
-        android:scrollbars="vertical"
-        android:layout_width="350dp"
-        android:layout_height="75dp"
-        android:layout_below="@+id/textView16"
-        android:layout_alignStart="@+id/textFor" />
-
-    <TextView
-        android:id="@+id/textFor"
-        android:scrollbars="vertical"
-        android:layout_width="350dp"
-        android:layout_height="75dp"
-        android:layout_alignStart="@+id/textIf"
-        android:layout_below="@+id/textView22" />
-
-    <TextView
-        android:id="@+id/textIf"
-        android:scrollbars="vertical"
-        android:layout_width="350dp"
-        android:layout_height="75dp"
-        android:layout_alignStart="@+id/textTyp"
-        android:layout_below="@+id/textView18" />
-
-    <TextView
-        android:id="@+id/textTyp"
-        android:scrollbars="vertical"
-        android:layout_width="350dp"
-        android:layout_height="75dp"
-        android:layout_below="@+id/textView17"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Arrayer"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        android:layout_marginTop="18dp"
-        android:layout_below="@+id/textFor"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:id="@+id/textView22"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textIf"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="17dp"
-        android:text="For- och while-loopar"
-        android:textSize="17sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:text="If-satser och boolean logik"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        android:layout_below="@+id/textTyp"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Typer och variabler"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-</RelativeLayout>
+    <ExpandableListView
+        android:id="@+id/expandable_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>
