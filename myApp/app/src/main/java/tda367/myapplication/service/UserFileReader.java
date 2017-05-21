@@ -36,7 +36,7 @@ public class UserFileReader {
         return new ObjectInputStream(new FileInputStream(myPath));
     }
 
-    public void saveObject(Context context, AccountManager manager) {
+    public void saveObject(Context context, Object manager) {
         ContextWrapper cw = new ContextWrapper(context);
         File directory = cw.getDir("dataDir", Context.MODE_PRIVATE);
         myPath = new File(directory, "users");

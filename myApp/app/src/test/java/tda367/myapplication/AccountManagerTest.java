@@ -14,7 +14,7 @@ public class AccountManagerTest {
 
     @Test
     public void addUserTest() {
-        //AccountManager.initInstance(null, null);
+        AccountManager.initInstance(null);
         AccountManager am = AccountManager.getInstance();
         am.addUser("Hanna", "Password");
         assertTrue(am.getUsers().containsKey("Hanna"));
@@ -23,7 +23,7 @@ public class AccountManagerTest {
 
     @Test
     public void logInTest() {
-        //AccountManager.initInstance(null, null);
+        AccountManager.initInstance(null);
         AccountManager am = AccountManager.getInstance();
         am.addUser("Hanna", "Password");
         am.logOut();
@@ -35,7 +35,7 @@ public class AccountManagerTest {
 
     @Test
     public void logOutTest() {
-        //AccountManager.initInstance(null, null);
+        AccountManager.initInstance(null);
         AccountManager am = AccountManager.getInstance();
         am.addUser("Hanna", "Password");
         am.logOut();
