@@ -14,6 +14,4 @@ public interface Query {
 
     String getAnswer();
 
-    //public abstract void getInput(String answer);
-
 }
