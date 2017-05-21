@@ -68,12 +68,13 @@ public class LevelActivity extends AppCompatActivity {
     //sets the booelan value for the levels passed variable
     private void setPassedLevels(){
         //TODO make i dynamic with amount of level, more exstendible
-        for (int i = 0; i < 6; i++){
-            if(statistics.getStatisticsHint().get(statistics.findIndex(learnJava.getCurrentCategory() + (learnJava.getCurrentLevel() + 1))) != null) {
-                enabledLevels[i+1] = true;
+        for (int i = 1; i < 5; i++){
+            try {
+                statistics.getStatisticsHint().get(statistics.findIndex(learnJava.getCurrentCategory() + (learnJava.getCurrentLevel() + 1)));
+                enabledLevels[i] = true;
             }
-            else{
-                enabledLevels[i+1] = false;
+            catch (IndexOutOfBoundsException e){
+                enabledLevels[i] = false;
             }
         }
         enabledLevels[0] = true;
