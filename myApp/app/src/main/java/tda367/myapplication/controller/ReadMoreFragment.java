@@ -99,7 +99,7 @@ public class ReadMoreFragment extends Fragment {
         }
 
         //get the children for the group
-        ArrayList<DetailInfo> productList = headerInfo.getProductList();
+        List<DetailInfo> productList = headerInfo.getProductList();
 
         //create a new child and add that to the group
         DetailInfo detailInfo = new DetailInfo();
