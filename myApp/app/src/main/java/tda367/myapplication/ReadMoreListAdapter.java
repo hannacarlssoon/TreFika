@@ -30,8 +30,7 @@ public class ReadMoreListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        ArrayList<DetailInfo> productList =
-                deptList.get(groupPosition).getProductList();
+        List<DetailInfo> productList = deptList.get(groupPosition).getProductList();
         return productList.size();    }
 
     @Override
@@ -40,7 +39,7 @@ public class ReadMoreListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        ArrayList<DetailInfo> productList = deptList.get(groupPosition).getProductList();
+        List<DetailInfo> productList = deptList.get(groupPosition).getProductList();
         return productList.get(childPosition);
     }
 
