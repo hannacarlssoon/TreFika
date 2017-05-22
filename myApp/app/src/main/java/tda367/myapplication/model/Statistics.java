@@ -21,10 +21,6 @@ public class Statistics implements Serializable {
 
     private final List<String> titles = new ArrayList<>(Arrays.asList(titleNames));
 
-    private HashMap<String, List<Boolean>> keyHashMap;
-    private HashMap<String, List<Boolean>> hintHashMap;
-    private HashMap<String, List<Long>> timeHashMap;
-
     //Lists of the statistics
     private List<Boolean> statisticsHint;
     private List<Long> statisticsTime;
@@ -39,21 +35,6 @@ public class Statistics implements Serializable {
         statisticsHint = new ArrayList<>();
         statisticsTime = new ArrayList<>();
         statisticsKey = new ArrayList<>();
-        keyHashMap = new HashMap<>();
-        hintHashMap = new HashMap<>();
-        timeHashMap = new HashMap<>();
-        keyHashMap.put("category1", new ArrayList<Boolean>());
-        keyHashMap.put("category2", new ArrayList<Boolean>());
-        keyHashMap.put("category3", new ArrayList<Boolean>());
-        keyHashMap.put("category4", new ArrayList<Boolean>());
-        hintHashMap.put("category1", new ArrayList<Boolean>());
-        hintHashMap.put("category2", new ArrayList<Boolean>());
-        hintHashMap.put("category3", new ArrayList<Boolean>());
-        hintHashMap.put("category4", new ArrayList<Boolean>());
-        timeHashMap.put("category1", new ArrayList<Long>());
-        timeHashMap.put("category2", new ArrayList<Long>());
-        timeHashMap.put("category3", new ArrayList<Long>());
-        timeHashMap.put("category4", new ArrayList<Long>());
     }
 
     //Stores how many hints you need to complete the assignment
@@ -119,15 +100,4 @@ public class Statistics implements Serializable {
         return statisticsTime;
     }
 
-    public HashMap<String, List<Boolean>> getKeyHashMap() {
-        return keyHashMap;
-    }
-
-    public HashMap<String, List<Boolean>> getHintHashMap() {
-        return hintHashMap;
-    }
-
-    public HashMap<String, List<Long>> getTimeHashMap() {
-        return timeHashMap;
-    }
 }
