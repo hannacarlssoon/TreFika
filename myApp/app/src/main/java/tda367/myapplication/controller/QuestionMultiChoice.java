@@ -104,7 +104,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
                         try {
                            AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
                             int level = LearnJava.getInstance().getCurrentLevel() + 1;
-                            AccountManager.getInstance().getActiveUser().saveStatistics("category" + (LearnJava.getInstance().getCurrentCategory() + level), keyUsed, showKey);
+                            AccountManager.getInstance().getActiveUser().saveStatistics("category" + LearnJava.getInstance().getCurrentCategory() + level, keyUsed, showKey);
                             LevelActivity lv = new LevelActivity();
                             lv.enablePassedLevels();
                         } catch (NullPointerException e) {

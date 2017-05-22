@@ -100,10 +100,11 @@ public class FillInTheBlanks extends AppCompatActivity {
                         try {
                             AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
                             int level = LearnJava.getInstance().getCurrentLevel() + 1;
-                            AccountManager.getInstance().getActiveUser().saveStatistics("category" + (LearnJava.getInstance().getCurrentCategory() + level), keyUsed, showKey);
+                            AccountManager.getInstance().getActiveUser().saveStatistics("category" + LearnJava.getInstance().getCurrentCategory() + level, keyUsed, showKey);
                             LevelActivity lv = new LevelActivity();
                             lv.enablePassedLevels();
                         } catch (NullPointerException e) {
+                            System.out.println("den hamnade i catch på fill in the blanks");
 
                         } finally {
                             new PassedLevel(FillInTheBlanks.this);
