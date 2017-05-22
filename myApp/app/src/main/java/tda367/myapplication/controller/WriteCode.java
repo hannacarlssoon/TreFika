@@ -214,7 +214,7 @@ public class WriteCode extends AppCompatActivity {
     }
 
     public String getError(){
-        if(codeResult.toLowerCase().equals("error")){
+        if(codeResult.equalsIgnoreCase("error")){
             return "Error";
         }
             return codeResult;

@@ -23,7 +23,7 @@ public class ModelFillBlanks implements Query  {
     //checks if the users answer is corret
     @Override
     public boolean checkAnswer(String userAnswer) {
-    return userAnswer.toLowerCase().equals(answer);
+    return userAnswer.equalsIgnoreCase(answer);
     }
 
     @Override

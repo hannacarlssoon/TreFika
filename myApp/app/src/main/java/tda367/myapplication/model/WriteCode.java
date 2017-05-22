@@ -23,7 +23,7 @@ public class WriteCode implements Query {
 
     //checks if users answer is correct
     public boolean checkAnswer(String userAnswer){
-        return userAnswer.toLowerCase().equals(answer.toLowerCase());
+        return userAnswer.equalsIgnoreCase(answer.toLowerCase());
 
     }
 
