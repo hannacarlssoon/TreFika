@@ -37,9 +37,9 @@ public class ImageHandler {
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream);
                 fileOutputStream.close();
             } catch (FileNotFoundException e) {
-                e.printStackTrace();
+
             } catch (IOException e) {
-                e.printStackTrace();
+
             }
         }
     }

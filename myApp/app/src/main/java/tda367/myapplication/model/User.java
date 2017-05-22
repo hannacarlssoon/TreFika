@@ -25,10 +25,10 @@ public class User implements Serializable {
 
     //Updates a user
     public void updateUser(String newUserName, String newUserPassword) {
-        if (userName != newUserName) {
+        if (!userName.equals(newUserName)) {
             userName = newUserName;
         }
-        if (userPassword != newUserPassword) {
+        if (!userPassword.equals(newUserPassword)) {
             userPassword = newUserPassword;
         }
     }

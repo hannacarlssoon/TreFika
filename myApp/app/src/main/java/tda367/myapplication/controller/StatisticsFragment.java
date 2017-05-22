@@ -18,14 +18,7 @@ import tda367.myapplication.model.Statistics;
 
 public class StatisticsFragment extends Fragment {
 
-    private ListView listView;
-    private CustomAdapter customAdapter;
     private Statistics statistics = AccountManager.getInstance().getActiveUser().getUserStatistics();
-
-    private List<Boolean> nyckel;
-    private List<Boolean> hi;
-    private List<Long> tid;
-
 
     public StatisticsFragment() {
         // Required empty public constructor
@@ -37,8 +30,8 @@ public class StatisticsFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_statistics, container, false);
 
-        listView = (ListView) view.findViewById(R.id.listView);
-        customAdapter = new CustomAdapter(getActivity(), statistics.getStatisticsTime(),
+        ListView listView = (ListView) view.findViewById(R.id.listView);
+        CustomAdapter customAdapter = new CustomAdapter(getActivity(), statistics.getStatisticsTime(),
                 statistics.getStatisticsKey(), statistics.getStatisticsHint());
 
 

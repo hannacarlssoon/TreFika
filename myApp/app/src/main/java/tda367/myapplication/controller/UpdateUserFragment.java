@@ -80,7 +80,7 @@ public class UpdateUserFragment extends Fragment {
         try {
             ImageHandler.saveImage(requestCode, resultCode, data, getActivity(), username.getText().toString(), getContext());
         } catch (NullPointerException e) {
-            e.printStackTrace();
+            //TODO what to do
         }
     }
 

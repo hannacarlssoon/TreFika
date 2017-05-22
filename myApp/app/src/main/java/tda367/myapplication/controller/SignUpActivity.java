@@ -84,7 +84,6 @@ public class SignUpActivity extends AppCompatActivity {
         try {
             return AccountManager.getInstance().getUsers().containsKey(username);
         } catch (NullPointerException e) {
-            e.printStackTrace();
             return false;
         }
     }
@@ -96,7 +95,7 @@ public class SignUpActivity extends AppCompatActivity {
         try {
             ImageHandler.saveImage(requestCode, resultCode, data, this, username.getText().toString(), getApplicationContext());
         } catch (NullPointerException e) {
-            e.printStackTrace();
+            //TODO what to do
         }
     }
 
