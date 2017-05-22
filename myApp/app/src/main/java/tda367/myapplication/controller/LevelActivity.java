@@ -45,7 +45,7 @@ public class LevelActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Kategorie " + learnJava.getCurrentCategory());
+        getSupportActionBar().setTitle("Kategori " + learnJava.getCurrentCategory());
 
         //Sets buttons
         firstBtn = (Button)findViewById(R.id.firstButton);
