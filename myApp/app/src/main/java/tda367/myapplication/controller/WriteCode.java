@@ -71,6 +71,7 @@ public class WriteCode extends AppCompatActivity {
          public void onClick(View v) {
                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(WriteCode.this);
                 //TODO add text telling the code is compiling
+                showMessage("Din kod kompileras");
                 setAnswer();
                 if(answer.isEmpty()) {
                     showMessage("Input saknas");
@@ -118,37 +119,6 @@ public class WriteCode extends AppCompatActivity {
         mBuilder.setCancelable(false);
     }
 
-    /*
-    //Sets PassedLevel view
-    private void setPassedLevel(AlertDialog.Builder mBuilder) {
-        View mView = getLayoutInflater().inflate(R.layout.activity_passed_level, null);
-
-        mBuilder.setPositiveButton("Nästa nivå", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                startActivity(new Intent(WriteCode.this,PlayFragment.class));
-                Toast toast = Toast.makeText(WriteCode.this, "Du har öppnat nästa kategori", Toast.LENGTH_LONG);
-                toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
-                toast.show();
-                if(learnJava.getCurrentCategory().equals(4)) {
-                    Toast toast2 = Toast.makeText(WriteCode.this, "Du är nu färdig med LearnJava, grattis!", Toast.LENGTH_LONG);
-                    toast2.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
-                    toast2.show();
-                }
-            }
-        });
-        mBuilder.setNeutralButton("Tillbaka", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                startActivity(new Intent(WriteCode.this, LevelActivity.class));
-            }
-        });
-
-        mBuilder.setView(mView);
-        mBuilder.setCancelable(false);
-    }
-    */
-
     //Shows message when no input
     private void showMessage(String message) {
         Toast toast = Toast.makeText(WriteCode.this, message, Toast.LENGTH_SHORT);
@@ -187,7 +157,6 @@ public class WriteCode extends AppCompatActivity {
     }
 
     //Sets the user input to one string
-    //TODO change system.out.print -> print
     public void setAnswer(){
         answer = WriteCode.this.userCode.getText().toString();
         answer = answer.toLowerCase().replace("system.out.println", "print");
