@@ -33,12 +33,8 @@ public class ActivityInfo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
-        //getActionBar().setDisplayHomeAsUpEnabled(true);
-
-
         Button btn = (Button) findViewById(R.id.button3);
         textView = (TextView) findViewById(R.id.infoText);
-
 
         //Sets the toolbar and enables upnavigation, and sets the title
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);

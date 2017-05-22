@@ -45,7 +45,7 @@ public class LevelActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Kategori " + learnJava.getCurrentCategory());
+        getSupportActionBar().setTitle("Kategorie " + learnJava.getCurrentCategory());
 
         //Sets buttons
         firstBtn = (Button)findViewById(R.id.firstButton);
@@ -67,7 +67,6 @@ public class LevelActivity extends AppCompatActivity {
 
     //sets the booelan value for the levels passed variable
     private void setPassedLevels(){
-        System.out.println("setPassedLevel körs");
         //TODO make i dynamic with amount of level, more exstendible
         for (int i = 1; i < 5; i++){
             try {
@@ -75,11 +74,7 @@ public class LevelActivity extends AppCompatActivity {
                 enabledLevels[i] = true;
             }
             catch (IndexOutOfBoundsException e){
-                System.out.println("catch i set passedLevels");
                 enabledLevels[i] = false;
-            }
-            catch (NullPointerException e){
-                System.out.println("second catch sats i setPassedLEvels");
             }
         }
         enabledLevels[0] = true;
