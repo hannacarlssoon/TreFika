@@ -70,7 +70,7 @@ public class LevelActivity extends AppCompatActivity {
         //TODO make i dynamic with amount of level, more exstendible
         for (int i = 1; i < 5; i++){
             try {
-                statistics.getStatisticsHint().get(statistics.findIndex("category" + (learnJava.getCurrentCategory() + learnJava.getCurrentLevel() + 1)));
+                statistics.getStatisticsHint().get(statistics.findIndex("category" + learnJava.getCurrentCategory() + (learnJava.getCurrentLevel() + i)));
                 enabledLevels[i] = true;
             }
             catch (IndexOutOfBoundsException e){
