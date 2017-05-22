@@ -23,8 +23,6 @@ import tda367.myapplication.R;
 
 public class SignInFragment extends Fragment implements View.OnClickListener {
 
-    private Button signIn;
-    private Button signUp;
     private EditText userName;
     private EditText password;
     public static boolean isInSignUp;
@@ -38,8 +36,8 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
         View view = inflater.inflate(R.layout.fragment_sign_in, container, false);
 
         //Assigns each component, that is needed to reach, with an id
-        signIn = (Button) view.findViewById(R.id.signIn);
-        signUp = (Button) view.findViewById(R.id.signUp);
+        Button signIn = (Button) view.findViewById(R.id.signIn);
+        Button signUp = (Button) view.findViewById(R.id.signUp);
         userName = (EditText) view.findViewById(R.id.userName);
         password = (EditText) view.findViewById(R.id.Password);
 
@@ -47,7 +45,6 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
         signUp.setOnClickListener(this);
         signIn.setOnClickListener(this);
 
-        System.out.print(AccountManager.getInstance().getActiveUser() == null);
 
         if (AccountManager.getInstance().getActiveUser() != null) {
             setMyPage();
@@ -93,7 +90,6 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
         try {
             return AccountManager.getInstance().getUsers().get(username).getUserPassword().equals(password);
         } catch (NullPointerException e) {
-            e.printStackTrace();
             return false;
         }
     }

@@ -59,10 +59,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 AccountManager.initInstance(manager);
             } catch (IOException e) {
                 AccountManager.initInstance(manager);
-                e.printStackTrace();
             } catch (ClassNotFoundException e) {
                 AccountManager.initInstance(manager);
-                e.printStackTrace();
             }
         }
 

@@ -53,7 +53,7 @@ public class AccountManager implements Serializable {
              activeUser = users.get(userName);
 
          } catch(NullPointerException e) {
-            e.printStackTrace();
+
          }
     }
 
