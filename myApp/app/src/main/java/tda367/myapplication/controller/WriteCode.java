@@ -70,17 +70,25 @@ public class WriteCode extends AppCompatActivity {
          @Override
          public void onClick(View v) {
                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(WriteCode.this);
-                //TODO add text telling the code is compiling
                 showMessage("Din kod kompileras");
                 setAnswer();
                 if(answer.isEmpty()) {
                     showMessage("Input saknas");
                 }else {
-                    SendfeedbackCode code = new SendfeedbackCode();
-                    code.execute();
-                    while (!code.isDone()) {
+                    try {
+                        //TODO kolla om detta fortfarande funkar!
+                        SendfeedbackCode code = new SendfeedbackCode();
+                        code.execute();
+                        code.wait();
+                    }catch(InterruptedException e){
+                        Toast toast = Toast.makeText(WriteCode.this, "Något störde exekveringen av koden, försök igen senare.", Toast.LENGTH_LONG);
+                        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+                        toast.show();
+                    }
+                 /*   while (!code.isDone()) {
                         //TODO: Fix this :)))
                     }
+                 */
                     if (learnJava.getLevelModel().checkAnswer(codeResult)) {
                         try {
                             AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
