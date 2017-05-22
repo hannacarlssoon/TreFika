@@ -6,6 +6,7 @@ package tda367.myapplication.service;
 
 public class ServerTest {
 
+    //TODO delete class
     public static void main (String[] args){
         StringBuilder sb = new StringBuilder();
                 sb.append("for (int i=0; i<10; i++ ){ \n" + "print(\"Tjo\");\n" + "}");

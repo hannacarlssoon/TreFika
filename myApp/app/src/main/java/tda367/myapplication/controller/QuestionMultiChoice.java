@@ -192,7 +192,6 @@ public class QuestionMultiChoice extends AppCompatActivity {
             //öppna popup ruta med felmeddelande till användaren?
         }
 
-        System.out.println(userAnswer);
     }
 
     //Method for setting the right question to the textView

@@ -43,13 +43,11 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
         userName = (EditText) view.findViewById(R.id.userName);
         password = (EditText) view.findViewById(R.id.Password);
 
-        System.out.println("Hej");
                 //Sets listeners to the buttons
         signUp.setOnClickListener(this);
         signIn.setOnClickListener(this);
 
         System.out.print(AccountManager.getInstance().getActiveUser() == null);
-        System.out.print("Ouututt");
 
         if (AccountManager.getInstance().getActiveUser() != null) {
             setMyPage();

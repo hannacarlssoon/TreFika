@@ -72,7 +72,6 @@ public class WriteCode extends AppCompatActivity {
                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(WriteCode.this);
                 //TODO add text telling the code is compiling
                 setAnswer();
-                System.out.println("Server is about to connect");
                 if(answer.isEmpty()) {
                     showMessage("Input saknas");
                 }else {
@@ -81,20 +80,16 @@ public class WriteCode extends AppCompatActivity {
                     while (!code.isDone()) {
                         //TODO: Fix this :)))
                     }
-                    System.out.println("Compiled code: " + server.getCompiledCode());
                     if (learnJava.getLevelModel().checkAnswer(codeResult)) {
                         try {
-                            //TODO fix call to save
                             AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
                             int level = LearnJava.getInstance().getCurrentLevel() + 1;
                             AccountManager.getInstance().getActiveUser().saveStatistics(LearnJava.getInstance().getCurrentCategory() + level, keyUsed, showKey);
                             LevelActivity lv = new LevelActivity();
                             lv.enablePassedLevels();
                         } catch (NullPointerException e) {
-                            System.out.println("--------- NullPointer ---------");
                         } finally {
                             new PassedLevel(WriteCode.this);
-                            //setPassedLevel(mBuilder);
                         }
                     } else {
                         setFailedLevel(mBuilder);
@@ -175,8 +170,6 @@ public class WriteCode extends AppCompatActivity {
         hintButton = (ImageButton) findViewById(R.id.hintButton);
         userCode   = (EditText)findViewById(R.id.codeEditText);
         server = new Server("10.0.2.2");
-        System.out.println("Created server");
-        System.out.println("Server compiled: " + server.getCompiledCode());
         questionView = (TextView) findViewById(R.id.codeQuestion);
     }
 
@@ -203,7 +196,6 @@ public class WriteCode extends AppCompatActivity {
 
     //Runs the server
     private void runServer(){
-        System.out.println("User code is set");
         server.setUserCode(answer);
         server.startRunning();
     }
@@ -228,7 +220,6 @@ public class WriteCode extends AppCompatActivity {
            try{
                 runServer();
                 codeResult = server.getCompiledCode();
-               System.out.println(codeResult);
                 isDone = true;
             return "some message";
            } catch (Exception e) {

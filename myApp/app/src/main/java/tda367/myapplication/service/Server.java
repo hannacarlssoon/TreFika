@@ -41,11 +41,12 @@ public class Server {
 
             } catch (IOException e) {
                 e.printStackTrace();
-            } finally {
+            }
+        /*    finally {
                 //TODO add shutDown to destroy-method
                 //shutDown();
             }
-        }
+     */   }
 
     //connect to server
     private void connectToServer() throws IOException{

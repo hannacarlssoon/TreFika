@@ -44,9 +44,7 @@ public class PassedLevel {
         starThree = (ImageView) mView.findViewById(R.id.starThree);
         setStars();
 
-        System.out.println("----- Current level: " + learnJava.getCurrentLevel());
         if(learnJava.getCurrentLevel() == 4){
-            System.out.println("In if because of WriteCode");
             mBuilder.setPositiveButton("Nästa nivå", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
@@ -95,7 +93,6 @@ public class PassedLevel {
     }
 
     public void setStars(){
-        System.out.println("SetStars körs");
        /* int i = learnJava.getCurrentLevel();
         String s = learnJava.getCurrentCategory();
         HashMap<String , List<Boolean>> h = statistics.getKeyHashMap();
@@ -105,23 +102,18 @@ public class PassedLevel {
        int level = learnJava.getCurrentLevel() + 1;
         if(!statistics.getStatisticsHint().get(statistics.findIndex(learnJava.getCurrentCategory() + level))){
             starThree.setImageResource(ic_star_black_24dp);
-            System.out.println("star three sätts");
         }
         else{
             starThree.setImageResource(ic_star_border_black_24dp);
-            System.out.println("starTree sätts inte");
         }
         //!statistics.getHintHashMap().get(learnJava.getCurrentCategory()).get(learnJava.getCurrentLevel())
         if(!statistics.getStatisticsHint().get(statistics.findIndex(learnJava.getCurrentCategory() + level))){
             starTwo.setImageResource(ic_star_black_24dp);
-            System.out.println("starTwo sätts");
         }
         else{
             starTwo.setImageResource(ic_star_border_black_24dp);
-            System.out.println("starTwo sätts inte");
         }
         starOne.setImageResource(ic_star_black_24dp);
-        System.out.println("StarOne sätts");
     }
 
 }
