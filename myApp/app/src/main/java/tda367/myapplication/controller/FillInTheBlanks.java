@@ -63,9 +63,40 @@ public class FillInTheBlanks extends AppCompatActivity {
         setToolbar();
 
         setSubmitButton();
+        setClearTextListeners();
 
         //set onclicklistener for hint button
         hint.setOnClickListener(imgBtnListener);
+    }
+
+    //Clears text in EditText-fields when in focus
+    private void setClearTextListeners(){
+        textAnswer1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus) {
+                    textAnswer1.setText("");
+                }
+            }
+        });
+
+        textAnswer2.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus) {
+                    textAnswer2.setText("");
+                }
+            }
+        });
+
+        textAnswer3.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(hasFocus) {
+                    textAnswer3.setText("");
+                }
+            }
+        });
     }
 
     //Sets buttons and views
