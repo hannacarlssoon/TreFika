@@ -70,6 +70,7 @@ public class FillInTheBlanks extends AppCompatActivity {
 
     //Sets buttons and views
     private void setView() {
+        //TODO if textfield is in focus -> empty field
         submit = (Button)findViewById(R.id.fillSubmit);
         hint = (ImageButton)findViewById(R.id.hintButton);
         textAnswer1   = (EditText)findViewById(R.id.textFillAnswer1);
@@ -155,10 +156,9 @@ public class FillInTheBlanks extends AppCompatActivity {
 
     //Sets answer to one string
     public void setAnswer(){
-        //todo remove the whitespace from the input
-       answer1 = FillInTheBlanks.this.textAnswer1.getText().toString();
-       answer2 = FillInTheBlanks.this.textAnswer2.getText().toString();
-       answer3 = FillInTheBlanks.this.textAnswer3.getText().toString();
+       answer1 = FillInTheBlanks.this.textAnswer1.getText().toString().trim();
+       answer2 = FillInTheBlanks.this.textAnswer2.getText().toString().trim();
+       answer3 = FillInTheBlanks.this.textAnswer3.getText().toString().trim();
 
        userAnswer = answer1 + "," + answer2 + "," + answer3;
     }
