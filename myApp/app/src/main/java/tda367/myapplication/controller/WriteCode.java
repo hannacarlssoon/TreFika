@@ -18,6 +18,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.concurrent.ExecutionException;
+
 import tda367.myapplication.R;
 import tda367.myapplication.model.AccountManager;
 import tda367.myapplication.model.LearnJava;
@@ -70,25 +72,19 @@ public class WriteCode extends AppCompatActivity {
          @Override
          public void onClick(View v) {
                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(WriteCode.this);
-                showMessage("Din kod kompileras");
+                showMessage("Din kod kompileras", Toast.LENGTH_SHORT, 470);
                 setAnswer();
                 if(answer.isEmpty()) {
-                    showMessage("Input saknas");
+                    showMessage("Input saknas", Toast.LENGTH_SHORT, 470);
                 }else {
                     try {
-                        //TODO kolla om detta fortfarande funkar!
                         SendfeedbackCode code = new SendfeedbackCode();
-                        code.execute();
-                        code.wait();
+                        code.execute().get();
+                    }catch(ExecutionException e){
+                        showMessage("Något störde exekveringen av koden, försök igen senare.", Toast.LENGTH_LONG, 0);
                     }catch(InterruptedException e){
-                        Toast toast = Toast.makeText(WriteCode.this, "Något störde exekveringen av koden, försök igen senare.", Toast.LENGTH_LONG);
-                        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
-                        toast.show();
+                        showMessage("Något störde exekveringen av koden, försök igen senare.", Toast.LENGTH_LONG, 0);
                     }
-                 /*   while (!code.isDone()) {
-                        //TODO: Fix this :)))
-                    }
-                 */
                     if (learnJava.getLevelModel().checkAnswer(codeResult)) {
                         try {
                             AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
@@ -118,19 +114,17 @@ public class WriteCode extends AppCompatActivity {
         mBuilder.setPositiveButton("Pröva igen", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Toast toast = Toast.makeText(WriteCode.this, "Din kod gav: " + getError(), Toast.LENGTH_LONG);
-                toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
-                toast.show();
+                showMessage("Din kod gav: " + getError(), Toast.LENGTH_LONG, 0);
             }
         });
         mBuilder.setView(mView);
         mBuilder.setCancelable(false);
     }
 
-    //Shows message when no input
-    private void showMessage(String message) {
-        Toast toast = Toast.makeText(WriteCode.this, message, Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 470);
+    //Shows toast-message
+    private void showMessage(String message, int length, int x) {
+        Toast toast = Toast.makeText(WriteCode.this, message, length);
+        toast.setGravity(Gravity.CENTER_VERTICAL, 0, x);
         toast.show();
     }
 
@@ -190,29 +184,19 @@ public class WriteCode extends AppCompatActivity {
     }
 
     private class SendfeedbackCode extends AsyncTask<String, Void, String> {
-        private boolean isDone = false;
 
         @Override
         protected String doInBackground(String[] params) {
            try{
                 runServer();
                 codeResult = server.getCompiledCode();
-                isDone = true;
             return "some message";
            } catch (Exception e) {
-               Toast toast = Toast.makeText(WriteCode.this, "Det blev tyvärr ett problem med exekverandet av koden, försök igen senare.", Toast.LENGTH_LONG);
-               toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
-               toast.show();
+               showMessage("Det blev tyvärr ett problem med exekverandet av koden, försök igen senare.", Toast.LENGTH_LONG, 0);
 
                return null;
            }
         }
-
-        public boolean isDone() {
-            return isDone;
-        }
-
-
 
         @Override
         protected void onPostExecute(String message) {
