@@ -5,10 +5,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import tda367.myapplication.R;
 
 public class AboutAppenFragment extends Fragment {
+
+    View view;
+    TextView textView;
 
     public AboutAppenFragment() {
         // Required empty public constructor
@@ -17,8 +21,11 @@ public class AboutAppenFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.fragment_about_appen, container, false);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_about_appen, container, false);
+        textView = (TextView)view.findViewById(R.id.aboutText);
+        textView.setText("Created by: Hanna Carlsson, Sara Kitzing, Madeleine Lexen and Tobias Lindgren" + "\n" + "\n" + "Version: 1.0.0");
+        return view;
     }
 
 }
