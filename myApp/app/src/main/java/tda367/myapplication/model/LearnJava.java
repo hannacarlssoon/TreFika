@@ -21,6 +21,7 @@ public class LearnJava {
         if(!hasInit){
             this.levelHashMap = levelHashMap;
             hasInit = true;
+            currentCategory = new Integer(1);
         }
     }
 
