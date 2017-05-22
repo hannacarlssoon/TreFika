@@ -48,14 +48,14 @@ public class PassedLevel {
             mBuilder.setPositiveButton("Nästa nivå", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    if (!learnJava.getCurrentCategory().equals("category4")) {
+                    if (learnJava.getCurrentCategory() == 4) {
                         activity.startActivity(new Intent(activity, LevelActivity.class));
                         Toast toast2 = Toast.makeText(activity, "Du är nu färdig med LearnJava, grattis!", Toast.LENGTH_LONG);
                         toast2.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
                         toast2.show();
 
                     } else {
-                        activity.startActivity(new Intent(activity, PlayFragment.class));
+                        activity.startActivity(new Intent(activity, LearnJava.class));
                         learnJava.setCurrentCategory(learnJava.getCurrentCategory() + 1);
                         learnJava.setCurrentLevel(0);
                         Toast toast = Toast.makeText(activity, "Du har öppnat nästa kategori", Toast.LENGTH_LONG);
@@ -93,21 +93,16 @@ public class PassedLevel {
     }
 
     public void setStars(){
-       /* int i = learnJava.getCurrentLevel();
-        String s = learnJava.getCurrentCategory();
-        HashMap<String , List<Boolean>> h = statistics.getKeyHashMap();
-        List<Boolean> l = h.get(s);
-        //boolean b = l.get(i);
-       // !statistics.getKeyHashMap().get(learnJava.getCurrentCategory()).get(learnJava.getCurrentLevel())*/
+        System.out.println("SetStars körs");
        int level = learnJava.getCurrentLevel() + 1;
-        if(!statistics.getStatisticsHint().get(statistics.findIndex(learnJava.getCurrentCategory() + level))){
+        if(!statistics.getStatisticsHint().get(statistics.findIndex("category" + learnJava.getCurrentCategory() +  level))){
             starThree.setImageResource(ic_star_black_24dp);
         }
         else{
             starThree.setImageResource(ic_star_border_black_24dp);
         }
         //!statistics.getHintHashMap().get(learnJava.getCurrentCategory()).get(learnJava.getCurrentLevel())
-        if(!statistics.getStatisticsHint().get(statistics.findIndex(learnJava.getCurrentCategory() + level))){
+        if(!statistics.getStatisticsHint().get(statistics.findIndex("category" + learnJava.getCurrentCategory() + level))){
             starTwo.setImageResource(ic_star_black_24dp);
         }
         else{

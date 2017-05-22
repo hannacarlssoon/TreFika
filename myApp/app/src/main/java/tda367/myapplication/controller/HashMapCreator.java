@@ -13,10 +13,11 @@ import tda367.myapplication.service.FileReader;
  */
 
 public class HashMapCreator {
-    private HashMap<String, LevelModel[]> levelHashMap;
-    private LevelModel[] category1= new LevelModel[5];
+    private HashMap<Integer, LevelModel[]> levelHashMap;
+    /*private LevelModel[] category1 = new LevelModel[5];
     private LevelModel[] category2 = new LevelModel[5];
     private LevelModel[] category3 = new LevelModel[5];
+    private LevelModel[] category4 = new LevelModel[5];*/
     private FileReader fileReader =  new FileReader();
     private Context context;
 
@@ -26,16 +27,20 @@ public class HashMapCreator {
         init();
     }
 
-    public HashMap<String, LevelModel[]> getHashMap(){
+    public HashMap<Integer, LevelModel[]> getHashMap(){
         return this.levelHashMap;
     }
 
 
     private void createCatArrays(){
-        for (int i = 1; i < 4; i++) {
+        for (int i = 1; i < 5; i++) {
+            LevelModel[] temp = new LevelModel[5];
             for (int j = 1; j < 6; j++) {
                 String fileName = "category" + i +"/" + "level" + j + ".txt";
                 LevelModel levelModel = new LevelModel(fileReader.getRequiredText(fileName, "question", context), fileReader.getRequiredText(fileName, "answer", context), fileReader.getRequiredText(fileName, "info", context), fileReader.getRequiredText(fileName, "hint", context), j, fileReader.getRequiredText(fileName, "heading", context), fileReader.getRequiredText(fileName, "alternative", context));
+                temp[j-1] = levelModel;
+
+                /*
                 if(i == 1){
                     category1[j-1] = levelModel;
                 }
@@ -45,8 +50,9 @@ public class HashMapCreator {
                 else if(i == 3) {
                     category3[j-1] = levelModel;
                 }
-
+                */
             }
+            levelHashMap.put(i, temp);
         }
 
     }
@@ -54,12 +60,14 @@ public class HashMapCreator {
     private void init(){
         levelHashMap = new HashMap<>();
         createCatArrays();
-        fillHashMap();
+        //fillHashMap();
     }
 
-    private void fillHashMap(){
-        levelHashMap.put("category1", category1);
-        levelHashMap.put("category2", category2);
-        levelHashMap.put("category3", category3);
+   /* private void fillHashMap(){
+        levelHashMap.put(1, category1);
+        levelHashMap.put(2, category2);
+        levelHashMap.put(3, category3);
+        levelHashMap.put(4, category4);
     }
+    */
 }

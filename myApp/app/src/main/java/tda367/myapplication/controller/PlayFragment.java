@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import tda367.myapplication.model.AccountManager;
 import tda367.myapplication.model.LearnJava;
 import tda367.myapplication.R;
@@ -28,10 +31,11 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
     private Button b2;
     private Button b3;
     private Button b4;
-    private boolean cat1IsEnabled = false;
+    /*private boolean cat1IsEnabled = false;
     private boolean cat2IsEnabled = false;
     private boolean cat3IsEnabled = false;
-    private boolean cat4IsEnabled = false;
+    private boolean cat4IsEnabled = false;*/
+    private boolean[] enabledCategories;
 
 
 
@@ -46,6 +50,7 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
         //Creates an instance of HashMapCreator and passes it to learnJava when it's initiated
         HashMapCreator hcreate = new HashMapCreator(getContext());
         learnJava.init(hcreate.getHashMap());
+        enabledCategories = new boolean[learnJava.getAmountOfCategories() + 1];
 
 
         //Sets id:s to the buttons
@@ -74,22 +79,22 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
         switch (view.getId()) {
             case R.id.category1:
                 Intent intent1 = new Intent(getActivity(), LevelActivity.class);
-                learnJava.setCurrentCategory("category1");
+                learnJava.setCurrentCategory(1);
                 startActivity(intent1);
                 break;
             case R.id.category2:
                 Intent intent2 = new Intent(getActivity(), LevelActivity.class);
-                learnJava.setCurrentCategory("category2");
+                learnJava.setCurrentCategory(2);
                 startActivity(intent2);
                 break;
             case R.id.category3:
                 Intent intent3 = new Intent(getActivity(), LevelActivity.class);
-                learnJava.setCurrentCategory("category3");
+                learnJava.setCurrentCategory(2);
                 startActivity(intent3);
                 break;
             case R.id.category4:
                 Intent intent4 = new Intent(getActivity(), LevelActivity.class);
-                learnJava.setCurrentCategory("category4");
+                learnJava.setCurrentCategory(4);
                 startActivity(intent4);
                 break;
         }
@@ -97,24 +102,41 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
 
 
     private void setEnabledCategories(){
+
         try {
             AccountManager ac = AccountManager.getInstance();
             Statistics statistics = ac.getActiveUser().getUserStatistics();
             if (ac.getActiveUser() != null) {
-                cat1IsEnabled = true;
+                enabledCategories[1] = true;
+                //cat1IsEnabled = true;
+
+                for (int i = 1; i < learnJava.getAmountOfCategories(); i++) {
+
+                    try {
+                        statistics.getStatisticsHint().get(statistics.findIndex("category" + i + "5"));
+                        enabledCategories[i + 1] = true;
+                    } catch (IndexOutOfBoundsException e) {
+                        enabledCategories[i + 1] = false;
+                    }
+                }
             }
+            /*
             try {
                 statistics.getStatisticsHint().get(statistics.findIndex("category15"));
                // statistics.getHintHashMap().get("category1").get(4);
-                cat2IsEnabled = true;
+                enabledCategories.add(2, true);
+                //cat2IsEnabled = true;
             } catch (IndexOutOfBoundsException e) {
-                cat2IsEnabled = false;
+                enabledCategories.add(2, false);
+                //cat2IsEnabled = false;
             }
             try {
                 statistics.getStatisticsHint().get(statistics.findIndex("category25"));
                 //statistics.getHintHashMap().get("category2").get(4);
-                cat3IsEnabled = true;
+                //cat3IsEnabled = true;
+                enabledCategories.add(3, true);
             } catch (IndexOutOfBoundsException e) {
+                enabledCategories.add(3, false);
                 cat3IsEnabled = false;
             }
             try {
@@ -124,22 +146,27 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
             } catch (IndexOutOfBoundsException e) {
                 cat4IsEnabled = false;
             }
+            */
         }
         catch (NullPointerException e){
-            cat1IsEnabled = false;
+            for(int i = 1; i < learnJava.getAmountOfCategories() + 1; i++){
+                enabledCategories[i]  = false;
+            }
+            /*cat1IsEnabled = false;
             cat2IsEnabled = false;
             cat3IsEnabled = false;
             cat4IsEnabled = false;
+            */
         }
     }
 
 
     private void enableCategories() {
         setEnabledCategories();
-        b1.setEnabled(cat1IsEnabled);
-        b2.setEnabled(cat2IsEnabled);
-        b3.setEnabled(cat3IsEnabled);
-        b4.setEnabled(cat4IsEnabled);
+        b1.setEnabled(enabledCategories[1]);
+        b2.setEnabled(enabledCategories[2]);
+        b3.setEnabled(enabledCategories[3]);
+        b4.setEnabled(enabledCategories[4]);
 
     }
 }

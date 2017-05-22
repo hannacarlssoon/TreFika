@@ -10,30 +10,33 @@ import java.util.HashMap;
  */
 
 public class LearnJava {
-    private String currentCategory;
+    private int amountOfCategories = 4;
+    private Integer currentCategory;
     private int currentLevel;
-    private HashMap<String, LevelModel[]> levelHashMap;
+    private HashMap<Integer, LevelModel[]> levelHashMap;
     private static LearnJava instance;
     private boolean hasInit = false;
 
-    public void init(HashMap<String, LevelModel[]> levelHashMap){
+    public void init(HashMap<Integer, LevelModel[]> levelHashMap){
         if(!hasInit){
             this.levelHashMap = levelHashMap;
             hasInit = true;
         }
     }
 
-    public HashMap<String, LevelModel[]> getLevelHashMap(){
+    public HashMap<Integer, LevelModel[]> getLevelHashMap(){
         return levelHashMap;
     }
 
-    public String getCurrentCategory(){
+    public int getCurrentCategory(){
         return currentCategory;
     }
 
     public int getCurrentLevel(){
         return currentLevel;
     }
+
+    public int getAmountOfCategories(){return amountOfCategories;}
 
     public static LearnJava getInstance(){
         if(instance == null){
@@ -46,7 +49,7 @@ public class LearnJava {
         return levelHashMap.get(currentCategory)[currentLevel];
     }
 
-    public void setCurrentCategory(String s){
+    public void setCurrentCategory(Integer s){
         currentCategory = s;
     }
 

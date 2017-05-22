@@ -45,7 +45,7 @@ public class LevelActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle(learnJava.getCurrentCategory());
+        getSupportActionBar().setTitle("Category " + learnJava.getCurrentCategory());
 
         //Sets buttons
         firstBtn = (Button)findViewById(R.id.firstButton);
@@ -70,7 +70,7 @@ public class LevelActivity extends AppCompatActivity {
         //TODO make i dynamic with amount of level, more exstendible
         for (int i = 1; i < 5; i++){
             try {
-                statistics.getStatisticsHint().get(statistics.findIndex(learnJava.getCurrentCategory() + (learnJava.getCurrentLevel() + 1)));
+                statistics.getStatisticsHint().get(statistics.findIndex("category" + (learnJava.getCurrentCategory() + learnJava.getCurrentLevel() + 1)));
                 enabledLevels[i] = true;
             }
             catch (IndexOutOfBoundsException e){
