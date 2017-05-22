@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Tubas on 2017-05-21.
+ * Created by Tobias Lindgren on 2017-05-21.
+ * source: https://www.codeproject.com/Articles/1151814/Android-ExpandablelistView-Tutorial-with-Android-C
  */
 
 public class HeaderInfo {

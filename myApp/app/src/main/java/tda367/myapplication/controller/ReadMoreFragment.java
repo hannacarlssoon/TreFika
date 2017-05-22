@@ -1,16 +1,12 @@
 package tda367.myapplication.controller;
 
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ExpandableListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -25,6 +21,7 @@ import tda367.myapplication.ReadMoreListAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
+ * Created by ?, revised by Tobias Lindgren
  */
 public class ReadMoreFragment extends Fragment {
 
