@@ -223,7 +223,9 @@ public class WriteCode extends AppCompatActivity {
                 isDone = true;
             return "some message";
            } catch (Exception e) {
-               e.printStackTrace();
+               Toast toast = Toast.makeText(WriteCode.this, "Det blev tyvärr ett problem med exekverandet av koden, försök igen senare.", Toast.LENGTH_LONG);
+               toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+               toast.show();
 
                return null;
            }

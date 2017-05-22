@@ -136,29 +136,6 @@ public class QuestionMultiChoice extends AppCompatActivity {
         mBuilder.setCancelable(false);
     }
 
-    //Sets PassedLevel view
-    private void setPassedLevel(AlertDialog.Builder mBuilder) {
-        View mView = getLayoutInflater().inflate(R.layout.activity_passed_level, null);
-
-        mBuilder.setPositiveButton("Nästa nivå", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                startActivity(new Intent(QuestionMultiChoice.this, ActivityInfo.class));
-                learnJava.setCurrentLevel(learnJava.getCurrentLevel() + 1);
-            }
-        });
-
-        mBuilder.setNeutralButton("Tillbaka", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                startActivity(new Intent(QuestionMultiChoice.this, LevelActivity.class));
-            }
-        });
-
-        mBuilder.setView(mView);
-        mBuilder.setCancelable(false);
-    }
-
     //Sets message when no input
     private void setNoInput() {
         Toast toast = Toast.makeText(QuestionMultiChoice.this, "Du måste välja ett alternativ", Toast.LENGTH_SHORT);

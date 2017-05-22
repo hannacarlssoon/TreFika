@@ -40,7 +40,7 @@ public class Server {
                 System.out.println("Client terminated connection");
 
             } catch (IOException e) {
-                e.printStackTrace();
+                System.out.println("Problem with input/output");
             }
         /*    finally {
                 //TODO add shutDown to destroy-method
@@ -87,8 +87,9 @@ public class Server {
             output.close();
             input.close();
             connection.close();
-        }catch(IOException ioException){
-            ioException.printStackTrace();
+        }
+        catch(IOException ioException){
+            System.out.println("Problem with sutting down server");
         }
     }
 
