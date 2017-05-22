@@ -1,12 +1,8 @@
 package tda367.myapplication.model;
 
-import android.content.Context;
-
-import java.io.File;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
-import tda367.myapplication.service.UserFileReader;
 
 /**
  * @author hannacarlsson
@@ -43,18 +39,13 @@ public class AccountManager implements Serializable {
     public void addUser(String userName, String userPassword) {
         if (!users.containsKey(userName)) {
             users.put(userName, new User(userName, userPassword));
-            logIn(userName, userPassword);
+            setUser(userName);
         }
     }
 
     //Method check username to password and if it matches logs in
-    public void logIn(String userName, String userPassword) {
-         try {
-             activeUser = users.get(userName);
-
-         } catch(NullPointerException e) {
-
-         }
+    public void setUser(String userName) {
+        activeUser = users.get(userName);
     }
 
     //Logs the user out
