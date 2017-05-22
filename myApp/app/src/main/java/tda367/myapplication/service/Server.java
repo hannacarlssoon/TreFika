@@ -22,7 +22,6 @@ public class Server {
 
     public Server(String host){
         serverIP = host;
-        //this.userCode = userCode;
     }
 
     public void setUserCode(String userCode) {
@@ -74,7 +73,7 @@ public class Server {
             compiledCode = (String) input.readObject();
             System.out.println("Compiled code: " + compiledCode);
         } catch (IOException io) {
-
+            System.out.println("Problem with input/output");
         } catch (ClassNotFoundException classNotFound) {
             System.out.println("Somethings wrong");
         }

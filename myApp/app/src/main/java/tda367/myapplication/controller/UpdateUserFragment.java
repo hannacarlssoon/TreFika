@@ -21,7 +21,7 @@ import tda367.myapplication.service.ImageHandler;
  */
 public class UpdateUserFragment extends Fragment {
 
-    private final int RESULT_LOAD_IMG = 1;
+    private final static int RESULT_LOAD_IMG = 1;
     private EditText username;
 
 
