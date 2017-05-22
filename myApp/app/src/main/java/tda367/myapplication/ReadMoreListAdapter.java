@@ -8,6 +8,7 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Tubas on 2017-05-21.
@@ -16,9 +17,9 @@ import java.util.ArrayList;
 public class ReadMoreListAdapter extends BaseExpandableListAdapter {
 
     private Context context;
-    private ArrayList<HeaderInfo> deptList;
+    private List<HeaderInfo> deptList;
 
-    public ReadMoreListAdapter(Context context, ArrayList<HeaderInfo> deptList){
+    public ReadMoreListAdapter(Context context, List<HeaderInfo> deptList){
         this.context = context;
         this.deptList = deptList;
     }

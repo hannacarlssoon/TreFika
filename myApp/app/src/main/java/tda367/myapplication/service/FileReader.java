@@ -34,8 +34,6 @@ public class FileReader {
                 lineOfContent = bufferedReader.readLine();
             }
         } catch (Exception e){
-            System.out.println("Problem with file!");
-            System.out.println(e.getMessage());
         }
         return string;
     }

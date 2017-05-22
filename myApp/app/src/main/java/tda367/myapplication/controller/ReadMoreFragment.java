@@ -14,6 +14,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 import tda367.myapplication.DetailInfo;
 import tda367.myapplication.HeaderInfo;
@@ -26,8 +28,8 @@ import tda367.myapplication.ReadMoreListAdapter;
  */
 public class ReadMoreFragment extends Fragment {
 
-    private LinkedHashMap<String, HeaderInfo> mySection = new LinkedHashMap<>();
-    private ArrayList<HeaderInfo> SectionList = new ArrayList<>();
+    private Map<String, HeaderInfo> mySection = new LinkedHashMap<>();
+    private List<HeaderInfo> SectionList = new ArrayList<>();
 
     private ReadMoreListAdapter listAdapter;
     private ExpandableListView expandableListView;
@@ -57,14 +59,6 @@ public class ReadMoreFragment extends Fragment {
 
         // Inflate the layout for this fragment
         return view;
-    }
-
-    //method to expand all groups
-    private void expandAll() {
-        int count = listAdapter.getGroupCount();
-        for (int i = 0; i < count; i++){
-            expandableListView.expandGroup(i);
-        }
     }
 
     //method to collapse all groups

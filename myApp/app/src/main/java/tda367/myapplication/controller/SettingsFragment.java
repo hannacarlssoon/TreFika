@@ -34,7 +34,6 @@ public class SettingsFragment extends Fragment {
     private int maxVolume = 100;
     private boolean isMuted = false;
     private int savedVolume;
-    private Context context;
 
     public SettingsFragment() {
         // Required empty public constructor
@@ -45,7 +44,6 @@ public class SettingsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
-        context = view.getContext();
 
         volumeSeekBar = (SeekBar)view.findViewById(R.id.volumeSeekBar);
         volumeText = (TextView)view.findViewById(R.id.volumeText);

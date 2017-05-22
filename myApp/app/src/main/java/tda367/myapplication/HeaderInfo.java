@@ -1,6 +1,7 @@
 package tda367.myapplication;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Tubas on 2017-05-21.
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 public class HeaderInfo {
 
     private String name;
-    private ArrayList<DetailInfo> productList = new ArrayList<>();
+    private List<DetailInfo> productList = new ArrayList<>();
 
     public String getName(){
         return name;
@@ -19,11 +20,11 @@ public class HeaderInfo {
         this.name = name;
     }
 
-    public ArrayList<DetailInfo> getProductList(){
+    public List<DetailInfo> getProductList(){
         return productList;
     }
 
-    public void setProductList(ArrayList<DetailInfo> detailList){
+    public void setProductList(List<DetailInfo> detailList){
         this.productList = detailList;
     }
 }
