@@ -10,7 +10,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 /**
- * Created by Tubas on 2017-05-21.
+ * Created by Tobias Lindgren on 2017-05-21.
+ * source: https://www.codeproject.com/Articles/1151814/Android-ExpandablelistView-Tutorial-with-Android-C
  */
 
 public class ReadMoreListAdapter extends BaseExpandableListAdapter {
