@@ -40,7 +40,7 @@ public class Statistics implements Serializable {
     //Stores how many hints you need to complete the assignment
     public void saveStatisticsHint(String level, Boolean isHintUsed) {
         int levelIndex = findIndex(level);
-        if (statisticsHint.size() < levelIndex || statisticsHint.size() == 0) {
+        if (statisticsHint.size() <= levelIndex) {
             statisticsHint.add(isHintUsed);
         } else {
             statisticsHint.remove(levelIndex);
@@ -51,7 +51,7 @@ public class Statistics implements Serializable {
     //Stores if the user has to see key to complete the assignment
     public void saveStatisticsKey(String level, Boolean isKeyUsed) {
         int levelIndex = findIndex(level);
-        if (statisticsKey.size() < levelIndex || statisticsKey.size() == 0) {
+        if (statisticsKey.size() <= levelIndex) {
             statisticsKey.add(isKeyUsed);
         } else {
             statisticsKey.remove(levelIndex);
@@ -62,7 +62,7 @@ public class Statistics implements Serializable {
     //Stores how long time it takes to complete each assignment
     public void saveStatisticsTime(String level) {
         int levelIndex = findIndex(level);
-        if (statisticsTime.size() < levelIndex || statisticsTime.size() == 0) {
+        if (statisticsTime.size() <= levelIndex) {
             statisticsTime.add(totalTime / 1000);
         } else {
             statisticsTime.remove(levelIndex);
