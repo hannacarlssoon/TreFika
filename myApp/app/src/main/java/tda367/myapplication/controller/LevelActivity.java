@@ -67,6 +67,7 @@ public class LevelActivity extends AppCompatActivity {
 
     //sets the booelan value for the levels passed variable
     private void setPassedLevels(){
+        System.out.println("setPassedLevel körs");
         //TODO make i dynamic with amount of level, more exstendible
         for (int i = 1; i < 5; i++){
             try {
@@ -74,8 +75,11 @@ public class LevelActivity extends AppCompatActivity {
                 enabledLevels[i] = true;
             }
             catch (IndexOutOfBoundsException e){
-                System.out.println("In catch in levelActivity");
+                System.out.println("catch i set passedLevels");
                 enabledLevels[i] = false;
+            }
+            catch (NullPointerException e){
+                System.out.println("second catch sats i setPassedLEvels");
             }
         }
         enabledLevels[0] = true;
@@ -95,6 +99,7 @@ public class LevelActivity extends AppCompatActivity {
         if(enabledLevels[4]){
             bossBtn.setText("Boss");
         }
+
     }
 
     //Sets the levels that are unlocked to enabled
