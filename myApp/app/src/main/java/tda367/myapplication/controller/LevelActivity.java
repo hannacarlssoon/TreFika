@@ -74,6 +74,7 @@ public class LevelActivity extends AppCompatActivity {
                 enabledLevels[i] = true;
             }
             catch (IndexOutOfBoundsException e){
+                System.out.println("In catch in levelActivity");
                 enabledLevels[i] = false;
             }
         }

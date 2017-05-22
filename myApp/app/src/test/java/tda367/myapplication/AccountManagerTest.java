@@ -22,12 +22,12 @@ public class AccountManagerTest {
     }
 
     @Test
-    public void logInTest() {
+    public void setUserTest() {
         AccountManager.initInstance(null);
         AccountManager am = AccountManager.getInstance();
         am.addUser("Hanna", "Password");
         am.logOut();
-        am.logIn("Hanna", "Password");
+        am.setUser("Hanna");
         assertTrue(am.getActiveUser() != null);
         assertTrue(am.getActiveUser().getUserName() == "Hanna");
 
@@ -40,7 +40,7 @@ public class AccountManagerTest {
         am.addUser("Hanna", "Password");
         am.logOut();
         assertTrue(am.getActiveUser() == null);
-        am.logIn("Hanna", "Password");
+        am.setUser("Hanna");
         assertTrue(am.getActiveUser() != null);
         am.logOut();
         assertTrue(am.getActiveUser() == null);
