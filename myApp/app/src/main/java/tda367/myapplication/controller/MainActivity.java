@@ -43,14 +43,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private static ImageView profilePicture;
     private static TextView navUserName;
-    private NavigationView navigationView;
-    private View headerView;
     private static MenuItem titleSignIn;
     public static MediaPlayer mPlayer;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        NavigationView navigationView;
+        View headerView;
+
         if (AccountManager.getInstance() == null) {
             AccountManager manager = null;
             try {
