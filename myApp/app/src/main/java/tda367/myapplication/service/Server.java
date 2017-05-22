@@ -41,11 +41,10 @@ public class Server {
             } catch (IOException e) {
                 System.out.println("Problem with input/output");
             }
-        /*    finally {
-                //TODO add shutDown to destroy-method
-                //shutDown();
+            finally {
+                shutDown();
             }
-     */   }
+        }
 
     //connect to server
     private void connectToServer() throws IOException{

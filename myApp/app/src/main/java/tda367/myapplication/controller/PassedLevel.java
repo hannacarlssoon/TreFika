@@ -55,7 +55,7 @@ public class PassedLevel {
                         toast2.show();
 
                     } else {
-                        activity.startActivity(new Intent(activity, LearnJava.class));
+                        activity.startActivity(new Intent(activity, LevelActivity.class));
                         learnJava.setCurrentCategory(learnJava.getCurrentCategory() + 1);
                         learnJava.setCurrentLevel(0);
                         Toast toast = Toast.makeText(activity, "Du har öppnat nästa kategori", Toast.LENGTH_LONG);
