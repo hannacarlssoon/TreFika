@@ -96,13 +96,13 @@ public class ActivityInfo extends AppCompatActivity {
 
     //gets the title for the level info view
     private String getLevelTitle(){
-        LevelModel[] levelModels = learnJava.getLevelHashMap().get(learnJava.getCurrentCategory());
+        LevelModel[] levelModels = learnJava.getLevelHashMap().get("category" + learnJava.getCurrentCategory());
         return levelModels[learnJava.getCurrentLevel()].getHeading();
     }
 
     //sets the info text
     public void setInfoText() {
-        LevelModel[] levelModels = learnJava.getLevelHashMap().get(learnJava.getCurrentCategory());
+        LevelModel[] levelModels = learnJava.getLevelHashMap().get("category" + learnJava.getCurrentCategory());
         textView.setText(levelModels[learnJava.getCurrentLevel()].getInfo());
     }
 

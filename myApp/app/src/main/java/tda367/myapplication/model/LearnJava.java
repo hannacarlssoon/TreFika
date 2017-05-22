@@ -11,21 +11,21 @@ import java.util.HashMap;
 
 public class LearnJava {
     private int amountOfCategories = 4;
-    private Integer currentCategory;
+    private int currentCategory;
     private int currentLevel;
-    private HashMap<Integer, LevelModel[]> levelHashMap;
+    private HashMap<String, LevelModel[]> levelHashMap;
     private static LearnJava instance;
     private boolean hasInit = false;
 
-    public void init(HashMap<Integer, LevelModel[]> levelHashMap){
+    public void init(HashMap<String, LevelModel[]> levelHashMap){
         if(!hasInit){
             this.levelHashMap = levelHashMap;
             hasInit = true;
-            currentCategory = new Integer(1);
+            currentCategory = 1;
         }
     }
 
-    public HashMap<Integer, LevelModel[]> getLevelHashMap(){
+    public HashMap<String, LevelModel[]> getLevelHashMap(){
         return levelHashMap;
     }
 
@@ -47,10 +47,10 @@ public class LearnJava {
     }
 
     public LevelModel getLevelModel(){
-        return levelHashMap.get(currentCategory)[currentLevel];
+        return levelHashMap.get("category" + currentCategory)[currentLevel];
     }
 
-    public void setCurrentCategory(Integer s){
+    public void setCurrentCategory(int s){
         currentCategory = s;
     }
 

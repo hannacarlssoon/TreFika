@@ -13,7 +13,7 @@ import tda367.myapplication.service.FileReader;
  */
 
 public class HashMapCreator {
-    private HashMap<Integer, LevelModel[]> levelHashMap;
+    private HashMap<String, LevelModel[]> levelHashMap;
     /*private LevelModel[] category1 = new LevelModel[5];
     private LevelModel[] category2 = new LevelModel[5];
     private LevelModel[] category3 = new LevelModel[5];
@@ -27,7 +27,7 @@ public class HashMapCreator {
         init();
     }
 
-    public HashMap<Integer, LevelModel[]> getHashMap(){
+    public HashMap<String, LevelModel[]> getHashMap(){
         return this.levelHashMap;
     }
 
@@ -52,7 +52,7 @@ public class HashMapCreator {
                 }
                 */
             }
-            levelHashMap.put(i, temp);
+            levelHashMap.put("category" + i, temp);
         }
 
     }
