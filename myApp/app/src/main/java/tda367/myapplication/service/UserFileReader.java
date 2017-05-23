@@ -39,7 +39,7 @@ public class UserFileReader {
         return new ObjectInputStream(new FileInputStream(myPath));
     }
 
-    //Saves the object, is called in onDestory from MainActivity
+    //Saves the object, is called in onDestory() from MainActivity
     public void saveObject(Context context, Object manager) {
         ContextWrapper cw = new ContextWrapper(context);
         File directory = cw.getDir("dataDir", Context.MODE_PRIVATE);
