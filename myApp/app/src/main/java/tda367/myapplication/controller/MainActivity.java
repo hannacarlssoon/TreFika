@@ -1,12 +1,7 @@
 package tda367.myapplication.controller;
 
-import android.app.Service;
-import android.content.Intent;
-import android.media.Image;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.design.widget.NavigationView;
@@ -21,15 +16,10 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 
 import tda367.myapplication.model.AccountManager;
-
 import tda367.myapplication.R;
-//import tda367.myapplication.service.BackgroundMusicService;
 import tda367.myapplication.service.ImageHandler;
 import tda367.myapplication.service.UserFileReader;
 
