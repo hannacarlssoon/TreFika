@@ -28,7 +28,8 @@ import static android.R.drawable.sym_def_app_icon;
 /*
  * @author Hanna Carlsson, Revised by: Tobias Lindgren
  * Uses: AccountManager, User, AboutAppenFragment, PlayFragment, ReadMoreFragment, SettingsFragment,
- * SignInFragment, StatisticsFragment, ImageHandler, UserFileReader
+ * SignInFragment, StatisticsFragment, ImageHandler, UserFileReader, activity_navigation_drawer.xml,
+ * navigation_drawer.xml
  * Used by: UpdateUserFragment
  */
 
