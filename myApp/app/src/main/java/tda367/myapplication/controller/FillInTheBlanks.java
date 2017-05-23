@@ -30,7 +30,9 @@ import tda367.myapplication.model.Query;
 
 /**
  * @author Sara Kitzing, revised by Madeleine Lexén and Tobias Lindgren
- * This class is responsible for handling the events from te fill in the blanks question view
+ * Responsible for handling the events from te fill in the blanks question view
+ * Used by
+ * Uses
  */
 public class FillInTheBlanks extends AppCompatActivity {
     Button submit;

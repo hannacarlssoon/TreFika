@@ -1,8 +1,0 @@
-[Typer och variabler]
-Något om typer här. row
-[If-satser och boolean logik]
-Något om if-satser här row
-[For- och while-loopar]
-En while-loop är en “upprepa tills”-loop som vanligtvis används när man inte vet hur många gånger den ska upprepas, ett exempel på en while-loop är:row rowint sum = 15; rowwhile(sum > 0){ row//kod rowsum = sum - 3; row} row rowEn for-loop används då antalet gånger som loopen ska köras är känt. Man skulle kunna säga att de bygger på en intern räknare som håller koll på hur många varv som gått och när den ska sluta utefter de förutsättningar som man ger. En vanlig for-loop kan se ut på följande sätt: row rowfor(int i = 0; i < 20; i++){ row//kod row}
-[Arrayer]
-Något om arrayer här.
