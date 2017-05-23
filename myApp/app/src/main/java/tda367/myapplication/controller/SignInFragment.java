@@ -16,6 +16,7 @@ import tda367.myapplication.model.AccountManager;
 import tda367.myapplication.R;
 
 /**
+ * @author Hanna Carlsson
  * Handles the sign in of the user
  */
 
@@ -39,10 +40,9 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
         userName = (EditText) view.findViewById(R.id.userName);
         password = (EditText) view.findViewById(R.id.Password);
 
-                //Sets listeners to the buttons
+        //Sets listeners to the buttons
         signUp.setOnClickListener(this);
         signIn.setOnClickListener(this);
-
 
         if (AccountManager.getInstance().getActiveUser() != null) {
             setMyPage();
@@ -52,6 +52,7 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
 
     }
 
+    //Sets the page showing to MyPage
     private void setMyPage() {
         MyPageFragment myPageFragment = new MyPageFragment();
         FragmentManager manager = getFragmentManager();
