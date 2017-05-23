@@ -36,8 +36,9 @@ import tda367.myapplication.service.UserFileReader;
 import static android.R.drawable.sym_def_app_icon;
 
 /*
- * @author Hanna Carlsson
- *
+ * @author Hanna Carlsson, Revised by: Tobias Lindgren
+ * Uses: AccountManager, User, AboutAppenFragment, PlayFragment, ReadMoreFragment, SettingsFragment,
+ * SignInFragment, StatisticsFragment, ImageHandler, UserFileReader
  * Used by: UpdateUserFragment
  */
 
@@ -51,9 +52,69 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        NavigationView navigationView;
-        View headerView;
+        super.onCreate(savedInstanceState);
 
+        initializeAccountManager();
+
+        //Sets content values and toolbar ids
+        setContentView(R.layout.activity_navigation_drawer);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        //Sets navigationview id and listner
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
+        setMenuID(navigationView);
+
+        setInformationNavigationDrawer(navigationView);
+
+        setUpMediaPlayer();
+
+        setFirstView(savedInstanceState);
+
+        setDrawerNavigation(toolbar);
+
+    }
+
+    //Sets the first view, when not logged in to signInFragment and when logged in to playFragment
+    private void setFirstView(Bundle savedInstanceState) {
+        if (savedInstanceState == null) {
+            if (AccountManager.getInstance().getActiveUser() == null) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.constraintlayout_for_fragment,
+                        new SignInFragment()).commit();
+            } else {
+                getSupportFragmentManager().beginTransaction().replace(R.id.constraintlayout_for_fragment,
+                        new PlayFragment()).commit();
+                setUserInformation(AccountManager.getInstance().getActiveUser().getUserName());
+            }
+        }
+    }
+
+    //Sets the information in the navigation drawer to the users information
+    private void setInformationNavigationDrawer(NavigationView navigationView) {
+        View headerView = navigationView.getHeaderView(0);
+        profilePicture = (ImageView) headerView.findViewById(R.id.imageView);
+        navUserName = (TextView) headerView.findViewById(R.id.navUsername);
+    }
+
+    //Sets the menu id
+    private void setMenuID(NavigationView navigationView) {
+        Menu menu = navigationView.getMenu();
+        titleSignIn = menu.findItem(R.id.nav_signin);
+    }
+
+    //Sets the navigation drawer id and sets it to toggle
+    private void setDrawerNavigation(Toolbar toolbar) {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+    }
+
+    //Gets the Accountmanagers stored object if there is once, otherwise loads new instance
+    private void initializeAccountManager() {
         if (AccountManager.getInstance() == null) {
             AccountManager manager = null;
             try {
@@ -65,50 +126,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 AccountManager.initInstance(manager);
             }
         }
-
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_navigation_drawer);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        /*Intent svc = new Intent(this, BackgroundMusicService.class);
-        startService(svc);*/
-
-        setUpMediaPlayer();
-
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        Menu menu = navigationView.getMenu();
-        titleSignIn = menu.findItem(R.id.nav_signin);
-
-        headerView = navigationView.getHeaderView(0);
-        profilePicture = (ImageView) headerView.findViewById(R.id.imageView);
-        navUserName = (TextView) headerView.findViewById(R.id.navUsername);
-
-
-        if (savedInstanceState == null) {
-            if (AccountManager.getInstance().getActiveUser() == null) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.constraintlayout_for_fragment,
-                        new SignInFragment()).commit();
-            } else {
-                getSupportFragmentManager().beginTransaction().replace(R.id.constraintlayout_for_fragment,
-                        new PlayFragment()).commit();
-                setUserInformation(AccountManager.getInstance().getActiveUser().getUserName());
-            }
-        }
-
-
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-
     }
 
-
+    //Handles the back navigation in the navigation drawer
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -119,27 +139,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
+    //Inflates the menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.navigation_drawer, menu);
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
+    //Sets the clicked menu item view
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -174,6 +181,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
+    //Sets the clicked view in the navigation drawer
     public void setView(Fragment fragment) {
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction().replace(R.id.constraintlayout_for_fragment,
@@ -181,14 +189,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 fragment.getTag()).commit();
     }
 
-    public void nextButtonClicked() {
-        Intent myIntent = new Intent(MainActivity.this, LevelActivity.class);
-        myIntent.putExtra("key", true); //Optional parameters
-        MainActivity.this.startActivity(myIntent);
-
-    }
-
-   public static void setUserInformation(String imageName) {
+    //Sets the user information in the navigation drawer, when logged in
+    public static void setUserInformation(String imageName) {
        if (imageName == null) {
            profilePicture.setImageResource(sym_def_app_icon);
            navUserName.setText("Log in to see username");
@@ -198,20 +200,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
            navUserName.setText(imageName);
            titleSignIn.setTitle("My page");
        }
-   }
-
-    @Override
-    public void onDestroy() {
-        mPlayer.stop();
-        mPlayer.release();
-        super.onDestroy();
-        UserFileReader.getInstance().saveObject(getApplicationContext(), AccountManager.getInstance());
     }
 
+    //Sets the background music
     private void setUpMediaPlayer(){
         mPlayer = MediaPlayer.create(this, R.raw.wildestdreams);
         mPlayer.setLooping(true);
         mPlayer.setVolume(0.50f, 0.50f);
         mPlayer.start();
+    }
+
+    //Overriden method, called when app is closing down, stops the background music and
+    //saves AccountManager instace
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mPlayer.stop();
+        mPlayer.release();
+        UserFileReader.getInstance().saveObject(getApplicationContext(), AccountManager.getInstance());
     }
 }

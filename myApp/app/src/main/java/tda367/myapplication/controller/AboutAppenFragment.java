@@ -12,7 +12,7 @@ import tda367.myapplication.R;
 /**
  * Created by: Hanna Carlsson, revised by Tobias Lindgren
  * Responsibility: Setting the views in the "About the app"-fragment
- * Used by:
+ * Used by: MainActivity
  * Uses:
  */
 
@@ -21,9 +21,7 @@ public class AboutAppenFragment extends Fragment {
     View view;
     TextView textView;
 
-    public AboutAppenFragment() {
-        // Required empty public constructor
-    }
+    public AboutAppenFragment() { }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

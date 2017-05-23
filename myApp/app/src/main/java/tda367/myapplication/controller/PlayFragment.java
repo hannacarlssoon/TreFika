@@ -18,7 +18,7 @@ import tda367.myapplication.model.Statistics;
  * @author HannaCarlsoon. Revised by Madeleine Lexén and Tobias Lindgren.
  * Responsibility: Handles the setting of the views when the main category buttons are clicked
  * Uses: LearnJava, HashMapCreator, LevelActivity, AccountManager, User
- * Used by: SignInFragment
+ * Used by: SignInFragment, MainActivity
  */
 public class PlayFragment extends Fragment implements View.OnClickListener {
 

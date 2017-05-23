@@ -17,7 +17,7 @@ import tda367.myapplication.model.AccountManager;
  * @author Hanna Carlsson
  * Responsibility: Handles the storing and loading of objects
  *
- * Used by:
+ * Used by: MainActivity
  */
 
 public class UserFileReader {

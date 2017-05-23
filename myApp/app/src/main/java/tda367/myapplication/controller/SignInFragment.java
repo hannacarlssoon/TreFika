@@ -19,7 +19,7 @@ import tda367.myapplication.R;
  * @author Hanna Carlsson
  * Responsibility: Handles the sign in of the user
  * Uses: AccountManager, User, MyPageFragment, PlayFragment, fragment_sign_in.xml
- * Used by: MyPageFragment, SignUpActivity,
+ * Used by: MyPageFragment, SignUpActivity, MainActivity
  */
 
 public class SignInFragment extends Fragment implements View.OnClickListener {
