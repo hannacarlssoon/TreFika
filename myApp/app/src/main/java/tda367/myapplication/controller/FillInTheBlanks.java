@@ -189,7 +189,6 @@ public class FillInTheBlanks extends AppCompatActivity {
         TextView textView = new TextView(context);
         textView.setText(hint);
 
-
         alertDialogBuilder.setView(textView);
         alertDialogBuilder.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
