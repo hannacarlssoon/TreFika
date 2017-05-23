@@ -27,13 +27,13 @@ import tda367.myapplication.model.LearnJava;
 import tda367.myapplication.model.LevelModel;
 import tda367.myapplication.model.Query;
 
-
 /**
  * @author Sara Kitzing, revised by Madeleine Lexén and Tobias Lindgren
  * Responsible for handling the events from te fill in the blanks question view
- * Used by
- * Uses
+ * Used by ActivityInfo
+ * Uses activity_fill_in_the_blanks.xml, PassedLevel, ModelFillBlanks
  */
+
 public class FillInTheBlanks extends AppCompatActivity {
     Button submit;
     ImageButton hint;
@@ -63,7 +63,6 @@ public class FillInTheBlanks extends AppCompatActivity {
         hint.setVisibility(View.INVISIBLE);
 
         setToolbar();
-
         setSubmitButton();
 
         //set onclicklistener for hint button
@@ -81,7 +80,7 @@ public class FillInTheBlanks extends AppCompatActivity {
         questionView = (TextView) findViewById(R.id.fillQuestion);
     }
 
-    //Sets the toolbar and enables upnavigation, and sets the title
+    //Sets the toolbar, enables upnavigation, and sets the title
     private void setToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);
         setSupportActionBar(toolbar);
@@ -111,6 +110,7 @@ public class FillInTheBlanks extends AppCompatActivity {
                             System.out.println("den hamnade i catch på fill in the blanks");
 
                         } finally {
+                            //Sets PassedLevel-view
                             new PassedLevel(FillInTheBlanks.this);
                         }
 
@@ -165,6 +165,7 @@ public class FillInTheBlanks extends AppCompatActivity {
        userAnswer = answer1 + "," + answer2 + "," + answer3;
     }
 
+    //Sets the question text to the TextView
     public void setQuestionText() {
         LevelModel[] levelModels = learnJava.getLevelHashMap().get("category" + learnJava.getCurrentCategory());
         questionView.setText(levelModels[learnJava.getCurrentLevel()].getQuery().getQuestion());
