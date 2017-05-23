@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--
+@author Sara Kitzing revised by Tobias Lindgren and Madeleine Lexén
+Responsible for setting the WriteCode-view
+Used by WriteCode.java
+Uses Toolbar_layout.xml
+-->
+
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -16,7 +24,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include3"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteX="4dp" />
 

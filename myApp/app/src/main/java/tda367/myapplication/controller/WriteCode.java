@@ -26,10 +26,13 @@ import tda367.myapplication.model.LevelModel;
 import tda367.myapplication.service.Server;
 
 /**
- * @author Sara Kitzing
- * This class handles the call to the ModelWriteCode-model, setting the writeCode view and creating and
- * calling the server to compile the users code
+ * @author Sara Kitzing, revised by Madeleine Lexén and Tobias Lindgren
+ * Responsible for handling the events from the WriteCode questions view. Creates and
+ * calls the server to compile the users code
+ * Used by ActivityInfo
+ * Uses LearnJava, activity_write_code.xml, PassedLevel, Server
  */
+
 
 public class WriteCode extends AppCompatActivity {
     Button submit;
@@ -52,16 +55,15 @@ public class WriteCode extends AppCompatActivity {
         context = this;
 
         setView();
+        setQuestionText();
+        setToolbar();
+        setSubmitButton();
 
+        //Makes the hint button invisible until one wrong answer
         hintButton.setVisibility(View.INVISIBLE);
 
+        //sets onclicklistener for hint button
         hintButton.setOnClickListener(hintListener);
-
-        setQuestionText();
-
-        setToolbar();
-
-        setSubmitButton();
 
     }
 
@@ -98,8 +100,6 @@ public class WriteCode extends AppCompatActivity {
                     } else {
                         setFailedLevel(mBuilder);
                         hintButton.setVisibility(View.VISIBLE);
-                        AlertDialog dialog = mBuilder.create();
-                        dialog.show();
                     }
                 }
 
@@ -170,11 +170,13 @@ public class WriteCode extends AppCompatActivity {
         server.startRunning();
     }
 
+    //Method for setting the right question to the textView
     public void setQuestionText(){
         LevelModel[] levelModels = learnJava.getLevelHashMap().get("category" + learnJava.getCurrentCategory());
         questionView.setText(levelModels[learnJava.getCurrentLevel()].getQuery().getQuestion());
     }
 
+    //Returns "Error" if error in the executed code, else it returns the result
     public String getError(){
         if(codeResult.equalsIgnoreCase("error")){
             return "Error";
@@ -182,6 +184,7 @@ public class WriteCode extends AppCompatActivity {
             return codeResult;
     }
 
+    //Thread in which the server is run and the code is compiled
     private class SendfeedbackCode extends AsyncTask<String, Void, String> {
 
         @Override
@@ -203,6 +206,7 @@ public class WriteCode extends AppCompatActivity {
         }
     }
 
+    //Defines onclicklistener for hint button
     private ImageButton.OnClickListener hintListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -217,6 +221,7 @@ public class WriteCode extends AppCompatActivity {
         }
     };
 
+    //Method for creating dialog and displaying hint
     private void createDialog(String hint) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
         TextView textView = new TextView(context);

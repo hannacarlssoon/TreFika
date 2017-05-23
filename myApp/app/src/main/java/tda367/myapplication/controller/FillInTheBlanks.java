@@ -27,7 +27,7 @@ import tda367.myapplication.model.LevelModel;
  * @author Sara Kitzing, revised by Madeleine Lexén and Tobias Lindgren
  * Responsible for handling the events from the fill in the blanks question view
  * Used by ActivityInfo
- * Uses LearnJava, activity_fill_in_the_blanks.xml, PassedLevel, ModelFillBlanks
+ * Uses LearnJava, activity_fill_in_the_blanks.xml, PassedLevel
  */
 
 public class FillInTheBlanks extends AppCompatActivity {
@@ -51,15 +51,14 @@ public class FillInTheBlanks extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fill_in_the_blanks);
         context = this;
-        setView();
 
+        setView();
+        setToolbar();
+        setSubmitButton();
         setQuestionText();
 
         //Making the hint button invisible at start
         hint.setVisibility(View.INVISIBLE);
-
-        setToolbar();
-        setSubmitButton();
 
         //set onclicklistener for hint button
         hint.setOnClickListener(imgBtnListener);
@@ -67,7 +66,6 @@ public class FillInTheBlanks extends AppCompatActivity {
 
     //Sets buttons and views
     private void setView() {
-        //TODO if textfield is in focus -> empty field
         submit = (Button)findViewById(R.id.fillSubmit);
         hint = (ImageButton)findViewById(R.id.hintButton);
         textAnswer1   = (EditText)findViewById(R.id.textFillAnswer1);
