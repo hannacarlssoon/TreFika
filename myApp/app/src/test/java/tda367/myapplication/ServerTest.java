@@ -11,6 +11,8 @@ import tda367.myapplication.service.Server;
 
 public class ServerTest {
 
+
+    //Tests if the compilation in Server works
     @Test
     public void testServerComp() {
         Server s = new Server("127.0.0.1");
@@ -21,6 +23,7 @@ public class ServerTest {
 
     }
 
+    //Tests if the error-message in Server works
     @Test
     public void testServerErr() {
         Server s = new Server("127.0.0.1");
