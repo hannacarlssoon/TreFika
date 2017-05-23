@@ -9,6 +9,10 @@ import android.widget.TextView;
 
 import tda367.myapplication.R;
 
+/**
+ * Created by Hanna Carlsson, revised by Tobias Lindgren
+ */
+
 public class AboutAppenFragment extends Fragment {
 
     View view;

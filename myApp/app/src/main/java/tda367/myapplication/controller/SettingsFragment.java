@@ -24,7 +24,7 @@ import tda367.myapplication.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Created by ?, revised by Tobias Lindgren
+ * Created by Hanna Carlsson, revised by Tobias Lindgren
  */
 public class SettingsFragment extends Fragment {
 

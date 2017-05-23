@@ -11,15 +11,12 @@ import android.widget.ExpandableListView;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
-import tda367.myapplication.DetailInfo;
-import tda367.myapplication.HeaderInfo;
 import tda367.myapplication.R;
-import tda367.myapplication.ReadMoreListAdapter;
 
 
 /**
  * A simple {@link Fragment} subclass.
- * Created by ?, revised by Tobias Lindgren
+ * Created by Hanna Carlsson, revised by Tobias Lindgren
  */
 public class ReadMoreFragment extends Fragment {
 
