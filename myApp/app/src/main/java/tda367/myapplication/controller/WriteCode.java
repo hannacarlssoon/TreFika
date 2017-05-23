@@ -2,7 +2,6 @@ package tda367.myapplication.controller;
 
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AlertDialog;
@@ -28,7 +27,7 @@ import tda367.myapplication.service.Server;
 
 /**
  * @author Sara Kitzing
- * This class handles the call to the WriteCode-model, setting the writeCode view and creating and
+ * This class handles the call to the ModelWriteCode-model, setting the writeCode view and creating and
  * calling the server to compile the users code
  */
 

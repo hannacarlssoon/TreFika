@@ -109,6 +109,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
                         } catch (NullPointerException e) {
 
                         } finally {
+                            //Sets PassedLevel
                             new PassedLevel(QuestionMultiChoice.this);
                         }
                     } else {

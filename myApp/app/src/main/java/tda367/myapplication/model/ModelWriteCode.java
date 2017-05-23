@@ -6,12 +6,12 @@ package tda367.myapplication.model;
  * This class handles the logic behind the write code query
  */
 
-public class WriteCode implements Query {
+public class ModelWriteCode implements Query {
     private final String question;
     private final String answer;
 
 
-    public WriteCode (String question, String answer){
+    public ModelWriteCode(String question, String answer){
         this.question = question;
         this.answer= answer;
     }

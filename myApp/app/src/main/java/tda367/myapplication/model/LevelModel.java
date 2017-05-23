@@ -21,7 +21,7 @@ public class LevelModel {
         this.heading = heading;
         this.questionNumber = questionNumber;
         if (questionNumber > 4){
-            this.query = new WriteCode(question, answer);
+            this.query = new ModelWriteCode(question, answer);
         }
         else if ( questionNumber % 2 == 0){
             this.query = new MultiChoice(question, answer,alternatives);
