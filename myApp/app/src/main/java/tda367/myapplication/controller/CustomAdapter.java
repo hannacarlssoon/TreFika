@@ -19,7 +19,8 @@ import tda367.myapplication.model.LearnJava;
 
 /**
  * @author Hanna Carlsson
- * Makes the custom listviews to display the statistics
+ * Responsibility: Makes the custom listviews to display the statistics
+ * Used by: StatisticsFragment
  */
 
 public class CustomAdapter extends BaseAdapter {
