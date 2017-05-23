@@ -55,37 +55,39 @@ public class CustomAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
-        view = activity.getLayoutInflater().inflate(R.layout.custom_layout, null);
+        ViewHolder holder = null;
+        if (view == null) {
+            view = activity.getLayoutInflater().inflate(R.layout.custom_layout, null);
+            holder = new ViewHolder(view);
+            view.setTag(holder);
+        } else {
+            holder = (ViewHolder) view.getTag();
 
-        TextView category = (TextView) view.findViewById(R.id.category_name);
-        TextView level = (TextView) view.findViewById(R.id.level_name);
-        TextView hint = (TextView) view.findViewById(R.id.hint);
-        TextView time = (TextView) view.findViewById(R.id.time);
-        TextView key = (TextView) view.findViewById(R.id.key);
+        }
 
         if (hintList.get(i)) {
-            hint.setText("Ja");
+            holder.getHint().setText("Ja");
         } else {
-            hint.setText("Nej");
+            holder.getHint().setText("Nej");
         }
         if (keyList.get(i)) {
-            key.setText("Ja");
+            holder.getKey().setText("Ja");
         } else {
-            key.setText("Nej");
+            holder.getKey().setText("Nej");
         }
 
-        time.setText(timeList.get(i).toString() + " s");
+        holder.getTime().setText(timeList.get(i).toString() + " s");
         int currLevel = i + 1;
-        level.setText("Level " + currLevel);
+        holder.getLevel().setText("Level " + currLevel);
         for (int j = 0; j < i + 1; j++) {
             if (j < 5) {
-                category.setText("Category 1");
+                holder.getCategory().setText("Category 1");
             } else if (j < 10) {
-                category.setText("Category 2");
+                holder.getCategory().setText("Category 2");
             } else if (j < 15) {
-                category.setText("Category 3");
+                holder.getCategory().setText("Category 3");
             } else if (j < 20) {
-                category.setText("Category 4");
+                holder.getCategory().setText("Category 4");
             }
         }
 
