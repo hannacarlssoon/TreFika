@@ -1,8 +1,10 @@
 package tda367.myapplication.model;
 
-/* @author Tobias Lindgren, revised by Madeleine and Tobias
-This class is responsible for keeping track of the questions, and maintaining them. It also creates the
-different query objects, each level model object has a query object as an instance variable.
+/** Created by: Tobias Lindgren, revised by Madeleine and Tobias
+ * Responsibilty: Keeping track of the questions, and maintaining them. It also creates the
+ * different query objects, each level model object has a query object as an instance variable.
+ * Used by: HashMapCreator and LearnJava
+ * Uses: Query
  */
 
 public class LevelModel {

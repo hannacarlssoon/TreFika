@@ -12,8 +12,11 @@ import java.util.ArrayList;
 import tda367.myapplication.R;
 
 /**
- * Created by Tobias Lindgren on 2017-05-21.
+ * Created by: Tobias Lindgren on 2017-05-21.
  * source: https://www.codeproject.com/Articles/1151814/Android-ExpandablelistView-Tutorial-with-Android-C
+ * Responsibility: Adapter for the ExpandableList
+ * Used by: ReadMoreFragment
+ * Uses: HeaderInfo and DetailInfo
  */
 
 public class ReadMoreListAdapter extends BaseExpandableListAdapter {

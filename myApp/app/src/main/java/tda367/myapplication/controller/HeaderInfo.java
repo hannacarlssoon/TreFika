@@ -3,8 +3,11 @@ package tda367.myapplication.controller;
 import java.util.ArrayList;
 
 /**
- * Created by Tobias Lindgren on 2017-05-21.
+ * Created by: Tobias Lindgren on 2017-05-21.
  * source: https://www.codeproject.com/Articles/1151814/Android-ExpandablelistView-Tutorial-with-Android-C
+ * Responsibility:
+ * Used by: ReadMoreFragment and ReadMoreListAdapter
+ * Uses:
  */
 
 public class HeaderInfo {

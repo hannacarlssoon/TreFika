@@ -4,9 +4,10 @@ import java.util.HashMap;
 
 
 /**
- * Created by madeleine on 2017-04-07. Tobias och Madeleine har byggt den här klassen gemmensamt.
- * This class is responsible for maintaining and storing the hashmap containing all the level objects.
- * Uses HashMapCreator
+ * Created by: Madeleine Lexen on 2017-04-07. Built by Tobias Lindgren and Madeleine Lexen
+ * Responsibility: Maintaining and storing the hashmap containing all the level objects.
+ * Used by: ActivityInfo, FillInTheBlanks, LevelActivity, QuestionMultiChoice, WriteCode, PassedLevel
+ * Uses: HashMapCreator
  */
 
 public class LearnJava {

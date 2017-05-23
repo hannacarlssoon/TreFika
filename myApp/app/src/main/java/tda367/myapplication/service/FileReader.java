@@ -6,8 +6,10 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 /**
- * Created by Tobias
- * Contains all functionality for reading from .txt files containing all level texts
+ * Created by: Tobias
+ * Responsibility: Reading from .txt files containing all level texts
+ * Used by: HashMapCreator
+ * Uses:
  */
 
 public class FileReader {

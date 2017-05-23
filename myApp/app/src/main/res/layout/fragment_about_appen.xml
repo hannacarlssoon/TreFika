@@ -1,3 +1,7 @@
+<!-- Created by: Hanna Carlsson, revised by Tobias Lindgren
+Responsibility: Setting the view for About the app
+Used by: AboutAppenFragment
+Uses: -->
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
