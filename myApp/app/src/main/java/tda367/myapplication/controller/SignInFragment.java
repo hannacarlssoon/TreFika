@@ -94,7 +94,7 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
         }
     }
 
-    //Sets the view to myPage
+    //Sets the view to the playFragment
     private void setPlayPage() {
         PlayFragment playFragment = new PlayFragment();
         FragmentManager manager = getFragmentManager();
