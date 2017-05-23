@@ -24,7 +24,10 @@ import static tda367.myapplication.R.drawable.ic_star_black_24dp;
 import static tda367.myapplication.R.drawable.ic_star_border_black_24dp;
 
 /**
- * Created by madeleine on 2017-05-17.
+ * @author Madeleine Lexén, revised by Sara Kitzing
+ * This class is responsible for handling the dialog shown when the user passes a level.
+ * Uses learnJava, AccountManager, User, Statistics, LevelActivity
+ * Used by QuestionMultiChoice, FillInTheBlanks, WriteCode
  */
 
 public class PassedLevel {
@@ -44,6 +47,23 @@ public class PassedLevel {
         starThree = (ImageView) mView.findViewById(R.id.starThree);
         setStars();
 
+        setPositivDialogButton(activity, mBuilder);
+
+        mBuilder.setNeutralButton("Tillbaka", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                activity.startActivity(new Intent(activity, LevelActivity.class));
+            }
+        });
+        mBuilder.setView(mView);
+        mBuilder.setCancelable(false);
+
+
+        AlertDialog dialog = mBuilder.create();
+        dialog.show();
+    }
+
+    private void setPositivDialogButton(final Activity activity, AlertDialog.Builder mBuilder) {
         if(learnJava.getCurrentLevel() == 4){
             mBuilder.setPositiveButton("Nästa nivå", new DialogInterface.OnClickListener() {
                 @Override
@@ -76,20 +96,6 @@ public class PassedLevel {
                 }
             });
          }
-
-
-        mBuilder.setNeutralButton("Tillbaka", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                activity.startActivity(new Intent(activity, LevelActivity.class));
-            }
-        });
-        mBuilder.setView(mView);
-        mBuilder.setCancelable(false);
-
-
-        AlertDialog dialog = mBuilder.create();
-        dialog.show();
     }
 
     public void setStars(){int level = learnJava.getCurrentLevel() + 1;

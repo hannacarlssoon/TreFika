@@ -3,7 +3,9 @@ package tda367.myapplication.model;
 /**
  * Created by madeleine on 2017-04-07.
  * @author madeleine
- * This class handles the logic for the multichoice question, checking the answer, uses query
+ * This class handles the logic for the multichoice question, checking the answer,
+ * uses query
+ * Used by LevelModel, ActivityInfo, QuestionMultiChoice
  */
 
 public class MultiChoice implements Query {

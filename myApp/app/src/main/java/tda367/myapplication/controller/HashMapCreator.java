@@ -9,7 +9,9 @@ import tda367.myapplication.service.FileReader;
 
 /**
  * Created by madeleine and Tobias on 2017-05-10.
- * Creates a hashmap of level model objects. Uses LevelModel, used by playFragment
+ * Creates a hashmap of level model objects.
+ * Uses LevelModel, FileReader
+ * Used by playFragment
  */
 
 public class HashMapCreator {

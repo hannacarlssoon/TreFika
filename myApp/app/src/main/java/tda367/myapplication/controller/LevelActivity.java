@@ -8,19 +8,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.view.View;
-
-import java.lang.reflect.Array;
-import java.util.HashMap;
-import java.util.List;
-
 import tda367.myapplication.model.AccountManager;
 import tda367.myapplication.model.LearnJava;
 import tda367.myapplication.R;
 import tda367.myapplication.model.Statistics;
 
 /* @author Tobias Lindgren, revised by Madeleine Lexén
-Uses learnJava
 This class is responsible for handling the actions from the levelActivity view
+Uses activity_level, LearnJava, AccountManager, User, Statistics, ActivityInfo
+Used by PlayFragment, PassedLevel
  */
 
 public class LevelActivity extends AppCompatActivity {

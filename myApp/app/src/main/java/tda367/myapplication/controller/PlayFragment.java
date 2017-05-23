@@ -9,15 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-
-import java.util.ArrayList;
-import java.util.List;
-
 import tda367.myapplication.model.AccountManager;
 import tda367.myapplication.model.LearnJava;
 import tda367.myapplication.R;
 import tda367.myapplication.model.Statistics;
-
 
 /**
  * Handles the setting of the views when the main category buttons are clicked
@@ -31,13 +26,7 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
     private Button b2;
     private Button b3;
     private Button b4;
-    /*private boolean cat1IsEnabled = false;
-    private boolean cat2IsEnabled = false;
-    private boolean cat3IsEnabled = false;
-    private boolean cat4IsEnabled = false;*/
     private boolean[] enabledCategories;
-
-
 
     public PlayFragment() {}
 
@@ -66,9 +55,6 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
         b4.setOnClickListener(this);
 
         enableCategories();
-
-       /* setEnabledCategories();
-        enableCategories();*/
 
         return view;
     }
@@ -108,7 +94,6 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
             Statistics statistics = ac.getActiveUser().getUserStatistics();
             if (ac.getActiveUser() != null) {
                 enabledCategories[1] = true;
-                //cat1IsEnabled = true;
 
                 for (int i = 1; i < learnJava.getAmountOfCategories(); i++) {
 
@@ -120,43 +105,11 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
                     }
                 }
             }
-            /*
-            try {
-                statistics.getStatisticsHint().get(statistics.findIndex("category15"));
-               // statistics.getHintHashMap().get("category1").get(4);
-                enabledCategories.add(2, true);
-                //cat2IsEnabled = true;
-            } catch (IndexOutOfBoundsException e) {
-                enabledCategories.add(2, false);
-                //cat2IsEnabled = false;
-            }
-            try {
-                statistics.getStatisticsHint().get(statistics.findIndex("category25"));
-                //statistics.getHintHashMap().get("category2").get(4);
-                //cat3IsEnabled = true;
-                enabledCategories.add(3, true);
-            } catch (IndexOutOfBoundsException e) {
-                enabledCategories.add(3, false);
-                cat3IsEnabled = false;
-            }
-            try {
-                statistics.getStatisticsHint().get(statistics.findIndex("category35"));
-                //statistics.getHintHashMap().get("category3").get(4);
-                cat4IsEnabled = true;
-            } catch (IndexOutOfBoundsException e) {
-                cat4IsEnabled = false;
-            }
-            */
         }
         catch (NullPointerException e){
             for(int i = 1; i < learnJava.getAmountOfCategories() + 1; i++){
                 enabledCategories[i]  = false;
             }
-            /*cat1IsEnabled = false;
-            cat2IsEnabled = false;
-            cat3IsEnabled = false;
-            cat4IsEnabled = false;
-            */
         }
     }
 

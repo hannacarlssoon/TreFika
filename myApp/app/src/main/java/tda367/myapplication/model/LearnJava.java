@@ -6,8 +6,9 @@ import java.util.HashMap;
 /**
  * Created by: Madeleine Lexen on 2017-04-07. Built by Tobias Lindgren and Madeleine Lexen
  * Responsibility: Maintaining and storing the hashmap containing all the level objects.
- * Used by: ActivityInfo, FillInTheBlanks, LevelActivity, QuestionMultiChoice, WriteCode, PassedLevel
- * Uses: HashMapCreator
+ * Used by: ActivityInfo, FillInTheBlanks, LevelActivity, QuestionMultiChoice, WriteCode, PassedLevel, CustomAdapter
+ * PlayFragment
+ * Uses: HashMapCreator, LevelModel
  */
 
 public class LearnJava {
@@ -18,6 +19,8 @@ public class LearnJava {
     private static LearnJava instance;
     private boolean hasInit = false;
 
+
+    //initiates the learnJava instance
     public void init(HashMap<String, LevelModel[]> levelHashMap){
         if(!hasInit){
             this.levelHashMap = levelHashMap;
