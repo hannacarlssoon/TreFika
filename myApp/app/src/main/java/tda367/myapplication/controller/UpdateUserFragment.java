@@ -17,17 +17,17 @@ import tda367.myapplication.model.AccountManager;
 import tda367.myapplication.service.ImageHandler;
 
 /**
- * A simple {@link Fragment} subclass.
+ * @author Hanna Carlsson
+ * Responsibility: Sets the update user view
+ * Uses: AccountManager, User, MainActivity, MyPageFragment, ImageHandler, fragment_update_user.xml
+ * Used by:
  */
 public class UpdateUserFragment extends Fragment {
 
     private final static int RESULT_LOAD_IMG = 1;
     private EditText username;
 
-
-    public UpdateUserFragment() {
-        // Required empty public constructor
-    }
+    public UpdateUserFragment() { }
 
 
     @Override
@@ -36,14 +36,38 @@ public class UpdateUserFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_update_user, container, false);
 
-        username = (EditText) view.findViewById(R.id.updateUsername);
+        //Sets the id:s
         final EditText password = (EditText) view.findViewById(R.id.updatePassword);
+        username = (EditText) view.findViewById(R.id.updateUsername);
         Button updateInformation = (Button) view.findViewById(R.id.updateInformation);
         ImageButton upload = (ImageButton) view.findViewById(R.id.imageButton2);
 
+        //Sets the textfields to username and password
         username.setText(AccountManager.getInstance().getActiveUser().getUserName());
         password.setText(AccountManager.getInstance().getActiveUser().getUserPassword());
 
+        onUpdateClicked(password, updateInformation);
+
+        onUploadClicked(upload);
+
+        return view;
+    }
+
+    //Sets onClickListner on upload, when clicked launches gallery app
+    private void onUploadClicked(ImageButton upload) {
+        upload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent galleryIntent = new Intent(Intent.ACTION_PICK,
+                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+
+                startActivityForResult(galleryIntent, RESULT_LOAD_IMG);
+            }
+        });
+    }
+
+    //Sets onClickListners to update, when clicked updates the users information
+    private void onUpdateClicked(final EditText password, Button updateInformation) {
         updateInformation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,26 +78,16 @@ public class UpdateUserFragment extends Fragment {
 
             }
         });
-
-        upload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent galleryIntent = new Intent(Intent.ACTION_PICK,
-                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-
-                startActivityForResult(galleryIntent, RESULT_LOAD_IMG);
-            }
-        });
-
-        return view;
     }
 
+    //Sets the page showing to My Page
     private void setMyPage() {
         MyPageFragment myPageFragment = new MyPageFragment();
         FragmentManager manager = getFragmentManager();
         manager.beginTransaction().replace(getId(), myPageFragment, myPageFragment.getTag()).commit();
     }
 
+    //Saves the image choosen to the user object
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -83,6 +97,4 @@ public class UpdateUserFragment extends Fragment {
             //TODO what to do
         }
     }
-
-
 }

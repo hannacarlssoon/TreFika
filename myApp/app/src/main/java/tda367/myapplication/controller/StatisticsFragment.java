@@ -14,7 +14,7 @@ import tda367.myapplication.model.Statistics;
 /**
  * @author Hanna Carlsson
  * Responsibility: Sets the view of the statistics fragment
- * Uses: CustomAdapter
+ * Uses: CustomAdapter, AccountManager, User, Statistics
  */
 
 public class StatisticsFragment extends Fragment {
