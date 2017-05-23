@@ -99,7 +99,6 @@ public class PassedLevel {
         else{
             starThree.setImageResource(ic_star_border_black_24dp);
         }
-        //!statistics.getHintHashMap().get(learnJava.getCurrentCategory()).get(learnJava.getCurrentLevel())
         if(!statistics.getStatisticsKey().get(statistics.findIndex("category" + learnJava.getCurrentCategory() + level))){
             starTwo.setImageResource(ic_star_black_24dp);
         }

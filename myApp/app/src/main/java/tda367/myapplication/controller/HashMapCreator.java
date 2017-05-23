@@ -9,15 +9,11 @@ import tda367.myapplication.service.FileReader;
 
 /**
  * Created by madeleine and Tobias on 2017-05-10.
- * Creates a hashmap of level model objects.
+ * Creates a hashmap of level model objects. Uses LevelModel, used by playFragment
  */
 
 public class HashMapCreator {
     private HashMap<String, LevelModel[]> levelHashMap;
-    /*private LevelModel[] category1 = new LevelModel[5];
-    private LevelModel[] category2 = new LevelModel[5];
-    private LevelModel[] category3 = new LevelModel[5];
-    private LevelModel[] category4 = new LevelModel[5];*/
     private FileReader fileReader =  new FileReader();
     private Context context;
 
@@ -39,18 +35,6 @@ public class HashMapCreator {
                 String fileName = "category" + i +"/" + "level" + j + ".txt";
                 LevelModel levelModel = new LevelModel(fileReader.getRequiredText(fileName, "question", context), fileReader.getRequiredText(fileName, "answer", context), fileReader.getRequiredText(fileName, "info", context), fileReader.getRequiredText(fileName, "hint", context), j, fileReader.getRequiredText(fileName, "heading", context), fileReader.getRequiredText(fileName, "alternative", context));
                 temp[j-1] = levelModel;
-
-                /*
-                if(i == 1){
-                    category1[j-1] = levelModel;
-                }
-                else if(i == 2){
-                    category2[j-1] = levelModel;
-                }
-                else if(i == 3) {
-                    category3[j-1] = levelModel;
-                }
-                */
             }
             levelHashMap.put("category" + i, temp);
         }
@@ -60,14 +44,6 @@ public class HashMapCreator {
     private void init(){
         levelHashMap = new HashMap<>();
         createCatArrays();
-        //fillHashMap();
     }
 
-   /* private void fillHashMap(){
-        levelHashMap.put(1, category1);
-        levelHashMap.put(2, category2);
-        levelHashMap.put(3, category3);
-        levelHashMap.put(4, category4);
-    }
-    */
 }

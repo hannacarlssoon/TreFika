@@ -94,7 +94,6 @@ public class LevelActivity extends AppCompatActivity {
         if(enabledLevels[4]){
             bossBtn.setText("Boss");
         }
-
     }
 
     //Sets the levels that are unlocked to enabled
