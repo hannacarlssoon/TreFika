@@ -18,7 +18,7 @@ import tda367.myapplication.R;
 /*
  * @author Hanna Carlsson
  * Responsibility: Handles the sign up of a user
- * Uses: AccountManager, SignInFragment, ImageHandler
+ * Uses: AccountManager, SignInFragment, ImageHandler, activity_sign_up.xml
  * Used by:
  */
 

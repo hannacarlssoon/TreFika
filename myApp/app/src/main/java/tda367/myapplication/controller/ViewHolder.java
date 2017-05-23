@@ -6,7 +6,10 @@ import android.widget.TextView;
 import tda367.myapplication.R;
 
 /**
- * Created by hannacarlsson on 2017-05-23.
+ * @author Hanna Carlsson
+ * Responsibility: Improve the efficiency of loading the statistics listview by initializing
+ * and finding id only once
+ * Used by: CustomAdapter
  */
 
 public class ViewHolder {

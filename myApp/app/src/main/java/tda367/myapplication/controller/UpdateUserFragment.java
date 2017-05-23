@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import tda367.myapplication.R;
 import tda367.myapplication.model.AccountManager;
@@ -94,7 +95,7 @@ public class UpdateUserFragment extends Fragment {
         try {
             ImageHandler.saveImage(requestCode, resultCode, data, getActivity(), username.getText().toString(), getContext());
         } catch (NullPointerException e) {
-            //TODO what to do
+            Toast.makeText(getContext(), "Something went wrong, try again", Toast.LENGTH_SHORT);
         }
     }
 }
