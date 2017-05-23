@@ -16,7 +16,6 @@ import tda367.myapplication.model.Statistics;
 
 /**
  * Handles the setting of the views when the main category buttons are clicked
- * A simple {@link Fragment} subclass.
  * @author HannaCarlsoon. Revised by Madeleine Lexén and Tobias Lindgren.
  */
 public class PlayFragment extends Fragment implements View.OnClickListener {
@@ -36,27 +35,38 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
 
         View view = inflater.inflate(R.layout.fragment_play, container, false);
 
-        //Creates an instance of HashMapCreator and passes it to learnJava when it's initiated
-        HashMapCreator hcreate = new HashMapCreator(getContext());
-        learnJava.init(hcreate.getHashMap());
-        enabledCategories = new boolean[learnJava.getAmountOfCategories() + 1];
+        createHashMapCreator();
 
+        setId(view);
 
-        //Sets id:s to the buttons
-        b1 = (Button) view.findViewById(R.id.category1);
-        b2 = (Button) view.findViewById(R.id.category2);
-        b3 = (Button) view.findViewById(R.id.category3);
-        b4 = (Button) view.findViewById(R.id.category4);
-
-        //Sets onCLickListeners to the buttons
-        b1.setOnClickListener(this);
-        b2.setOnClickListener(this);
-        b3.setOnClickListener(this);
-        b4.setOnClickListener(this);
+        setOnClickListners();
 
         enableCategories();
 
         return view;
+    }
+
+    //Creates an instance of HashMapCreator and passes it to learnJava when it's initiated
+    private void createHashMapCreator() {
+        HashMapCreator hcreate = new HashMapCreator(getContext());
+        learnJava.init(hcreate.getHashMap());
+        enabledCategories = new boolean[learnJava.getAmountOfCategories() + 1];
+    }
+
+    //Sets onCLickListeners to the buttons
+    private void setOnClickListners() {
+        b1.setOnClickListener(this);
+        b2.setOnClickListener(this);
+        b3.setOnClickListener(this);
+        b4.setOnClickListener(this);
+    }
+
+    //Sets id:s to the buttons
+    private void setId(View view) {
+        b1 = (Button) view.findViewById(R.id.category1);
+        b2 = (Button) view.findViewById(R.id.category2);
+        b3 = (Button) view.findViewById(R.id.category3);
+        b4 = (Button) view.findViewById(R.id.category4);
     }
 
     //Overridden method from onClickListners, sets the view when a button is clicked
@@ -86,9 +96,8 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
         }
     }
 
-
+    //TODO Lexi kommentera
     private void setEnabledCategories(){
-
         try {
             AccountManager ac = AccountManager.getInstance();
             Statistics statistics = ac.getActiveUser().getUserStatistics();
@@ -96,7 +105,6 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
                 enabledCategories[1] = true;
 
                 for (int i = 1; i < learnJava.getAmountOfCategories(); i++) {
-
                     try {
                         statistics.getStatisticsHint().get(statistics.findIndex("category" + i + "5"));
                         enabledCategories[i + 1] = true;
@@ -113,7 +121,7 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
         }
     }
 
-
+    //Enables the different categories
     private void enableCategories() {
         setEnabledCategories();
         b1.setEnabled(enabledCategories[1]);
