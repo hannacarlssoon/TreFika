@@ -4,9 +4,7 @@ package tda367.myapplication.controller;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.support.v4.app.NavUtils;
-//import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -24,14 +22,15 @@ import tda367.myapplication.model.AccountManager;
 import tda367.myapplication.model.LearnJava;
 import tda367.myapplication.model.LevelModel;
 import tda367.myapplication.model.MultiChoice;
-import tda367.myapplication.model.Query;
 import tda367.myapplication.R;
 
 /**
  * @author Madeleine Lexén, revised by Sara Kitzing and Tobias Lindgren
- * this class handles the events from the multichoice questions view
- * uses LearnJava, used by ActivityInfo
+ * Responsible for handling the events from the multichoice questions view
+ * Used by ActivityInfo
+ * Uses LearnJava, activity_question_multi_choice.xml
  */
+
 
 public class QuestionMultiChoice extends AppCompatActivity {
 
@@ -98,7 +97,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(QuestionMultiChoice.this);
                 setSelectedAnswer();
                 if (radioAnswerButton == null) {
-                    setNoInput();
+                    showNoInputMessage();
                 } else{
                     if (learnJava.getLevelModel().checkAnswer(userAnswer)) {
                         try {
@@ -115,8 +114,6 @@ public class QuestionMultiChoice extends AppCompatActivity {
                     } else {
                         setFailedLevel(mBuilder);
                         hintButton.setVisibility(View.VISIBLE);
-                        AlertDialog dialog = mBuilder.create();
-                        dialog.show();
                     }
 
                 }
@@ -134,10 +131,12 @@ public class QuestionMultiChoice extends AppCompatActivity {
         });
         mBuilder.setView(mView);
         mBuilder.setCancelable(false);
+        AlertDialog dialog = mBuilder.create();
+        dialog.show();
     }
 
     //Sets message when no input
-    private void setNoInput() {
+    private void showNoInputMessage() {
         Toast toast = Toast.makeText(QuestionMultiChoice.this, "Du måste välja ett alternativ", Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER_VERTICAL, 0, 470);
         toast.show();
@@ -166,10 +165,10 @@ public class QuestionMultiChoice extends AppCompatActivity {
             userAnswer = (String) radioAnswerButton.getText();
         }
         catch(IllegalStateException e){
-            //öppna popup ruta med felmeddelande till användaren?
         }
 
     }
+
 
     //Method for setting the right question to the textView
     private void setQuestion(){
@@ -210,6 +209,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
         alertDialog.show();
     }
 
+    //Sets the alternatives for the multiple choice
     private void setAltTexts(){
         altTextView1.setText(((MultiChoice)learnJava.getLevelModel().getQuery()).getAlt(0));
         altTextView2.setText(((MultiChoice)learnJava.getLevelModel().getQuery()).getAlt(1));

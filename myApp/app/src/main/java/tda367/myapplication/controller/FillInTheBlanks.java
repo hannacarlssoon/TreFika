@@ -1,10 +1,8 @@
 package tda367.myapplication.controller;
 
 
-//import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -16,8 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,13 +22,12 @@ import tda367.myapplication.R;
 import tda367.myapplication.model.AccountManager;
 import tda367.myapplication.model.LearnJava;
 import tda367.myapplication.model.LevelModel;
-import tda367.myapplication.model.Query;
 
 /**
  * @author Sara Kitzing, revised by Madeleine Lexén and Tobias Lindgren
- * Responsible for handling the events from te fill in the blanks question view
+ * Responsible for handling the events from the fill in the blanks question view
  * Used by ActivityInfo
- * Uses activity_fill_in_the_blanks.xml, PassedLevel, ModelFillBlanks
+ * Uses LearnJava, activity_fill_in_the_blanks.xml, PassedLevel, ModelFillBlanks
  */
 
 public class FillInTheBlanks extends AppCompatActivity {
@@ -96,7 +92,7 @@ public class FillInTheBlanks extends AppCompatActivity {
                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(FillInTheBlanks.this);
                 setAnswer();
                 if (answer1.isEmpty() || answer2.isEmpty() || answer3.isEmpty()) {
-                    showNoInput();
+                    showNoInputMessage();
                 } else {
                     if (learnJava.getLevelModel().checkAnswer(userAnswer)) {
                         try {
@@ -115,10 +111,8 @@ public class FillInTheBlanks extends AppCompatActivity {
                         }
 
                     } else {
-                        hint.setVisibility(View.VISIBLE);
                         setFailedLevel(mBuilder);
-                        AlertDialog dialog = mBuilder.create();
-                        dialog.show();
+                        hint.setVisibility(View.VISIBLE);
                     }
                 }
             }
@@ -126,7 +120,7 @@ public class FillInTheBlanks extends AppCompatActivity {
     }
 
     //Shows message when no input
-    private void showNoInput(){
+    private void showNoInputMessage(){
         Toast toast = Toast.makeText(FillInTheBlanks.this, "Input saknas", Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER_VERTICAL, 0, 470);
         toast.show();
@@ -142,6 +136,8 @@ public class FillInTheBlanks extends AppCompatActivity {
         });
         mBuilder.setView(mView);
         mBuilder.setCancelable(false);
+        AlertDialog dialog = mBuilder.create();
+        dialog.show();
     }
 
     //Handles the back navigation
