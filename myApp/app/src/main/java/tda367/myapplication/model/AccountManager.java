@@ -6,7 +6,9 @@ import java.util.Map;
 
 /**
  * @author hannacarlsson
- * Handles the log in, log out and add new users methods
+ * Responsibility: Handles the log in, log out and add new users methods
+ * Uses: User
+ * Used by:
  */
 
 public class AccountManager implements Serializable {
@@ -43,7 +45,7 @@ public class AccountManager implements Serializable {
         }
     }
 
-    //Method check username to password and if it matches logs in
+    //Sets the active user
     public void setUser(String userName) {
         activeUser = users.get(userName);
     }
