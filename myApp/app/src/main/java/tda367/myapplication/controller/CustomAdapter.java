@@ -18,7 +18,8 @@ import tda367.myapplication.model.AccountManager;
 import tda367.myapplication.model.LearnJava;
 
 /**
- * Created by hannacarlsson on 2017-05-15.
+ * @author Hanna Carlsson
+ * Makes the custom listviews to display the statistics
  */
 
 public class CustomAdapter extends BaseAdapter {
@@ -52,9 +53,11 @@ public class CustomAdapter extends BaseAdapter {
         return 0;
     }
 
+    //Gets the specific custom view for each compontent in the statisticsFragment listview
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
+        //Uses pattern ViewHolder to make more efficient listview
         ViewHolder holder = null;
         if (view == null) {
             view = activity.getLayoutInflater().inflate(R.layout.custom_layout, null);
@@ -62,20 +65,17 @@ public class CustomAdapter extends BaseAdapter {
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
-
         }
 
-        if (hintList.get(i)) {
-            holder.getHint().setText("Ja");
-        } else {
-            holder.getHint().setText("Nej");
-        }
-        if (keyList.get(i)) {
-            holder.getKey().setText("Ja");
-        } else {
-            holder.getKey().setText("Nej");
-        }
+        setValues(i, holder);
 
+        setNames(i, holder);
+
+        return view;
+    }
+
+    //Sets the level and category names
+    private void setNames(int i, ViewHolder holder) {
         holder.getTime().setText(timeList.get(i).toString() + " s");
         int currLevel = i + 1;
         holder.getLevel().setText("Level " + currLevel);
@@ -90,7 +90,19 @@ public class CustomAdapter extends BaseAdapter {
                 holder.getCategory().setText("Category 4");
             }
         }
+    }
 
-        return view;
+    //Sets the boolean values, true -> Ja and false -> Nej
+    private void setValues(int i, ViewHolder holder) {
+        if (hintList.get(i)) {
+            holder.getHint().setText("Ja");
+        } else {
+            holder.getHint().setText("Nej");
+        }
+        if (keyList.get(i)) {
+            holder.getKey().setText("Ja");
+        } else {
+            holder.getKey().setText("Nej");
+        }
     }
 }
