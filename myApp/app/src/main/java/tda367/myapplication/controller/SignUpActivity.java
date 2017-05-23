@@ -19,7 +19,10 @@ import tda367.myapplication.service.ImageHandler;
 import tda367.myapplication.R;
 
 /*
- * Handles the sign up of a user
+ * @author Hanna Carlsson
+ * Responsibility: Handles the sign up of a user
+ * Uses: AccountManager, SignInFragment, ImageHandler
+ * Used by:
  */
 
 public class SignUpActivity extends AppCompatActivity {
@@ -45,23 +48,17 @@ public class SignUpActivity extends AppCompatActivity {
         //Finds the id for the components
         username = (EditText) findViewById(R.id.Username);
         password = (EditText) findViewById(R.id.Password);
-
         ImageButton upload = (ImageButton) findViewById(R.id.imageButton);
-
-        //Sets onClickListner to the upload button, which sends the user to the gallery app
-        upload.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent galleryIntent = new Intent(Intent.ACTION_PICK,
-                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-
-                startActivityForResult(galleryIntent, RESULT_LOAD_IMG);
-            }
-        });
-
         Button signUp = (Button) findViewById(R.id.SignUp);
 
-        //Sets onClickListner to the sign up button, signs in if username is okay, else makes toast
+        onUploadClick(upload);
+
+        onSignUpClicked(signUp);
+
+    }
+
+    //Sets onClickListner to the sign up button, when clicked signs in if username is okay, else makes toast
+    private void onSignUpClicked(Button signUp) {
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,7 +73,19 @@ public class SignUpActivity extends AppCompatActivity {
                 }
             }
         });
+    }
 
+    //Sets onClickListner to the upload button, when clicked sends the user to the gallery app
+    private void onUploadClick(ImageButton upload) {
+        upload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent galleryIntent = new Intent(Intent.ACTION_PICK,
+                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+
+                startActivityForResult(galleryIntent, RESULT_LOAD_IMG);
+            }
+        });
     }
 
     //Returns wheather the user already exists or not
@@ -108,7 +117,6 @@ public class SignUpActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            // Respond to the action bar's Up/Home button
             case android.R.id.home:
                 NavUtils.navigateUpFromSameTask(this);
                 return true;
