@@ -14,7 +14,9 @@ import java.io.ObjectOutputStream;
 import tda367.myapplication.model.AccountManager;
 
 /**
- * Created by hannacarlsson on 2017-05-10.
+ * @author Hanna Carlsson
+ * Responsibility: Handles the storing and loading of objects
+ * Used by:
  */
 
 public class UserFileReader {
@@ -29,6 +31,7 @@ public class UserFileReader {
         return instance;
     }
 
+    //Loads the stored object, and returns it, otherwise throws exception
     public ObjectInputStream loadObject(Context context) throws IOException {
         ContextWrapper cw = new ContextWrapper(context);
         File directory = cw.getDir("dataDir", Context.MODE_PRIVATE);
@@ -36,6 +39,7 @@ public class UserFileReader {
         return new ObjectInputStream(new FileInputStream(myPath));
     }
 
+    //Saves the object, is called in onDestory from MainActivity
     public void saveObject(Context context, Object manager) {
         ContextWrapper cw = new ContextWrapper(context);
         File directory = cw.getDir("dataDir", Context.MODE_PRIVATE);
@@ -46,7 +50,7 @@ public class UserFileReader {
             objectOutputStream.flush();
             objectOutputStream.close();
         } catch (IOException e) {
-            //TODO what to do
+            //TODO add catch
         }
     }
 
