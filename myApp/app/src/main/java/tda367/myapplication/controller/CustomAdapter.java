@@ -12,6 +12,7 @@ import tda367.myapplication.R;
 /**
  * @author Hanna Carlsson
  * Responsibility: Makes the custom listviews to display the statistics
+ * Uses: ViewHolder
  * Used by: StatisticsFragment
  */
 

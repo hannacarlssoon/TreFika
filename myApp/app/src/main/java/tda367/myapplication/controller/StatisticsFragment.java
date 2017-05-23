@@ -15,6 +15,7 @@ import tda367.myapplication.model.Statistics;
  * @author Hanna Carlsson
  * Responsibility: Sets the view of the statistics fragment
  * Uses: CustomAdapter, AccountManager, User, Statistics, fragment_statistics.xml
+ *
  */
 
 public class StatisticsFragment extends Fragment {

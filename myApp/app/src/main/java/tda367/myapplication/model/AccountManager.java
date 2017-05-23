@@ -8,7 +8,8 @@ import java.util.Map;
  * @author hannacarlsson
  * Responsibility: Handles the log in, log out and add new users methods
  * Uses: User
- * Used by:
+ * Used by: MyPageFragment, PlayFragment, SignInFragment, SignUpActivity, StatisticsFragment
+ * UpdateUserFragment
  */
 
 public class AccountManager implements Serializable {

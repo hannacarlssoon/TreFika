@@ -9,6 +9,7 @@ import tda367.myapplication.R;
  * @author Hanna Carlsson
  * Responsibility: Improve the efficiency of loading the statistics listview by initializing
  * and finding id only once
+ *
  * Used by: CustomAdapter
  */
 

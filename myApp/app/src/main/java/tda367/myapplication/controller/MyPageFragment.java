@@ -19,7 +19,7 @@ import tda367.myapplication.service.ImageHandler;
  * @author Hanna Carlsson
  * Responsibilty: Makes the My page, sets the profile picture and username
  * Uses: fragment_my_page.xml, AccountManager, User, SignInFragment, UpdateUserFragment
- * Used by: PlayFragment
+ * Used by: PlayFragment, SignInFragment, UpdateUserFragment
  */
 public class MyPageFragment extends Fragment {
 

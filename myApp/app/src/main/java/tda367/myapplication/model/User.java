@@ -7,7 +7,8 @@ import java.io.Serializable;
  * Responsibility: Is the User object, handles changing of user information,
  * and saving of statistics specific for the user
  * Uses: Statistics
- * Used by: AccountManager
+ * Used by: AccountManager, MyPageFragment, PlayFragment, SignInFragment, StatisticsFragment,
+ * UpdateUserFragment,
  */
 
 public class User implements Serializable {

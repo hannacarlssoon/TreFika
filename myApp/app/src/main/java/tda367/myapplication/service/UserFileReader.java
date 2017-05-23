@@ -16,6 +16,7 @@ import tda367.myapplication.model.AccountManager;
 /**
  * @author Hanna Carlsson
  * Responsibility: Handles the storing and loading of objects
+ *
  * Used by:
  */
 

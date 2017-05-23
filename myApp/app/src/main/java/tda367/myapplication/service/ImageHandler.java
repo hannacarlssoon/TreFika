@@ -24,7 +24,7 @@ import static com.facebook.FacebookSdk.getApplicationContext;
  * Responsibility: Handles the storing and loading of images from directory where the images are
  * saved with username as name of the image in storage.
  *
- * Used by:
+ * Used by: SignUpActivity, UpdateUserFragment,
  */
 
 public class ImageHandler {
