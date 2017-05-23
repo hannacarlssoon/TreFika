@@ -2,29 +2,25 @@ package tda367.myapplication.controller;
 
 
 import android.content.Context;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.support.v7.app.AppCompatActivity;
-
-import java.util.Locale;
 
 import tda367.myapplication.R;
 
 
 /**
  * A simple {@link Fragment} subclass.
- * Created by ?, revised by Tobias Lindgren
+ * Created by: Hanna Carlsson, revised by Tobias Lindgren
+ * Responsibility: Setting the information in the views in Settings fragment
+ * and controlling the volume of the background music
+ * Used by:
+ * Uses:
  */
 public class SettingsFragment extends Fragment {
 

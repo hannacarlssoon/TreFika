@@ -13,15 +13,15 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import tda367.myapplication.DetailInfo;
-import tda367.myapplication.HeaderInfo;
 import tda367.myapplication.R;
-import tda367.myapplication.ReadMoreListAdapter;
 
 
 /**
  * A simple {@link Fragment} subclass.
- * Created by ?, revised by Tobias Lindgren
+ * Created by: Hanna Carlsson, revised by Tobias Lindgren
+ * Responsibility: Creating the ExpandableListView and setting the information
+ * Used by: MainActivity
+ * Uses: ReadMoreListAdapter, HeaderInfo and DetailInfo
  */
 public class ReadMoreFragment extends Fragment {
 
@@ -32,7 +32,6 @@ public class ReadMoreFragment extends Fragment {
     private ExpandableListView expandableListView;
 
     public ReadMoreFragment() {
-
         // Required empty public constructor
     }
 
@@ -86,7 +85,7 @@ public class ReadMoreFragment extends Fragment {
     //here we maintain our products in various departments
     private int addProduct(String department, String product){
 
-        int groupPosition = 0;
+        int groupPosition;
 
         //check the hash map if the group already exists
         HeaderInfo headerInfo = mySection.get(department);

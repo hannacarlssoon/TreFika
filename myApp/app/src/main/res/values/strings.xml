@@ -45,5 +45,6 @@ double decimals = 2.5;
 
 Det finns också andra typer i java, en väldigt användbar är String. Denna typen håller strängar av text. String skrivs med stor inledande bokstav. En String-variabel kan deklareras som String text;</string>
     <string name="about">About</string>
+    <string name="submit">Submit</string>
 
 </resources>
