@@ -3,9 +3,11 @@ package tda367.myapplication.model;
 import java.io.Serializable;
 
 /**
- * @author hannacarlsson
- * Is the User object, handles changing of user information,
+ * @author Hanna Carlsson
+ * Responsibility: Is the User object, handles changing of user information,
  * and saving of statistics specific for the user
+ * Uses: Statistics
+ * Used by: AccountManager
  */
 
 public class User implements Serializable {
@@ -13,6 +15,7 @@ public class User implements Serializable {
     private String userName;
     private String userPassword;
 
+    //Id needed for the serilizable interface
     private static final long serialVersionUID =8733042957659618282L;
 
     private Statistics userStatistics;

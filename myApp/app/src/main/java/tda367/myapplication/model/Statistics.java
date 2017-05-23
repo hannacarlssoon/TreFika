@@ -7,8 +7,9 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * Handles the storing of the statistics data
- * Created by hannacarlsson on 2017-04-07.
+ * @author Hanna Carlsson
+ * Responisibility: Handles the storing of the statistics data
+ * Used by: User
  */
 
 public class Statistics implements Serializable {
