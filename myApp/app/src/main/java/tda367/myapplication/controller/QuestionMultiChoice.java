@@ -28,7 +28,7 @@ import tda367.myapplication.R;
  * @author Madeleine Lexén, revised by Sara Kitzing and Tobias Lindgren
  * Responsible for handling the events from the multichoice questions view
  * Used by ActivityInfo
- * Uses LearnJava, activity_question_multi_choice.xml, PassedLevel
+ * Uses LearnJava, activity_question_multi_choice.xml, PassedLevel, User, Statistics
  */
 
 

@@ -30,7 +30,7 @@ import tda367.myapplication.service.Server;
  * Responsible for handling the events from the WriteCode questions view. Creates and
  * calls the server to compile the users code
  * Used by ActivityInfo
- * Uses LearnJava, activity_write_code.xml, PassedLevel, Server
+ * Uses LearnJava, activity_write_code.xml, PassedLevel, Server, User, Statistics
  */
 
 

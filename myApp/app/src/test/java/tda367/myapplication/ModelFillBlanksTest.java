@@ -9,8 +9,9 @@ import tda367.myapplication.model.ModelFillBlanks;
  * @author Sara Kitzing
  */
 
-public class FillBlanksTest {
+public class ModelFillBlanksTest {
 
+    //Tests the CheckAnswer-method in ModelFillBlanks
     @Test
     public void testCheckAnswer() {
         ModelFillBlanks f = new ModelFillBlanks("hej", "häst,hund,ko");

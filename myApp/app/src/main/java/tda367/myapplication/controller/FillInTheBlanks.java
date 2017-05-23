@@ -27,7 +27,7 @@ import tda367.myapplication.model.LevelModel;
  * @author Sara Kitzing, revised by Madeleine Lexén and Tobias Lindgren
  * Responsible for handling the events from the fill in the blanks question view
  * Used by ActivityInfo
- * Uses LearnJava, activity_fill_in_the_blanks.xml, PassedLevel
+ * Uses LearnJava, activity_fill_in_the_blanks.xml, PassedLevel, User, Statistics
  */
 
 public class FillInTheBlanks extends AppCompatActivity {
