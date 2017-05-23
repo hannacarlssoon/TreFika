@@ -17,8 +17,10 @@ public class ModelFillBlanksTest {
         ModelFillBlanks f = new ModelFillBlanks("hej", "häst,hund,ko");
         boolean check = f.checkAnswer("häst,hund,ko");
         boolean check2 = f.checkAnswer("hej,hund,ko");
+        boolean check3 = f.checkAnswer("Häst,hund,KO");
         assertEquals(check, true);
         assertEquals(check2,false);
+        assertEquals(check3, true);
     }
 
 

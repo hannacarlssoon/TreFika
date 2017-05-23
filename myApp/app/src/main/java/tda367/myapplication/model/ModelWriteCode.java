@@ -4,6 +4,7 @@ package tda367.myapplication.model;
 /**
  * @author Sara Kitzing
  * This class handles the logic behind the write code query
+ * Used by LevelModel
  */
 
 public class ModelWriteCode implements Query {
@@ -21,9 +22,10 @@ public class ModelWriteCode implements Query {
         return question;
     }
 
-    //checks if users answer is correct
+    //Checks if users answer is correct
+    @Override
     public boolean checkAnswer(String userAnswer){
-        return userAnswer.equalsIgnoreCase(answer.toLowerCase());
+        return userAnswer.equalsIgnoreCase(answer);
 
     }
 
