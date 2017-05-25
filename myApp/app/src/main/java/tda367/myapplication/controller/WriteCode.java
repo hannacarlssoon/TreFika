@@ -74,11 +74,11 @@ public class WriteCode extends AppCompatActivity {
          @Override
          public void onClick(View v) {
                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(WriteCode.this);
-                showMessage("Din kod kompileras", Toast.LENGTH_SHORT, 470);
                 setAnswer();
                 if(answer.isEmpty()) {
                     showMessage("Input saknas", Toast.LENGTH_SHORT, 470);
                 }else {
+                    showMessage("Din kod kompileras", Toast.LENGTH_SHORT, 470);
                     try {
                         SendfeedbackCode code = new SendfeedbackCode();
                         code.execute().get();
