@@ -2,5 +2,5 @@ Vad har dessa två uttryck för boolean värde? int i = 12 och String s = “Str
 1. False & 2. False
 När du jämför strings använder du en anna metod. Istället för att använda “==” så ska du använda “.equals()”. Förklaringen till varför kan vara lite svår att förstå till en början men “==” jämför objekt medans “.equals()” jämför endast Strings. Ett exempel på hur man jämför Strings är : String s = “text”; s.equals(“text”); Detta uttryck får boolean-värdet true.
 Allt som står före “lika med”-tecknen ingår i uttrycket och när man jämför Strings är gemener och versaler olika saker och viktiga att skilja på.
-1. True & 2. True,1. True & 2. False,1. False & 2. True,1. False & 2. False
 Boolean-logik
+1. True & 2. True,1. True & 2. False,1. False & 2. True,1. False & 2. False

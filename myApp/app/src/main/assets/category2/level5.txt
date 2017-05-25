@@ -2,5 +2,5 @@ Du ska skriva ett program som provar en if-sats. Börja med att skapa två int, 
 inte 16
 Ibland vill man inte kolla om ett uttryck är sant utan om det är falskt och då ska man köra en viss kod. Det gör du med hjälp av att sätta “!” i början av uttrycket. Till exempel:rowboolean isFalse = false;rowif(!isFalse){row	//do somethingrow}row rowTrots att “isFalse” är falsk så kommer koden köras eftersom vi sätter “!” i börja av uttrycket och söker då ett falskt uttryck.row rowDetta är sista nivån för denna kategori, kom ihåg allt du lärt dig fram tills nu!
 Kom ihåg, if( ){ }, else if( ){ }, else{ }. ! gör att  den kollar om det inte är sant.
-N/A
 Boolean-logik och If-satser
+int i = 12; int j = 5; if(i+j == 15){System.out.println("15");} else if (!i+j == 16){System.out.println("int 16");} else {System.out.println("17");}

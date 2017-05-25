@@ -2,5 +2,5 @@ Vad skriver följande kod ut? row rowint i = 12;rowint j = 4;rowint k = 17;rowSt
 string & 17
 Ibland händer det att man har fler än två olika saker den ska göra beroende på kravet. Då kan man använda “else if”. Ett exempel är om du ska betala för en bussresa. Om du är yngre än 6 år behöver du inte betala någonting, är du 6-65 år behöver du betala 20kr och är du äldre än 65 år så behöver du inte betala. Om du ska utforma ett program för detta kan det se ut ungefär såhär:rowif (age < 6){row	//betala interow}rowelse if (age > 5 && age < 65){row	//betala 20krrow}rowelse{row	//betala interow}row row“&&”-tecknet betyder att “age” måste vara större än 5 OCH mindre än 65. Om ett av dessa två uttryck inte stämmer kommer hela uttrycket bli falskt.
 Det är två stycken if-satser, den skriver ut två saker
-17 & answer,string & 17,string,string & answer
 If-satser
+17 & answer,string & 17,string,string & answer

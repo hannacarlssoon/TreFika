@@ -2,5 +2,5 @@ Boolean-variabeln kan ha två värden, [1] när ett uttryck är sant och [2] nä
 true,false,false
 en boolean-variabel kan vara ett av två värden, true eller false (sant eller falskt, ja eller nej, 1 eller 0). Man använder boolean-variabler för att utföra logiska beräkningar, d.v.s. man kollar om ett uttryck är sant eller falskt. Ett exempel på ett sånt uttryck är “int x > 5”. Om värdet på x är större än 5 så är uttrycket true (sant). Om x inte är större än 5 är uttrycket false (falskt). När man ger, t.ex., en int ett värde använder man sig av ett “lika med”-tecknet (int i = 3). Om man istället använder två “lika med”-tecken får man ett logiskt uttryck (i == 3) där man undersöker om variabeln i är lika med 3. Och på samma sätt som tidigare, om “i” är lika med 3 är uttrycket true och annars false.
 värdena är skrivna på engelska. Är 100100110 större än 101011101?
-N/A
 Boolean-logik
+N/A
