@@ -60,8 +60,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         setInformationNavigationDrawer(navigationView);
 
-        setUpMediaPlayer();
-
         setFirstView(savedInstanceState);
 
         setDrawerNavigation(toolbar);
@@ -193,21 +191,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
        }
     }
 
-    //Sets the background music
-    private void setUpMediaPlayer(){
-        mPlayer = MediaPlayer.create(this, R.raw.wildestdreams);
-        mPlayer.setLooping(true);
-        mPlayer.setVolume(0.50f, 0.50f);
-        mPlayer.start();
-    }
-
-    //Overriden method, called when app is closing down, stops the background music and
-    //saves AccountManager instace
+    //Overriden method, called when app is closing down, saves AccountManager instance
     @Override
     public void onDestroy() {
         super.onDestroy();
-        mPlayer.stop();
-        mPlayer.release();
         UserFileReader.getInstance().saveObject(getApplicationContext(), AccountManager.getInstance());
     }
 }
