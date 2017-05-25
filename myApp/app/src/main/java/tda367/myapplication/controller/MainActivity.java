@@ -178,9 +178,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     //Sets the user information in the navigation drawer, when logged in
     public static void setUserInformation(String imageName) {
        if (imageName == null) {
-           profilePicture.setImageResource(sym_def_app_icon);
            navUserName.setText("Logga in för att se användarnamn");
            titleSignIn.setTitle("Logga in");
+           profilePicture.setImageResource(R.mipmap.smurf_icon);
        } else {
            profilePicture.setImageDrawable(ImageHandler.loadImage(imageName));
            navUserName.setText(imageName);
