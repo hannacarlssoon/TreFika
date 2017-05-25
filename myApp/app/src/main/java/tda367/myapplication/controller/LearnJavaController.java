@@ -16,12 +16,14 @@ public class LearnJavaController extends Application {
 
     public static MediaPlayer mPlayer;
 
+    //Method called when app starts
     @Override
     public void onCreate(){
         super.onCreate();
         setUpMediaPlayer();
     }
 
+    //Method called when app is terminated
     @Override
     public void onTerminate(){
         super.onTerminate();
@@ -29,6 +31,7 @@ public class LearnJavaController extends Application {
         mPlayer.release();
     }
 
+    //Creates mediaplayer, sets looping, volume and starts music
     private void setUpMediaPlayer(){
         mPlayer = MediaPlayer.create(this, R.raw.wildestdreams);
         mPlayer.setLooping(true);

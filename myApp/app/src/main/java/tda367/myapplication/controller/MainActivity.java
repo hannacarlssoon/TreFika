@@ -148,9 +148,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_signin) {
             SignInFragment signInFragment = new SignInFragment();
             setView(signInFragment);
-        } else if (id == R.id.nav_achievements) {
-            AcheivementsFragment acheivementsFragment = new AcheivementsFragment();
-            setView(acheivementsFragment);
         } else if (id == R.id.nav_statistics) {
             StatisticsFragment statisticsFragment = new StatisticsFragment();
             setView(statisticsFragment);
