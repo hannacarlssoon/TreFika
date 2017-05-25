@@ -11,10 +11,6 @@
             android:icon="@drawable/ic_menu_login"
             android:title="Logga in" />
         <item
-            android:id="@+id/nav_achievements"
-            android:icon="@drawable/ic_menu_acheivments"
-            android:title="Achievements" />
-        <item
             android:id="@+id/nav_statistics"
             android:icon="@drawable/ic_menu_statitics"
             android:title="Statistik" />
