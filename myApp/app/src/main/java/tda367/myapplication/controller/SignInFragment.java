@@ -87,9 +87,9 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
 
     //Returns wheather the password is correct or not
     private boolean isPasswordCorrect(String username, String password) {
-        try {
+        if (AccountManager.getInstance().getUsers().get(username) != null) {
             return AccountManager.getInstance().getUsers().get(username).getUserPassword().equals(password);
-        } catch (NullPointerException e) {
+        } else {
             return false;
         }
     }

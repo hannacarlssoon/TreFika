@@ -87,22 +87,14 @@ public class SignUpActivity extends AppCompatActivity {
 
     //Returns wheather the user already exists or not
     private boolean checkIfUserExists(String username) {
-        try {
-            return AccountManager.getInstance().getUsers().containsKey(username);
-        } catch (NullPointerException e) {
-            return false;
-        }
+        return AccountManager.getInstance().getUsers().containsKey(username);
     }
 
     //Overridden method from the AppCompatActivity, saves the images from the gallery app
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
-        try {
-            ImageHandler.saveImage(requestCode, resultCode, data, this, username.getText().toString(), getApplicationContext());
-        } catch (NullPointerException e) {
-            //TODO what to do
-        }
+        ImageHandler.saveImage(requestCode, resultCode, data, this, username.getText().toString(), getApplicationContext());
     }
 
     //Sets the view to myPage

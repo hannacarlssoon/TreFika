@@ -102,10 +102,6 @@ public class UpdateUserFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        try {
-            ImageHandler.saveImage(requestCode, resultCode, data, getActivity(), username.getText().toString(), getContext());
-        } catch (NullPointerException e) {
-            Toast.makeText(getContext(), "Something went wrong, try again", Toast.LENGTH_SHORT).show();
-        }
+        ImageHandler.saveImage(requestCode, resultCode, data, getActivity(), username.getText().toString(), getContext());
     }
 }

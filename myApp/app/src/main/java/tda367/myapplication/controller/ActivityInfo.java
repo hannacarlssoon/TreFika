@@ -48,13 +48,8 @@ public class ActivityInfo extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    AccountManager.getInstance().getActiveUser().getUserStatistics().startTimer();
-                } catch (NullPointerException e) {
-
-                } finally {
-                    launchIntent();
-                }
+                AccountManager.getInstance().getActiveUser().getUserStatistics().startTimer();
+                launchIntent();
             }
         });
     }
