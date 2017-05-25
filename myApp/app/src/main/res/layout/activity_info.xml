@@ -21,12 +21,12 @@
 
     <TextView
         android:id="@+id/infoText"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="400dp"
         android:layout_marginBottom="15dp"
         android:layout_marginEnd="43dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginRight="43dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:scrollbars="vertical"
@@ -43,14 +43,14 @@
         android:layout_width="145dp"
         android:layout_height="65dp"
         android:layout_marginBottom="16dp"
+        android:layout_marginEnd="119dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="119dp"
-        android:text="Continue"
+        android:layout_marginStart="16dp"
+        android:text="Vidare"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="119dp" />
+        app:layout_constraintRight_toRightOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
