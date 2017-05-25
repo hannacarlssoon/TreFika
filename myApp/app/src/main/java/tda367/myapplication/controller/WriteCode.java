@@ -8,6 +8,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.method.ScrollingMovementMethod;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -144,6 +145,7 @@ public class WriteCode extends AppCompatActivity {
         userCode   = (EditText)findViewById(R.id.codeEditText);
         server = new Server("10.0.2.2");
         questionView = (TextView) findViewById(R.id.codeQuestion);
+        questionView.setMovementMethod(new ScrollingMovementMethod());
     }
 
 
