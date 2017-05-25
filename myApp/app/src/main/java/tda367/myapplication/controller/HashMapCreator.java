@@ -41,14 +41,14 @@ public class HashMapCreator {
                 String fileName = "category" + i +"/" + "level" + j + ".txt";
                 Query query;
                 List<String> list = fileReader.getTextArray(fileName, context);
-                if ( j % 2 == 0){
-                    query = new MultiChoice(list);
+                if ( j > 4){
+                    query = new ModelWriteCode(list);
                 }
                 else if(j % 2 == 1){
                     query = new ModelFillBlanks(list);
                 }
                 else {
-                    query = new ModelWriteCode(list);
+                    query = new MultiChoice(list);
                 }
                 temp[j-1] = query;
             }

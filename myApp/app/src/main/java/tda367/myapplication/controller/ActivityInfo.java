@@ -58,11 +58,11 @@ public class ActivityInfo extends AppCompatActivity {
     //Launches the right kind of question activity
     private void launchIntent(){
         Intent intent;
-        if(learnJava.getCurrentLevel() == 5){
+        if(learnJava.getCurrentLevel() == 4){
             intent = new Intent(ActivityInfo.this, WriteCode.class);
             startActivity(intent);
         }
-        else if(learnJava.getCurrentLevel() % 2 == 1){
+        else if(learnJava.getCurrentLevel() % 2 == 0){
             intent = new Intent(ActivityInfo.this, FillInTheBlanks.class);
             startActivity(intent);
         }

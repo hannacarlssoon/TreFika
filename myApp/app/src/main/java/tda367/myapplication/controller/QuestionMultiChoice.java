@@ -88,7 +88,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Nivå " + learnJava.getCurrentLevel());
+        getSupportActionBar().setTitle("Nivå " + (learnJava.getCurrentLevel() + 1));
     }
 
     //Sets OnClick-listener for submit button
