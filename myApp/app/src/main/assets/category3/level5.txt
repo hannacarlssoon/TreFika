@@ -2,5 +2,5 @@ Använd dig av det du lärt dig om loopar och skriv ett program som skriver ut �
 Hej! Hej! Hej! Hej! Hej! Hej! Hej! Hej! Hej! Hej!
 En while-loop är en “upprepa tills”-loop som vanligtvis används när man inte vet hur många gånger den ska upprepas, ett exempel på en while-loop är: row rowint sum = 15; rowwhile(sum > 0){ row    //kod rowsum = sum - 3; row} row rowEn for-loop används då antalet gånger som loopen ska köras är känt. Man skulle kunna säga att de bygger på en intern räknare som håller koll på hur många varv som gått och när den ska sluta utefter de förutsättningar som man ger. En vanlig for-loop kan se ut på följande sätt: row rowfor(int i = 0; i < 20; i++){ row    //kod row}
 Båda typerna av loopar kan användas. Tänk på vilket uttryck du använder och om det är så att detta verkligen stämmer överens med vad du vill uppnå med de variabler du använder dig av.
-N/A
 For- och while-loopar
+for (int i = 0;i < 10; i++){System.out.println("Hej!");}
