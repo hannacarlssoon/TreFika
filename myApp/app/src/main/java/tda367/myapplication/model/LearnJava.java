@@ -63,4 +63,8 @@ public class LearnJava {
         currentLevel = i;
     }
 
+    public boolean getHasInit(){
+        return hasInit;
+    }
+
 }
