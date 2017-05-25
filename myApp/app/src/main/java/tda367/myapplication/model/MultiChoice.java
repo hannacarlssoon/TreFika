@@ -1,40 +1,27 @@
 package tda367.myapplication.model;
 
+import java.util.List;
+
 /**
  * Created by madeleine on 2017-04-07.
  * @author madeleine
  * This class handles the logic for the multichoice question, checking the answer,
  * uses query
- * Used by LevelModel, ActivityInfo, QuestionMultiChoice
+ * Used by Query, ActivityInfo, QuestionMultiChoice
  */
 
-public class MultiChoice implements Query {
-    private final String answer;
-    private final String question;
+public class MultiChoice extends Query {
     private String[] alt;
 
-    public MultiChoice(String question, String answer, String alternatives){
-        this.question = question;
-        this.answer = answer.toLowerCase();
-        this.alt = alternatives.split(",");
+    public MultiChoice(List<String> e){
+        super(e);
+        alt = e.get(5).split(",");
     }
-
-
-    @Override
-    public String getQuestion() {
-        return question;
-    }
-
 
     //Checks if the answer the user has selected is correct.
     @Override
     public boolean checkAnswer(String userAnswer) {
         return answer.equals(userAnswer.toLowerCase());
-    }
-
-    @Override
-    public String getAnswer() {
-        return answer;
     }
 
     public String getAlt(int altNr){

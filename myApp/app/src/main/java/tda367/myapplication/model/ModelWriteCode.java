@@ -1,25 +1,20 @@
 package tda367.myapplication.model;
 
 
+import java.util.List;
+
 /**
  * @author Sara Kitzing
  * This class handles the logic behind the write code query
- * Used by LevelModel
+ * Used by Query
  */
 
-public class ModelWriteCode implements Query {
-    private final String question;
-    private final String answer;
+public class ModelWriteCode extends Query {
+    private String code;
 
-
-    public ModelWriteCode(String question, String answer){
-        this.question = question;
-        this.answer= answer;
-    }
-
-    @Override
-    public String getQuestion() {
-        return question;
+    public ModelWriteCode(List<String> e){
+        super(e);
+       code = e.get(5);
     }
 
     //Checks if users answer is correct
@@ -28,11 +23,4 @@ public class ModelWriteCode implements Query {
         return userAnswer.equalsIgnoreCase(answer);
 
     }
-
-    @Override
-    public String getAnswer() {
-        return answer;
-    }
-
-
 }

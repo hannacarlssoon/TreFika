@@ -23,7 +23,7 @@ import java.util.concurrent.ExecutionException;
 import tda367.myapplication.R;
 import tda367.myapplication.model.AccountManager;
 import tda367.myapplication.model.LearnJava;
-import tda367.myapplication.model.LevelModel;
+import tda367.myapplication.model.Query;
 import tda367.myapplication.service.Server;
 
 /**
@@ -87,7 +87,7 @@ public class WriteCode extends AppCompatActivity {
                     }catch(InterruptedException e){
                         showMessage("Något störde exekveringen av koden, försök igen senare.", Toast.LENGTH_LONG, 0);
                     }
-                    if (learnJava.getLevelModel().checkAnswer(codeResult)) {
+                    if (learnJava.getQuery().checkAnswer(codeResult)) {
                         try {
                             AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
                             int level = LearnJava.getInstance().getCurrentLevel() + 1;
@@ -176,8 +176,8 @@ public class WriteCode extends AppCompatActivity {
 
     //Method for setting the right question to the textView
     public void setQuestionText(){
-        LevelModel[] levelModels = learnJava.getLevelMap().get("category" + learnJava.getCurrentCategory());
-        questionView.setText(levelModels[learnJava.getCurrentLevel()].getQuery().getQuestion());
+        Query[] query = learnJava.getLevelMap().get("category" + learnJava.getCurrentCategory());
+        questionView.setText(query[learnJava.getCurrentLevel()].getQuestion());
     }
 
     //Returns "Error" if error in the executed code, else it returns the result
@@ -215,12 +215,12 @@ public class WriteCode extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             if (!showKey){
-                createDialog(learnJava.getLevelModel().getHint());
+                createDialog(learnJava.getQuery().getHint());
                 showKey = true;
             }
             else {
                 keyUsed = true;
-                createDialog(learnJava.getLevelModel().getHint() + "\n \nFacit: \n" + learnJava.getLevelModel().getQuery().getAnswer());
+                createDialog(learnJava.getQuery().getHint() + "\n \nFacit: \n" + learnJava.getQuery().getAnswer());
             }
         }
     };

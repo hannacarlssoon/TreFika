@@ -3,7 +3,10 @@ package tda367.myapplication.service;
 import android.content.Context;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by: Tobias
@@ -17,6 +20,7 @@ public class FileReader {
     private int counter;
     private String stringWRows;
     private String string;
+    List<String> strings;
 
     // Method for getting the required string. Returns the question, the answer or the info of the level
     public String getRequiredText(String fileName, String type, Context context){
@@ -38,6 +42,21 @@ public class FileReader {
         } catch (Exception e){
         }
         return string;
+    }
+
+    public List<String> getTextArray(String filename, Context context){
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(context.getAssets().open(filename)));
+            strings = new ArrayList<>();
+            String lineOfContent = bufferedReader.readLine();
+            while (lineOfContent != null){
+                strings.add(lineOfContent);
+                lineOfContent = bufferedReader.readLine();
+            }
+        } catch (IOException e){
+
+        }
+        return strings;
     }
 
 

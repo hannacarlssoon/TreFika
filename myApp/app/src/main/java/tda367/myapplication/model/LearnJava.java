@@ -9,20 +9,20 @@ import java.util.Map;
  * Responsibility: Maintaining and storing the hashmap containing all the level objects.
  * Used by: ActivityInfo, FillInTheBlanks, LevelActivity, QuestionMultiChoice, WriteCode, PassedLevel, CustomAdapter
  * PlayFragment
- * Uses: HashMapCreator, LevelModel
+ * Uses: HashMapCreator, Query
  */
 
 public class LearnJava {
     private int amountOfCategories = 4;
     private int currentCategory;
     private int currentLevel;
-    private Map<String, LevelModel[]> levelHashMap;
+    private Map<String, Query[]> levelHashMap;
     private static LearnJava instance;
     private boolean hasInit = false;
 
 
     //initiates the learnJava instance
-    public void init(Map<String, LevelModel[]> levelHashMap){
+    public void init(Map<String, Query[]> levelHashMap){
         if(!hasInit){
             this.levelHashMap = levelHashMap;
             hasInit = true;
@@ -30,7 +30,7 @@ public class LearnJava {
         }
     }
 
-    public Map<String, LevelModel[]> getLevelMap(){
+    public Map<String, Query[]> getLevelMap(){
         return levelHashMap;
     }
 
@@ -51,7 +51,7 @@ public class LearnJava {
         return instance;
     }
 
-    public LevelModel getLevelModel(){
+    public Query getQuery(){
         return levelHashMap.get("category" + currentCategory)[currentLevel];
     }
 

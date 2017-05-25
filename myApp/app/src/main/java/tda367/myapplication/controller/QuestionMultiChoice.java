@@ -21,9 +21,9 @@ import android.widget.Toast;
 
 import tda367.myapplication.model.AccountManager;
 import tda367.myapplication.model.LearnJava;
-import tda367.myapplication.model.LevelModel;
 import tda367.myapplication.model.MultiChoice;
 import tda367.myapplication.R;
+import tda367.myapplication.model.Query;
 
 /**
  * @author Madeleine Lexén, revised by Sara Kitzing and Tobias Lindgren
@@ -101,7 +101,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
                 if (radioAnswerButton == null) {
                     showNoInputMessage();
                 } else{
-                    if (learnJava.getLevelModel().checkAnswer(userAnswer)) {
+                    if (learnJava.getQuery().checkAnswer(userAnswer)) {
                         try {
                            AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
                             int level = LearnJava.getInstance().getCurrentLevel() + 1;
@@ -175,8 +175,8 @@ public class QuestionMultiChoice extends AppCompatActivity {
 
     //Method for setting the right question to the textView
     private void setQuestion(){
-        LevelModel[] levelModels = learnJava.getLevelMap().get("category" + learnJava.getCurrentCategory());
-        textView.setText(levelModels[learnJava.getCurrentLevel()].getQuery().getQuestion());
+        Query[] query = learnJava.getLevelMap().get("category" + learnJava.getCurrentCategory());
+        textView.setText(query[learnJava.getCurrentLevel()].getQuestion());
     }
 
     //Defines onclicklistener for hint button
@@ -184,12 +184,12 @@ public class QuestionMultiChoice extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             if (!showKey) {
-                createDialog(learnJava.getLevelModel().getHint());
+                createDialog(learnJava.getQuery().getHint());
                 showKey = true;
             }
             else {
                 keyUsed = true;
-                createDialog(learnJava.getLevelModel().getHint() + "\n \nFacit: \n"+ learnJava.getLevelModel().getQuery().getAnswer());
+                createDialog(learnJava.getQuery().getHint() + "\n \nFacit: \n"+ learnJava.getQuery().getAnswer());
             }
         }
     };
@@ -215,10 +215,10 @@ public class QuestionMultiChoice extends AppCompatActivity {
 
     //Sets the alternatives for the multiple choice
     private void setAltTexts(){
-        altTextView1.setText(((MultiChoice)learnJava.getLevelModel().getQuery()).getAlt(0));
-        altTextView2.setText(((MultiChoice)learnJava.getLevelModel().getQuery()).getAlt(1));
-        altTextView3.setText(((MultiChoice)learnJava.getLevelModel().getQuery()).getAlt(2));
-        altTextView4.setText(((MultiChoice)learnJava.getLevelModel().getQuery()).getAlt(3));
+        altTextView1.setText(((MultiChoice)learnJava.getQuery()).getAlt(0));
+        altTextView2.setText(((MultiChoice)learnJava.getQuery()).getAlt(1));
+        altTextView3.setText(((MultiChoice)learnJava.getQuery()).getAlt(2));
+        altTextView4.setText(((MultiChoice)learnJava.getQuery()).getAlt(3));
 
     }
 }

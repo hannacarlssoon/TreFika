@@ -1,24 +1,18 @@
 package tda367.myapplication.model;
 
+import java.util.List;
+
 /**
  * @author Sara Kitzing
  * Responsible for the logic behind the fill in the blanks query
- * Used by LevelModel
+ * Used by Query
  */
 
 
-public class ModelFillBlanks implements Query  {
-    private final String question;
-    private final String answer;
+public class ModelFillBlanks extends Query  {
 
-    public ModelFillBlanks (String question, String answer){
-        this.question = question;
-        this.answer = answer.toLowerCase();
-    }
-
-    @Override
-    public String getQuestion() {
-        return question;
+    public ModelFillBlanks(List<String> e){
+        super(e);
     }
 
     //Checks if the users answer is corret
@@ -27,10 +21,6 @@ public class ModelFillBlanks implements Query  {
     return userAnswer.equalsIgnoreCase(answer);
     }
 
-    @Override
-    public String getAnswer() {
-        return answer;
-    }
 
 
 }

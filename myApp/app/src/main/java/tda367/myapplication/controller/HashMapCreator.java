@@ -3,20 +3,23 @@ package tda367.myapplication.controller;
 import android.content.Context;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-
-import tda367.myapplication.model.LevelModel;
+import tda367.myapplication.model.ModelFillBlanks;
+import tda367.myapplication.model.ModelWriteCode;
+import tda367.myapplication.model.MultiChoice;
+import tda367.myapplication.model.Query;
 import tda367.myapplication.service.FileReader;
 
 /**
  * Created by madeleine and Tobias on 2017-05-10.
  * Creates a hashmap of level model objects.
- * Uses LevelModel, FileReader
+ * Uses Query, FileReader
  * Used by playFragment
  */
 
 public class HashMapCreator {
-    private Map<String, LevelModel[]> levelHashMap;
+    private Map<String, Query[]> levelHashMap;
     private FileReader fileReader =  new FileReader();
     private Context context;
 
@@ -26,18 +29,28 @@ public class HashMapCreator {
         init();
     }
 
-    public Map<String, LevelModel[]> getHashMap(){
+    public Map<String, Query[]> getHashMap(){
         return this.levelHashMap;
     }
 
 
     private void createCatArrays(){
         for (int i = 1; i < 5; i++) {
-            LevelModel[] temp = new LevelModel[5];
+            Query[] temp = new Query[5];
             for (int j = 1; j < 6; j++) {
                 String fileName = "category" + i +"/" + "level" + j + ".txt";
-                LevelModel levelModel = new LevelModel(fileReader.getRequiredText(fileName, "question", context), fileReader.getRequiredText(fileName, "answer", context), fileReader.getRequiredText(fileName, "info", context), fileReader.getRequiredText(fileName, "hint", context), j, fileReader.getRequiredText(fileName, "heading", context), fileReader.getRequiredText(fileName, "alternative", context));
-                temp[j-1] = levelModel;
+                Query query;
+                List<String> list = fileReader.getTextArray(fileName, context);
+                if ( j % 2 == 0){
+                    query = new MultiChoice(list);
+                }
+                else if(j % 2 == 1){
+                    query = new ModelFillBlanks(list);
+                }
+                else {
+                    query = new ModelWriteCode(list);
+                }
+                temp[j-1] = query;
             }
             levelHashMap.put("category" + i, temp);
         }

@@ -22,7 +22,7 @@ import android.widget.Toast;
 import tda367.myapplication.R;
 import tda367.myapplication.model.AccountManager;
 import tda367.myapplication.model.LearnJava;
-import tda367.myapplication.model.LevelModel;
+import tda367.myapplication.model.Query;
 
 /**
  * @author Sara Kitzing, revised by Madeleine Lexén and Tobias Lindgren
@@ -94,7 +94,7 @@ public class FillInTheBlanks extends AppCompatActivity {
                 if (answer1.isEmpty() || answer2.isEmpty() || answer3.isEmpty()) {
                     showNoInputMessage();
                 } else {
-                    if (learnJava.getLevelModel().checkAnswer(userAnswer)) {
+                    if (learnJava.getQuery().checkAnswer(userAnswer)) {
                         try {
                             AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
                             int level = LearnJava.getInstance().getCurrentLevel() + 1;
@@ -160,8 +160,8 @@ public class FillInTheBlanks extends AppCompatActivity {
 
     //Method for setting the right question to the textView
     public void setQuestionText() {
-        LevelModel[] levelModels = learnJava.getLevelMap().get("category" + learnJava.getCurrentCategory());
-        questionView.setText(levelModels[learnJava.getCurrentLevel()].getQuery().getQuestion());
+        Query[] query = learnJava.getLevelMap().get("category" + learnJava.getCurrentCategory());
+        questionView.setText(query[learnJava.getCurrentLevel()].getQuestion());
     }
 
     //Defines onclicklistener for hint button
@@ -169,12 +169,12 @@ public class FillInTheBlanks extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             if (!showKey){
-                createDialog(learnJava.getLevelModel().getHint());
+                createDialog(learnJava.getQuery().getHint());
                 showKey = true;
             }
             else {
                 keyUsed = true;
-                createDialog(learnJava.getLevelModel().getHint() + "\n \nFacit: \n" + learnJava.getLevelModel().getQuery().getAnswer());
+                createDialog(learnJava.getQuery().getHint() + "\n \nFacit: \n" + learnJava.getQuery().getAnswer());
             }
         }
     };

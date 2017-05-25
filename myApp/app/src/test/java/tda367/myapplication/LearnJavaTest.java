@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import tda367.myapplication.model.LearnJava;
-import tda367.myapplication.model.LevelModel;
+import tda367.myapplication.model.Query;
 
 import static junit.framework.Assert.assertEquals;
 
@@ -19,7 +19,7 @@ public class LearnJavaTest {
     @Test
     public void testInit(){
         LearnJava lj = new LearnJava();
-        HashMap<String, LevelModel[]> hash = new HashMap<>();
+        HashMap<String, Query[]> hash = new HashMap<>();
         boolean beforeInit = lj.getHasInit();
         lj.init(hash);
         boolean hasInit = lj.getHasInit();
