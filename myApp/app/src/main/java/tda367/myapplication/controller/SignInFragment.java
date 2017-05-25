@@ -73,7 +73,7 @@ public class SignInFragment extends Fragment implements View.OnClickListener {
                     MainActivity.setUserInformation(userName.getText().toString());
                     setPlayPage();
                 } else {
-                    Toast.makeText(getContext(), "Wrong username or password",
+                    Toast.makeText(getContext(), "Fel användarnamn eller lösenord",
                             Toast.LENGTH_LONG).show();
                 }
                 break;

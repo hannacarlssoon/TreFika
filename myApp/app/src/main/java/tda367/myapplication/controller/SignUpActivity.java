@@ -66,7 +66,7 @@ public class SignUpActivity extends AppCompatActivity {
                     SignInFragment.isInSignUp = false;
                     setMyPage();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Username already exists", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Användarnamnet existerar redan", Toast.LENGTH_SHORT).show();
                 }
             }
         });

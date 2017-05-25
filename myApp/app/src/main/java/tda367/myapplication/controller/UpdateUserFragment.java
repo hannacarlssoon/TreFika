@@ -84,7 +84,7 @@ public class UpdateUserFragment extends Fragment {
                     MainActivity.setUserInformation(username.getText().toString());
                     UserFileReader.getInstance().saveObject(getContext(), AccountManager.getInstance());
                 } else {
-                    Toast.makeText(getContext(), "Username already exists, choose another one",
+                    Toast.makeText(getContext(), "Användarnamnet existerar redan, välj ett annat",
                             Toast.LENGTH_SHORT).show();
                 }
             }

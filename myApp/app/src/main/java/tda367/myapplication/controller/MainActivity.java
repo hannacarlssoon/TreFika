@@ -179,12 +179,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public static void setUserInformation(String imageName) {
        if (imageName == null) {
            profilePicture.setImageResource(sym_def_app_icon);
-           navUserName.setText("Log in to see username");
-           titleSignIn.setTitle("Sign in");
+           navUserName.setText("Logga in för att se användarnamn");
+           titleSignIn.setTitle("Logga in");
        } else {
            profilePicture.setImageDrawable(ImageHandler.loadImage(imageName));
            navUserName.setText(imageName);
-           titleSignIn.setTitle("My page");
+           titleSignIn.setTitle("Min sida");
        }
     }
 
