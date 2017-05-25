@@ -2,5 +2,5 @@ Skriv en double array som på index 1 innehåller 0.6, på index 3 innehåller 4
 0.6
 Info kommer
 Hint kommer
-N/A
 Arrayer
+SIGGE skriv ditt svar jag orkar inte lol

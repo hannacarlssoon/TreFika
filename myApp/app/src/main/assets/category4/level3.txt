@@ -2,5 +2,5 @@ Om man har en String array av längden 5 och skriver namn[4] = “Greta” skriv
 sista,tomma,0
 Indexering, alltså nummer givning av arrayer börjar på 0. Första elementet i en array har index 0 och andra elementet index 1. Detta innebär att arrayen String[] namn = new String[5] har index från 0-4. För att bestämma ett värdet på ett specifikt index i en array skriver man: namn[0] = “Hans”; Det första elementet i arrayen är nu “Hans”.
 Indexering av arrayer börjar alltid på 0 och går upp till längden av arrayen minus ett. Alltså ligger andra elementet på index 1.
-N/A
 Arrayer
+N/A

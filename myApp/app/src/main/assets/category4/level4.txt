@@ -2,5 +2,5 @@ Vi har arrayen int[] namn = {5, 4, 3, 2, 1};. Vad skriver for-loopen ut: for (in
 1 2 3 4 5
 Arrayer har en funktion som anger längden. Om man skriver namnet.length får du längden av arrayen. Men kom-ihåg att längden alltid är en längre än det sista indexet hos en array.
 int[x] anger index x av arrayen.
-1 2 3 4 5,5. 4. 3. 2. 1,5 4 3 2 1,15
 Arrayer
+1 2 3 4 5,5. 4. 3. 2. 1,5 4 3 2 1,15
