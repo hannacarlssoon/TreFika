@@ -118,6 +118,8 @@ public class WriteCode extends AppCompatActivity {
         });
         mBuilder.setView(mView);
         mBuilder.setCancelable(false);
+        AlertDialog dialog = mBuilder.create();
+        dialog.show();
     }
 
     //Shows toast-message
