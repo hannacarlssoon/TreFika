@@ -15,7 +15,7 @@ public class MultiChoice extends Query {
 
     public MultiChoice(List<String> e){
         super(e);
-        alt = e.get(5).split(",");
+        alt = e.get(5).split("#");
     }
 
     //Checks if the answer the user has selected is correct.
