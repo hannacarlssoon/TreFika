@@ -8,6 +8,7 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.method.ScrollingMovementMethod;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -79,6 +80,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
         altTextView3 = (TextView)findViewById(R.id.altThreeButton);
         altTextView4 = (TextView)findViewById(R.id.altFourButton);
         context = this;
+        textView.setMovementMethod(new ScrollingMovementMethod());
     }
 
     //Sets the toolbar and enables upnavigation, and sets the title
@@ -173,7 +175,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
 
     //Method for setting the right question to the textView
     private void setQuestion(){
-        LevelModel[] levelModels = learnJava.getLevelHashMap().get("category" + learnJava.getCurrentCategory());
+        LevelModel[] levelModels = learnJava.getLevelMap().get("category" + learnJava.getCurrentCategory());
         textView.setText(levelModels[learnJava.getCurrentLevel()].getQuery().getQuestion());
     }
 

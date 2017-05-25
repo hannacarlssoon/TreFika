@@ -100,23 +100,21 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
 
     //TODO Lexi kommentera
     private void setEnabledCategories(){
-        try {
-            AccountManager ac = AccountManager.getInstance();
-            Statistics statistics = ac.getActiveUser().getUserStatistics();
-            if (ac.getActiveUser() != null) {
-                enabledCategories[1] = true;
+        AccountManager ac = AccountManager.getInstance();
+        Statistics statistics = ac.getActiveUser().getUserStatistics();
+        if (ac.getActiveUser() != null) {
+            enabledCategories[1] = true;
 
-                for (int i = 1; i < learnJava.getAmountOfCategories(); i++) {
-                    try {
-                        statistics.getStatisticsHint().get(statistics.findIndex("category" + i + "5"));
-                        enabledCategories[i + 1] = true;
-                    } catch (IndexOutOfBoundsException e) {
+            for (int i = 1; i < learnJava.getAmountOfCategories(); i++) {
+                try {
+                    statistics.getStatisticsHint().get(statistics.findIndex("category" + i + "5"));
+                    enabledCategories[i + 1] = true;
+                } catch (IndexOutOfBoundsException e) {
                         enabledCategories[i + 1] = false;
-                    }
                 }
             }
         }
-        catch (NullPointerException e){
+        else{
             for(int i = 1; i < learnJava.getAmountOfCategories() + 1; i++){
                 enabledCategories[i]  = false;
             }

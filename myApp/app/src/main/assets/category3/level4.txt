@@ -2,5 +2,5 @@ Du har ett kodproblem där du behöver köra ett kodstycke flera gånger. Du vet
 Båda fungerar lika bra
 Man kan säga att while-loopen är en “upprepa-tills”-loop, alltså att man på förhand inte vet hur många gånger den ska upprepas, och det behövs inte heller för att kunna använda loopen så länge man har ett booleanskt uttryck att utgå ifrån. Ska man använda en for-loop så krävs det däremot att man har koll på hur många gånger som koden ska upprepas eftersom for-loopen är beroende av någon form av räknare som kontroll för när loopen är färdigkörd. En for-loop är alltså mer fördelaktig då antalet varv som loopen ska köras är bestämt sedan innan.
 Den loop som är optimal att använda och vilken/vilka som kan användas är två olika saker.
-for-loop,Båda fungerar lika bra,while-loop
+for-loop,Båda fungerar lika bra,while-loop, Ingen av dem
 For- och while-loopar

@@ -8,6 +8,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.method.ScrollingMovementMethod;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -73,11 +74,11 @@ public class WriteCode extends AppCompatActivity {
          @Override
          public void onClick(View v) {
                 AlertDialog.Builder mBuilder = new AlertDialog.Builder(WriteCode.this);
-                showMessage("Din kod kompileras", Toast.LENGTH_SHORT, 470);
                 setAnswer();
                 if(answer.isEmpty()) {
                     showMessage("Input saknas", Toast.LENGTH_SHORT, 470);
                 }else {
+                    showMessage("Din kod kompileras", Toast.LENGTH_SHORT, 470);
                     try {
                         SendfeedbackCode code = new SendfeedbackCode();
                         code.execute().get();
@@ -118,6 +119,8 @@ public class WriteCode extends AppCompatActivity {
         });
         mBuilder.setView(mView);
         mBuilder.setCancelable(false);
+        AlertDialog dialog = mBuilder.create();
+        dialog.show();
     }
 
     //Shows toast-message
@@ -142,6 +145,7 @@ public class WriteCode extends AppCompatActivity {
         userCode   = (EditText)findViewById(R.id.codeEditText);
         server = new Server("10.0.2.2");
         questionView = (TextView) findViewById(R.id.codeQuestion);
+        questionView.setMovementMethod(new ScrollingMovementMethod());
     }
 
 
@@ -172,7 +176,7 @@ public class WriteCode extends AppCompatActivity {
 
     //Method for setting the right question to the textView
     public void setQuestionText(){
-        LevelModel[] levelModels = learnJava.getLevelHashMap().get("category" + learnJava.getCurrentCategory());
+        LevelModel[] levelModels = learnJava.getLevelMap().get("category" + learnJava.getCurrentCategory());
         questionView.setText(levelModels[learnJava.getCurrentLevel()].getQuery().getQuestion());
     }
 

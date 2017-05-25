@@ -6,13 +6,13 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
+        android:name=".controller.LearnJavaController"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <service android:enabled="true" android:name=".service.BackgroundMusicService"/>
         <activity
             android:name=".controller.MainActivity"
             android:label="@string/title_activity_navigation_drawer"
@@ -30,7 +30,7 @@
             android:parentActivityName=".controller.LevelActivity" />
         <activity
             android:name=".controller.QuestionMultiChoice"
-            android:parentActivityName=".controller.LevelActivity" />
+            android:parentActivityName=".controller.ActivityInfo" />
 
         <activity
             android:name=".controller.FillInTheBlanks"
