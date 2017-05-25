@@ -29,6 +29,8 @@ import static com.facebook.FacebookSdk.getApplicationContext;
 
 public class ImageHandler {
 
+    private static String path;
+
     //Saves the image to a directory
     public static void saveImage(int requestCode, int resultCode, Intent data, Activity activity, String username, Context context) {
         if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
@@ -51,16 +53,23 @@ public class ImageHandler {
         }
     }
 
+    public static void renameImage(String newPath) {
+        ContextWrapper cw = new ContextWrapper(getApplicationContext());
+        File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
+        File f = new File(directory, path);
+        f.renameTo(new File(directory, newPath));
+    }
+
     //Loads and returns the image stored, the String path in the parameter will be the username
-    public static Drawable loadImage(String path) {
+    public static Drawable loadImage(String username) {
+        path = username;
         ContextWrapper cw = new ContextWrapper(getApplicationContext());
         File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
             try {
                 File f = new File(directory, path);
                 return Drawable.createFromStream(new FileInputStream(f), path);
             } catch (FileNotFoundException e) {
-                //TODO add catch
+                return null;
             }
-        return null;
     }
 }

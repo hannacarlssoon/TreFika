@@ -16,11 +16,13 @@ import android.widget.Toast;
 import tda367.myapplication.R;
 import tda367.myapplication.model.AccountManager;
 import tda367.myapplication.service.ImageHandler;
+import tda367.myapplication.service.UserFileReader;
 
 /**
  * @author Hanna Carlsson
  * Responsibility: Sets the update user view
- * Uses: AccountManager, User, MainActivity, MyPageFragment, ImageHandler, fragment_update_user.xml
+ * Uses: AccountManager, User, MainActivity, MyPageFragment, ImageHandler, fragment_update_user.xml,
+ * UserFileReader, ImageHandler
  * Used by: MyPageFragment,
  */
 public class UpdateUserFragment extends Fragment {
@@ -72,11 +74,19 @@ public class UpdateUserFragment extends Fragment {
         updateInformation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AccountManager.getInstance().getActiveUser().updateUser(username.getText().toString(),
-                        password.getText().toString());
-                setMyPage();
-                MainActivity.setUserInformation(username.getText().toString());
-
+                if (!AccountManager.getInstance().getUsers().containsKey(username.getText().toString())
+                        || AccountManager.getInstance().getActiveUser().getUserName().equals(username
+                .getText().toString())) {
+                    AccountManager.getInstance().updateUser(username.getText().toString(),
+                            password.getText().toString());
+                    ImageHandler.renameImage(username.getText().toString());
+                    setMyPage();
+                    MainActivity.setUserInformation(username.getText().toString());
+                    UserFileReader.getInstance().saveObject(getContext(), AccountManager.getInstance());
+                } else {
+                    Toast.makeText(getContext(), "Username already exists, choose another one",
+                            Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -95,7 +105,7 @@ public class UpdateUserFragment extends Fragment {
         try {
             ImageHandler.saveImage(requestCode, resultCode, data, getActivity(), username.getText().toString(), getContext());
         } catch (NullPointerException e) {
-            Toast.makeText(getContext(), "Something went wrong, try again", Toast.LENGTH_SHORT);
+            Toast.makeText(getContext(), "Something went wrong, try again", Toast.LENGTH_SHORT).show();
         }
     }
 }

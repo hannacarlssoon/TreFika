@@ -46,6 +46,13 @@ public class AccountManager implements Serializable {
         }
     }
 
+    public void updateUser(String newUserName, String newPassword) {
+        users.remove(activeUser.getUserName());
+        activeUser.updateUser(newUserName, newPassword);
+        users.put(newUserName, activeUser);
+        setUser(newUserName);
+    }
+
     //Sets the active user
     public void setUser(String userName) {
         activeUser = users.get(userName);
