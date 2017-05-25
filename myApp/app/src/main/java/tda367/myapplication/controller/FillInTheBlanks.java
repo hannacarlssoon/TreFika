@@ -163,7 +163,7 @@ public class FillInTheBlanks extends AppCompatActivity {
 
     //Method for setting the right question to the textView
     public void setQuestionText() {
-        LevelModel[] levelModels = learnJava.getLevelHashMap().get("category" + learnJava.getCurrentCategory());
+        LevelModel[] levelModels = learnJava.getLevelMap().get("category" + learnJava.getCurrentCategory());
         questionView.setText(levelModels[learnJava.getCurrentLevel()].getQuery().getQuestion());
     }
 

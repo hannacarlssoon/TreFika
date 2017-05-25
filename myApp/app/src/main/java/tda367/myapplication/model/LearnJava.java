@@ -1,6 +1,7 @@
 package tda367.myapplication.model;
 
 import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -15,13 +16,13 @@ public class LearnJava {
     private int amountOfCategories = 4;
     private int currentCategory;
     private int currentLevel;
-    private HashMap<String, LevelModel[]> levelHashMap;
+    private Map<String, LevelModel[]> levelHashMap;
     private static LearnJava instance;
     private boolean hasInit = false;
 
 
     //initiates the learnJava instance
-    public void init(HashMap<String, LevelModel[]> levelHashMap){
+    public void init(Map<String, LevelModel[]> levelHashMap){
         if(!hasInit){
             this.levelHashMap = levelHashMap;
             hasInit = true;
@@ -29,7 +30,7 @@ public class LearnJava {
         }
     }
 
-    public HashMap<String, LevelModel[]> getLevelHashMap(){
+    public Map<String, LevelModel[]> getLevelMap(){
         return levelHashMap;
     }
 

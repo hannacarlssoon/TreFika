@@ -3,6 +3,7 @@ package tda367.myapplication.controller;
 import android.content.Context;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import tda367.myapplication.model.LevelModel;
 import tda367.myapplication.service.FileReader;
@@ -15,7 +16,7 @@ import tda367.myapplication.service.FileReader;
  */
 
 public class HashMapCreator {
-    private HashMap<String, LevelModel[]> levelHashMap;
+    private Map<String, LevelModel[]> levelHashMap;
     private FileReader fileReader =  new FileReader();
     private Context context;
 
@@ -25,7 +26,7 @@ public class HashMapCreator {
         init();
     }
 
-    public HashMap<String, LevelModel[]> getHashMap(){
+    public Map<String, LevelModel[]> getHashMap(){
         return this.levelHashMap;
     }
 
