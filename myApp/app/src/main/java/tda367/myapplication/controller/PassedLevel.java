@@ -98,7 +98,7 @@ public class PassedLevel {
          }
     }
 
-    public void setStars(){int level = learnJava.getCurrentLevel() + 1;
+    private void setStars(){int level = learnJava.getCurrentLevel() + 1;
         if(!statistics.getStatisticsHint().get(statistics.findIndex("category" + learnJava.getCurrentCategory() +  level))){
             starThree.setImageResource(ic_star_black_24dp);
         }
