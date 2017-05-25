@@ -135,7 +135,7 @@ public class WriteCode extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Write code");
+        getSupportActionBar().setTitle("Nivå " + learnJava.getCurrentLevel());
     }
 
     //Sets buttons and views

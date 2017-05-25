@@ -81,7 +81,7 @@ public class FillInTheBlanks extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Fill in the blanks");
+        getSupportActionBar().setTitle("Nivå " + learnJava.getCurrentLevel());
     }
 
     //Sets OnClick-listener for submit button
