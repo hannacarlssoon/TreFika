@@ -71,7 +71,7 @@ public class CustomAdapter extends BaseAdapter {
     //Sets the level and category names
     private void setNames(int i, ViewHolder holder) {
         holder.getTime().setText(timeList.get(i).toString() + " s");
-        int currLevel = i + 1;
+        int currLevel = i % 5 + 1;
         holder.getLevel().setText("Level " + currLevel);
         for (int j = 0; j < i + 1; j++) {
             if (j < 5) {
