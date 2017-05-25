@@ -6,6 +6,7 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.method.ScrollingMovementMethod;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -36,6 +37,7 @@ public class ActivityInfo extends AppCompatActivity {
         setContentView(R.layout.activity_info);
         Button btn = (Button) findViewById(R.id.button3);
         textView = (TextView) findViewById(R.id.infoText);
+        textView.setMovementMethod(new ScrollingMovementMethod());
 
         //Sets the toolbar and enables upnavigation, and sets the title
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);

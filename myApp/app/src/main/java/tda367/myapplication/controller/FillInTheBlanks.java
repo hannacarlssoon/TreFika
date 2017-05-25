@@ -8,6 +8,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.method.ScrollingMovementMethod;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -72,6 +73,7 @@ public class FillInTheBlanks extends AppCompatActivity {
         textAnswer2   = (EditText)findViewById(R.id.textFillAnswer2);
         textAnswer3   = (EditText)findViewById(R.id.textFillAnswer3);
         questionView = (TextView) findViewById(R.id.fillQuestion);
+        questionView.setMovementMethod(new ScrollingMovementMethod());
     }
 
     //Sets the toolbar, enables upnavigation, and sets the title

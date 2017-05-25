@@ -28,6 +28,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="43dp"
         android:layout_marginStart="16dp"
+        android:scrollbars = "vertical"
         android:text="Massa lorem ipsum, osv. Kul info om programeing. Hur fyller man detta med den faktiska texten?"
         app:layout_constraintBottom_toTopOf="@+id/button3"
         app:layout_constraintHorizontal_bias="1.0"
