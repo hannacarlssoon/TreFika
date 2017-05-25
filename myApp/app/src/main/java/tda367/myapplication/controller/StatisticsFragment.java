@@ -20,8 +20,6 @@ import tda367.myapplication.model.Statistics;
 
 public class StatisticsFragment extends Fragment {
 
-    private Statistics statistics = AccountManager.getInstance().getActiveUser().getUserStatistics();
-
     public StatisticsFragment() { }
 
     @Override
@@ -33,12 +31,16 @@ public class StatisticsFragment extends Fragment {
         //Sets id to listview
         ListView listView = (ListView) view.findViewById(R.id.listView);
 
-        //Makes CustomAdapter object
-        CustomAdapter customAdapter = new CustomAdapter(getActivity(), statistics.getStatisticsTime(),
-                statistics.getStatisticsKey(), statistics.getStatisticsHint());
+        if (AccountManager.getInstance().getActiveUser() != null) {
+            Statistics statistics = AccountManager.getInstance().getActiveUser().getUserStatistics();
 
-        //Sets the listviews adapter to the customAdapter
-        listView.setAdapter(customAdapter);
+            //Makes CustomAdapter object
+            CustomAdapter customAdapter = new CustomAdapter(getActivity(), statistics.getStatisticsTime(),
+                    statistics.getStatisticsKey(), statistics.getStatisticsHint());
+
+            //Sets the listviews adapter to the customAdapter
+            listView.setAdapter(customAdapter);
+        }
 
         return view;
     }
