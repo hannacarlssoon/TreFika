@@ -27,9 +27,10 @@
         android:layout_width="160dp"
         android:layout_height="100dp"
         android:layout_marginBottom="42dp"
-        android:background="@drawable/roundbuttons"
+        android:background="@drawable/bossroundbutton"
         android:text="@string/BossLevel"
         android:textSize="20sp"
+        android:textColor="@color/textWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />

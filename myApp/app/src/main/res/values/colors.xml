@@ -6,8 +6,13 @@
     <color name="colorActionBar">#3f51b5</color>
     <color name="colorBlack">#000000</color>
 
-    <color name="bossButton">#000000</color>
+    <color name="bossStart">#8E5AAB</color>
+    <color name="bossEnd">#CFAAE4</color>
     <color name="normStart">#cccccc</color>
     <color name="normEnd">#e6e6e6</color>
+    <color name="topBar">#733d90</color>
+    <color name="textWhite">#ffffff</color>
+    <color name="prominent">#733d90</color>
+
 
 </resources>
