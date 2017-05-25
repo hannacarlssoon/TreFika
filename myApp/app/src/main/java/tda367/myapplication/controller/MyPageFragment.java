@@ -74,6 +74,9 @@ public class MyPageFragment extends Fragment {
     private void setInformationView(String imageName) {
         myPageProfilePicture.setImageDrawable(ImageHandler.loadImage(imageName));
         myPageUserName.setText(imageName);
+        if (myPageProfilePicture.getDrawable() == null) {
+            myPageProfilePicture.setImageResource(R.mipmap.smurf_icon);
+        }
     }
 
     //Sets the page showing to the sign in page
