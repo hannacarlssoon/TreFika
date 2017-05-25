@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import tda367.myapplication.R;
 import tda367.myapplication.model.AccountManager;
@@ -40,6 +41,8 @@ public class StatisticsFragment extends Fragment {
 
             //Sets the listviews adapter to the customAdapter
             listView.setAdapter(customAdapter);
+        } else {
+            Toast.makeText(getContext(), "Logga in om du vill se din statistik", Toast.LENGTH_SHORT).show();
         }
 
         return view;
