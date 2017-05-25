@@ -30,7 +30,7 @@
             android:parentActivityName=".controller.LevelActivity" />
         <activity
             android:name=".controller.QuestionMultiChoice"
-            android:parentActivityName=".controller.LevelActivity" />
+            android:parentActivityName=".controller.ActivityInfo" />
 
         <activity
             android:name=".controller.FillInTheBlanks"
