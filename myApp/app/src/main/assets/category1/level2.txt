@@ -2,5 +2,5 @@ Vilket av alternativen deklarerar en heltalsvariabel med värdet 5?
 int i = 5;
 Variabler kan hålla olika sorters värden, detta brukar man säga är en variabels typ, alltså vad den håller för värde. rowI java finns det long, short, int, char, float, boolean, double, byte, där de viktigaste är int, boolean, double och char. Dessa kallas för primitiva typer och det finns 8 st. Primitiva typer skrivs alltid med gemener. rowNär man deklarerar en ny variabel börjar man med att ange vilken typ av värde den kommer att hålla. Sen ger man den ett namn, som är kort och förklarande. Därefter tilldelar man variabeln ett värde genom att skriva ett ‘=’ och på högersidan skriva värdet. Sist måste man avsluta raden med ett ‘;’. row rowint håller heltalsvärden, ex int i = 5 är en int variabel  som håller siffran fem. row rowdouble används för att hålla decimaltal som till exempel double d = 2.5, här håller variabeln d värdet 2.5. row rowchar håller en bokstav, och skrivs char c = ‘h'. Bokstaven måste skrivas inom ‘ ‘. row rowBooleans kan ha två olika värden, true eller false.
 Typen för heltalsvariabler är int.
-char siffra = ‘5';,boolean fem = true;,int i = 5;,double fem = 5.0;
 Typer och variabler
+char siffra = ‘5';,boolean fem = true;,int i = 5;,double fem = 5.0;
