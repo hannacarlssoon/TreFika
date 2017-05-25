@@ -185,6 +185,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
            profilePicture.setImageDrawable(ImageHandler.loadImage(imageName));
            navUserName.setText(imageName);
            titleSignIn.setTitle("Min sida");
+           if (profilePicture.getDrawable() == null) {
+               profilePicture.setImageResource(R.mipmap.smurf_icon);
+           }
        }
     }
 
