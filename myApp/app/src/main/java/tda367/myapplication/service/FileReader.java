@@ -22,27 +22,6 @@ public class FileReader {
     private String string;
     List<String> strings;
 
-    // Method for getting the required string. Returns the question, the answer or the info of the level
-    public String getRequiredText(String fileName, String type, Context context){
-        string = "";
-        counter = 0;
-        try {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(context.getAssets().open(fileName)));
-            String lineOfContent = bufferedReader.readLine();
-            while (lineOfContent != null){
-                counter++;
-                if (checkIfQuestion(type) || checkIfInfo(type) || checkIfHint(type)){
-                    rowCheck(lineOfContent);
-                }
-                else if (checkIfAnswer(type) || checkIfAlternatives(type) || checkIfHeading(type)){
-                    string = lineOfContent;
-                }
-                lineOfContent = bufferedReader.readLine();
-            }
-        } catch (Exception e){
-        }
-        return string;
-    }
 
     public List<String> getTextArray(String filename, Context context){
         try {
@@ -50,7 +29,8 @@ public class FileReader {
             strings = new ArrayList<>();
             String lineOfContent = bufferedReader.readLine();
             while (lineOfContent != null){
-                strings.add(lineOfContent);
+                rowCheck(lineOfContent);
+                strings.add(string);
                 lineOfContent = bufferedReader.readLine();
             }
         } catch (IOException e){
