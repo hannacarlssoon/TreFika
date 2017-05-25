@@ -19,7 +19,6 @@
 
     <string name="action_settings">Ska vi ha nått här?</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="PassedLevel_heading">Grattis, du har klarat uppgiften!</string>
     <string name="PassedLevel_Button1">Nästa nivå</string>
