@@ -59,7 +59,7 @@ public class SettingsFragment extends Fragment {
         public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
             volumeText.setText(progress + "");
             float log1=(float)(Math.log(maxVolume-(maxVolume-progress))/Math.log(maxVolume));
-            MainActivity.mPlayer.setVolume(log1, log1);
+            LearnJavaController.mPlayer.setVolume(log1, log1);
             isMuted = progress == 0;
             if (isMuted) {
                 setMutePicture();
@@ -85,7 +85,7 @@ public class SettingsFragment extends Fragment {
         public void onClick(View v) {
             if (!isMuted){
                 setSavedVolume(volumeSeekBar.getProgress());
-                MainActivity.mPlayer.setVolume(0,0);
+                LearnJavaController.mPlayer.setVolume(0,0);
                 volumeSeekBar.setProgress(0);
                 isMuted = true;
                 setMutePicture();
@@ -116,7 +116,7 @@ public class SettingsFragment extends Fragment {
 
     private void setVolumeSettings(int vol) {
         float log1=(float)(Math.log(maxVolume-(maxVolume-vol))/Math.log(maxVolume));
-        MainActivity.mPlayer.setVolume(log1, log1);
+        LearnJavaController.mPlayer.setVolume(log1, log1);
         volumeSeekBar.setProgress(vol);
         isMuted = false;
         setUnMutePicture();
