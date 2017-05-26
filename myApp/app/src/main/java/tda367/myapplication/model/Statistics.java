@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * @author Hanna Carlsson
  * Responisibility: Handles the storing of the statistics data
- * Used by: User, StatisticsFragment
+ * Used by: User, StatisticsFragment, PlayFragment, LevelActivity, PassedLevel
  */
 
 public class Statistics implements Serializable {
