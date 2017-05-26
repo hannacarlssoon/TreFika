@@ -17,7 +17,6 @@ import java.util.List;
 
 public class FileReader {
 
-    private int counter;
     private String stringWRows;
     private String string;
     List<String> strings;
