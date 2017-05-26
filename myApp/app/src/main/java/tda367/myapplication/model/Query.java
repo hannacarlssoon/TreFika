@@ -6,6 +6,7 @@ import java.util.List;
  * Created by Sara on 2017-04-06.
  * @author Sara Kitzing, revised by Madeleine Lexén
  * This class is an interface to multichoice, write code and fill in the blanks
+ * Used by: HashMapCreator
  */
 
 public abstract class Query {
