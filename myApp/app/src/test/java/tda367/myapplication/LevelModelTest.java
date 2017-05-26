@@ -5,7 +5,7 @@ import org.junit.Test;
 import java.util.HashMap;
 import java.util.List;
 
-import tda367.myapplication.model.LearnJava;
+import tda367.myapplication.model.LevelModel;
 import tda367.myapplication.model.Query;
 
 import static junit.framework.Assert.assertEquals;
@@ -14,11 +14,11 @@ import static junit.framework.Assert.assertEquals;
  * Created by madeleine on 2017-05-16.
  */
 
-public class LearnJavaTest {
+public class LevelModelTest {
 
     @Test
     public void testInit(){
-        LearnJava lj = new LearnJava();
+        LevelModel lj = new LevelModel();
         HashMap<String, Query[]> hash = new HashMap<>();
         boolean beforeInit = lj.getHasInit();
         lj.init(hash);

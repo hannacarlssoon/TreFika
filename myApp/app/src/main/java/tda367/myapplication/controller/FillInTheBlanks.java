@@ -21,14 +21,14 @@ import android.widget.Toast;
 
 import tda367.myapplication.R;
 import tda367.myapplication.model.AccountManager;
-import tda367.myapplication.model.LearnJava;
+import tda367.myapplication.model.LevelModel;
 import tda367.myapplication.model.Query;
 
 /**
  * @author Sara Kitzing, revised by Madeleine Lexén and Tobias Lindgren
  * Responsible for handling the events from the fill in the blanks question view
  * Used by ActivityInfo
- * Uses LearnJava, activity_fill_in_the_blanks.xml, PassedLevel, User, Statistics
+ * Uses LevelModel, activity_fill_in_the_blanks.xml, PassedLevel, User, Statistics
  */
 
 public class FillInTheBlanks extends AppCompatActivity {
@@ -42,7 +42,7 @@ public class FillInTheBlanks extends AppCompatActivity {
     private String answer2;
     private String answer3;
     private TextView questionView;
-    private LearnJava learnJava = LearnJava.getInstance();
+    private LevelModel levelModel = LevelModel.getInstance();
     private boolean showKey = false;
     private boolean keyUsed = false;
     Context context;
@@ -81,7 +81,7 @@ public class FillInTheBlanks extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Nivå " + (learnJava.getCurrentLevel() + 1));
+        getSupportActionBar().setTitle("Nivå " + (levelModel.getCurrentLevel() + 1));
     }
 
     //Sets OnClick-listener for submit button
@@ -94,11 +94,11 @@ public class FillInTheBlanks extends AppCompatActivity {
                 if (answer1.isEmpty() || answer2.isEmpty() || answer3.isEmpty()) {
                     showNoInputMessage();
                 } else {
-                    if (learnJava.getQuery().checkAnswer(userAnswer)) {
+                    if (levelModel.getQuery().checkAnswer(userAnswer)) {
                         try {
                             AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
-                            int level = LearnJava.getInstance().getCurrentLevel() + 1;
-                            AccountManager.getInstance().getActiveUser().saveStatistics("category" + LearnJava.getInstance().getCurrentCategory() + level, keyUsed, showKey);
+                            int level = LevelModel.getInstance().getCurrentLevel() + 1;
+                            AccountManager.getInstance().getActiveUser().saveStatistics("category" + LevelModel.getInstance().getCurrentCategory() + level, keyUsed, showKey);
                             LevelActivity lv = new LevelActivity();
                             lv.enablePassedLevels();
                         } catch (NullPointerException e) {
@@ -160,8 +160,8 @@ public class FillInTheBlanks extends AppCompatActivity {
 
     //Method for setting the right question to the textView
     public void setQuestionText() {
-        Query[] query = learnJava.getLevelMap().get("category" + learnJava.getCurrentCategory());
-        questionView.setText(query[learnJava.getCurrentLevel()].getQuestion());
+        Query[] query = levelModel.getLevelMap().get("category" + levelModel.getCurrentCategory());
+        questionView.setText(query[levelModel.getCurrentLevel()].getQuestion());
     }
 
     //Defines onclicklistener for hint button
@@ -169,12 +169,12 @@ public class FillInTheBlanks extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             if (!showKey){
-                createDialog(learnJava.getQuery().getHint());
+                createDialog(levelModel.getQuery().getHint());
                 showKey = true;
             }
             else {
                 keyUsed = true;
-                createDialog(learnJava.getQuery().getHint() + "\n \nFacit: \n" + learnJava.getQuery().getAnswer());
+                createDialog(levelModel.getQuery().getHint() + "\n \nFacit: \n" + levelModel.getQuery().getAnswer());
             }
         }
     };

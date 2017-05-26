@@ -12,16 +12,16 @@ import java.util.Map;
  * Uses: HashMapCreator, Query
  */
 
-public class LearnJava {
+public class LevelModel {
     private int amountOfCategories = 4;
     private int currentCategory;
     private int currentLevel;
     private Map<String, Query[]> levelHashMap;
-    private static LearnJava instance;
+    private static LevelModel instance;
     private boolean hasInit = false;
 
 
-    //initiates the learnJava instance
+    //initiates the levelModel instance
     public void init(Map<String, Query[]> levelHashMap){
         if(!hasInit){
             this.levelHashMap = levelHashMap;
@@ -44,9 +44,9 @@ public class LearnJava {
 
     public int getAmountOfCategories(){return amountOfCategories;}
 
-    public static LearnJava getInstance(){
+    public static LevelModel getInstance(){
         if(instance == null){
-            instance = new LearnJava();
+            instance = new LevelModel();
         }
         return instance;
     }

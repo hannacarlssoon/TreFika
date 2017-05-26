@@ -22,7 +22,7 @@ import java.util.concurrent.ExecutionException;
 
 import tda367.myapplication.R;
 import tda367.myapplication.model.AccountManager;
-import tda367.myapplication.model.LearnJava;
+import tda367.myapplication.model.LevelModel;
 import tda367.myapplication.model.Query;
 import tda367.myapplication.service.Server;
 
@@ -31,7 +31,7 @@ import tda367.myapplication.service.Server;
  * Responsible for handling the events from the WriteCode questions view. Creates and
  * calls the server to compile the users code
  * Used by ActivityInfo
- * Uses LearnJava, activity_write_code.xml, PassedLevel, Server, User, Statistics
+ * Uses LevelModel, activity_write_code.xml, PassedLevel, Server, User, Statistics
  */
 
 
@@ -42,7 +42,7 @@ public class WriteCode extends AppCompatActivity {
     private String answer;
     private Server server;
     private TextView questionView;
-    private LearnJava learnJava = LearnJava.getInstance();
+    private LevelModel levelModel = LevelModel.getInstance();
     private String codeResult;
     private boolean showKey = false;
     private Context context;
@@ -87,11 +87,11 @@ public class WriteCode extends AppCompatActivity {
                     }catch(InterruptedException e){
                         showMessage("Något störde exekveringen av koden, försök igen senare.", Toast.LENGTH_LONG, 0);
                     }
-                    if (learnJava.getQuery().checkAnswer(codeResult)) {
+                    if (levelModel.getQuery().checkAnswer(codeResult)) {
                         try {
                             AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
-                            int level = LearnJava.getInstance().getCurrentLevel() + 1;
-                            AccountManager.getInstance().getActiveUser().saveStatistics("category" + LearnJava.getInstance().getCurrentCategory() + level, keyUsed, showKey);
+                            int level = levelModel.getCurrentLevel() + 1;
+                            AccountManager.getInstance().getActiveUser().saveStatistics("category" + levelModel.getCurrentCategory() + level, keyUsed, showKey);
                             LevelActivity lv = new LevelActivity();
                             lv.enablePassedLevels();
                         } catch (NullPointerException e) {
@@ -135,7 +135,7 @@ public class WriteCode extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Nivå " + (learnJava.getCurrentLevel() + 1));
+        getSupportActionBar().setTitle("Nivå " + (levelModel.getCurrentLevel() + 1));
     }
 
     //Sets buttons and views
@@ -176,8 +176,8 @@ public class WriteCode extends AppCompatActivity {
 
     //Method for setting the right question to the textView
     public void setQuestionText(){
-        Query[] query = learnJava.getLevelMap().get("category" + learnJava.getCurrentCategory());
-        questionView.setText(query[learnJava.getCurrentLevel()].getQuestion());
+        Query[] query = levelModel.getLevelMap().get("category" + levelModel.getCurrentCategory());
+        questionView.setText(query[levelModel.getCurrentLevel()].getQuestion());
     }
 
     //Returns "Error" if error in the executed code, else it returns the result
@@ -215,12 +215,12 @@ public class WriteCode extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             if (!showKey){
-                createDialog(learnJava.getQuery().getHint());
+                createDialog(levelModel.getQuery().getHint());
                 showKey = true;
             }
             else {
                 keyUsed = true;
-                createDialog(learnJava.getQuery().getHint() + "\n \nFacit: \n" + learnJava.getQuery().getAnswer());
+                createDialog(levelModel.getQuery().getHint() + "\n \nFacit: \n" + levelModel.getQuery().getAnswer());
             }
         }
     };

@@ -10,19 +10,19 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import tda367.myapplication.model.AccountManager;
-import tda367.myapplication.model.LearnJava;
+import tda367.myapplication.model.LevelModel;
 import tda367.myapplication.R;
 import tda367.myapplication.model.Statistics;
 
 /**
  * @author HannaCarlsoon. Revised by Madeleine Lexén and Tobias Lindgren.
  * Responsibility: Handles the setting of the views when the main category buttons are clicked
- * Uses: LearnJava, HashMapCreator, LevelActivity, AccountManager, User
+ * Uses: LevelModel, HashMapCreator, LevelActivity, AccountManager, User
  * Used by: SignInFragment, MainActivity
  */
 public class PlayFragment extends Fragment implements View.OnClickListener {
 
-    public LearnJava learnJava = LearnJava.getInstance();
+    public LevelModel levelModel = LevelModel.getInstance();
     private Button b1;
     private Button b2;
     private Button b3;
@@ -48,11 +48,11 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
         return view;
     }
 
-    //Creates an instance of HashMapCreator and passes it to learnJava when it's initiated
+    //Creates an instance of HashMapCreator and passes it to levelModel when it's initiated
     private void createHashMapCreator() {
         HashMapCreator hcreate = new HashMapCreator(getContext());
-        learnJava.init(hcreate.getHashMap());
-        enabledCategories = new boolean[learnJava.getAmountOfCategories() + 1];
+        levelModel.init(hcreate.getHashMap());
+        enabledCategories = new boolean[levelModel.getAmountOfCategories() + 1];
     }
 
     //Sets onCLickListeners to the buttons
@@ -77,22 +77,22 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
         switch (view.getId()) {
             case R.id.category1:
                 Intent intent1 = new Intent(getActivity(), LevelActivity.class);
-                learnJava.setCurrentCategory(1);
+                levelModel.setCurrentCategory(1);
                 startActivity(intent1);
                 break;
             case R.id.category2:
                 Intent intent2 = new Intent(getActivity(), LevelActivity.class);
-                learnJava.setCurrentCategory(2);
+                levelModel.setCurrentCategory(2);
                 startActivity(intent2);
                 break;
             case R.id.category3:
                 Intent intent3 = new Intent(getActivity(), LevelActivity.class);
-                learnJava.setCurrentCategory(2);
+                levelModel.setCurrentCategory(2);
                 startActivity(intent3);
                 break;
             case R.id.category4:
                 Intent intent4 = new Intent(getActivity(), LevelActivity.class);
-                learnJava.setCurrentCategory(4);
+                levelModel.setCurrentCategory(4);
                 startActivity(intent4);
                 break;
         }
@@ -105,7 +105,7 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
         if (ac.getActiveUser() != null) {
             enabledCategories[1] = true;
 
-            for (int i = 1; i < learnJava.getAmountOfCategories(); i++) {
+            for (int i = 1; i < levelModel.getAmountOfCategories(); i++) {
                 try {
                     statistics.getStatisticsHint().get(statistics.findIndex("category" + i + "5"));
                     enabledCategories[i + 1] = true;
@@ -115,7 +115,7 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
             }
         }
         else{
-            for(int i = 1; i < learnJava.getAmountOfCategories() + 1; i++){
+            for(int i = 1; i < levelModel.getAmountOfCategories() + 1; i++){
                 enabledCategories[i]  = false;
             }
         }

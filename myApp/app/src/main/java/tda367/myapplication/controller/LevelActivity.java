@@ -9,19 +9,19 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.view.View;
 import tda367.myapplication.model.AccountManager;
-import tda367.myapplication.model.LearnJava;
+import tda367.myapplication.model.LevelModel;
 import tda367.myapplication.R;
 import tda367.myapplication.model.Statistics;
 
 /* @author Tobias Lindgren, revised by Madeleine Lexén
 This class is responsible for handling the actions from the levelActivity view
-Uses activity_level, LearnJava, AccountManager, User, Statistics, ActivityInfo
+Uses activity_level, LevelModel, AccountManager, User, Statistics, ActivityInfo
 Used by PlayFragment, PassedLevel
  */
 
 public class LevelActivity extends AppCompatActivity {
 
-    private LearnJava learnJava = LearnJava.getInstance();
+    private LevelModel levelModel = LevelModel.getInstance();
     private boolean[] enabledLevels = new boolean[6];
     private Button bossBtn;
     private Button fourthBtn;
@@ -41,7 +41,7 @@ public class LevelActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Kategori " + learnJava.getCurrentCategory());
+        getSupportActionBar().setTitle("Kategori " + levelModel.getCurrentCategory());
 
         //Sets buttons
         firstBtn = (Button)findViewById(R.id.firstButton);
@@ -66,7 +66,7 @@ public class LevelActivity extends AppCompatActivity {
         //TODO make i dynamic with amount of level, more exstendible
         for (int i = 1; i < 5; i++){
             try {
-                statistics.getStatisticsHint().get(statistics.findIndex("category" + learnJava.getCurrentCategory() + i));
+                statistics.getStatisticsHint().get(statistics.findIndex("category" + levelModel.getCurrentCategory() + i));
                 enabledLevels[i] = true;
             }
             catch (IndexOutOfBoundsException e){
@@ -120,7 +120,7 @@ public class LevelActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             startActivity(new Intent(LevelActivity.this, ActivityInfo.class));
-            learnJava.setCurrentLevel(getLevelId(v));
+            levelModel.setCurrentLevel(getLevelId(v));
         }
     };
 

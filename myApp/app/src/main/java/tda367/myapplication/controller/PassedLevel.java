@@ -26,7 +26,7 @@ import static tda367.myapplication.R.drawable.ic_star_border_black_24dp;
 /**
  * @author Madeleine Lexén, revised by Sara Kitzing
  * This class is responsible for handling the dialog shown when the user passes a level.
- * Uses learnJava, AccountManager, User, Statistics, LevelActivity
+ * Uses LevelModel, AccountManager, User, Statistics, LevelActivity
  * Used by QuestionMultiChoice, FillInTheBlanks, WriteCode
  */
 
@@ -36,7 +36,7 @@ public class PassedLevel {
     private ImageView starTwo;
     private ImageView starThree;
     private Statistics statistics = AccountManager.getInstance().getActiveUser().getUserStatistics();
-    private LearnJava learnJava = LearnJava.getInstance();
+    private LevelModel levelModel = LevelModel.getInstance();
 
     PassedLevel(final Activity activity) {
         AlertDialog.Builder mBuilder = new AlertDialog.Builder(activity);
@@ -64,20 +64,20 @@ public class PassedLevel {
     }
 
     private void setPositivDialogButton(final Activity activity, AlertDialog.Builder mBuilder) {
-        if(learnJava.getCurrentLevel() == 4){
+        if(levelModel.getCurrentLevel() == 4){
             mBuilder.setPositiveButton("Nästa nivå", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    if (learnJava.getCurrentCategory() == 4) {
+                    if (levelModel.getCurrentCategory() == 4) {
                         activity.startActivity(new Intent(activity, LevelActivity.class));
-                        Toast toast2 = Toast.makeText(activity, "Du är nu färdig med LearnJava, grattis!", Toast.LENGTH_LONG);
+                        Toast toast2 = Toast.makeText(activity, "Du är nu färdig med LevelModel, grattis!", Toast.LENGTH_LONG);
                         toast2.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
                         toast2.show();
 
                     } else {
                         activity.startActivity(new Intent(activity, LevelActivity.class));
-                        learnJava.setCurrentCategory(learnJava.getCurrentCategory() + 1);
-                        learnJava.setCurrentLevel(0);
+                        levelModel.setCurrentCategory(levelModel.getCurrentCategory() + 1);
+                        levelModel.setCurrentLevel(0);
                         Toast toast = Toast.makeText(activity, "Du har öppnat nästa kategori", Toast.LENGTH_LONG);
                         toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
                         toast.show();
@@ -90,7 +90,7 @@ public class PassedLevel {
             mBuilder.setPositiveButton("Nästa nivå", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    learnJava.setCurrentLevel(learnJava.getCurrentLevel() + 1);
+                    levelModel.setCurrentLevel(levelModel.getCurrentLevel() + 1);
                     activity.startActivity(new Intent(activity, ActivityInfo.class));
 
                 }
@@ -98,14 +98,14 @@ public class PassedLevel {
          }
     }
 
-    private void setStars(){int level = learnJava.getCurrentLevel() + 1;
-        if(!statistics.getStatisticsHint().get(statistics.findIndex("category" + learnJava.getCurrentCategory() +  level))){
+    private void setStars(){int level = levelModel.getCurrentLevel() + 1;
+        if(!statistics.getStatisticsHint().get(statistics.findIndex("category" + levelModel.getCurrentCategory() +  level))){
             starThree.setImageResource(ic_star_black_24dp);
         }
         else{
             starThree.setImageResource(ic_star_border_black_24dp);
         }
-        if(!statistics.getStatisticsKey().get(statistics.findIndex("category" + learnJava.getCurrentCategory() + level))){
+        if(!statistics.getStatisticsKey().get(statistics.findIndex("category" + levelModel.getCurrentCategory() + level))){
             starTwo.setImageResource(ic_star_black_24dp);
         }
         else{

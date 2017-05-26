@@ -20,7 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import tda367.myapplication.model.AccountManager;
-import tda367.myapplication.model.LearnJava;
+import tda367.myapplication.model.LevelModel;
 import tda367.myapplication.model.MultiChoice;
 import tda367.myapplication.R;
 import tda367.myapplication.model.Query;
@@ -29,7 +29,7 @@ import tda367.myapplication.model.Query;
  * @author Madeleine Lexén, revised by Sara Kitzing and Tobias Lindgren
  * Responsible for handling the events from the multichoice questions view
  * Used by ActivityInfo
- * Uses LearnJava, activity_question_multi_choice.xml, PassedLevel, User, Statistics
+ * Uses LevelModel, activity_question_multi_choice.xml, PassedLevel, User, Statistics
  */
 
 
@@ -41,7 +41,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
     private ImageButton hintButton;
     private String userAnswer;
     private TextView textView;
-    private LearnJava learnJava = LearnJava.getInstance();
+    private LevelModel levelModel = LevelModel.getInstance();
     private Context context;
     private TextView altTextView1;
     private TextView altTextView2;
@@ -88,7 +88,7 @@ public class QuestionMultiChoice extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarActivities);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Nivå " + (learnJava.getCurrentLevel() + 1));
+        getSupportActionBar().setTitle("Nivå " + (levelModel.getCurrentLevel() + 1));
     }
 
     //Sets OnClick-listener for submit button
@@ -101,11 +101,11 @@ public class QuestionMultiChoice extends AppCompatActivity {
                 if (radioAnswerButton == null) {
                     showNoInputMessage();
                 } else{
-                    if (learnJava.getQuery().checkAnswer(userAnswer)) {
+                    if (levelModel.getQuery().checkAnswer(userAnswer)) {
                         try {
                            AccountManager.getInstance().getActiveUser().getUserStatistics().stopTimer();
-                            int level = LearnJava.getInstance().getCurrentLevel() + 1;
-                            AccountManager.getInstance().getActiveUser().saveStatistics("category" + LearnJava.getInstance().getCurrentCategory() + level, keyUsed, showKey);
+                            int level = levelModel.getCurrentLevel() + 1;
+                            AccountManager.getInstance().getActiveUser().saveStatistics("category" + levelModel.getCurrentCategory() + level, keyUsed, showKey);
                             LevelActivity lv = new LevelActivity();
                             lv.enablePassedLevels();
                         } catch (NullPointerException e) {
@@ -175,8 +175,8 @@ public class QuestionMultiChoice extends AppCompatActivity {
 
     //Method for setting the right question to the textView
     private void setQuestion(){
-        Query[] query = learnJava.getLevelMap().get("category" + learnJava.getCurrentCategory());
-        textView.setText(query[learnJava.getCurrentLevel()].getQuestion());
+        Query[] query = levelModel.getLevelMap().get("category" + levelModel.getCurrentCategory());
+        textView.setText(query[levelModel.getCurrentLevel()].getQuestion());
     }
 
     //Defines onclicklistener for hint button
@@ -184,12 +184,12 @@ public class QuestionMultiChoice extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             if (!showKey) {
-                createDialog(learnJava.getQuery().getHint());
+                createDialog(levelModel.getQuery().getHint());
                 showKey = true;
             }
             else {
                 keyUsed = true;
-                createDialog(learnJava.getQuery().getHint() + "\n \nFacit: \n"+ learnJava.getQuery().getAnswer());
+                createDialog(levelModel.getQuery().getHint() + "\n \nFacit: \n"+ levelModel.getQuery().getAnswer());
             }
         }
     };
@@ -215,10 +215,10 @@ public class QuestionMultiChoice extends AppCompatActivity {
 
     //Sets the alternatives for the multiple choice
     private void setAltTexts(){
-        altTextView1.setText(((MultiChoice)learnJava.getQuery()).getAlt(0));
-        altTextView2.setText(((MultiChoice)learnJava.getQuery()).getAlt(1));
-        altTextView3.setText(((MultiChoice)learnJava.getQuery()).getAlt(2));
-        altTextView4.setText(((MultiChoice)learnJava.getQuery()).getAlt(3));
+        altTextView1.setText(((MultiChoice)levelModel.getQuery()).getAlt(0));
+        altTextView2.setText(((MultiChoice)levelModel.getQuery()).getAlt(1));
+        altTextView3.setText(((MultiChoice)levelModel.getQuery()).getAlt(2));
+        altTextView4.setText(((MultiChoice)levelModel.getQuery()).getAlt(3));
 
     }
 }
