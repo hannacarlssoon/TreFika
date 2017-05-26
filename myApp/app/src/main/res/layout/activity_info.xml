@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!--
+@author Madeleine Lexén, revised by Sara Kitzing
+Responsible for setting the ActivityInfo-view
+Used by ActivityInfo.java
+Uses Toolbar_layout.xml
+-->
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
