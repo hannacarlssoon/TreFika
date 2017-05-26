@@ -26,7 +26,7 @@ import static tda367.myapplication.R.drawable.ic_star_border_black_24dp;
 /**
  * @author Madeleine Lexén, revised by Sara Kitzing
  * This class is responsible for handling the dialog shown when the user passes a level.
- * Uses LevelModel, AccountManager, User, Statistics, LevelActivity
+ * Uses LevelModel, AccountManager, User, Statistics, LevelActivity, activity_passed_level.xml
  * Used by QuestionMultiChoice, FillInTheBlanks, WriteCode
  */
 

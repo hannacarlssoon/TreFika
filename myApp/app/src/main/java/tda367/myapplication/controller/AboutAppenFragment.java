@@ -13,6 +13,7 @@ import tda367.myapplication.R;
  * @author  Tobias Lindgren
  * Responsibility: Setting the views in the "About the app"-fragment
  * Used by: MainActivity
+ * Uses: fragment_about_appen.xml
  */
 
 public class AboutAppenFragment extends Fragment {

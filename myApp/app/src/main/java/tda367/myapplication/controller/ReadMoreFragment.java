@@ -20,7 +20,7 @@ import tda367.myapplication.R;
  * @author Tobias Lindgren
  * Responsibility: Creating the ExpandableListView and setting the information
  * Used by: MainActivity
- * Uses: ReadMoreListAdapter, HeaderInfo and DetailInfo
+ * Uses: ReadMoreListAdapter, HeaderInfo and DetailInfo, fragment_read_more.xml
  */
 
 public class ReadMoreFragment extends Fragment {

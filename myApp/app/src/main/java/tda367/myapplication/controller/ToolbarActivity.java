@@ -14,7 +14,7 @@ import tda367.myapplication.R;
 /**
  * @author Madeleine Lexén
  * handles the toolbar for all the views that includes toolbar_layout
- * uses toolbar_layout
+ * uses toolbar_layout.xml
  */
 
 public class ToolbarActivity extends AppCompatActivity {

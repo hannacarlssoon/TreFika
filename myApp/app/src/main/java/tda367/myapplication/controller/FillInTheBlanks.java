@@ -28,7 +28,7 @@ import tda367.myapplication.model.Query;
  * @author Sara Kitzing, revised by Madeleine Lexén and Tobias Lindgren
  * Responsible for handling the events from the fill in the blanks question view
  * Used by ActivityInfo
- * Uses LevelModel, activity_fill_in_the_blanks.xml, PassedLevel, User, Statistics
+ * Uses LevelModel, activity_fill_in_the_blanks.xml, PassedLevel, User, Statistics, activity_failed_level.xml
  */
 
 public class FillInTheBlanks extends AppCompatActivity {

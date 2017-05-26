@@ -30,7 +30,7 @@ import static android.R.drawable.sym_def_app_icon;
  * Responsible for starting the app and creating and managing the navigation drawer
  * Uses: AccountManager, User, AboutAppenFragment, PlayFragment, ReadMoreFragment, SettingsFragment,
  * SignInFragment, StatisticsFragment, ImageHandler, UserFileReader, activity_navigation_drawer.xml,
- * navigation_drawer.xml, constraintlayout_for_fragment.xml
+ * navigation_drawer.xml, constraintlayout_for_fragment.xml, content_navigation_drawer.xml
  * Used by: UpdateUserFragment
  */
 
