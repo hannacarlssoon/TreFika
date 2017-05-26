@@ -7,7 +7,7 @@ import java.util.Map;
 /**
  * Created by: Madeleine Lexen on 2017-04-07. Built by Tobias Lindgren and Madeleine Lexen
  * Responsibility: Maintaining and storing the hashmap containing all the level objects.
- * Used by: ActivityInfo, FillInTheBlanks, LevelActivity, QuestionMultiChoice, WriteCode, PassedLevel, CustomAdapter
+ * Used by: ActivityInfo, FillInTheBlanks, LevelActivity, QuestionMultiChoice, WriteCode, PassedLevel
  * PlayFragment
  * Uses: HashMapCreator, Query
  */

@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * @author Sara Kitzing
  * This class handles the logic behind the write code query
- * Used by Query
+ * Uses query
  */
 
 public class ModelWriteCode extends Query {

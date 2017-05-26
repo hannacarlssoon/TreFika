@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by: Tobias Lindgren on 2017-05-21.
+ * @author Tobias Lindgren
  * source: https://www.codeproject.com/Articles/1151814/Android-ExpandablelistView-Tutorial-with-Android-C
  * Responsibility:
  * Used by: ReadMoreFragment and ReadMoreListAdapter

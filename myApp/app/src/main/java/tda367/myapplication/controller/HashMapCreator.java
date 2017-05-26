@@ -12,7 +12,7 @@ import tda367.myapplication.model.Query;
 import tda367.myapplication.service.FileReader;
 
 /**
- * Created by madeleine and Tobias on 2017-05-10.
+ * @author Madeleine Lexén and Tobias Lindgren
  * Creates a hashmap of level model objects.
  * Uses Query, FileReader
  * Used by playFragment

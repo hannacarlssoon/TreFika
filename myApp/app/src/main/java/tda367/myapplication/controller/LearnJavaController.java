@@ -6,7 +6,7 @@ import android.media.MediaPlayer;
 import tda367.myapplication.R;
 
 /**
- * Created by Tobias Lindgren on 2017-05-25.
+ * @author  Tobias Lindgren
  * Responsibility: Starts music on opening of app, stops music on terminate
  * Uses:
  * Used by: SettingFragment

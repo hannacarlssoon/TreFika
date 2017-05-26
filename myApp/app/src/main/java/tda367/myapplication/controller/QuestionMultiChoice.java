@@ -1,6 +1,5 @@
 package tda367.myapplication.controller;
 
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;

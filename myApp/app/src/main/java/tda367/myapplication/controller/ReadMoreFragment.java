@@ -18,7 +18,7 @@ import tda367.myapplication.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Created by: Hanna Carlsson, revised by Tobias Lindgren
+ * @author  Hanna Carlsson, revised by Tobias Lindgren
  * Responsibility: Creating the ExpandableListView and setting the information
  * Used by: MainActivity
  * Uses: ReadMoreListAdapter, HeaderInfo and DetailInfo

@@ -22,7 +22,7 @@ import tda367.myapplication.service.UserFileReader;
  * @author Hanna Carlsson
  * Responsibility: Sets the update user view
  * Uses: AccountManager, User, MainActivity, MyPageFragment, ImageHandler, fragment_update_user.xml,
- * UserFileReader, ImageHandler
+ * UserFileReader
  * Used by: MyPageFragment,
  */
 public class UpdateUserFragment extends Fragment {

@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * @author Sara Kitzing
  * Responsible for the logic behind the fill in the blanks query
- * Used by Query
+ * Uses query
  */
 
 

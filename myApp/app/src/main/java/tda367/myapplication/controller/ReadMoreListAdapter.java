@@ -7,13 +7,12 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import tda367.myapplication.R;
 
 /**
- * Created by: Tobias Lindgren on 2017-05-21.
+ * @author Tobias Lindgren
  * source: https://www.codeproject.com/Articles/1151814/Android-ExpandablelistView-Tutorial-with-Android-C
  * Responsibility: Adapter for the ExpandableList
  * Used by: ReadMoreFragment

@@ -7,7 +7,7 @@ import java.util.List;
  * @author madeleine
  * This class handles the logic for the multichoice question, checking the answer,
  * uses query
- * Used by Query, ActivityInfo, QuestionMultiChoice
+ * Used by QuestionMultiChoice
  */
 
 public class MultiChoice extends Query {
