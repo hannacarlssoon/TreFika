@@ -23,4 +23,7 @@ public class ModelWriteCode extends Query {
         return userAnswer.equalsIgnoreCase(answer);
 
     }
+    public String getCode() {
+        return code;
+    }
 }

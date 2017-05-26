@@ -23,6 +23,7 @@ import java.util.concurrent.ExecutionException;
 import tda367.myapplication.R;
 import tda367.myapplication.model.AccountManager;
 import tda367.myapplication.model.LevelModel;
+import tda367.myapplication.model.ModelWriteCode;
 import tda367.myapplication.model.Query;
 import tda367.myapplication.service.Server;
 
@@ -220,7 +221,7 @@ public class WriteCode extends AppCompatActivity {
             }
             else {
                 keyUsed = true;
-                createDialog(levelModel.getQuery().getHint() + "\n \nFacit: \n" + levelModel.getQuery().getAnswer());
+                createDialog(levelModel.getQuery().getHint() + "\n \nFacit: \n" + ((ModelWriteCode) levelModel.getQuery()).getCode());
             }
         }
     };
