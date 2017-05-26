@@ -16,7 +16,7 @@ import tda367.myapplication.R;
  * source: https://www.codeproject.com/Articles/1151814/Android-ExpandablelistView-Tutorial-with-Android-C
  * Responsibility: Adapter for the ExpandableList
  * Used by: ReadMoreFragment
- * Uses: HeaderInfo and DetailInfo
+ * Uses: HeaderInfo and DetailInfo, child_row.xml
  */
 
 public class ReadMoreListAdapter extends BaseExpandableListAdapter {

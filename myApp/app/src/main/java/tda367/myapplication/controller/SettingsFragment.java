@@ -20,7 +20,7 @@ import tda367.myapplication.R;
  * Responsibility: Setting the information in the views in Settings fragment
  * and controlling the volume of the background music
  * Used by: MainActivity
- * Uses:
+ * Uses: fragment_settings.xml
  */
 public class SettingsFragment extends Fragment {
 

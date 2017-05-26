@@ -15,7 +15,7 @@ import tda367.myapplication.model.Statistics;
 
 /* @author Tobias Lindgren, revised by Madeleine Lexén
 This class is responsible for handling the actions from the levelActivity view
-Uses activity_level, LevelModel, AccountManager, User, Statistics, ActivityInfo
+Uses activity_level.xml, LevelModel, AccountManager, User, Statistics, ActivityInfo
 Used by PlayFragment, PassedLevel
  */
 
