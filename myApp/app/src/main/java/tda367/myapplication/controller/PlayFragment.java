@@ -15,7 +15,7 @@ import tda367.myapplication.R;
 import tda367.myapplication.model.Statistics;
 
 /**
- * @author HannaCarlsoon. Revised by Madeleine Lexén and Tobias Lindgren.
+ * @author Hanna Carlsoon. Revised by Madeleine Lexén and Tobias Lindgren.
  * Responsibility: Handles the setting of the views when the main category buttons are clicked
  * Uses: LevelModel, HashMapCreator, LevelActivity, AccountManager, User, fragment_play.xml
  * Used by: SignInFragment, MainActivity

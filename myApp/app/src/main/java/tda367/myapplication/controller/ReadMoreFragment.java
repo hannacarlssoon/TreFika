@@ -17,12 +17,12 @@ import tda367.myapplication.R;
 
 
 /**
- * A simple {@link Fragment} subclass.
- * @author  Hanna Carlsson, revised by Tobias Lindgren
+ * @author Tobias Lindgren
  * Responsibility: Creating the ExpandableListView and setting the information
  * Used by: MainActivity
  * Uses: ReadMoreListAdapter, HeaderInfo and DetailInfo
  */
+
 public class ReadMoreFragment extends Fragment {
 
     private Map<String, HeaderInfo> mySection = new LinkedHashMap<>();

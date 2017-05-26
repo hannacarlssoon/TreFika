@@ -10,10 +10,9 @@ import android.widget.TextView;
 import tda367.myapplication.R;
 
 /**
- * @author  Hanna Carlsson, revised by Tobias Lindgren
+ * @author  Tobias Lindgren
  * Responsibility: Setting the views in the "About the app"-fragment
  * Used by: MainActivity
- * Uses:
  */
 
 public class AboutAppenFragment extends Fragment {

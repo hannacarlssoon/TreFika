@@ -12,7 +12,7 @@ import java.util.List;
 import tda367.myapplication.R;
 
 /**
- * @author Tobias Lindgren
+ * @author  Tobias Lindgren
  * source: https://www.codeproject.com/Articles/1151814/Android-ExpandablelistView-Tutorial-with-Android-C
  * Responsibility: Adapter for the ExpandableList
  * Used by: ReadMoreFragment

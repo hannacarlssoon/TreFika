@@ -25,7 +25,7 @@ import tda367.myapplication.service.UserFileReader;
 
 import static android.R.drawable.sym_def_app_icon;
 
-/*
+/**
  * @author Hanna Carlsson, Revised by: Tobias Lindgren
  * Responsible for starting the app and creating and managing the navigation drawer
  * Uses: AccountManager, User, AboutAppenFragment, PlayFragment, ReadMoreFragment, SettingsFragment,

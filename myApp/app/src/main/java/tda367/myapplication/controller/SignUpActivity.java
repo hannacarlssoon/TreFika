@@ -15,11 +15,10 @@ import tda367.myapplication.model.AccountManager;
 import tda367.myapplication.service.ImageHandler;
 import tda367.myapplication.R;
 
-/*
+/**
  * @author Hanna Carlsson
  * Responsibility: Handles the sign up of a user
  * Uses: AccountManager, SignInFragment, ImageHandler, activity_sign_up.xml
- * Used by:
  */
 
 public class SignUpActivity extends AppCompatActivity {

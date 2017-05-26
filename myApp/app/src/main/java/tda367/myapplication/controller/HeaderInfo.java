@@ -8,7 +8,6 @@ import java.util.List;
  * source: https://www.codeproject.com/Articles/1151814/Android-ExpandablelistView-Tutorial-with-Android-C
  * Responsibility:
  * Used by: ReadMoreFragment and ReadMoreListAdapter
- * Uses:
  */
 
 public class HeaderInfo {
