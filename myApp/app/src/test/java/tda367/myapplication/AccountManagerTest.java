@@ -52,4 +52,14 @@ public class AccountManagerTest {
         }
     }
 
+    @Test
+    public void updateUser() {
+        AccountManager.initInstance(null);
+        AccountManager am = AccountManager.getInstance();
+        am.addUser("Sara", "Kitzing");
+        am.updateUser("Sara2.0", "Kitzing");
+        assertTrue(am.getActiveUser().getUserName() == "Sara2.0");
+        assertTrue(am.getActiveUser().getUserPassword() == "Kitzing");
+        assertTrue(am.getActiveUser().getUserName() != "Sara");
+    }
 }
