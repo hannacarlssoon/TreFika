@@ -8,7 +8,7 @@ import java.io.Serializable;
  * and saving of statistics specific for the user
  * Uses: Statistics
  * Used by: AccountManager, MyPageFragment, PlayFragment, SignInFragment, StatisticsFragment,
- * UpdateUserFragment, MainActivity, ActivityInfo, LevelActivity, PassedLevel
+ * UpdateUserFragment, MainActivity, ActivityInfo, LevelActivity, PassedLevel, QuestionMultiChoice
  */
 
 public class User implements Serializable {

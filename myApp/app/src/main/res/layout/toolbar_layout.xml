@@ -2,7 +2,9 @@
 <!--
 @author Madeleine Lexén
 Responsible for setting the toolbar_layout
-Used by ToolbarActivity.java
+Used by ToolbarActivity.java, activity_fill_in_the_blanks.xml, activity_info.xml, activity_level.xml
+activity_question_multi_choice.xml, activity_sign_up.xml, activity_write_code.xml
+
 -->
 
 <android.support.design.widget.CoordinatorLayout

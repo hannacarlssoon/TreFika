@@ -2,7 +2,7 @@
 <!-- Created by: Hanna Carlsson
  Responsibility: Setting the app bar in the navigation drawer
  Used by: activity_navigation_drawer.xml, MainActivity
- Uses: content_navigation_drawer.xml -->
+ Uses: content_navigation_drawer.xml, nav_hearder_navigation_drawer.xml -->
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"

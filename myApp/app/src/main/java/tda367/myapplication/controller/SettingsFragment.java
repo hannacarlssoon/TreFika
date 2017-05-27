@@ -15,12 +15,11 @@ import tda367.myapplication.R;
 
 
 /**
- * A simple {@link Fragment} subclass.
- * Created by: Hanna Carlsson, revised by Tobias Lindgren
+ * @author Tobias Lindgren
  * Responsibility: Setting the information in the views in Settings fragment
  * and controlling the volume of the background music
  * Used by: MainActivity
- * Uses: LearnJavaController
+ * Uses: LearnJavaController, fragment_settings.xml
  */
 public class SettingsFragment extends Fragment {
 

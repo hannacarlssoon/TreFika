@@ -12,10 +12,9 @@ import android.view.ViewGroup;
 import tda367.myapplication.R;
 
 /**
- * Created by madeleine on 2017-04-14.
  * @author Madeleine Lexén
  * handles the toolbar for all the views that includes toolbar_layout
- * uses toolbar_layout
+ * uses toolbar_layout.xml
  */
 
 public class ToolbarActivity extends AppCompatActivity {

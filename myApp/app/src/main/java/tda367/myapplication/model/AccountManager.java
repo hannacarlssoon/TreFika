@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author hannacarlsson
+ * @author Hanna Carlsson
  * Responsibility: Handles the log in, log out and add new users methods
  * Uses: User
  * Used by: MyPageFragment, PlayFragment, SignInFragment, SignUpActivity, StatisticsFragment

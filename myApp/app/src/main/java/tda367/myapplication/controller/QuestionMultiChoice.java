@@ -1,6 +1,5 @@
 package tda367.myapplication.controller;
 
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -29,7 +28,7 @@ import tda367.myapplication.model.Query;
  * @author Madeleine Lexén, revised by Sara Kitzing and Tobias Lindgren
  * Responsible for handling the events from the multichoice questions view
  * Used by ActivityInfo
- * Uses Query, activity_question_multi_choice.xml, PassedLevel, User, Statistics
+ * Uses LevelModel, activity_question_multi_choice.xml, PassedLevel, User, Statistics, MultiChoice, activity_failed_level.xml
  */
 
 

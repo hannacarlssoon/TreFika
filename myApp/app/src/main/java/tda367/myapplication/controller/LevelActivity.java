@@ -13,10 +13,11 @@ import tda367.myapplication.model.LevelModel;
 import tda367.myapplication.R;
 import tda367.myapplication.model.Statistics;
 
-/* @author Tobias Lindgren, revised by Madeleine Lexén
-This class is responsible for handling the actions from the levelActivity view
-Uses activity_level, LevelModel, AccountManager, User, Statistics, ActivityInfo
-Used by PlayFragment, PassedLevel
+/**
+ *  @author Tobias Lindgren, revised by Madeleine Lexén
+ *  This class is responsible for handling the actions from the levelActivity view
+ *  Uses activity_level, LevelModel, AccountManager, User, Statistics, ActivityInfo
+ *  Used by PlayFragment, PassedLevel
  */
 
 public class LevelActivity extends AppCompatActivity {
