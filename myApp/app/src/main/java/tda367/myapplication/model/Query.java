@@ -6,7 +6,6 @@ import java.util.List;
  * @author Madeleine Lexén and Tobias Lindgren
  * This class is an abstract superclass to multichoice, write code and fill in the blanks
  * used by HashMapCreator, ActivityInfo, FillInTheBlanks, LevelModel, ModelFillBlanks, ModelWriteCode, QuestionMultiChoice, WriteCode
- * Uses:
  */
 
 public abstract class Query {
