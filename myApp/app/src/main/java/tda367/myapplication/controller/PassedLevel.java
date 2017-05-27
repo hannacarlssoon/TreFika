@@ -1,25 +1,17 @@
 package tda367.myapplication.controller;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import java.util.HashMap;
-import java.util.List;
-
 import tda367.myapplication.R;
 import tda367.myapplication.model.*;
 
-import static android.R.drawable.btn_star_big_on;
-import static tda367.myapplication.R.drawable.ic_lock_black_24dp;
 import static tda367.myapplication.R.drawable.ic_star_black_24dp;
 import static tda367.myapplication.R.drawable.ic_star_border_black_24dp;
 

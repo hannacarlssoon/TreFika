@@ -1,6 +1,5 @@
 package tda367.myapplication.model;
 
-import java.util.HashMap;
 import java.util.Map;
 
 

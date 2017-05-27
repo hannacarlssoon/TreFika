@@ -23,7 +23,6 @@ import tda367.myapplication.R;
 import tda367.myapplication.service.ImageHandler;
 import tda367.myapplication.service.UserFileReader;
 
-import static android.R.drawable.sym_def_app_icon;
 
 /**
  * @author Hanna Carlsson, Revised by: Tobias Lindgren
