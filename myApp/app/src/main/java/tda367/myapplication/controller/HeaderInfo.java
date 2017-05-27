@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * @author Tobias Lindgren
  * source: https://www.codeproject.com/Articles/1151814/Android-ExpandablelistView-Tutorial-with-Android-C
- * Responsibility:
+ * Responsibility: Setting Heading name and detail lists
  * Used by: ReadMoreFragment and ReadMoreListAdapter
  */
 
