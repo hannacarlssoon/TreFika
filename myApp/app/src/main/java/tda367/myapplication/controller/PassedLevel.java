@@ -64,7 +64,7 @@ public class PassedLevel {
                 public void onClick(DialogInterface dialog, int which) {
                     if (levelModel.getCurrentCategory() == 4) {
                         activity.startActivity(new Intent(activity, LevelActivity.class));
-                        Toast toast2 = Toast.makeText(activity, "Du är nu färdig med LevelModel, grattis!", Toast.LENGTH_LONG);
+                        Toast toast2 = Toast.makeText(activity, "Du är nu färdig med Learn Java, grattis!", Toast.LENGTH_LONG);
                         toast2.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
                         toast2.show();
 
