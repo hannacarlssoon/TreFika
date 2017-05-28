@@ -76,7 +76,7 @@ Uses Toolbar_layout.xml
         android:id="@+id/hintButton"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:src="@mipmap/ic_launcher_questionmark"
+        android:src="@drawable/ic_fucken_question_mark"
         android:background="@drawable/hintbutton"
         android:contentDescription="@string/hint"
         app:layout_constraintLeft_toLeftOf="parent"
