@@ -14,7 +14,7 @@ import java.io.ObjectOutputStream;
 /**
  * @author Hanna Carlsson
  * Responsibility: Handles the storing and loading of objects
- * Used by: MainActivity, UpdateUserFragment
+ * Used by: MainActivity, UpdateUserFragment, MyPageFragment
  */
 
 public class UserFileReader {

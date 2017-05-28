@@ -14,11 +14,13 @@ import android.widget.TextView;
 import tda367.myapplication.R;
 import tda367.myapplication.model.AccountManager;
 import tda367.myapplication.service.ImageHandler;
+import tda367.myapplication.service.UserFileReader;
 
 /**
  * @author Hanna Carlsson
  * Responsibilty: Makes the My page, sets the profile picture and username
- * Uses: fragment_my_page.xml, AccountManager, User, SignInFragment, UpdateUserFragment
+ * Uses: fragment_my_page.xml, AccountManager, User, SignInFragment, UpdateUserFragment,
+ * UserFileReader
  * Used by: PlayFragment, SignInFragment, UpdateUserFragment
  */
 public class MyPageFragment extends Fragment {
@@ -65,6 +67,7 @@ public class MyPageFragment extends Fragment {
             public void onClick(View view) {
                 AccountManager.getInstance().logOut();
                 MainActivity.setUserInformation(null);
+                UserFileReader.getInstance().saveObject(getContext(), AccountManager.getInstance());
                 setSignInPage();
             }
         });
