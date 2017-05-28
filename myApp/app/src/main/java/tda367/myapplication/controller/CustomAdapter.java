@@ -72,16 +72,16 @@ public class CustomAdapter extends BaseAdapter {
     private void setNames(int i, ViewHolder holder) {
         holder.getTime().setText(timeList.get(i).toString() + " s");
         int currLevel = i % 5 + 1;
-        holder.getLevel().setText("Level " + currLevel);
+        holder.getLevel().setText("Nivå " + currLevel);
         for (int j = 0; j < i + 1; j++) {
             if (j < 5) {
-                holder.getCategory().setText("Category 1");
+                holder.getCategory().setText("Kategori 1");
             } else if (j < 10) {
-                holder.getCategory().setText("Category 2");
+                holder.getCategory().setText("Kategori 2");
             } else if (j < 15) {
-                holder.getCategory().setText("Category 3");
+                holder.getCategory().setText("Kategori 3");
             } else if (j < 20) {
-                holder.getCategory().setText("Category 4");
+                holder.getCategory().setText("Kategori 4");
             }
         }
     }
