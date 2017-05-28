@@ -6,7 +6,7 @@ import java.util.List;
  * @author Sara Kitzing
  * Responsible for the logic behind the fill in the blanks query
  * Uses: Query
- * Used by: FillInTheBlanks
+ * Used by: FillInTheBlanks, HashMapCreator
  */
 
 
