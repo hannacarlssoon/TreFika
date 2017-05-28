@@ -87,7 +87,7 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.category3:
                 Intent intent3 = new Intent(getActivity(), LevelActivity.class);
-                levelModel.setCurrentCategory(2);
+                levelModel.setCurrentCategory(3);
                 startActivity(intent3);
                 break;
             case R.id.category4:
