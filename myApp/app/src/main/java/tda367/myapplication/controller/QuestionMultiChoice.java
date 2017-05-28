@@ -26,7 +26,7 @@ import tda367.myapplication.model.Query;
 
 /**
  * @author Madeleine Lexén, revised by Sara Kitzing and Tobias Lindgren
- * Responsible for handling the events from the multichoice questions view
+ * Responsible for handling the events from the multichoice questions view, and communicating with the model
  * Used by ActivityInfo
  * Uses LevelModel, activity_question_multi_choice.xml, PassedLevel, User, Statistics, MultiChoice, activity_failed_level.xml
  */

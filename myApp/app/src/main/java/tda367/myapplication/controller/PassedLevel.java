@@ -41,6 +41,7 @@ public class PassedLevel {
 
         setPositivDialogButton(activity, mBuilder);
 
+        //sets the negativ button and an clickListener that takes user up to levelActivity
         mBuilder.setNeutralButton("Tillbaka", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -55,6 +56,7 @@ public class PassedLevel {
         dialog.show();
     }
 
+    //sets the positiv dialogButton and an clickListener that handles user click
     private void setPositivDialogButton(final Activity activity, AlertDialog.Builder mBuilder) {
         if(levelModel.getCurrentLevel() == 4){
             mBuilder.setPositiveButton("Nästa nivå", new DialogInterface.OnClickListener() {
@@ -90,6 +92,8 @@ public class PassedLevel {
          }
     }
 
+
+    //checks the statistics and sets the stars based on htat
     private void setStars(){int level = levelModel.getCurrentLevel() + 1;
         if(!statistics.getStatisticsHint().get(statistics.findIndex("category" + levelModel.getCurrentCategory() +  level))){
             starThree.setImageResource(ic_star_black_24dp);
